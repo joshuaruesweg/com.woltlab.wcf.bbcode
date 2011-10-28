@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/smiley.xsd">
+	<import>
+		<smiley name=":)">
+			<title>smile</title>
+			<path>smilies/smiling</path>
+		</smiley>
+		<smiley name=":(">
+			<title>sad</title>
+			<path>smilies/sad</path>
+		</smiley>
+		<smiley name=";)">
+			<title>wink</title>
+			<path>smilies/wink</path>
+		</smiley>
+		<smiley name=":P">
+			<title>eager</title>
+			<path>smilies/eager</path>
+		</smiley>
+		<smiley name=":D">
+			<title>laughing</title>
+			<path>smilies/laughing</path>
+		</smiley>
+		<smiley name="^^">
+			<title>grinning</title>
+			<path>smilies/grinning</path>
+		</smiley>
+		<smiley name="X(">
+			<title>angry</title>
+			<path>smilies/angry</path>
+		</smiley>
+		<smiley name="=X">
+			<title>dumb</title>
+			<path>smilies/dumb</path>
+		</smiley>
+		<smiley name=":!:">
+			<title>attention</title>
+			<path>smilies/attention</path>
+		</smiley>
+		<smiley name=":-*">
+			<title>kissing</title>
+			<path>smilies/kissing</path>
+		</smiley>
+		<smiley name=":|">
+			<title>mellow</title>
+			<path>smilies/mellow</path>
+		</smiley>
+		<smiley name="-&gt;">
+			<title>next</title>
+			<path>smilies/next</path>
+		</smiley>
+		<smiley name="&lt;-">
+			<title>previous</title>
+			<path>smilies/previous</path>
+		</smiley>
+		<smiley name=":?:">
+			<title>question</title>
+			<path>smilies/question</path>
+		</smiley>
+		<smiley name="&lt;3">
+			<title>heart</title>
+			<path>smilies/heart</path>
+		</smiley>
+		<smiley name="=O">
+			<title>scared</title>
+			<path>smilies/scared</path>
+		</smiley>
+		<smiley name="&lt;X">
+			<title>sick</title>
+			<path>smilies/sick</path>
+		</smiley>
+		<smiley name="||">
+			<title>sleepy</title>
+			<path>smilies/sleepy</path>
+		</smiley>
+		<smiley name=":*:">
+			<title>star</title>
+			<path>smilies/star</path>
+		</smiley>
+		<smiley name="=|">
+			<title>thinking</title>
+			<path>smilies/thinking</path>
+		</smiley>
+		<smiley name=":/">
+			<title>unsure</title>
+			<path>smilies/unsure</path>
+		</smiley>
+		<smiley name="|O">
+			<title>yawning</title>
+			<path>smilies/yawning</path>
+		</smiley>
+		
+		<!-- <smiley name="8)">
+			<title>Cool</title>
+			<path>images/smilies/cool.png</path>
+		</smiley>-->
+		<!-- <smiley name=";(">
+			<title>crying</title>
+			<path>images/smilies/crying.png</path>
+		</smiley>
+		<smiley name=":rolleyes:">
+			<title>rolleyes</title>
+			<path>images/smilies/rolleyes.png</path>
+		</smiley>
+		
+		<smiley name=":huh:">
+			<title>Huh</title>
+			<path>images/smilies/huh.png</path>
+		</smiley>
+		<smiley name=":S">
+			<title>unsure</title>
+			<path>images/smilies/unsure.png</path>
+		</smiley>
+		<smiley name=":love:">
+			<title>love</title>
+			<path>images/smilies/love.png</path>
+		</smiley>
+		
+		<smiley name="8|">
+			<title>blink</title>
+			<path>images/smilies/blink.png</path>
+		</smiley>
+		<smiley name="?(">
+			<title>confused</title>
+			<path>images/smilies/confused.png</path>
+		</smiley>
+		<smiley name=":cursing:">
+			<title>cursing</title>
+			<path>images/smilies/cursing.png</path>
+		</smiley>
+		
+		<smiley name=":thumbdown:">
+			<title>thumbdown</title>
+			<path>images/smilies/thumbdown.png</path>
+		</smiley>
+		<smiley name=":thumbsup:">
+			<title>thumbsup</title>
+			<path>images/smilies/thumbsup.png</path>
+		</smiley>
+		<smiley name=":thumbup:">
+			<title>thumbup</title>
+			<path>images/smilies/thumbup.png</path>
+		</smiley>
+		<smiley name="8o">
+			<title>w00t</title>
+			<path>images/smilies/w00t.png</path>
+		</smiley>
+		<smiley name=":pinch:">
+			<title>pinch</title>
+			<path>images/smilies/pinch.png</path>
+		</smiley>
+		<smiley name=":sleeping:">
+			<title>sleeping</title>
+			<path>images/smilies/sleeping.png</path>
+		</smiley>
+		<smiley name=":wacko:">
+			<title>wacko</title>
+			<path>images/smilies/wacko.png</path>
+		</smiley>
+		<smiley name=":whistling:">
+			<title>whistling</title>
+			<path>images/smilies/whistling.png</path>
+		</smiley>
+		<smiley name=":evil:">
+			<title>evil</title>
+			<path>images/smilies/evil.png</path>
+		</smiley>
+		-->
+	</import>
+</data>
