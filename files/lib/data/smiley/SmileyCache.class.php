@@ -16,18 +16,18 @@ use wcf\system\SingletonFactory;
 class SmileyCache extends SingletonFactory {
 	/**
 	 * cached smilies
-	 * @var array
+	 * @var	array
 	 */
 	protected $cachedSmilies = array();
 	
 	/**
 	 * cached smiley categories
-	 * @var array<wcf\data\smiley\category\SmileyCategory>
+	 * @var	array<wcf\data\smiley\category\SmileyCategory>
 	 */
 	protected $cachedCategories = array();
 	
 	/**
-	 * @see wcf\system\SingletonFactory::init()
+	 * @see	wcf\system\SingletonFactory::init()
 	 */
 	protected function init() {
 		// get board cache
@@ -39,7 +39,7 @@ class SmileyCache extends SingletonFactory {
 	/**
 	 * Returns all smilies.
 	 * 
-	 * @return array
+	 * @return	array
 	 */
 	public function getSmilies() {
 		return $this->cachedSmilies;
@@ -48,7 +48,7 @@ class SmileyCache extends SingletonFactory {
 	/**
 	 * Returns all smiley categories.
 	 * 
-	 * @return array<wcf\data\smiley\category\SmileyCategory>
+	 * @return	array<wcf\data\smiley\category\SmileyCategory>
 	 */
 	public function getCategories() {
 		return $this->cachedCategories;

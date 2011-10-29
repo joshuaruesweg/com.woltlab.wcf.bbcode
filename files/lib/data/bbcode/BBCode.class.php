@@ -31,7 +31,7 @@ class BBCode extends ProcessibleDatabaseObject {
 	/**
 	 * Returns the attributes of this bbcode.
 	 * 
-	 * @return array<wcf\data\bbcode\attribute\BBCodeAttribute>
+	 * @return	array<wcf\data\bbcode\attribute\BBCodeAttribute>
 	 */
 	public function getAttributes() {
 		if ($this->attributes === null) {

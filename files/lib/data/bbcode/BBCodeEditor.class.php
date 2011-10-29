@@ -21,7 +21,7 @@ class BBCodeEditor extends DatabaseObjectEditor implements IEditableCachedObject
 	public static $baseClass = 'wcf\data\bbcode\BBCode';
 	
 	/**
-	 * @see wcf\data\IEditableCachedObject::resetCache()
+	 * @see	wcf\data\IEditableCachedObject::resetCache()
 	 */
 	public static function resetCache() {
 		CacheHandler::getInstance()->clear(WCF_DIR.'cache', 'cache.bbcode.php');
