@@ -16,7 +16,7 @@ use wcf\system\WCF;
  */
 class BBCodeCacheBuilder implements ICacheBuilder {
 	/**
-	 * @see wcf\system\cache\ICacheBuilder::getData()
+	 * @see	wcf\system\cache\ICacheBuilder::getData()
 	 */
 	public function getData(array $cacheResource) {
 		$data = $attributes = array();

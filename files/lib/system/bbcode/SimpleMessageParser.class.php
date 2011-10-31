@@ -18,13 +18,13 @@ use wcf\util\StringUtil;
 class SimpleMessageParser extends SingletonFactory {
 	/**
 	 * forbidden characters
-	 * @var string
+	 * @var	string
 	 */
 	protected static $illegalChars = '[^\x0-\x2C\x2E\x2F\x3A-\x40\x5B-\x60\x7B-\x7F]+';
 	
 	/**
 	 * page urls
-	 * @var arra<string>
+	 * @var	array<string>
 	 */
 	protected $pageURLs = null;
 	
@@ -35,7 +35,7 @@ class SimpleMessageParser extends SingletonFactory {
 	protected $smilies = array();
 	
 	/**
-	 * @see wcf\system\SingletonFactory::init()
+	 * @see	wcf\system\SingletonFactory::init()
 	 */
 	protected function init() {
 		parent::init();

@@ -16,12 +16,12 @@ use wcf\util\StringUtil;
 class URLBBCode extends AbstractBBCode {
 	/**
 	 * page urls
-	 * @var array<string>
+	 * @var	array<string>
 	 */
 	protected $pageURLs = null; 
 	
 	/**
-	 * @see wcf\system\bbcode\IBBCode::getParsedTag()
+	 * @see	wcf\system\bbcode\IBBCode::getParsedTag()
 	 */
 	public function getParsedTag(array $openingTag, $content, array $closingTag, BBCodeParser $parser) {
 		$url = '';

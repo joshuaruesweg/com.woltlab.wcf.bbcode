@@ -16,12 +16,12 @@ use wcf\system\SingletonFactory;
 class BBCodeCache extends SingletonFactory {
 	/**
 	 * cached bbcodes
-	 * @var array<wcf\data\bbcode\BBCode>
+	 * @var	array<wcf\data\bbcode\BBCode>
 	 */
 	protected $cachedBBCodes = array();
 	
 	/**
-	 * @see wcf\system\SingletonFactory::init()
+	 * @see	wcf\system\SingletonFactory::init()
 	 */
 	protected function init() {
 		// get board cache
@@ -32,7 +32,7 @@ class BBCodeCache extends SingletonFactory {
 	/**
 	 * Returns all bbcodes.
 	 * 
-	 * @return array<wcf\data\bbcode\BBCode>
+	 * @return	array<wcf\data\bbcode\BBCode>
 	 */
 	public function getBBCodes() {
 		return $this->cachedBBCodes;

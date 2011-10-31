@@ -17,24 +17,24 @@ use wcf\util\StringUtil;
 class MessageParser extends BBCodeParser {
 	/**
 	 * list of smilies
-	 * @var array<wcf\data\smiley\Smiley>
+	 * @var	array<wcf\data\smiley\Smiley>
 	 */
 	protected $smilies = array();
 	
 	/**
 	 * cached bbcodes
-	 * @var array
+	 * @var	array
 	 */
 	protected $cachedCodes = array();
 	
 	/**
 	 * regular expression for source code tags
-	 * @var string
+	 * @var	string
 	 */
 	protected $sourceCodeRegEx = '';
 	
 	/**
-	 * @see wcf\system\SingletonFactory::init()
+	 * @see	wcf\system\SingletonFactory::init()
 	 */
 	protected function init() {
 		parent::init();
@@ -178,7 +178,7 @@ class MessageParser extends BBCodeParser {
 	}
 	
 	/**
-	 * @see wcf\system\bbcode\BBCodeParser::isValidTagAttribute()
+	 * @see	wcf\system\bbcode\BBCodeParser::isValidTagAttribute()
 	 */
 	protected function isValidTagAttribute(array $tagAttributes, BBCodeAttribute $definedTagAttribute) {
 		if (!parent::isValidTagAttribute($tagAttributes, $definedTagAttribute)) {

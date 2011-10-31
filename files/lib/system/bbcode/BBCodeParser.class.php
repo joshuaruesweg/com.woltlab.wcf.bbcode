@@ -18,42 +18,42 @@ use wcf\util\StringUtil;
 class BBCodeParser extends SingletonFactory {
 	/**
 	 * list of bbcodes
-	 * @var array<wcf\data\bbcode\BBCode>
+	 * @var	array<wcf\data\bbcode\BBCode>
 	 */
 	protected $bbcodes = array();
 	
 	/**
 	 * output type
-	 * @var string
+	 * @var	string
 	 */
 	protected $outputType = 'text/html';
 	
 	/**
 	 * source text
-	 * @var string
+	 * @var	string
 	 */
 	protected $text = '';
 	
 	/**
 	 * parsed text
-	 * @var string
+	 * @var	string
 	 */
 	protected $parsedText = '';
 	
 	/**
 	 * tag array
-	 * @var array
+	 * @var	array
 	 */
 	protected $tagArray = array();
 	
 	/**
 	 * text array
-	 * @var array
+	 * @var	array
 	 */
 	protected $textArray = array();
 	
 	/**
-	 * @see wcf\system\SingletonFactory::init()
+	 * @see	wcf\system\SingletonFactory::init()
 	 */
 	protected function init() {
 		// get bbcodes

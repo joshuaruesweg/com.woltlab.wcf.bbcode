@@ -18,30 +18,30 @@ use wcf\util\StringUtil;
 class URLParser extends SingletonFactory {
 	/**
 	 * forbidden characters
-	 * @var string
+	 * @var	string
 	 */
 	protected static $illegalChars = '[^\x0-\x2C\x2E\x2F\x3A-\x40\x5B-\x60\x7B-\x7F]+';
 	
 	/**
 	 * regular expression for source codes
-	 * @var string
+	 * @var	string
 	 */
 	protected $sourceCodeRegEx = '';
 	
 	/**
 	 * cached codes
-	 * @var array
+	 * @var	array
 	 */
 	protected $cachedCodes = array();
 	
 	/**
 	 * text
-	 * @var string
+	 * @var	string
 	 */
 	public $text = '';
 	
 	/**
-	 * @see wcf\system\SingletonFactory::init()
+	 * @see	wcf\system\SingletonFactory::init()
 	 */
 	protected function init() {
 		$sourceCodeTags = array();
