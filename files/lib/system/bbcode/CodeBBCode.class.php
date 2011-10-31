@@ -76,8 +76,8 @@ class CodeBBCode extends AbstractBBCode {
 	 * @return	string
 	 */
 	protected static function trim($string) {
-		$string = preg_replace('/^(\s*\n)+/', '', $string);
-		$string = preg_replace('/(\s*\n)+$/', '', $string);
+		$string = preg_replace('/^\s*\n/', '', $string);
+		$string = preg_replace('/\n\s*$/', '', $string);
 		return $string;
 	}
 }
