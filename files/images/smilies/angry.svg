@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<?xml-stylesheet type="text/css" href="svg.css"?>-->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16" xml:space="preserve">
+	
+	<title>Angry</title> 
+	<desc>Angry Smiley</desc> 
+	
+	<!--
+		@author		Harald Szekely 
+		@copyright	2011 WoltLab GmbH 
+		@license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php> 
+	--> 
+	
+	<defs>
+		
+	</defs>
+	
+	<g id="SmileyBody">
+		<path class="Lower" style="fill-rule: evenodd; clip-rule: evenodd; fill: #fff;" d="M0,8.5712891
+			C0,4.46875,3.3574219,1.1425781,7.5,1.1425781S15,4.46875,15,8.5712891C15,12.6748047,11.6425781,16,7.5,16
+			S0,12.6748047,0,8.5712891z"/>
+		<g class="UpperYellow">
+			<path id="Frame" style="fill-rule: evenodd; clip-rule: evenodd; fill: #c93;" d="M0,7.5C0,3.3579102,3.3574219,0,7.5004883,0
+				C11.6425781,0,15,3.3579102,15,7.5c0,4.1425781-3.3574219,7.5-7.4995117,7.5C3.3574219,15,0,11.6425781,0,7.5z"/>
+			<radialGradient id="Inner2" cx="8.0786133" cy="5.8706055" r="6.9639564" gradientTransform="matrix(1.0052 0 0 1.0052 -0.6572266 -0.1896458)" gradientUnits="userSpaceOnUse">
+				<stop offset="0" style="stop-color: #fff"/>
+				<stop offset=".472393" style="stop-color: #fff57a"/>
+				<stop offset=".6076587" style="stop-color: #fff477"/>
+				<stop offset=".7136346" style="stop-color: #fff06D"/>
+				<stop offset=".8096381" style="stop-color: #feeb5C"/>
+				<stop offset=".8997712" style="stop-color: #fde345"/>
+				<stop offset=".9850296" style="stop-color: #fcd827"/>
+				<stop offset="1" style="stop-color: #fcd621"/>
+			</radialGradient>
+			<path id="Inner" style="fill-rule: evenodd; clip-rule: evenodd; fill: url(#Inner2);" d="M0.5,7.5004883
+				C0.5,3.6337891,3.6333008,0.5,7.5009766,0.5C11.3681641,0.5,14.5,3.6337891,14.5,7.5004883
+				C14.5,11.3662109,11.3681641,14.5,7.5009766,14.5C3.6333008,14.5,0.5,11.3662109,0.5,7.5004883z"/>
+		</g>
+	</g>
+	
+	<g id="SmileyFace">
+		<g id="AngrySmiley">
+			<path id="Mouth" style="fill-rule: evenodd; clip-rule: evenodd; fill: #663;" d="M12.0400391,10.25
+				c0,0.8251953-0.9082031,1.75-2.2695312,1.75H5.2299805c-1.3623047,0-2.2705078-0.9248047-2.2705078-1.75S3.7763672,9,4.7753906,9
+				h5.4482422C11.2226562,9,12.0400391,9.4248047,12.0400391,10.25z"/>
+			<path id="MouthInner2" style="fill-rule: evenodd; clip-rule: evenodd; fill: #fff;" d="M11.5859375,10.3369141
+				c0,0.5488281-0.8173828,1.1660156-2.0429688,1.1660156H5.4570312c-1.2255859,0-2.0429688-0.6171875-2.0429688-1.1660156
+				c0-0.5507812,0.7348633-0.8339844,1.6342773-0.8339844h4.9038086
+				C10.8496094,9.5029297,11.5859375,9.7861328,11.5859375,10.3369141z"/>
+			<g id="Teeth">
+				<defs>
+					<path id="MouthInner1" d="M11.5859375,10.3369141c0,0.5488281-0.8173828,1.1660156-2.0429688,1.1660156H5.4570312
+						c-1.2255859,0-2.0429688-0.6171875-2.0429688-1.1660156c0-0.5507812,0.7348633-0.8339844,1.6342773-0.8339844h4.9038086
+						C10.8496094,9.5029297,11.5859375,9.7861328,11.5859375,10.3369141z"/>
+				</defs>
+				<clipPath id="MouthInner3">
+					<use xlink:href="#MouthInner1" style="overflow: visible;"/>
+				</clipPath>
+				<g id="Gaps" style="clip-path: url(#MouthInner3);">
+					<rect id="Part5" x="10.2529297" y="9.5029297" style="fill: #ccc;" width=".25" height="2"/>
+					<rect id="Part4" x="9" y="9.5029297" style="fill: #ccc;" width=".25" height="2"/>
+					<rect id="Part3" x="7.375" y="9.5029297" style="fill: #ccc;" width=".25" height="2"/>
+					<rect id="Part2" x="5.75" y="9.5029297" style="fill: #ccc;" width=".25" height="2"/>
+					<rect id="Part1" x="4.4970703" y="9.5029297" style="fill: #ccc;" width=".25" height="2"/>
+				</g>
+			</g>
+			<g id="RightEye">
+				<path id="Eye1" style="fill-rule: evenodd; clip-rule: evenodd; fill: #663;" d="M11,6c0,0.5498047-0.4501953,1-1,1l0,0
+					C9.4501953,7,9,6.5498047,9,6l0,0c0-0.5498047,0.4501953-1,1-1l0,0C10.5498047,5,11,5.4501953,11,6L11,6z"/>
+				<path id="Brow1" style="fill-rule: evenodd; clip-rule: evenodd; fill: #663;" d="M11.9394531,3.6894531
+					c0.1777344,0.215332-0.046875,0.6728516-0.4990234,1.0185547l-1.234375,0.9418945
+					c-0.4521484,0.3457031-0.9677734,0.4521484-1.1455078,0.237793c-0.1767578-0.2148438,0.0488281-0.6723633,0.5-1.0185547
+					l1.234375-0.9418945C11.2460938,3.581543,11.7617188,3.4750977,11.9394531,3.6894531z"/>
+			</g>
+			<g id="LeftEye">
+				<path id="Eye2" style="fill-rule: evenodd; clip-rule: evenodd; fill: #663;" d="M6,6c0,0.5498047-0.4501953,1-1,1l0,0
+					C4.4501953,7,4,6.5498047,4,6l0,0c0-0.5498047,0.4501953-1,1-1l0,0C5.5498047,5,6,5.4501953,6,6L6,6z"/>
+				<path id="Brow2" style="fill-rule: evenodd; clip-rule: evenodd; fill: #663;" d="M3.0610352,3.6894531
+					c-0.1777344,0.215332,0.0473633,0.6728516,0.4990234,1.0185547l1.234375,0.9418945
+					C5.246582,5.9956055,5.762207,6.1020508,5.9394531,5.8876953C6.1166992,5.6728516,5.8916016,5.215332,5.4404297,4.8691406
+					L4.2055664,3.9272461C3.7539062,3.581543,3.2382812,3.4750977,3.0610352,3.6894531z"/>
+			</g>
+		</g>
+	</g>
+</svg>

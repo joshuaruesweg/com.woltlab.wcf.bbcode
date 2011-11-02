@@ -2,18 +2,18 @@
 	<div>
 		<table>
 			<tr>
-				<td class="codeLineNumbers container-3">
+				<td class="codeLineNumbers">
 					<img src="{icon}codeS.png{/icon}" alt="" />
 				</td>
-				<td class="codeLines container-4">
+				<td class="codeLines">
 					<h3>{@$codeBoxName}</h3>
 				</td>
 			</tr>
 			<tr>
-				<td class="codeLineNumbers container-3">
+				<td class="codeLineNumbers">
 					<pre>{$lineNumbers}</pre>
 				</td>
-				<td class="codeLines container-4">
+				<td class="codeLines">
 					<pre>{@$content}</pre>
 				</td>
 			</tr>

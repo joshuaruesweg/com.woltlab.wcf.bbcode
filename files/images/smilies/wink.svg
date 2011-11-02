@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<?xml-stylesheet type="text/css" href="svg.css"?>-->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16" xml:space="preserve">
+	
+	<title>Winking</title> 
+	<desc>Winking Smiley</desc> 
+	
+	<!--
+		@author		Harald Szekely 
+		@copyright	2011 WoltLab GmbH 
+		@license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php> 
+	--> 
+	
+	<defs>
+		
+	</defs>
+	
+	<g id="SmileyBody">
+		<path class="Lower" style="fill-rule: evenodd; clip-rule: evenodd; fill: #fff;" d="M0,8.5712891
+			C0,4.46875,3.3574219,1.1425781,7.5,1.1425781S15,4.46875,15,8.5712891C15,12.6748047,11.6425781,16,7.5,16
+			S0,12.6748047,0,8.5712891z"/>
+		<g class="UpperYellow">
+			<path id="Frame" style="fill-rule: evenodd; clip-rule: evenodd; fill: #c93;" d="M0,7.5C0,3.3579102,3.3574219,0,7.5004883,0
+				C11.6425781,0,15,3.3579102,15,7.5c0,4.1425781-3.3574219,7.5-7.4995117,7.5C3.3574219,15,0,11.6425781,0,7.5z"/>
+			<radialGradient id="Inner2" cx="8.0786133" cy="5.8706055" r="6.9639564" gradientTransform="matrix(1.0052 0 0 1.0052 -0.6572266 -0.1896458)" gradientUnits="userSpaceOnUse">
+				<stop offset="0" style="stop-color: #fff"/>
+				<stop offset=".472393" style="stop-color: #fff57a"/>
+				<stop offset=".6076587" style="stop-color: #fff477"/>
+				<stop offset=".7136346" style="stop-color: #fff06D"/>
+				<stop offset=".8096381" style="stop-color: #feeb5C"/>
+				<stop offset=".8997712" style="stop-color: #fde345"/>
+				<stop offset=".9850296" style="stop-color: #fcd827"/>
+				<stop offset="1" style="stop-color: #fcd621"/>
+			</radialGradient>
+			<path id="Inner" style="fill-rule: evenodd; clip-rule: evenodd; fill: url(#Inner2);" d="M0.5,7.5004883
+				C0.5,3.6337891,3.6333008,0.5,7.5009766,0.5C11.3681641,0.5,14.5,3.6337891,14.5,7.5004883
+				C14.5,11.3662109,11.3681641,14.5,7.5009766,14.5C3.6333008,14.5,0.5,11.3662109,0.5,7.5004883z"/>
+		</g>
+	</g>
+	
+	<g id="SmileyFace">
+		<g id="WinkingSmiley">
+			<g id="Mouth1">
+				<path style="fill-rule: evenodd; clip-rule: evenodd; fill: #663;" d="M8.0639648,10.5
+					c-2.4985352,0-3.7915039-1.2929688-3.7915039-1.2929688C3.8837891,8.8183594,3.6889648,8.9326172,3.840332,9.4619141
+					c0,0,0.7250977,2.5380859,4.2241211,2.5380859c3.5009766,0,4.2265625-2.5380859,4.2265625-2.5380859
+					c0.1503906-0.5292969-0.0449219-0.6455078-0.4365234-0.2587891C11.8544922,9.203125,10.5449219,10.5,8.0639648,10.5z"/>
+			</g>
+			<g id="Mouth2">
+				<path style="fill-rule: evenodd; clip-rule: evenodd; fill: #663;" d="M3.3818359,9.0273438
+					C2.7651367,9.6435547,2.4116211,9.7792969,2.4116211,9.7792969c-0.2568359,0.0986328-0.2685547,0.2861328-0.0263672,0.4160156
+					c0,0,0.625,0.3359375,1.4882812-0.5273438c0.8637695-0.8642578,0.5283203-1.4887695,0.5283203-1.4887695
+					c-0.1303711-0.2421875-0.2919922-0.222168-0.359375,0.0444336C4.0424805,8.2236328,3.9936523,8.4155273,3.3818359,9.0273438z"/>
+			</g>
+			<g id="RightEye">
+				<path style="fill-rule: evenodd; clip-rule: evenodd; fill: #663;" d="M11,6c0,0.5498047-0.4501953,1-1,1l0,0
+					C9.4501953,7,9,6.5498047,9,6V5c0-0.5498047,0.4501953-1,1-1l0,0c0.5498047,0,1,0.4501953,1,1V6z"/>
+			</g>
+			<path id="LeftEye" style="fill-rule: evenodd; clip-rule: evenodd; fill: #663;" d="M7,6.1240234
+				c0-0.3212891,0.0864258-0.5839844-0.4633789-0.5839844C6.1152344,5.5400391,5.9985352,5.75,5.0058594,5.75
+				c-0.9746094,0-1.1928711-0.2099609-1.5297852-0.2099609C2.9262695,5.5400391,3,5.8027344,3,6.1240234S4,7,5,7
+				C5.9868164,7,7,6.4453125,7,6.1240234z"/>
+		</g>
+	</g>
+</svg>
