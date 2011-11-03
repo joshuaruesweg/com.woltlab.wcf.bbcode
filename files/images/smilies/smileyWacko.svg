@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<?xml-stylesheet type="text/css" href="svg.css"?>-->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16" xml:space="preserve">
+	
+	<title>Wacko</title> 
+	<desc>Wacko Smiley</desc> 
+	
+	<!--
+		@author		Harald Szekely 
+		@copyright	2011 WoltLab GmbH 
+		@license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php> 
+	--> 
+	
+	<defs>
+		
+	</defs>
+	
+	<g id="SmileyBody">
+		<g id="YellowBody">
+			<path class="Lower" style="fill-rule: evenodd; clip-rule: evenodd; fill: #fff;" d="M0,8.5712891
+				C0,4.46875,3.3574219,1.1425781,7.5,1.1425781S15,4.46875,15,8.5712891C15,12.6748047,11.6425781,16,7.5,16
+				S0,12.6748047,0,8.5712891z"/>
+			<g class="UpperYellow">
+				<path id="Frame" style="fill-rule: evenodd; clip-rule: evenodd; fill: #c93;" d="M0,7.5C0,3.3579102,3.3574219,0,7.5004883,0
+					C11.6425781,0,15,3.3579102,15,7.5c0,4.1425781-3.3574219,7.5-7.4995117,7.5C3.3574219,15,0,11.6425781,0,7.5z"/>
+				<radialGradient id="InnerFill" cx="8.0786133" cy="5.8706055" r="6.9639564" gradientTransform="matrix(1.0052 0 0 1.0052 -0.6572266 -0.1896458)" gradientUnits="userSpaceOnUse">
+					<stop offset="0" style="stop-color: #fff"/>
+					<stop offset=".472393" style="stop-color: #fff57a"/>
+					<stop offset=".6076587" style="stop-color: #fff477"/>
+					<stop offset=".7136346" style="stop-color: #fff06d"/>
+					<stop offset=".8096381" style="stop-color: #feeb5c"/>
+					<stop offset=".8997712" style="stop-color: #fde345"/>
+					<stop offset=".9850296" style="stop-color: #fcd827"/>
+					<stop offset="1" style="stop-color: #fcd621"/>
+				</radialGradient>
+				<path id="Inner" style="fill-rule: evenodd; clip-rule: evenodd; fill: url(#InnerFill);" d="M0.5,7.5004883
+					C0.5,3.6337891,3.6333008,0.5,7.5009766,0.5C11.3681641,0.5,14.5,3.6337891,14.5,7.5004883
+					C14.5,11.3662109,11.3681641,14.5,7.5009766,14.5C3.6333008,14.5,0.5,11.3662109,0.5,7.5004883z"/>
+			</g>
+		</g>
+	</g>
+	
+	<g id="SmileyFace">
+		<g id="WackoSmiley">
+			<path id="Mouth" style="fill: #663;" d="M10.7675781,9.4960938l-0.1083984-0.1044922
+				C9.7587891,8.4931641,8.465332,8.5668945,7.4116211,9.6210938c-1.0239258,1.0244141-2.0195312,1.1054688-2.8935547,0.2294922
+				c-0.34375-0.3427734-0.6538086-0.2382812-0.6269531,0.2333984c0.0063477,0.0107422,0.1552734,0.2734375,0.4501953,0.5683594
+				c0.3676758,0.3671875,0.8930664,0.578125,1.4418945,0.5771484c0.644043,0,1.2851562-0.2861328,1.8051758-0.8066406
+				c1.081543-1.0810547,1.9584961-1.1650391,2.8930664-0.2285156c0.1679688,0.1650391,0.5029297,0.1240234,0.6123047-0.0410156
+				l0.03125-0.1308594C11.125,9.8300781,10.9433594,9.6601562,10.7675781,9.4960938z"/>
+			<g id="RightEye">
+				<path style="fill-rule: evenodd; clip-rule: evenodd; fill: #663;" d="M11.0605469,5.1464844
+					c0.3886719,0.3886719,0.3886719,1.0253906,0,1.4140625s-1.0253906,0.3886719-1.4140625,0L8.9394531,5.8535156
+					c-0.3886719-0.3886719-0.3886719-1.0253906,0-1.4140625s1.0253906-0.3886719,1.4140625,0L11.0605469,5.1464844z"/>
+			</g>
+			<g id="LeftEye">
+				<path style="fill-rule: evenodd; clip-rule: evenodd; fill: #663;" d="M5.3535156,6.5605469
+					c-0.3886719,0.3886719-1.0253906,0.3886719-1.4140625,0s-0.3886719-1.0253906,0-1.4140625l0.7070312-0.7070312
+					c0.3886719-0.3886719,1.0253906-0.3886719,1.4140625,0s0.3886719,1.0253906,0,1.4140625L5.3535156,6.5605469z"/>
+			</g>
+		</g>
+	</g>
+</svg>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<?xml-stylesheet type="text/css" href="svg.css"?>-->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16" xml:space="preserve">
+	
+	<title>Kissing</title> 
+	<desc>Kissing Smiley</desc> 
+	
+	<!--
+		@author		Harald Szekely 
+		@copyright	2011 WoltLab GmbH 
+		@license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php> 
+	--> 
+	
+	<defs>
+		
+	</defs>
+	
+	<g id="SmileyBody">
+		<g id="YellowBody">
+			<path class="Lower" style="fill-rule: evenodd; clip-rule: evenodd; fill: #fff;" d="M0,8.5712891
+				C0,4.46875,3.3574219,1.1425781,7.5,1.1425781S15,4.46875,15,8.5712891C15,12.6748047,11.6425781,16,7.5,16
+				S0,12.6748047,0,8.5712891z"/>
+			<g class="UpperYellow">
+				<path id="Frame" style="fill-rule: evenodd; clip-rule: evenodd; fill: #c93;" d="M0,7.5C0,3.3579102,3.3574219,0,7.5004883,0
+					C11.6425781,0,15,3.3579102,15,7.5c0,4.1425781-3.3574219,7.5-7.4995117,7.5C3.3574219,15,0,11.6425781,0,7.5z"/>
+				<radialGradient id="InnerFill" cx="8.0786133" cy="5.8706055" r="6.9639564" gradientTransform="matrix(1.0052 0 0 1.0052 -0.6572266 -0.1896458)" gradientUnits="userSpaceOnUse">
+					<stop offset="0" style="stop-color: #fff"/>
+					<stop offset=".472393" style="stop-color: #fff57a"/>
+					<stop offset=".6076587" style="stop-color: #fff477"/>
+					<stop offset=".7136346" style="stop-color: #fff06d"/>
+					<stop offset=".8096381" style="stop-color: #feeb5c"/>
+					<stop offset=".8997712" style="stop-color: #fde345"/>
+					<stop offset=".9850296" style="stop-color: #fcd827"/>
+					<stop offset="1" style="stop-color: #fcd621"/>
+				</radialGradient>
+				<path id="Inner" style="fill-rule: evenodd; clip-rule: evenodd; fill: url(#InnerFill);" d="M0.5,7.5004883
+					C0.5,3.6337891,3.6333008,0.5,7.5009766,0.5C11.3681641,0.5,14.5,3.6337891,14.5,7.5004883
+					C14.5,11.3662109,11.3681641,14.5,7.5009766,14.5C3.6333008,14.5,0.5,11.3662109,0.5,7.5004883z"/>
+			</g>
+		</g>
+	</g>
+	
+	<g id="SmileyFace">
+		<g id="KissingSmiley">
+			<g id="Mouth">
+				<path id="Frame" style="fill-rule: evenodd; clip-rule: evenodd; fill: #663;" d="M9.0537109,9.2705078
+					c-0.8745117-1.1865234-1.3793945-0.0625-1.5541992,0.1728516c-0.1767578-0.2353516-0.6796875-1.359375-1.5556641-0.1728516
+					C5.1152344,10.3925781,3.2275391,10.7207031,4,10.7207031c1.5966797,0,1.7709961,1.7138672,3,1.7138672
+					c0.4604492,0,0.546875,0,1,0c1.2558594,0,1.4277344-1.7138672,3-1.7138672
+					C11.7832031,10.7207031,9.8242188,10.3154297,9.0537109,9.2705078z"/>
+				<path id="Lips" style="fill-rule: evenodd; clip-rule: evenodd; fill: #f00;" d="M8.8583984,9.5595703
+					C8.1791992,8.7099609,7.6523438,9.4833984,7.4995117,9.6884766c-0.1538086-0.2050781-0.7631836-0.9624023-1.359375-0.1289062
+					c-0.7089844,0.9912109-2.1088867,0.9042969-1.4399414,0.9902344C6.0410156,10.7236328,5.9438477,12,7.0175781,12
+					c0.402832,0,0.5664062,0,0.9624023,0c1.0981445,0,0.9604492-1.2910156,2.3198242-1.4501953
+					C10.9794922,10.4697266,9.5664062,10.4453125,8.8583984,9.5595703z"/>
+				<polyline id="Gap" style="fill-rule: evenodd; clip-rule: evenodd; fill: #663;" points="4.4995117,10.5351562 
+					4.4995117,10.6347656 10.5,10.6347656 10.5,10.5351562"/>
+			</g>
+			<path id="RightEye" style="fill-rule: evenodd; clip-rule: evenodd; fill: #663;" d="M12.5029297,5.8759766
+				c0,0.3212891,0.0869141,0.5839844-0.4638672,0.5839844c-0.4208984,0-0.5371094-0.2099609-1.5302734-0.2099609
+				c-0.9746094,0-1.1923828,0.2099609-1.5297852,0.2099609c-0.5498047,0-0.4760742-0.2626953-0.4760742-0.5839844
+				s1-0.8759766,2-0.8759766C11.4902344,5,12.5029297,5.5546875,12.5029297,5.8759766z"/>
+			<path id="LeftEye" style="fill-rule: evenodd; clip-rule: evenodd; fill: #663;" d="M6.503418,5.8759766
+				c0,0.3212891,0.0864258,0.5839844-0.4633789,0.5839844C5.6186523,6.4599609,5.5019531,6.25,4.5092773,6.25
+				c-1.1142578,0-0.8930664,0.2099609-1.5297852,0.2099609c-0.5498047,0-0.4760742-0.2626953-0.4760742-0.5839844
+				S3.503418,5,4.503418,5C5.4902344,5,6.503418,5.5546875,6.503418,5.8759766z"/>
+		</g>
+	</g>
+</svg>

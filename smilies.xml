@@ -3,91 +3,107 @@
 	<import>
 		<smiley name=":)">
 			<title>smile</title>
-			<path>smilies/smiling</path>
+			<path>images/smilies/smileySmiling.svg</path>
 		</smiley>
 		<smiley name=":(">
 			<title>sad</title>
-			<path>smilies/sad</path>
+			<path>images/smilies/smileySad.svg</path>
 		</smiley>
 		<smiley name=";)">
 			<title>wink</title>
-			<path>smilies/wink</path>
+			<path>images/smilies/smileyWink.svg</path>
 		</smiley>
 		<smiley name=":P">
-			<title>eager</title>
-			<path>smilies/eager</path>
+			<title>tongue</title>
+			<path>images/smilies/smileyTongue.svg</path>
 		</smiley>
 		<smiley name=":D">
 			<title>laughing</title>
-			<path>smilies/laughing</path>
+			<path>images/smilies/smileyLaughing.svg</path>
 		</smiley>
 		<smiley name="^^">
 			<title>grinning</title>
-			<path>smilies/grinning</path>
+			<path>images/smilies/smileyGrinning.svg</path>
 		</smiley>
 		<smiley name="X(">
 			<title>angry</title>
-			<path>smilies/angry</path>
+			<path>images/smilies/smileyAngry.svg</path>
 		</smiley>
 		<smiley name="=X">
 			<title>dumb</title>
-			<path>smilies/dumb</path>
+			<path>images/smilies/smileyDumb.svg</path>
 		</smiley>
-		<smiley name=":!:">
-			<title>attention</title>
-			<path>smilies/attention</path>
-		</smiley>
-		<smiley name=":-*">
+		<smiley name=":*">
 			<title>kissing</title>
-			<path>smilies/kissing</path>
+			<path>images/smilies/smileyKissing.svg</path>
 		</smiley>
 		<smiley name=":|">
 			<title>mellow</title>
-			<path>smilies/mellow</path>
+			<path>images/smilies/smileyMellow.svg</path>
 		</smiley>
 		<smiley name="-&gt;">
 			<title>next</title>
-			<path>smilies/next</path>
+			<path>images/smilies/smileyNext.svg</path>
 		</smiley>
 		<smiley name="&lt;-">
 			<title>previous</title>
-			<path>smilies/previous</path>
+			<path>images/smilies/smileyPrevious.svg</path>
+		</smiley>
+		<smiley name=":!:">
+			<title>attention</title>
+			<path>images/smilies/smileyAttention.svg</path>
 		</smiley>
 		<smiley name=":?:">
 			<title>question</title>
-			<path>smilies/question</path>
+			<path>images/smilies/smileyQuestion.svg</path>
 		</smiley>
 		<smiley name="&lt;3">
 			<title>heart</title>
-			<path>smilies/heart</path>
+			<path>images/smilies/smileyHeart.svg</path>
 		</smiley>
 		<smiley name="=O">
 			<title>scared</title>
-			<path>smilies/scared</path>
+			<path>images/smilies/smileyScared.svg</path>
 		</smiley>
 		<smiley name="&lt;X">
 			<title>sick</title>
-			<path>smilies/sick</path>
+			<path>images/smilies/smileySick.svg</path>
 		</smiley>
 		<smiley name="||">
 			<title>sleepy</title>
-			<path>smilies/sleepy</path>
+			<path>images/smilies/smileySleepy.svg</path>
 		</smiley>
 		<smiley name=":*:">
 			<title>star</title>
-			<path>smilies/star</path>
+			<path>images/smilies/smileyStar.svg</path>
 		</smiley>
 		<smiley name="=|">
 			<title>thinking</title>
-			<path>smilies/thinking</path>
+			<path>images/smilies/smileyThinking.svg</path>
 		</smiley>
 		<smiley name=":/">
 			<title>unsure</title>
-			<path>smilies/unsure</path>
+			<path>images/smilies/smileyUnsure.svg</path>
+		</smiley>
+		<smiley name=":S">
+			<title>wacko</title>
+			<path>images/smilies/smileyWacko.svg</path>
 		</smiley>
 		<smiley name="|O">
 			<title>yawning</title>
-			<path>smilies/yawning</path>
+			<path>images/smilies/smileyYawning.svg</path>
+		</smiley>
+		<smiley name="B)">
+			<title>nerd</title>
+			<path>images/smilies/smileyNerd.svg</path>
+		</smiley>
+		<smiley name="(o)">
+			<title>nerd</title>
+			<path>images/smilies/smileyNerd.svg</path>
+		</smiley>
+		<smiley name=":pinch:">
+			<title>pinch</title>
+			<path>images/smilies/smileyPinch.svg</path>
 		</smiley>
 		
 		<!-- <smiley name="8)">
@@ -107,10 +123,7 @@
 			<title>Huh</title>
 			<path>images/smilies/huh.png</path>
 		</smiley>
-		<smiley name=":S">
-			<title>unsure</title>
-			<path>images/smilies/unsure.png</path>
-		</smiley>
+		
 		<smiley name=":love:">
 			<title>love</title>
 			<path>images/smilies/love.png</path>
@@ -145,18 +158,12 @@
 			<title>w00t</title>
 			<path>images/smilies/w00t.png</path>
 		</smiley>
-		<smiley name=":pinch:">
-			<title>pinch</title>
-			<path>images/smilies/pinch.png</path>
-		</smiley>
+		
 		<smiley name=":sleeping:">
 			<title>sleeping</title>
 			<path>images/smilies/sleeping.png</path>
 		</smiley>
-		<smiley name=":wacko:">
-			<title>wacko</title>
-			<path>images/smilies/wacko.png</path>
-		</smiley>
+		
 		<smiley name=":whistling:">
 			<title>whistling</title>
 			<path>images/smilies/whistling.png</path>

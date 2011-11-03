@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<?xml-stylesheet type="text/css" href="svg.css"?>-->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16" xml:space="preserve">
+	
+	<title>Sick</title> 
+	<desc>Sick Smiley</desc> 
+	
+	<!--
+		@author		Harald Szekely 
+		@copyright	2011 WoltLab GmbH 
+		@license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php> 
+	--> 
+	
+	<defs>
+		
+	</defs>
+	
+	<g id="SmileyBody">
+		<g id="BlushBody">
+			<path class="Lower" style="fill-rule: evenodd; clip-rule: evenodd; fill: #fff;" d="M0,8.5712891
+				C0,4.46875,3.3574219,1.1425781,7.5,1.1425781S15,4.46875,15,8.5712891C15,12.6748047,11.6425781,16,7.5,16
+				S0,12.6748047,0,8.5712891z"/>
+			<g class="UpperBlush">
+				<radialGradient id="innerFill" cx="7.4619141" cy="5.6484375" r="7.2499151" gradientUnits="userSpaceOnUse">
+					<stop offset="0" style="stop-color: #fff"/>
+					<stop offset="1" style="stop-color: #fff5ab"/>
+					<stop offset="1" style="stop-color: #fff4a8"/>
+					<stop offset="1" style="stop-color: #fff29e"/>
+					<stop offset="1" style="stop-color: #feee8d"/>
+					<stop offset="1" style="stop-color: #fee976"/>
+					<stop offset="1" style="stop-color: #fde258"/>
+					<stop offset="1" style="stop-color: #fcda33"/>
+					<stop offset="1" style="stop-color: #fcd621"/>
+				</radialGradient>
+				<path style="fill-rule: evenodd; clip-rule: evenodd; fill: url(#innerFill);" d="M7.5009766,14.75
+					C3.5029297,14.75,0.25,11.4980469,0.25,7.5004883C0.25,3.5024414,3.5029297,0.25,7.5009766,0.25
+					C11.4980469,0.25,14.75,3.5024414,14.75,7.5004883C14.75,11.4980469,11.4980469,14.75,7.5009766,14.75L7.5009766,14.75z"/>
+				<path style="fill: #cc9;" d="M7.5009766,0.5C11.3681641,0.5,14.5,3.6337891,14.5,7.5004883
+					C14.5,11.3662109,11.3681641,14.5,7.5009766,14.5C3.6333008,14.5,0.5,11.3662109,0.5,7.5004883
+					C0.5,3.6337891,3.6333008,0.5,7.5009766,0.5 M7.5009766,0C3.3647461,0,0,3.3647461,0,7.5004883
+					C0,11.6357422,3.3647461,15,7.5009766,15C11.6357422,15,15,11.6357422,15,7.5004883C15,3.3647461,11.6357422,0,7.5009766,0
+					L7.5009766,0z"/>
+			</g>
+		</g>
+	</g>
+	
+	<g id="SmileyFace">
+		<g id="ScaredSmiley">
+			<g id="Mouth">
+				<path style="fill-rule: evenodd; clip-rule: evenodd; fill: #663;" d="M7,8c-1.6499023,0-3,1.125-3,2.5S5.3500977,13,7,13h1
+					c1.6503906,0,3-1.125,3-2.5S9.6503906,8,8,8H7z"/>
+			</g>
+			<g id="Tounge">
+				<path id="Frame" style="fill: #930;" d="M7.5,11.2099609c0,0-3.015625-1.1943359-1.6884766,1.6191406
+					c0,0,0.7270508,0.1708984,1.1225586,0.1708984H8.065918c0.3955078,0,1.1225586-0.1933594,1.1225586-0.1933594
+					C10.5,10.015625,7.5,11.2099609,7.5,11.2099609z"/>
+				<linearGradient id="innerFill2" gradientUnits="userSpaceOnUse" x1="7.4995117" y1="11.25" x2="7.4995117" y2="13">
+					<stop  offset="0" style="stop-color:#FF0000"/>
+					<stop  offset="0.2919121" style="stop-color:#FC0202"/>
+					<stop  offset="0.5263072" style="stop-color:#F2080A"/>
+					<stop  offset="0.7407469" style="stop-color:#E11316"/>
+					<stop  offset="0.9421886" style="stop-color:#C92227"/>
+					<stop  offset="1" style="stop-color:#C1272D"/>
+				</linearGradient>
+				<path id="Inner" style="fill:url(#innerFill2);" d="M7.5,11.4326172c0,0-2.5-0.9326172-1.4916992,1.4228516
+					C6.0083008,12.8554688,6.6508789,13,7,13h1c0.3491211,0,0.9916992-0.1386719,0.9916992-0.1386719
+					C10,10.5,7.5,11.4326172,7.5,11.4326172z"/>
+			</g>
+			<g id="RightEye">
+				<g id="EyeR">
+					<path style="fill-rule: evenodd; clip-rule: evenodd; fill: #663;" d="M11.5,4.5c0,0.8251953-0.5625,1.5004883-1.25,1.5004883
+						S9,5.3251953,9,4.5C9,3.675293,9.5625,3,10.25,3S11.5,3.675293,11.5,4.5z"/>
+				</g>
+				<circle id="PupillR" style="fill: #fff;" cx="10.5" cy="4.5" r="0.5"/>
+				<g id="BrowR">
+					<path style="fill: #663;" d="M2.1567383,3.5683594C2.0708008,3.8291016,2.0561523,4.0336914,2.125,4.0219727
+						s0.2255859-0.222168,0.3481445-0.4682617l0.5976562-1.1987305c0.1225586-0.2460938,0.4404297-0.3891602,0.7060547-0.3178711
+						l0.5595703,0.1494141c0.265625,0.0712891,0.6420898-0.0297852,0.8364258-0.2241211l0.0097656-0.0097656
+						c0.1943359-0.1943359,0.1347656-0.4052734-0.1328125-0.46875L3.4921875,1.1152344
+						c-0.2675781-0.0634766-0.5571289,0.0986328-0.6430664,0.359375L2.1567383,3.5683594z"/>
+				</g>
+			</g>
+			<g id="LeftEye">
+				<g id="EyeL">
+					<path style="fill-rule: evenodd; clip-rule: evenodd; fill: #663;" d="M6,4.5c0,0.8251953-0.5625,1.5004883-1.25,1.5004883
+						S3.5,5.3251953,3.5,4.5C3.5,3.675293,4.0625,3,4.75,3S6,3.675293,6,4.5z"/>
+				</g>
+				<circle id="PupillL" style="fill: #fff;" cx="4.5" cy="4.5" r="0.5"/>
+				<g id="BrowL">
+					<path style="fill: #663;" d="M12.8427734,3.5683594c0.0869141,0.2607422,0.1005859,0.465332,0.0322266,0.4536133
+						s-0.2255859-0.222168-0.3486328-0.4682617l-0.5966797-1.1987305c-0.1230469-0.2460938-0.4414062-0.3891602-0.7070312-0.3178711
+						l-0.5585938,0.1494141c-0.265625,0.0712891-0.6425781-0.0297852-0.8369141-0.2241211L9.8173828,1.9526367
+						c-0.1943359-0.1943359-0.1347656-0.4052734,0.1328125-0.46875l1.5576172-0.3686523
+						c0.2675781-0.0634766,0.5566406,0.0986328,0.6435547,0.359375L12.8427734,3.5683594z"/>
+				</g>
+			</g>
+		</g>
+	</g>
+</svg>
