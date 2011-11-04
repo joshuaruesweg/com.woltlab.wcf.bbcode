@@ -64,9 +64,9 @@
 				</g>
 				<g>
 					<radialGradient id="InnerFill" cx="7.4619141" cy="4.7177734" r="6.5168424" gradientUnits="userSpaceOnUse">
-						<stop offset="0.607362" style="stop-color: #fff"/>
-						<stop offset="0.7631274" style="stop-color :#fbfbfb"/>
-						<stop offset="0.9276483" style="stop-color :#eee"/>
+						<stop offset=".607362" style="stop-color: #fff"/>
+						<stop offset=".7631274" style="stop-color :#fbfbfb"/>
+						<stop offset=".9276483" style="stop-color :#eee"/>
 						<stop offset="1" style="stop-color: #e6e6e6"/>
 					</radialGradient>
 					<path style="fill-rule: evenodd; clip-rule: evenodd; fill: url(#InnerFill);" d="M3.25,12.25V12

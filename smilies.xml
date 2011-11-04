@@ -2,114 +2,122 @@
 <data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/smiley.xsd">
 	<import>
 		<smiley name=":)">
-			<title>smile</title>
+			<title>Smile</title>
 			<path>images/smilies/smileySmiling.svg</path>
 		</smiley>
 		<smiley name=":(">
-			<title>sad</title>
+			<title>Sad</title>
 			<path>images/smilies/smileySad.svg</path>
 		</smiley>
 		<smiley name=";)">
-			<title>wink</title>
+			<title>Wink</title>
 			<path>images/smilies/smileyWink.svg</path>
 		</smiley>
 		<smiley name=":P">
-			<title>tongue</title>
+			<title>Tongue</title>
 			<path>images/smilies/smileyTongue.svg</path>
 		</smiley>
 		<smiley name=":D">
-			<title>laughing</title>
+			<title>Laughing</title>
 			<path>images/smilies/smileyLaughing.svg</path>
 		</smiley>
 		<smiley name="^^">
-			<title>grinning</title>
+			<title>Grinning</title>
 			<path>images/smilies/smileyGrinning.svg</path>
 		</smiley>
 		<smiley name="X(">
-			<title>angry</title>
+			<title>Angry</title>
 			<path>images/smilies/smileyAngry.svg</path>
 		</smiley>
 		<smiley name="=X">
-			<title>dumb</title>
+			<title>Dumb</title>
 			<path>images/smilies/smileyDumb.svg</path>
 		</smiley>
 		<smiley name=":*">
-			<title>kissing</title>
-			<path>images/smilies/smileyKissing.svg</path>
+			<title>Kiss</title>
+			<path>images/smilies/smileyKiss.svg</path>
 		</smiley>
 		<smiley name=":|">
-			<title>mellow</title>
+			<title>Mellow</title>
 			<path>images/smilies/smileyMellow.svg</path>
 		</smiley>
-		<smiley name="-&gt;">
-			<title>next</title>
-			<path>images/smilies/smileyNext.svg</path>
-		</smiley>
-		<smiley name="&lt;-">
-			<title>previous</title>
-			<path>images/smilies/smileyPrevious.svg</path>
-		</smiley>
-		<smiley name=":!:">
-			<title>attention</title>
-			<path>images/smilies/smileyAttention.svg</path>
-		</smiley>
-		<smiley name=":?:">
-			<title>question</title>
-			<path>images/smilies/smileyQuestion.svg</path>
-		</smiley>
-		<smiley name="&lt;3">
-			<title>heart</title>
-			<path>images/smilies/smileyHeart.svg</path>
+		<smiley name="8o">
+			<title>w00t</title>
+			<path>images/smilies/smileyW00t.png</path>
 		</smiley>
 		<smiley name="=O">
-			<title>scared</title>
+			<title>Scared</title>
 			<path>images/smilies/smileyScared.svg</path>
 		</smiley>
 		<smiley name="&lt;X">
-			<title>sick</title>
+			<title>Sick</title>
 			<path>images/smilies/smileySick.svg</path>
 		</smiley>
 		<smiley name="||">
-			<title>sleepy</title>
-			<path>images/smilies/smileySleepy.svg</path>
-		</smiley>
-		<smiley name=":*:">
-			<title>star</title>
-			<path>images/smilies/smileyStar.svg</path>
+			<title>Tired</title>
+			<path>images/smilies/smileyTired.svg</path>
 		</smiley>
 		<smiley name="=|">
-			<title>thinking</title>
+			<title>Thinking</title>
 			<path>images/smilies/smileyThinking.svg</path>
 		</smiley>
 		<smiley name=":/">
-			<title>unsure</title>
+			<title>Unsure</title>
 			<path>images/smilies/smileyUnsure.svg</path>
 		</smiley>
 		<smiley name=":S">
-			<title>wacko</title>
+			<title>Wacko</title>
 			<path>images/smilies/smileyWacko.svg</path>
 		</smiley>
 		<smiley name="|O">
-			<title>yawning</title>
+			<title>Yawning</title>
 			<path>images/smilies/smileyYawning.svg</path>
 		</smiley>
 		<smiley name="B)">
-			<title>nerd</title>
-			<path>images/smilies/smileyNerd.svg</path>
-		</smiley>
-		<smiley name="(o)">
-			<title>nerd</title>
+			<title>Nerd</title>
 			<path>images/smilies/smileyNerd.svg</path>
 		</smiley>
 		<smiley name=":pinch:">
-			<title>pinch</title>
+			<title>Pinch</title>
 			<path>images/smilies/smileyPinch.svg</path>
 		</smiley>
-		
-		<!-- <smiley name="8)">
+		<smiley name="8)">
 			<title>Cool</title>
-			<path>images/smilies/cool.png</path>
-		</smiley>-->
+			<path>images/smilies/smileyCool.svg</path>
+		</smiley>
+		<smiley name="&lt;3">
+			<title>Heart</title>
+			<path>images/smilies/smileyHeart.svg</path>
+		</smiley>
+		<smiley name="(o)">
+			<title>Egg</title>
+			<path>images/smilies/smileyEgg.svg</path>
+		</smiley>
+		<smiley name=":skull:">
+			<title>Question</title>
+			<path>images/smilies/smileyQuestion.svg</path>
+		</smiley>
+		<smiley name=":*:">
+			<title>Star</title>
+			<path>images/smilies/smileyStar.svg</path>
+		</smiley>
+		<smiley name="&lt;-">
+			<title>Previous</title>
+			<path>images/smilies/smileyPrevious.svg</path>
+		</smiley>
+		<smiley name="-&gt;">
+			<title>Next</title>
+			<path>images/smilies/smileyNext.svg</path>
+		</smiley>
+		<smiley name=":!:">
+			<title>Attention</title>
+			<path>images/smilies/smileyAttention.svg</path>
+		</smiley>
+		<smiley name=":?:">
+			<title>Question</title>
+			<path>images/smilies/smileyQuestion.svg</path>
+		</smiley>
+		
 		<!-- <smiley name=";(">
 			<title>crying</title>
 			<path>images/smilies/crying.png</path>
@@ -118,17 +126,14 @@
 			<title>rolleyes</title>
 			<path>images/smilies/rolleyes.png</path>
 		</smiley>
-		
 		<smiley name=":huh:">
 			<title>Huh</title>
 			<path>images/smilies/huh.png</path>
 		</smiley>
-		
 		<smiley name=":love:">
 			<title>love</title>
 			<path>images/smilies/love.png</path>
 		</smiley>
-		
 		<smiley name="8|">
 			<title>blink</title>
 			<path>images/smilies/blink.png</path>
@@ -141,7 +146,6 @@
 			<title>cursing</title>
 			<path>images/smilies/cursing.png</path>
 		</smiley>
-		
 		<smiley name=":thumbdown:">
 			<title>thumbdown</title>
 			<path>images/smilies/thumbdown.png</path>
@@ -154,16 +158,10 @@
 			<title>thumbup</title>
 			<path>images/smilies/thumbup.png</path>
 		</smiley>
-		<smiley name="8o">
-			<title>w00t</title>
-			<path>images/smilies/w00t.png</path>
-		</smiley>
-		
 		<smiley name=":sleeping:">
 			<title>sleeping</title>
 			<path>images/smilies/sleeping.png</path>
 		</smiley>
-		
 		<smiley name=":whistling:">
 			<title>whistling</title>
 			<path>images/smilies/whistling.png</path>

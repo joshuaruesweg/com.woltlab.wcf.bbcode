@@ -3,8 +3,8 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16" xml:space="preserve">
 	
-	<title>Tongue</title> 
-	<desc>Tongue Smiley</desc> 
+	<title>Tired</title> 
+	<desc>Tired Smiley</desc> 
 	
 	<!--
 		@author		Harald Szekely 
@@ -42,32 +42,19 @@
 	</g>
 	
 	<g id="SmileyFace">
-		<g id="TongueSmiley">
+		<g id="TiredSmiley">
 			<g id="Mouth">
-				<path style="fill-rule: evenodd; clip-rule: evenodd; fill: #663;" d="M7.4985352,10.5
-					C5,10.5,3.7070312,9.2070312,3.7070312,9.2070312C3.3183594,8.8183594,3.1235352,8.9326172,3.2749023,9.4619141
-					C3.2749023,9.4619141,4,12,7.4990234,12C11,12,11.7255859,9.4619141,11.7255859,9.4619141
-					c0.1503906-0.5292969-0.0449219-0.6455078-0.4365234-0.2587891C11.2890625,9.203125,9.9794922,10.5,7.4985352,10.5z"/>
+				<path style="fill-rule: evenodd; clip-rule: evenodd; fill: #663;" d="M10.5,10.5c0,0.2753906-0.4501953,0.5-1,0.5H5.5004883
+					c-0.5498047,0-1-0.2246094-1-0.5s0.4501953-0.5,1-0.5H9.5C10.0498047,10,10.5,10.2246094,10.5,10.5z"/>
 			</g>
 			<g id="RightEye">
-				<path style="fill-rule: evenodd; clip-rule: evenodd; fill: #663;" d="M11,6c0,0.5498047-0.4501953,1-1,1l0,0
-					C9.4501953,7,9,6.5498047,9,6V5c0-0.5498047,0.4501953-1,1-1l0,0c0.5498047,0,1,0.4501953,1,1V6z"/>
+				<path style="fill-rule: evenodd; clip-rule: evenodd; fill: #663;" d="M12,5.5C12,5.7749023,11.5498047,6,11,6H9.5
+					c-0.5498047,0-1-0.2250977-1-0.5S8.9501953,5,9.5,5H11C11.5498047,5,12,5.2250977,12,5.5z"/>
 			</g>
 			<g id="LeftEye">
-				<path style="fill-rule: evenodd; clip-rule: evenodd; fill: #663;" d="M6,6c0,0.5498047-0.4501953,1-1,1l0,0
-					C4.4501953,7,4,6.5498047,4,6V5c0-0.5498047,0.4501953-1,1-1l0,0c0.5498047,0,1,0.4501953,1,1V6z"/>
+				<path style="fill-rule: evenodd; clip-rule: evenodd; fill: #663;" d="M6.5,5.5c0,0.2749023-0.4501953,0.5-1,0.5H4
+					C3.4501953,6,3,5.7749023,3,5.5S3.4501953,5,4,5h1.5C6.0498047,5,6.5,5.2250977,6.5,5.5z"/>
 			</g>
-		</g>
-		<g id="Tongue">
-			<linearGradient id="InnerFill2" gradientUnits="userSpaceOnUse" x1="9.2226562" y1="11.2451172" x2="10.7993746" y2="13.4969044">
-				<stop  offset="0" style="stop-color:#FF6600"/>
-				<stop  offset="1" style="stop-color:#ED1C24"/>
-			</linearGradient>
-				<path id="Part2" style="fill-rule: evenodd; clip-rule: evenodd; fill: url(#InnerFill2); stroke: #930; stroke-width: .25; stroke-linecap: round; stroke-linejoin: round;" d="				M7,11.9765625c2,0,1.7084961,2.6904297,4.0419922,1.4824219c2.3662109-1.2246094,0.1875-3.1044922,0.1875-3.1044922
-				s-0.6445312,0.1523438-1.8857422,0.7119141C8.1889648,11.5869141,7,11.9765625,7,11.9765625z"/>
-			<path id="Part1" style="fill-rule: evenodd; clip-rule: evenodd; fill: #930;" d="M9,11.2167969
-				c0,0,0.3730469,0.140625,0.6660156,0.3662109c0.3652344,0.2792969,0.6669922,0.6875,0.6669922,0.6875
-				S10.1914062,11.7695312,10,11.375c-0.1298828-0.2695312-0.2373047-0.4912109-0.2373047-0.4912109L9,11.2167969z"/>
 		</g>
 	</g>
 </svg>

@@ -43,12 +43,12 @@
 			<g id="Yolk">
 				<radialGradient id="InnerFill" cx="7.9804688" cy="6.6699219" r="3.4538903" gradientUnits="userSpaceOnUse">
 					<stop offset="0" style="stop-color: #fff"/>
-					<stop offset="0.472393" style="stop-color: #fff57a"/>
-					<stop offset="0.6076587" style="stop-color: #fff477"/>
-					<stop offset="0.7136346" style="stop-color: #fff06d"/>
-					<stop offset="0.8096381" style="stop-color: #feeb5c"/>
-					<stop offset="0.8997712" style="stop-color: #fde345"/>
-					<stop offset="0.9850296" style="stop-color: #fcd827"/>
+					<stop offset=".472393" style="stop-color: #fff57a"/>
+					<stop offset=".6076587" style="stop-color: #fff477"/>
+					<stop offset=".7136346" style="stop-color: #fff06d"/>
+					<stop offset=".8096381" style="stop-color: #feeb5c"/>
+					<stop offset=".8997712" style="stop-color: #fde345"/>
+					<stop offset=".9850296" style="stop-color: #fcd827"/>
 					<stop offset="1" style="stop-color: #fcd621"/>
 				</radialGradient>
 				<path style="fill-rule: evenodd; clip-rule: evenodd; fill: url(#InnerFill);" d="M7.6914062,10.75

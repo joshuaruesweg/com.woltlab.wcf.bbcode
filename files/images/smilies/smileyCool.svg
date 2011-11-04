@@ -3,8 +3,8 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16" xml:space="preserve">
 	
-	<title>Sleepy</title> 
-	<desc>Sleepy Smiley</desc> 
+	<title>Cool</title> 
+	<desc>Cool Smiley</desc> 
 	
 	<!--
 		@author		Harald Szekely 
@@ -42,18 +42,19 @@
 	</g>
 	
 	<g id="SmileyFace">
-		<g id="SleepySmiley">
+		<g id="CoolSmiley">
 			<g id="Mouth">
 				<path style="fill-rule: evenodd; clip-rule: evenodd; fill: #663;" d="M10.5,10.5c0,0.2753906-0.4501953,0.5-1,0.5H5.5004883
 					c-0.5498047,0-1-0.2246094-1-0.5s0.4501953-0.5,1-0.5H9.5C10.0498047,10,10.5,10.2246094,10.5,10.5z"/>
 			</g>
-			<g id="RightEye">
-				<path style="fill-rule: evenodd; clip-rule: evenodd; fill: #663;" d="M12,5.5C12,5.7749023,11.5498047,6,11,6H9.5
-					c-0.5498047,0-1-0.2250977-1-0.5S8.9501953,5,9.5,5H11C11.5498047,5,12,5.2250977,12,5.5z"/>
-			</g>
-			<g id="LeftEye">
-				<path style="fill-rule: evenodd; clip-rule: evenodd; fill: #663;" d="M6.5,5.5c0,0.2749023-0.4501953,0.5-1,0.5H4
-					C3.4501953,6,3,5.7749023,3,5.5S3.4501953,5,4,5h1.5C6.0498047,5,6.5,5.2250977,6.5,5.5z"/>
+			<g id="Glasses">
+				<path id="Glasses" style="fill: #000;" d="M15,5l-0.25-1H0.25L0,5h1.3334961l0.6669922,2c0,0,1.253418,0.5,2.4995117,0.5
+					C5.7539062,7.5,7.0004883,7,7.0004883,7l0.3330078-2h0.3334961l0.3334961,2c0,0,1.2563477,0.5,2.4995117,0.5
+					C11.7558594,7.5,13,7,13,7l0.6669922-2H15z"/>
+				<path id="ShineR" style="fill: #ccc;" d="M11.0019531,4L7.9995117,7c0,0,0.7480469,0.2978516,1.0092773,0.3574219
+					c0.3017578,0.0688477,1.2304688,0.1352539,1.2304688,0.1352539L12.328125,4H11.0019531z"/>
+				<path id="ShineL" style="fill: #ccc;" d="M5.003418,4L2.0004883,7c0,0,0.7480469,0.2973633,1.0092773,0.3574219
+					C3.293457,7.4223633,4.1650391,7.4873047,4.1650391,7.4873047L6.3295898,4H5.003418z"/>
 			</g>
 		</g>
 	</g>
