@@ -29,6 +29,6 @@ class Smiley extends DatabaseObject {
 	 * @return	string
 	 */
 	public function getURL() {
-		return \wcf\system\style\StyleHandler::getInstance()->getStyle()->getIconPath($this->smileyPath);
+		return RELATIVE_WCF_DIR.$this->smileyPath;
 	}
 }
