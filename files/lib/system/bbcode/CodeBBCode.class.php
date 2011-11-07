@@ -25,7 +25,7 @@ class CodeBBCode extends AbstractBBCode {
 			
 			// show template
 			WCF::getTPL()->assign(array(
-				'lineNumbers' => self::makeLineNumbers($content, selfgetLineNumbersStart($openingTag)),
+				'lineNumbers' => self::makeLineNumbers($content, self::getLineNumbersStart($openingTag)),
 				'content' => $content,
 				'codeBoxName' => WCF::getLanguage()->get('wcf.bbcode.code.title')
 			));
