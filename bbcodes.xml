@@ -67,7 +67,7 @@
 			<attributes>
 				<attribute name="0">
 					<html>style="color: %s"</html>
-					<validationpattern>^[0-9a-z#]+$</validationpattern>
+					<validationpattern>^(#([0-9a-z]{3}|[0-9a-z]{6})|[a-z]+)$</validationpattern>
 					<required>1</required>
 				</attribute>
 			</attributes>
