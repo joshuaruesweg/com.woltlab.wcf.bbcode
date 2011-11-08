@@ -1,4 +1,4 @@
-<blockquote class="quoteBox container-4"{if $quoteLink} cite="{$quoteLink}"{/if}>
+<blockquote class="quoteBox"{if $quoteLink} cite="{$quoteLink}"{/if}>
 	<div class="quoteHeader">
 		<h3><img src="{icon}quoteS.png{/icon}" alt="" />
 		{if $quoteAuthor}
