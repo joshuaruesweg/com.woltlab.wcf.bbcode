@@ -3,8 +3,8 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16" xml:space="preserve">
 	
-	<title>Kissing</title> 
-	<desc>Kissing Smiley</desc> 
+	<title>Kiss</title>
+	<desc>Kiss Smiley</desc>
 	
 	<!--
 		@author		Harald Szekely 
@@ -42,7 +42,7 @@
 	</g>
 	
 	<g id="SmileyFace">
-		<g id="KissingSmiley">
+		<g id="KissSmiley">
 			<g id="Mouth">
 				<path id="Frame" style="fill-rule: evenodd; clip-rule: evenodd; fill: #663;" d="M9.0537109,9.2705078
 					c-0.8745117-1.1865234-1.3793945-0.0625-1.5541992,0.1728516c-0.1767578-0.2353516-0.6796875-1.359375-1.5556641-0.1728516
