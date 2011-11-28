@@ -1,16 +1,17 @@
 <blockquote class="quoteBox"{if $quoteLink} cite="{$quoteLink}"{/if}>
 	<div class="quoteHeader">
-		<h3><img src="{icon}quoteS.png{/icon}" alt="" />
-		{if $quoteAuthor}
-			{if $quoteLink}
-				<a href="{@$quoteLink}">{lang}wcf.bbcode.quote.title{/lang}</a>
+		<h1>
+			<img src="{icon}quote1.svg{/icon}" alt="" />
+			{if $quoteAuthor}
+				{if $quoteLink}
+					<a href="{@$quoteLink}">{lang}wcf.bbcode.quote.title{/lang}</a>
+				{else}
+					{lang}wcf.bbcode.quote.title{/lang}
+				{/if}
 			{else}
 				{lang}wcf.bbcode.quote.title{/lang}
 			{/if}
-		{else}
-			{lang}wcf.bbcode.quote.title{/lang}
-		{/if}
-		</h3>
+		</h1>
 	</div>
 	<div class="quoteBody">
 		{@$content}
