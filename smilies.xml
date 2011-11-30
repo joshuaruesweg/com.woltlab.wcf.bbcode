@@ -94,8 +94,8 @@
 			<path>images/smilies/smileyEgg.svg</path>
 		</smiley>
 		<smiley name=":skull:">
-			<title>Question</title>
-			<path>images/smilies/smileyQuestion.svg</path>
+			<title>Skull</title>
+			<path>images/smilies/smileySkull.svg</path>
 		</smiley>
 		<smiley name=":*:">
 			<title>Star</title>
