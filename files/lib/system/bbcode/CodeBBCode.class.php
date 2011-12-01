@@ -26,6 +26,7 @@ class CodeBBCode extends AbstractBBCode {
 			$className = '\wcf\system\bbcode\highlighter\PlainHighlighter';
 			if (!empty($openingTag['attributes'][0]) && !is_numeric($openingTag['attributes'][0])) {
 				$className = '\wcf\system\bbcode\highlighter\\'.StringUtil::firstCharToUpperCase($openingTag['attributes'][0]).'Highlighter';
+				if ($className == '\wcf\system\bbcode\highlighter\C++Highlighter') $className = '\wcf\system\bbcode\highlighter\CHighlighter';
 			}
 			else {
 				// try to guess highlighter
@@ -36,6 +37,12 @@ class CodeBBCode extends AbstractBBCode {
 				else if (StringUtil::indexOf($content, 'UPDATE') === 0) $className = '\wcf\system\bbcode\highlighter\SqlHighlighter';
 				else if (StringUtil::indexOf($content, 'INSERT') === 0) $className = '\wcf\system\bbcode\highlighter\SqlHighlighter';
 				else if (StringUtil::indexOf($content, 'DELETE') === 0) $className = '\wcf\system\bbcode\highlighter\SqlHighlighter';
+			}
+			
+			if (!class_exists($className)) {
+				$className = '\wcf\system\bbcode\highlighter\PlainHighlighter';
+				// TODO: Language-item, or remove?
+				$content = "// Highlighter not found\n".$content;
 			}
 			
 			// show template
