@@ -6,7 +6,7 @@ use wcf\util\StringUtil;
 /**
  * Parses the [code] bbcode tag.
  * 
- * @author	Marcel Werk
+ * @author	Tim Düsterhus, Marcel Werk
  * @copyright	2001-2011 WoltLab GmbH
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @package	com.woltlab.wcf.bbcode
@@ -21,13 +21,23 @@ class CodeBBCode extends AbstractBBCode {
 		if ($parser->getOutputType() == 'text/html') {	
 			// encode html
 			$content = self::trim($content);
-			$content = StringUtil::encodeHTML($content);
+			
+			// fetch highlighter-classname
+			$className = '\wcf\system\bbcode\highlighter\PlainHighlighter';
+			if (!empty($openingTag['attributes'][0]) && !is_numeric($openingTag['attributes'][0])) {
+				$className = '\wcf\system\bbcode\highlighter\\'.StringUtil::firstCharToUpperCase($openingTag['attributes'][0]).'Highlighter';
+			}
+			else {
+				// try to guess highlighter
+				if (StringUtil::indexOf($content, '<?php') === false) $className = '\wcf\system\bbcode\highlighter\PhpHighlighter';
+				else if (StringUtil::indexOf($content, '<html') === false) $className = '\wcf\system\bbcode\highlighter\HtmlHighlighter';
+			}
 			
 			// show template
 			WCF::getTPL()->assign(array(
 				'lineNumbers' => self::makeLineNumbers($content, self::getLineNumbersStart($openingTag)),
-				'content' => $content,
-				'codeBoxName' => WCF::getLanguage()->get('wcf.bbcode.code.title')
+				'content' => $className::getInstance()->highlight($content),
+				'codeBoxName' => $className::getInstance()->getTitle()
 			));
 			return WCF::getTPL()->fetch('codeBBCodeTag', array(), false);
 		}
@@ -45,9 +55,15 @@ class CodeBBCode extends AbstractBBCode {
 	protected static function getLineNumbersStart(array $openingTag) {
 		$start = 1;
 		if (!empty($openingTag['attributes'][0])) {
-			$start = intval($openingTag['attributes'][0]);
-			if ($start < 1) $start = 1;
+			if (is_numeric($openingTag['attributes'][0])) {
+				$start = intval($openingTag['attributes'][0]);
+			}
+			else if (!empty($openingTag['attributes'][1])) {
+				$start = intval($openingTag['attributes'][1]);
+			}
 		}
+		
+		if ($start < 1) $start = 1;
 		
 		return $start;
 	}
