@@ -246,7 +246,7 @@ abstract class Highlighter extends SingletonFactory {
 			$hash = '§§'.StringUtil::getHash(uniqid(microtime()).$comment).'§§';
 			
 			// save
-			$this->cachedComments[$hash] = '<span style="'.$this->style['comments'].'">'.$this->encodeHTML($comment).'</span>';
+			$this->cachedComments[$hash] = '<span style="'.$this->style['comments'].'">'.StringUtil::encodeHTML($comment).'</span>';
 		}
 			
 		return $string.$hash;
@@ -263,7 +263,7 @@ abstract class Highlighter extends SingletonFactory {
 		$hash = '§§'.StringUtil::getHash(uniqid(microtime()).$quote).'§§';
 		
 		// save
-		$this->cachedQuotes[$hash] = '<span style="'.$this->style['quotes'].'">'.$this->encodeHTML($quote).'</span>';
+		$this->cachedQuotes[$hash] = '<span style="'.$this->style['quotes'].'">'.StringUtil::encodeHTML($quote).'</span>';
 		
 		return $hash;
 	}
