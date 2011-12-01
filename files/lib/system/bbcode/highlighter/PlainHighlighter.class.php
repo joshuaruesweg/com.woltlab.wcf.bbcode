@@ -5,8 +5,8 @@ use \wcf\util\StringUtil;
 /**
  * Does no highlighting.
  * 
- * @author	Tim Düsterhus, Marcel Werk
- * @copyright	2001-2011 WoltLab GmbH
+ * @author	Tim Düsterhus
+ * @copyright	2011 Tim Düsterhus
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @package	com.woltlab.wcf.bbcode
  * @subpackage	system.bbcode.highlighter

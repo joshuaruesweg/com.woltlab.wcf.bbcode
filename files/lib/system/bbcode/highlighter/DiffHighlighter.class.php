@@ -6,7 +6,7 @@ use \wcf\util\StringUtil;
  * Highlights difference-files.
  * 
  * @author	Tim Düsterhus
- * @copyright	2001-2011 WoltLab GmbH
+ * @copyright	2011 Tim Düsterhus
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @package	com.woltlab.wcf.bbcode
  * @subpackage	system.bbcode.highlighter
