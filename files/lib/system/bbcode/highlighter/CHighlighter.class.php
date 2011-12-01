@@ -96,4 +96,3 @@ class CHighlighter extends Highlighter {
 		'wchar_t'
 	);
 }
-?>

@@ -373,4 +373,3 @@ class SqlHighlighter extends Highlighter {
 		'YEAR'
 	);
 }
-?>

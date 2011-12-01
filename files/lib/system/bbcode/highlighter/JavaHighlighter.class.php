@@ -92,4 +92,3 @@ class JavaHighlighter extends Highlighter {
 		'ArrayList'
 	);
 }
-?>
