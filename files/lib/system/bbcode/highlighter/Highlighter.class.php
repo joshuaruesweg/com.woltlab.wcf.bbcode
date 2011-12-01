@@ -243,7 +243,7 @@ abstract class Highlighter extends SingletonFactory {
 			$comment = str_replace("\\\"", "\"", $comment);
 			
 			// create hash
-			$hash = '§§'.StringUtil::getHash(uniqid(microtime()).$comment).'§§';
+			$hash = '@@'.StringUtil::getHash(uniqid(microtime()).$comment).'@@';
 			
 			// save
 			$this->cachedComments[$hash] = '<span style="'.$this->style['comments'].'">'.StringUtil::encodeHTML($comment).'</span>';
@@ -260,7 +260,7 @@ abstract class Highlighter extends SingletonFactory {
 		$quote = str_replace("\\\"", "\"", $quote);
 		
 		// create hash
-		$hash = '§§'.StringUtil::getHash(uniqid(microtime()).$quote).'§§';
+		$hash = '@@'.StringUtil::getHash(uniqid(microtime()).$quote).'@@';
 		
 		// save
 		$this->cachedQuotes[$hash] = '<span style="'.$this->style['quotes'].'">'.StringUtil::encodeHTML($quote).'</span>';
@@ -268,4 +268,3 @@ abstract class Highlighter extends SingletonFactory {
 		return $hash;
 	}
 }
-?>
