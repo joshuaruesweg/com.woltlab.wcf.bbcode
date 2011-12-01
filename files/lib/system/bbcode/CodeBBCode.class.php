@@ -29,7 +29,7 @@ class CodeBBCode extends AbstractBBCode {
 				'content' => $content,
 				'codeBoxName' => WCF::getLanguage()->get('wcf.bbcode.code.title')
 			));
-			return WCF::getTPL()->fetch('codeBBCodeTag');
+			return WCF::getTPL()->fetch('codeBBCodeTag', array(), false);
 		}
 		else if ($parser->getOutputType() == 'text/plain') {
 			return WCF::getLanguage()->getDynamicVariable('wcf.bbcode.code.text', array('content' => $content));

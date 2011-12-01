@@ -88,7 +88,9 @@ class BBCodePackageInstallationPlugin extends AbstractXMLPackageInstallationPlug
 			'textClose' => (!empty($data['elements']['textclose']) ? $data['elements']['textclose'] : ''),
 			'allowedChildren' => (!empty($data['elements']['allowedchildren']) ? $data['elements']['allowedchildren'] : 'all'),
 			'wysiwygIcon' => (!empty($data['elements']['wysiwygicon']) ? $data['elements']['wysiwygicon'] : ''),
-			'attributes' => (isset($data['elements']['attributes']) ? $data['elements']['attributes'] : array())
+			'attributes' => (isset($data['elements']['attributes']) ? $data['elements']['attributes'] : array()),
+			'className' => (!empty($data['elements']['classname']) ? $data['elements']['classname'] : ''),
+			'isSourceCode' => (!empty($data['elements']['sourcecode']) ? 1 : 0),
 		);
 	}
 	

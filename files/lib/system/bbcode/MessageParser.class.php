@@ -145,21 +145,23 @@ class MessageParser extends BBCodeParser {
 					(?:,(?:\'[^\'\\\\]*(?:\\\\.[^\'\\\\]*)*\'|[^,\]]*))*
 				)?\])
 				(.*?)
-				(?:\[/\\2\])~six", function ($matches) {
-					// create hash
-					$hash = '@@'.StringUtil::getHash(uniqid(microtime()).$matches[3]).'@@';
-					
-					// build tag
-					$tag = $this->buildTag($matches[1]);
-					$tag['content'] = $matches[3];
-					
-					// save tag
-					$this->cachedCodes[$hash] = $tag;
-					
-					return $hash;
-				}, $text);
+				(?:\[/\\2\])~six", array($this, 'cacheCodesCallback'), $text);
 		}
 		return $text;
+	}
+	
+	protected function cacheCodesCallback($matches) {
+		// create hash
+		$hash = '@@'.StringUtil::getHash(uniqid(microtime()).$matches[3]).'@@';
+		
+		// build tag
+		$tag = $this->buildTag($matches[1]);
+		$tag['content'] = $matches[3];
+		
+		// save tag
+		$this->cachedCodes[$hash] = $tag;
+		
+		return $hash;
 	}
 	
 	/**
@@ -171,7 +173,7 @@ class MessageParser extends BBCodeParser {
 	protected function insertCachedCodes($text) {
 		foreach ($this->cachedCodes as $hash => $tag) {
 			// build code and insert
-			$text = str_replace($hash, $this->bbcodes[$tag['name']]->getParsedTag($tag, $tag['content'], $tag, $this), $text);
+			$text = str_replace($hash, $this->bbcodes[$tag['name']]->getProcessor()->getParsedTag($tag, $tag['content'], $tag, $this), $text);
 		}
 		
 		return $text;

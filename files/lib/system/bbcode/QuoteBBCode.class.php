@@ -23,7 +23,7 @@ class QuoteBBCode extends AbstractBBCode {
 				'quoteLink' => (!empty($openingTag['attributes'][1]) ? $openingTag['attributes'][1] : ''),
 				'quoteAuthor' => (!empty($openingTag['attributes'][0]) ? $openingTag['attributes'][0] : '')
 			));
-			return WCF::getTPL()->fetch('quoteBBCodeTag');
+			return WCF::getTPL()->fetch('quoteBBCodeTag', array(), false);
 		}
 		else if ($parser->getOutputType() == 'text/plain') {
 			$cite = '';
