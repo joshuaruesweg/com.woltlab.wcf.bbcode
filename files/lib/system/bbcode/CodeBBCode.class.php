@@ -29,8 +29,9 @@ class CodeBBCode extends AbstractBBCode {
 			}
 			else {
 				// try to guess highlighter
-				if (StringUtil::indexOf($content, '<?php') === false) $className = '\wcf\system\bbcode\highlighter\PhpHighlighter';
-				else if (StringUtil::indexOf($content, '<html') === false) $className = '\wcf\system\bbcode\highlighter\HtmlHighlighter';
+				if (StringUtil::indexOf($content, '<?php') !== false) $className = '\wcf\system\bbcode\highlighter\PhpHighlighter';
+				else if (StringUtil::indexOf($content, '<html') !== false) $className = '\wcf\system\bbcode\highlighter\HtmlHighlighter';
+				else if (StringUtil::indexOf($content, '<?xml') === 0) $className = '\wcf\system\bbcode\highlighter\XmlHighlighter';
 			}
 			
 			// show template
