@@ -40,7 +40,7 @@ class CodeBBCode extends AbstractBBCode {
 				else if (StringUtil::indexOf($content, 'INSERT') === 0) $className = '\wcf\system\bbcode\highlighter\SqlHighlighter';
 				else if (StringUtil::indexOf($content, 'DELETE') === 0) $className = '\wcf\system\bbcode\highlighter\SqlHighlighter';
 				else if (StringUtil::indexOf($content, 'import java.') !== false) $className = '\wcf\system\bbcode\highlighter\JavaHighlighter';
-				else if (StringUtil::indexOf($content, "---") !== false && StringUtil::indexOf($content, "n+++") !== false) $className = '\wcf\system\bbcode\highlighter\DiffHighlighter';
+				else if (StringUtil::indexOf($content, "---") !== false && StringUtil::indexOf($content, "\n+++") !== false) $className = '\wcf\system\bbcode\highlighter\DiffHighlighter';
 			}
 			
 			if (!class_exists($className)) {
