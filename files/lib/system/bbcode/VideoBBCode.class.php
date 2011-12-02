@@ -1,5 +1,6 @@
 <?php
 namespace wcf\system\bbcode;
+use wcf\data\bbcode\video\VideoProvider;
 use wcf\system\WCF;
 use wcf\util\StringUtil;
 
@@ -20,40 +21,14 @@ class VideoBBCode extends AbstractBBCode {
 	public function getParsedTag(array $openingTag, $content, array $closingTag, BBCodeParser $parser) {
 		if ($parser->getOutputType() == 'text/html') {	
 			$content = StringUtil::trim($content);
-			if (preg_match('~^https?://(?:.+\.)?youtu(?:\.be/|be\.com/watch\?(?:.*)v=)([a-zA-Z0-9_-]+?)~', $content, $matches)) {
-				// matches *.youtube.com/watch?[...]v=ID
-				// matches youtu.be/ID
-				$provider = 'youtube';
-				$videoID = $matches[1];
-			}
-			else if (preg_match('~^http://www\.myvideo.de/watch/(\d+)/~', $content, $matches)) {
-				// matches www.myvideo.de/watch/ID/title
-				$provider = 'myvideo';
-				$videoID = $matches[1];
-			}
-			else if (preg_match('~^http://www\.clipfish.de/.*/(\d+)/.+/~', $content, $matches)) {
-				// matches www.clipfish.de/category/ID/title
-				$provider = 'clipfish';
-				$videoID = $matches[1];
-			}
-			else if (preg_match('~^http://vimeo.com/(\d+)', $content, $matches)) {
-				// matches vimeo.com/ID
-				$provider = 'vimeo';
-				$videoID = $matches[1];
-			}
-			else if (preg_match('^~http://www\.veoh.com/watch/v([a-zA-Z0-9]+)', $content, $matches)) {
-				// matches www.veoh.com/watch/vID
-				$provider = 'veoh';
-				$videoID = $matches[1];
+			$providers = VideoProvider::getCache();
+			foreach ($providers as $provider) {
+				if ($provider->matches($content)) {
+					return $provider->getOutput($content);
+				}
 			}
 			
-			
-			// show template
-			WCF::getTPL()->assign(array(
-				'videoID' => $videoID,
-				'provider' => $provider
-			));
-			return WCF::getTPL()->fetch('videoBBCodeTag', array(), false);
+			return '';
 		}
 		else if ($parser->getOutputType() == 'text/plain') {
 			return WCF::getLanguage()->getDynamicVariable('wcf.bbcode.code.text', array('content' => $content));
