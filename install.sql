@@ -28,6 +28,13 @@ CREATE TABLE wcf1_bbcode_attribute (
 	UNIQUE KEY attributeNo (bbcodeID, attributeNo)
 );
 
+DROP TABLE IF EXISTS wcf1_bbcode_video_provider;
+CREATE TABLE wcf1_bbcode_video_provider (
+	providerID INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	regex TEXT NOT NULL,
+	html TEXT NOT NULL
+);
+
 DROP TABLE IF EXISTS wcf1_smiley;
 CREATE TABLE wcf1_smiley (
 	smileyID INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
