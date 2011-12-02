@@ -25,8 +25,10 @@ class CodeBBCode extends AbstractBBCode {
 			// fetch highlighter-classname
 			$className = '\wcf\system\bbcode\highlighter\PlainHighlighter';
 			if (!empty($openingTag['attributes'][0]) && !is_numeric($openingTag['attributes'][0])) {
-				$className = '\wcf\system\bbcode\highlighter\\'.StringUtil::firstCharToUpperCase($openingTag['attributes'][0]).'Highlighter';
+				$className = '\wcf\system\bbcode\highlighter\\'.StringUtil::firstCharToUpperCase(StringUtil::toLowerCase($openingTag['attributes'][0])).'Highlighter';
+				
 				if ($className == '\wcf\system\bbcode\highlighter\C++Highlighter') $className = '\wcf\system\bbcode\highlighter\CHighlighter';
+				else if ($className == '\wcf\system\bbcode\highlighter\JavascriptHighlighter') $className = '\wcf\system\bbcode\highlighter\JsHighlighter';
 			}
 			else {
 				// try to guess highlighter
