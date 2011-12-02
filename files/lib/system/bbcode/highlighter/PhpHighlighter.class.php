@@ -3,7 +3,7 @@ namespace wcf\system\bbcode\highlighter;
 use \wcf\util\StringUtil;
 
 /**
- * Does PHP-highlighting.
+ * Highlights syntax of PHP sourcecode.
  * 
  * @author	Tim Düsterhus, Marcel Werk
  * @copyright	2001-2011 WoltLab GmbH

@@ -2,7 +2,7 @@
 namespace wcf\system\bbcode\highlighter;
 
 /**
- * Highlights perl sourcecode
+ * Highlights syntax of Perl sourcecode.
  *
  * @author	Tim Düsterhus
  * @copyright	2011 Tim Düsterhus

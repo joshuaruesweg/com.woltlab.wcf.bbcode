@@ -2,7 +2,7 @@
 namespace wcf\system\bbcode\highlighter;
 
 /**
- * Does XML-highlighting.
+ * Highlights syntax of xml sourcecode.
  * 
  * @author	Tim Düsterhus, Michael Schaefer
  * @copyright	2001-2011 WoltLab GmbH

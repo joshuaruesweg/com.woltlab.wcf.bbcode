@@ -2,7 +2,7 @@
 namespace wcf\system\bbcode\highlighter;
 
 /**
- * Does CSS-highlighting.
+ * Highlights syntax of cascading style sheets.
  * 
  * @author	Tim Düsterhus, Michael Schaefer
  * @copyright	2001-2011 WoltLab GmbH

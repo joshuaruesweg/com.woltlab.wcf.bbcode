@@ -2,7 +2,7 @@
 namespace wcf\system\bbcode\highlighter;
 
 /**
- * Does JavaScript-highlighting.
+ * Highlights syntax of JavaScript Source-Code
  * 
  * @author	Tim Düsterhus, Michael Schaefer
  * @copyright	2001-2011 WoltLab GmbH
