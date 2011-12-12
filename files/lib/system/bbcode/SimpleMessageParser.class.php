@@ -6,7 +6,7 @@ use wcf\util\ArrayUtil;
 use wcf\util\StringUtil;
 
 /**
- * Parses urls and smileys in simple messages.
+ * Parses urls and smilies in simple messages.
  * 
  * @author	Marcel Werk
  * @copyright	2001-2011 WoltLab GmbH
@@ -65,10 +65,10 @@ class SimpleMessageParser extends SingletonFactory {
 	 * 
 	 * @param	string		$message
 	 * @param	boolean		$parseURLs
-	 * @param	boolean		$parseSmileys
+	 * @param	boolean		$parseSmilies
 	 * @return	string		parsed message
 	 */
-	public function parse($message, $parseURLs = true, $parseSmileys = true) {
+	public function parse($message, $parseURLs = true, $parseSmilies = true) {
 		// encode html
 		$message = StringUtil::encodeHTML($message);
 		
@@ -81,8 +81,8 @@ class SimpleMessageParser extends SingletonFactory {
 		}
 		
 		// parse smilies
-		if ($parseSmileys) {
-			$message = $this->parseSmileys($message);
+		if ($parseSmilies) {
+			$message = $this->parseSmilies($message);
 		}
 		
 		$badSearch = array('/(javascript):/i', '/(about):/i', '/(vbscript):/i');
@@ -160,8 +160,8 @@ class SimpleMessageParser extends SingletonFactory {
 	 * @param	string		$text
 	 * @return	string		text
 	 */
-	public function parseSmileys($text) {
-		foreach ($this->smileys as $code => $html) {
+	public function parseSmilies($text) {
+		foreach ($this->smilies as $code => $html) {
 			$text = preg_replace('~(?<!&\w{2}|&\w{3}|&\w{4}|&\w{5}|&\w{6}|&#\d{2}|&#\d{3}|&#\d{4}|&#\d{5})'.preg_quote(StringUtil::encodeHTML($code), '~').'(?![^<]*>)~', $html, $text);
 		}
 		
