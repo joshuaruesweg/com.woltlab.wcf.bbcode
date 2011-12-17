@@ -128,23 +128,7 @@ class SimpleMessageParser extends SingletonFactory {
 			~ix';
 		
 		// parse urls
-		$text = preg_replace_callback($urlPattern, function ($matches) {
-			$url = $title = $matches[0];
-			$decodedTitle = StringUtil::decodeHTML($title);
-			if (StringUtil::length($decodedTitle) > 60) {
-				$title = StringUtil::encodeHTML(StringUtil::substring($decodedTitle, 0, 40)) . '&hellip;' . StringUtil::encodeHTML(StringUtil::substring($decodedTitle, -15));
-			}
-			// add protocol if necessary
-			if (!preg_match("/[a-z]:\/\//si", $url)) $url = 'http://'.$url;
-			
-			$external = true;
-			if (($newURL = $this->isInternalURL($url)) !== false) {
-				$url = $newURL;
-				$external = false;
-			}
-			
-			return '<a href="'.$url.'"'.($external ? ' class="externalURL"' : '').'>'.$title.'</a>';
-		}, $text);
+		$text = preg_replace_callback($urlPattern, array($this, 'parseURLsCallback'), $text);
 		
 		// parse emails
 		if (StringUtil::indexOf($text, '@') !== false) {
@@ -152,6 +136,29 @@ class SimpleMessageParser extends SingletonFactory {
 		}
 	
 		return $text;
+	}
+	
+	/**
+	 * Callback for preg_replace.
+	 *
+	 * @see	\wcf\system\bbcode\SimpleMessageParser::parseURLs()
+	 */
+	protected function parseURLsCallback($matches) {
+		$url = $title = $matches[0];
+		$decodedTitle = StringUtil::decodeHTML($title);
+		if (StringUtil::length($decodedTitle) > 60) {
+			$title = StringUtil::encodeHTML(StringUtil::substring($decodedTitle, 0, 40)) . '&hellip;' . StringUtil::encodeHTML(StringUtil::substring($decodedTitle, -15));
+		}
+		// add protocol if necessary
+		if (!preg_match("~[a-z]://~si", $url)) $url = 'http://'.$url;
+		
+		$external = true;
+		if (($newURL = $this->isInternalURL($url)) !== false) {
+			$url = $newURL;
+			$external = false;
+		}
+		
+		return '<a href="'.$url.'"'.($external ? ' class="externalURL"' : '').'>'.$title.'</a>';
 	}
 	
 	/**
