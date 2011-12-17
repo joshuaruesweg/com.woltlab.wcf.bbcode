@@ -30,7 +30,7 @@ class SmileyCache extends SingletonFactory {
 	 * @see	wcf\system\SingletonFactory::init()
 	 */
 	protected function init() {
-		// get board cache
+		// get smiley cache
 		CacheHandler::getInstance()->addResource('smiley', WCF_DIR.'cache/cache.smiley.php', 'wcf\system\cache\builder\SmileyCacheBuilder');
 		$this->cachedSmilies = CacheHandler::getInstance()->get('smiley', 'smilies');
 		$this->cachedCategories = CacheHandler::getInstance()->get('smiley', 'categories');
