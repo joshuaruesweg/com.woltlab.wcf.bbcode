@@ -28,6 +28,13 @@ CREATE TABLE wcf1_bbcode_attribute (
 	UNIQUE KEY attributeNo (bbcodeID, attributeNo)
 );
 
+DROP TABLE IF EXISTS wcf1_bbcode_video_provider;
+CREATE TABLE wcf1_bbcode_video_provider (
+	providerID INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	regex TEXT NOT NULL,
+	html TEXT NOT NULL
+);
+
 DROP TABLE IF EXISTS wcf1_smiley;
 CREATE TABLE wcf1_smiley (
 	smileyID INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -55,3 +62,9 @@ ALTER TABLE wcf1_bbcode_attribute ADD FOREIGN KEY (bbcodeID) REFERENCES wcf1_bbc
 
 ALTER TABLE wcf1_smiley ADD FOREIGN KEY (packageID) REFERENCES wcf1_package (packageID) ON DELETE CASCADE;
 ALTER TABLE wcf1_smiley ADD FOREIGN KEY (smileyCategoryID) REFERENCES wcf1_smiley_category (smileyCategoryID) ON DELETE SET NULL;
+
+-- video providers
+-- Youtube
+INSERT INTO wcf1_bbcode_video_provider (regex, html) VALUES ('~^https?://(?:.+\.)?youtu(?:\.be/|be\.com/watch\?(?:.*)v=)(?<ID>[a-zA-Z0-9_-]+?)~U', '<iframe width="420" height="315" src="http://www.youtube.com/embed/{$ID}" frameborder="0" allowfullscreen></iframe>');
+-- Vimeo
+INSERT INTO wcf1_bbcode_video_provider (regex, html) VALUES ('~http://vimeo.com/(?<ID>\d+)~', '<iframe src="http://player.vimeo.com/video/{$ID}" width="400" height="225" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>');
