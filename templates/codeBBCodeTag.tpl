@@ -11,7 +11,7 @@
 			</tr>
 			<tr>
 				<td class="codeLineNumbers">
-					<pre>{$lineNumbers}</pre>
+					<pre>{@$lineNumbers}</pre>
 				</td>
 				<td class="codeLines">
 					<pre>{@$content}</pre>
