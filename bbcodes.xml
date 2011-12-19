@@ -2,26 +2,26 @@
 <data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/bbcode.xsd">
 	<import>
 		<bbcode name="b">
-			<htmlopen>strong</htmlopen>
-			<htmlclose>strong</htmlclose>
+			<htmlopen>b</htmlopen>
+			<htmlclose>b</htmlclose>
 			<textopen>*</textopen>
 			<textclose>*</textclose>
 			<allowedchildren>all^b</allowedchildren>
 			<wysiwygicon>fontStyleBoldM.png</wysiwygicon>
 		</bbcode>
 		<bbcode name="i">
-			<htmlopen>em</htmlopen>
-			<htmlclose>em</htmlclose>
-			<textopen>_</textopen>
-			<textclose>_</textclose>
+			<htmlopen>i</htmlopen>
+			<htmlclose>i</htmlclose>
+			<textopen>/</textopen>
+			<textclose>/</textclose>
 			<allowedchildren>all^i</allowedchildren>
 			<wysiwygicon>fontStyleItalicM.png</wysiwygicon>
 		</bbcode>
 		<bbcode name="u">
 			<htmlopen>span style="text-decoration: underline"</htmlopen>
 			<htmlclose>span</htmlclose>
-			<textopen></textopen>
-			<textclose></textclose>
+			<textopen>_</textopen>
+			<textclose>_</textclose>
 			<allowedchildren>all^u</allowedchildren>
 			<wysiwygicon>fontStyleUnderlineM.png</wysiwygicon>
 		</bbcode>
