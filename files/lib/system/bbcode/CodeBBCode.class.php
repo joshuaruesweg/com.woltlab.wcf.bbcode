@@ -6,7 +6,7 @@ use wcf\util\StringUtil;
 /**
  * Parses the [code] bbcode tag.
  * 
- * @author	Marcel Werk
+ * @author	Tim Düsterhus, Marcel Werk
  * @copyright	2001-2011 WoltLab GmbH
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @package	com.woltlab.wcf.bbcode
@@ -28,13 +28,39 @@ class CodeBBCode extends AbstractBBCode {
 		if ($parser->getOutputType() == 'text/html') {	
 			// encode html
 			$content = self::trim($content);
-			$content = StringUtil::encodeHTML($content);
+			
+			// fetch highlighter-classname
+			$className = '\wcf\system\bbcode\highlighter\PlainHighlighter';
+			if (!empty($openingTag['attributes'][0]) && !is_numeric($openingTag['attributes'][0])) {
+				$className = '\wcf\system\bbcode\highlighter\\'.StringUtil::firstCharToUpperCase(StringUtil::toLowerCase($openingTag['attributes'][0])).'Highlighter';
+				
+				if ($className == '\wcf\system\bbcode\highlighter\C++Highlighter') $className = '\wcf\system\bbcode\highlighter\CHighlighter';
+				else if ($className == '\wcf\system\bbcode\highlighter\JavascriptHighlighter') $className = '\wcf\system\bbcode\highlighter\JsHighlighter';
+			}
+			else {
+				// try to guess highlighter
+				if (StringUtil::indexOf($content, '<?php') !== false) $className = '\wcf\system\bbcode\highlighter\PhpHighlighter';
+				else if (StringUtil::indexOf($content, '<html') !== false) $className = '\wcf\system\bbcode\highlighter\HtmlHighlighter';
+				else if (StringUtil::indexOf($content, '<?xml') === 0) $className = '\wcf\system\bbcode\highlighter\XmlHighlighter';
+				else if (StringUtil::indexOf($content, 'SELECT') === 0) $className = '\wcf\system\bbcode\highlighter\SqlHighlighter';
+				else if (StringUtil::indexOf($content, 'UPDATE') === 0) $className = '\wcf\system\bbcode\highlighter\SqlHighlighter';
+				else if (StringUtil::indexOf($content, 'INSERT') === 0) $className = '\wcf\system\bbcode\highlighter\SqlHighlighter';
+				else if (StringUtil::indexOf($content, 'DELETE') === 0) $className = '\wcf\system\bbcode\highlighter\SqlHighlighter';
+				else if (StringUtil::indexOf($content, 'import java.') !== false) $className = '\wcf\system\bbcode\highlighter\JavaHighlighter';
+				else if (StringUtil::indexOf($content, "---") !== false && StringUtil::indexOf($content, "\n+++") !== false) $className = '\wcf\system\bbcode\highlighter\DiffHighlighter';
+			}
+			
+			if (!class_exists($className)) {
+				$className = '\wcf\system\bbcode\highlighter\PlainHighlighter';
+				// TODO: Language-item, or remove?
+				$content = "// Highlighter not found\n".$content;
+			}
 			
 			// show template
 			WCF::getTPL()->assign(array(
 				'lineNumbers' => self::makeLineNumbers($content, self::getLineNumbersStart($openingTag)),
-				'content' => $content,
-				'codeBoxName' => WCF::getLanguage()->get('wcf.bbcode.code.title')
+				'content' => $className::getInstance()->highlight($content),
+				'codeBoxName' => $className::getInstance()->getTitle()
 			));
 			return WCF::getTPL()->fetch('codeBBCodeTag', array(), false);
 		}
@@ -52,9 +78,15 @@ class CodeBBCode extends AbstractBBCode {
 	protected static function getLineNumbersStart(array $openingTag) {
 		$start = 1;
 		if (!empty($openingTag['attributes'][0])) {
-			$start = intval($openingTag['attributes'][0]);
-			if ($start < 1) $start = 1;
+			if (is_numeric($openingTag['attributes'][0])) {
+				$start = intval($openingTag['attributes'][0]);
+			}
+			else if (!empty($openingTag['attributes'][1])) {
+				$start = intval($openingTag['attributes'][1]);
+			}
 		}
+		
+		if ($start < 1) $start = 1;
 		
 		return $start;
 	}
