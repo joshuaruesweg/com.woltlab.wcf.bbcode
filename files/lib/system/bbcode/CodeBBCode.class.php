@@ -15,6 +15,13 @@ use wcf\util\StringUtil;
  */
 class CodeBBCode extends AbstractBBCode {
 	/**
+	 * Keeps track of used code-ids to prevent duplicate IDs in Output
+	 * 
+	 * @var	array<string>
+	 */
+	private static $codeIDs = array();
+
+	/**
 	 * @see	wcf\system\bbcode\IBBCode::getParsedTag()
 	 */
 	public function getParsedTag(array $openingTag, $content, array $closingTag, BBCodeParser $parser) {
@@ -60,13 +67,24 @@ class CodeBBCode extends AbstractBBCode {
 	 * @return	string
 	 */
 	protected static function makeLineNumbers($code, $start, $split = "\n") {
-		$lines = explode($split, $code);	
+		$lines = explode($split, $code);
 		
 		$lineNumbers = '';
-		for ($i = 0, $j = count($lines); $i < $j; $i++) {
-			$lineNumbers .= ($i + $start) . "\n";
+		$i = -1;
+		// find an unused codeID
+		do {
+			$codeID = StringUtil::substring(StringUtil::getHash($code), 0, 6).(++$i ? '_'.$i : '');
 		}
-		return $lineNumbers;	
+		while(isset(self::$codeIDs[$codeID]));
+		// mark codeID as used
+		self::$codeIDs[$codeID] = true;
+		
+		for ($i = $start, $j = count($lines) + $start; $i < $j; $i++) {
+			$lineID = 'codeLine_'.$i.'_'.$codeID;
+			// insert $_SERVER['REQUEST_URI'] 'cause some browsers tend to prepend the base-href
+			$lineNumbers .= '<a id="'.$lineID.'" href="'.$_SERVER['REQUEST_URI'].'#'.$lineID.'">'.$i."</a>\n";
+		}
+		return $lineNumbers;
 	}
 	
 	/**
