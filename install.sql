@@ -67,4 +67,8 @@ ALTER TABLE wcf1_smiley ADD FOREIGN KEY (smileyCategoryID) REFERENCES wcf1_smile
 -- Youtube
 INSERT INTO wcf1_bbcode_video_provider (regex, html) VALUES ('~^https?://(?:.+\.)?youtu(?:\.be/|be\.com/watch\?(?:.*)v=)(?<ID>[a-zA-Z0-9_-]+?)~U', '<iframe width="420" height="315" src="http://www.youtube.com/embed/{$ID}" frameborder="0" allowfullscreen></iframe>');
 -- Vimeo
-INSERT INTO wcf1_bbcode_video_provider (regex, html) VALUES ('~http://vimeo.com/(?<ID>\d+)~', '<iframe src="http://player.vimeo.com/video/{$ID}" width="400" height="225" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>');
+INSERT INTO wcf1_bbcode_video_provider (regex, html) VALUES ('~http://vimeo.com/(?<ID>\\d+)~', '<iframe src="http://player.vimeo.com/video/{$ID}" width="400" height="225" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>');
+-- MyVideo
+INSERT INTO wcf1_bbcode_video_provider (regex, html) VALUES ('~http://www.myvideo.de/watch/(?<ID>\\d+)~', '<object style="width:611px;height:383px;" width="611" height="383"><embed src="http://www.myvideo.de/movie/{$ID}" width="611" height="383" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true"></embed><param name="movie" value="http://www.myvideo.de/movie/{$ID}"></param><param name="AllowFullscreen" value="true"></param><param name="AllowScriptAccess" value="always"></param></object>');
+-- Clipfish
+INSERT INTO wcf1_bbcode_video_provider (regex, html) VALUES ('~http://www.clipfish.de/video/(?<ID>\\d+)/~', '<div style="width:464px; height:404px;"><div style="width:464px; height:384px;"><iframe src="http://www.clipfish.de/embed_video/?vid={$ID}&as=0&col=990000" name="Clipfish Embedded Video" width="464" height="384" align="left" marginheight="0" marginwidth="0" frameborder="0" scrolling="no"></iframe></div></div>');
