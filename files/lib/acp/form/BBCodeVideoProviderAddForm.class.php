@@ -1,6 +1,7 @@
 <?php
 namespace wcf\acp\form;
 use wcf\data\bbcode\video\VideoProviderAction;
+use wcf\system\exception\SystemException;
 use wcf\system\exception\UserInputException;
 use wcf\system\WCF;
 use wcf\util\StringUtil;
@@ -65,6 +66,15 @@ class BBCodeVideoProviderAddForm extends ACPForm {
 		}
 		if (empty($this->html)) {
 			throw new UserInputException('html');
+		}
+		
+		try {
+			$lines = explode("\n", StringUtil::unifyNewlines($this->regex));
+		
+			foreach ($lines as $line) preg_match($this->regex, '');
+		}
+		catch (SystemException $e) {
+			throw new UserInputException('regex', 'invalid');
 		}
 	}
 	
