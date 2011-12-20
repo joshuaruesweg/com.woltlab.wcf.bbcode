@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/acpMenu.xsd">
+	<import>
+		<acpmenuitem name="wcf.acp.menu.link.bbcode">
+			<parent>wcf.acp.menu.link.content</parent>
+		</acpmenuitem>
+		
+		<acpmenuitem name="wcf.acp.menu.link.bbcode.list">
+			<link>index.php/BBCodeList/</link>
+			<parent>wcf.acp.menu.link.bbcode</parent>
+			<permissions>admin.content.bbcode.canEditBBCode,admin.content.bbcode.canDeleteBBCode</permissions>
+			<showorder>1</showorder>
+		</acpmenuitem>
+
+		<acpmenuitem name="wcf.acp.menu.link.bbcode.add">
+			<link>index.php/BBCodeAdd/</link>
+			<parent>wcf.acp.menu.link.bbcode</parent>
+			<permissions>admin.content.bbcode.canAddBBCode</permissions>
+			<showorder>2</showorder>
+		</acpmenuitem>
+		
+		<acpmenuitem name="wcf.acp.menu.link.bbcode.videoprovider.list">
+			<link>index.php/BBCodeVideoProviderList/</link>
+			<parent>wcf.acp.menu.link.bbcode</parent>
+			<permissions>admin.content.bbcode.canEditVideoProvider,admin.content.bbcode.canDeleteVideoProvider</permissions>
+			<showorder>3</showorder>
+		</acpmenuitem>
+
+		<acpmenuitem name="wcf.acp.menu.link.bbcode.videoprovider.add">
+			<link>index.php/BBCodeVideoProviderAdd/</link>
+			<parent>wcf.acp.menu.link.bbcode</parent>
+			<permissions>admin.content.bbcode.canAddVideoProvider</permissions>
+			<showorder>4</showorder>
+		</acpmenuitem>
+	</import>
+</data>

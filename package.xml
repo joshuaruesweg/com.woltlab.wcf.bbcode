@@ -20,8 +20,11 @@
 		<instruction type="packageInstallationPlugin">pip.xml</instruction>
 		<instruction type="file">files.tar</instruction>
 		<instruction type="template">templates.tar</instruction>
+		<instruction type="acptemplate">acptemplates.tar</instruction>
 		<instruction type="sql">install.sql</instruction>
 		<instruction type="option">options.xml</instruction>
+		<instruction type="userGroupOption">userGroupOption.xml</instruction>
+		<instruction type="acpMenu">acpMenu.xml</instruction>
 		<instruction type="bbcode">bbcodes.xml</instruction>
 		<instruction type="smiley">smilies.xml</instruction>
 		<instruction type="templateListener">templatelistener.xml</instruction>
