@@ -460,7 +460,6 @@ class CssHighlighter extends Highlighter {
 	);
 
 	protected $keywords4 = array(
-		'title',
 		'abbr',
 		'acronym',
 		'address',
@@ -565,6 +564,7 @@ class CssHighlighter extends Highlighter {
 		'thead'
 		'th',
 		'time',
+		'title',
 		'track',
 		'tr',
 		'tt',
