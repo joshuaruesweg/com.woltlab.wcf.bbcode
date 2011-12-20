@@ -433,15 +433,30 @@ class CssHighlighter extends Highlighter {
 		'active',
 		'after',
 		'before',
+		'checked',
+		'disabled',
+		'empty',
+		'enabled',
 		'first-child',
 		'first-letter',
 		'first-line',
+		'first-of-type',
 		'focus',
 		'lang',
+		'last-child',
+		'last-of-type',
 		'link',
 		'hover',
-		'visited',
-		'target'
+		'not',
+		'nth-child',
+		'nth-last-child',
+		'nth-of-type',
+		'nth-last-of-type'
+		'only-child',
+		'only-of-type',
+		'root',
+		'target',
+		'visited'
 	);
 
 	protected $keywords4 = array(
