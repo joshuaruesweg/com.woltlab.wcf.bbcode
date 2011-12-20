@@ -55,7 +55,13 @@ class VideoProvider extends DatabaseObject {
 	 * @return	boolean
 	 */
 	public function matches($url) {
-		return preg_match($this->regex, $url);
+		$lines = explode("\n", StringUtil::unifyNewlines($this->regex));
+		
+		foreach ($lines as $line) {
+			if (preg_match($this->regex, $url)) return true;
+		}
+		
+		return false;
 	}
 	
 	/**
@@ -65,12 +71,18 @@ class VideoProvider extends DatabaseObject {
 	 * @return	string
 	 */
 	public function getOutput($url) {
-		if (!preg_match($this->regex, $url, $matches)) return '';
+		$lines = explode("\n", StringUtil::unifyNewlines($this->regex));
 		
-		$output = $this->html;
-		foreach ($matches as $name => $value) {
-			$output = StringUtil::replace('{$'.$name.'}', $value, $output);
+		foreach ($lines as $line) {
+			if (!preg_match($this->regex, $url, $matches)) continue;
+			
+			$output = $this->html;
+			foreach ($matches as $name => $value) {
+				$output = StringUtil::replace('{$'.$name.'}', $value, $output);
+			}
+			return $output;
 		}
-		return $output;
+		
+		return '';
 	}
 }
