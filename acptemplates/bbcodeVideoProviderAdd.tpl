@@ -48,6 +48,35 @@
 							{/if}
 						</small>
 					{/if}
+					<input id="url" />
+					<pre id="validateResult">
+					
+					</pre>
+					<script type="text/javascript">
+					// <![CDATA[
+						(function ($) {
+							function checkRegex() {
+								$.ajax('{link controller='BBCodeVideoProviderValidateRegex'}{/link}', {
+									dataType: 'json',
+									type: 'POST',
+									data: {
+										regex: $('#regex').val(),
+										url: $('#url').val()
+									},
+									success: function (data) {
+										var result = '';
+										for (item in data) {
+											result += item + ': '+data[item]+"\n";
+										}
+										$('#validateResult').text(result);
+									}
+								});
+							}
+							$('#url').change(checkRegex);
+							$('#regex').change(checkRegex);
+						})(jQuery);
+					// ]]>
+					</script>
 				</dd>
 			</dl>
 			

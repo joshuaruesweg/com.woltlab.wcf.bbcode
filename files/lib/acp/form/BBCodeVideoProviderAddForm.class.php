@@ -71,7 +71,7 @@ class BBCodeVideoProviderAddForm extends ACPForm {
 		try {
 			$lines = explode("\n", StringUtil::unifyNewlines($this->regex));
 		
-			foreach ($lines as $line) preg_match($this->regex, '');
+			foreach ($lines as $line) preg_match($line, '');
 		}
 		catch (SystemException $e) {
 			throw new UserInputException('regex', 'invalid');
