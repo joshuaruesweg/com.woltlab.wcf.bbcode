@@ -33,6 +33,7 @@
 				<dt><label for="regex">{lang}wcf.acp.bbcode.videoprovider.regex{/lang}</label></dt>
 				<dd>
 					<textarea id="regex" name="regex" cols="40" rows="10">{$regex}</textarea>
+					<small>{lang}wcf.acp.bbcode.videoprovider.regex.description{/lang}</small>
 					{if $errorField == 'regex'}
 						<small class="innerError">
 							{if $errorType == 'empty'}
@@ -49,6 +50,7 @@
 				<dt><label for="html">{lang}wcf.acp.bbcode.videoprovider.html{/lang}</label></dt>
 				<dd>
 					<textarea id="html" name="html" cols="40" rows="10">{$html}</textarea>
+					<small>{lang}wcf.acp.bbcode.videoprovider.html.description{/lang}</small>
 					{if $errorField == 'html'}
 						<small class="innerError">
 							{if $errorType == 'empty'}
