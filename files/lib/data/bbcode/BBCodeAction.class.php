@@ -17,4 +17,9 @@ class BBCodeAction extends AbstractDatabaseObjectAction {
 	 * @see	wcf\data\AbstractDatabaseObjectAction::$className
 	 */
 	protected $className = 'wcf\data\bbcode\BBCodeEditor';
+	
+	/**
+	 * @see	wcf\data\AbstractDatabaseObjectAction::$permissionsDelete
+	 */
+	protected $permissionsDelete = array('admin.content.bbcode.canDeleteBBCode');
 }
