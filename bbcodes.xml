@@ -26,8 +26,8 @@
 			<wysiwygicon>fontStyleUnderlineM.png</wysiwygicon>
 		</bbcode>
 		<bbcode name="s">
-			<htmlopen>span style="text-decoration: line-through"</htmlopen>
-			<htmlclose>span</htmlclose>
+			<htmlopen>s</htmlopen>
+			<htmlclose>s</htmlclose>
 			<textopen>-</textopen>
 			<textclose>-</textclose>
 			<allowedchildren>all^s</allowedchildren>
