@@ -3,6 +3,7 @@ namespace wcf\acp\action;
 use wcf\action\AbstractAction;
 use wcf\system\exception\IllegalLinkException;
 use wcf\system\exception\SystemException;
+use wcf\system\Regex;
 use wcf\system\WCF;
 use wcf\util\JSON;
 use wcf\util\StringUtil;
@@ -47,7 +48,9 @@ class BBCodeVideoProviderValidateRegexAction extends AbstractAction {
 			$lines = explode("\n", StringUtil::unifyNewlines($this->regex));
 			
 			foreach ($lines as $line) {
-				if (!preg_match($line, $this->url, $matches)) continue;
+				$regex = new Regex($line);
+				if (!$regex->match($this->url)) continue;
+				$matches = $regex->getMatches();
 				
 				foreach ($matches as $key => $match) {
 					if (is_int($key)) {
@@ -66,7 +69,6 @@ class BBCodeVideoProviderValidateRegexAction extends AbstractAction {
 			));
 		}
 		catch (SystemException $e) {
-		throw $e;
 			echo JSON::encode(array(
 				'_error' => 'invalid'
 			));

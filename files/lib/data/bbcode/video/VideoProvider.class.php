@@ -2,6 +2,7 @@
 namespace wcf\data\bbcode\video;
 use wcf\data\DatabaseObject;
 use wcf\system\cache\CacheHandler;
+use wcf\system\Regex;
 use wcf\util\StringUtil;
 
 /**
@@ -58,7 +59,7 @@ class VideoProvider extends DatabaseObject {
 		$lines = explode("\n", StringUtil::unifyNewlines($this->regex));
 		
 		foreach ($lines as $line) {
-			if (preg_match($line, $url)) return true;
+			if (Regex::compile($line)->match($url)) return true;
 		}
 		
 		return false;
@@ -74,10 +75,11 @@ class VideoProvider extends DatabaseObject {
 		$lines = explode("\n", StringUtil::unifyNewlines($this->regex));
 		
 		foreach ($lines as $line) {
-			if (!preg_match($line, $url, $matches)) continue;
+			$regex = new Regex($line);
+			if (!$regex->match($url)) continue;
 			
 			$output = $this->html;
-			foreach ($matches as $name => $value) {
+			foreach ($regex->getMatches() as $name => $value) {
 				$output = StringUtil::replace('{$'.$name.'}', $value, $output);
 			}
 			return $output;
