@@ -1,5 +1,5 @@
 <blockquote class="quoteBox"{if $quoteLink} cite="{$quoteLink}"{/if}>
-	<div class="quoteHeader">
+	<header>
 		<h1>
 			<img src="{icon size='S'}quote1{/icon}" alt="" />
 			{if $quoteAuthor}
@@ -12,8 +12,8 @@
 				{lang}wcf.bbcode.quote.title{/lang}
 			{/if}
 		</h1>
-	</div>
-	<div class="quoteBody">
+	</header>
+	<section>
 		{@$content}
-	</div>
+	</section>
 </blockquote>
