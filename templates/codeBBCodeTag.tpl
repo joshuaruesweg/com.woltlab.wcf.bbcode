@@ -1,22 +1,19 @@
-<div class="border codeBox">
+<div class="border boxTitle codeBox">
+	<hgroup>
+		<h1>{@$codeBoxName}</h1>
+	</hgroup>
 	<div>
 		<table>
-			<tr>
-				<td class="codeLineNumbers">
-					<img src="{icon}codeS.png{/icon}" alt="" />
-				</td>
-				<td class="codeLines">
-					<h3>{@$codeBoxName}</h3>
-				</td>
-			</tr>
-			<tr>
-				<td class="codeLineNumbers">
-					<pre>{@$lineNumbers}</pre>
-				</td>
-				<td class="codeLines">
-					<pre>{@$content}</pre>
-				</td>
-			</tr>
+			<tbody>
+				<tr>
+					<td class="codeLineNumbers">
+						<pre>{@$lineNumbers}</pre>
+					</td>
+					<td class="codeLines">
+						<pre>{@$content}</pre>
+					</td>
+				</tr>
+			</tbody>
 		</table>
 	</div>
 </div>
