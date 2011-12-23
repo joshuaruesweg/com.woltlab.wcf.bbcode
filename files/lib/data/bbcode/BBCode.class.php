@@ -1,6 +1,7 @@
 <?php
 namespace wcf\data\bbcode;
 use wcf\data\ProcessibleDatabaseObject;
+use wcf\system\WCF;
 
 /**
  * Represents a bbcode.
@@ -40,5 +41,23 @@ class BBCode extends ProcessibleDatabaseObject {
 		}
 		
 		return $this->attributes;
+	}
+	
+	/**
+	 * Returns BBCode-object by tag.
+	 *
+	 * @param	string					$tag
+	 * @return	wcf\data\bbcode\BBCode
+	 */
+	public static function getBBCodeByTag($tag) {
+		$sql = "SELECT	*
+			FROM	wcf".WCF_N."_bbcode
+			WHERE	bbcodeTag = ?";
+		$statement = WCF::getDB()->prepareStatement($sql);
+		$statement->execute(array($tag));
+		$row = $statement->fetchArray();
+		if (!$row) $row = array();
+		
+		return new self(null, $row);
 	}
 }
