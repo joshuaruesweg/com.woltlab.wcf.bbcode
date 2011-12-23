@@ -32,7 +32,7 @@
 			<dl{if $errorField == 'regex'} class="formError"{/if}>
 				<dt><label for="regex">{lang}wcf.acp.bbcode.videoprovider.regex{/lang}</label></dt>
 				<dd>
-					<textarea id="regex" name="regex" cols="40" rows="10">{$regex}</textarea>
+					<textarea id="regex" name="regex" cols="40" rows="10" required="required">{$regex}</textarea>
 					<small>{lang}wcf.acp.bbcode.videoprovider.regex.description{/lang}<br />
 					Suggestion: Geben Sie hier das Link-Format als <a href="javascript:alert('Passender Link hier');">Regulären Ausdruck</a> an. Sie können mehrere Ausdrücke zeilenweise angeben.<br />
 					Beispiele für Video-ID Erkennungen:
@@ -83,7 +83,7 @@
 			<dl{if $errorField == 'html'} class="formError"{/if}>
 				<dt><label for="html">{lang}wcf.acp.bbcode.videoprovider.html{/lang}</label></dt>
 				<dd>
-					<textarea id="html" name="html" cols="40" rows="10">{$html}</textarea>
+					<textarea id="html" name="html" cols="40" rows="10" required="required">{$html}</textarea>
 					<small>{lang}wcf.acp.bbcode.videoprovider.html.description{/lang}<br />
 					Suggestion: Geben Sie hier den HTML-Code für das Video an. Variablen im Format {ldelim}$variable} werden durch die entsprechende Untergruppe des regulären Ausdrucks ersetzt.<br />
 					Beispiel:<br />

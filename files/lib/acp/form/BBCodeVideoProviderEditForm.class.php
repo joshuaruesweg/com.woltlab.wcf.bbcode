@@ -6,7 +6,7 @@ use wcf\system\exception\IllegalLinkException;
 use wcf\system\WCF;
 
 /**
- * Shows the label edit form.
+ * Shows the video-provider edit form.
  * 
  * @author	Tim Düsterhus
  * @copyright	2011 Tim Düsterhus
