@@ -109,7 +109,7 @@ class BBCodeAddForm extends ACPForm {
 			throw new UserInputException('bbcodeTag', 'invalid');
 		}
 		
-		$bbcode = !BBCode::getBBCodeByTag($this->bbcodeTag);
+		$bbcode = BBCode::getBBCodeByTag($this->bbcodeTag);
 		if ((!isset($this->bbcodeObj) && $bbcode->bbcodeID) || (isset($this->bbcodeObj) && $bbcode->bbcodeID != $this->bbcodeObj->bbcodeID)) {
 			throw new UserInputException('bbcodeTag', 'inUse');
 		}
