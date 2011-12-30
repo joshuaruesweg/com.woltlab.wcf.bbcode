@@ -1,5 +1,7 @@
 <?php
 namespace wcf\acp\form;
+use wcf\data\bbcode\attribute\BBCodeAttributeAction;
+use wcf\data\bbcode\attribute\BBCodeAttributeList;
 use wcf\data\bbcode\BBCode;
 use wcf\data\bbcode\BBCodeAction;
 use wcf\system\exception\IllegalLinkException;
@@ -69,6 +71,25 @@ class BBCodeEditForm extends BBCodeAddForm {
 		)));
 		$bbcodeAction->executeAction();
 		
+		// clear existing attributes
+		$sql = "DELETE FROM	wcf".WCF_N."_bbcode_attribute
+			WHERE		bbcodeID = ?";
+		$statement = WCF::getDB()->prepareStatement($sql);
+		$statement->execute(array($this->bbcodeID));
+		
+		foreach ($this->attributes as $attribute) {
+			$attributeAction = new BBCodeAttributeAction(array(), 'create', array('data' => array(
+				'bbcodeID' => $this->bbcodeID,
+				'attributeNo' => $attribute->attributeNo,
+				'attributeHtml' => $attribute->attributeHtml,
+				'attributeText' => $attribute->attributeText,
+				'validationPattern' => $attribute->validationPattern,
+				'required' => $attribute->required,
+				'useText' => $attribute->useText,
+			)));
+			$attributeAction->executeAction();
+		}
+		
 		$this->saved();
 		
 		// show success
@@ -84,6 +105,7 @@ class BBCodeEditForm extends BBCodeAddForm {
 		parent::readData();
 		
 		if (!count($_POST)) {
+			$this->attributes = BBCodeAttributeList::getAttributesByBBCode($this->bbcodeObj);
 			$this->bbcodeTag = $this->bbcodeObj->bbcodeTag;
 			$this->htmlOpen = $this->bbcodeObj->htmlOpen;
 			$this->htmlClose = $this->bbcodeObj->htmlClose;

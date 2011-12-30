@@ -1,5 +1,6 @@
 <?php
 namespace wcf\acp\form;
+use wcf\data\bbcode\attribute\BBCodeAttributeAction;
 use wcf\data\bbcode\BBCode;
 use wcf\data\bbcode\BBCodeAction;
 use wcf\system\exception\UserInputException;
@@ -77,6 +78,12 @@ class BBCodeAddForm extends ACPForm {
 	public $className = '';
 	
 	/**
+	 * Attributes
+	 * @var	array<object>
+	 */
+	public $attributes = array();
+	
+	/**
 	 * @see wcf\form\IForm::readFormParameters()
 	 */
 	public function readFormParameters() {
@@ -89,6 +96,14 @@ class BBCodeAddForm extends ACPForm {
 		if (isset($_POST['textClose'])) $this->textClose = StringUtil::trim($_POST['textClose']);
 		if (isset($_POST['allowedChildren'])) $this->allowedChildren = StringUtil::trim($_POST['allowedChildren']);
 		if (isset($_POST['className'])) $this->className = StringUtil::trim($_POST['className']);
+		if (isset($_POST['attributes'])) $this->attributes = $_POST['attributes'];
+		$attributeNo = 0;
+		foreach ($this->attributes as $key => $val) {
+			$val['attributeNo'] = $attributeNo++;
+			$val['required'] = (int) isset($val['required']);
+			$val['useText'] = (int) isset($val['useText']);
+			$this->attributes[$key] = (object) $val;
+		}
 	}
 	
 	/**
@@ -133,6 +148,14 @@ class BBCodeAddForm extends ACPForm {
 		if (!empty($this->className) && !class_exists($this->className)) {
 			throw new UserInputException('className', 'notFound');
 		}
+		
+		// Validate attributes
+		foreach ($this->attributes as $attribute) {
+			// Check whether the pattern is a valid regex
+			if (!Regex::compile($attribute->validationPattern)->isValid()) {
+				throw new UserInputException('attributeValidationPattern'.$attribute->attributeNo, 'invalid');
+			}
+		}
 	}
 	
 	/**
@@ -153,11 +176,26 @@ class BBCodeAddForm extends ACPForm {
 			'packageID' => PackageDependencyHandler::getPackageID('com.woltlab.wcf.bbcode') // TODO: Maybe Change this?
 		)));
 		$bbcodeAction->executeAction();
+		$returnValues = $bbcodeAction->getReturnValues();
+		foreach ($this->attributes as $attribute) {
+			$attributeAction = new BBCodeAttributeAction(array(), 'create', array('data' => array(
+				'bbcodeID' => $returnValues['returnValues']->bbcodeID,
+				'attributeNo' => $attribute->attributeNo,
+				'attributeHtml' => $attribute->attributeHtml,
+				'attributeText' => $attribute->attributeText,
+				'validationPattern' => $attribute->validationPattern,
+				'required' => $attribute->required,
+				'useText' => $attribute->useText,
+			)));
+			$attributeAction->executeAction();
+		}
+		
 		$this->saved();
 		
 		// reset values
 		$this->bbcodeTag = $this->htmlOpen = $this->htmlClose = $this->textOpen = $this->textClose = $this->className = '';
 		$this->allowedChildren = 'all';
+		$this->attributes = array();
 		
 		// show success
 		WCF::getTPL()->assign(array(
@@ -179,7 +217,8 @@ class BBCodeAddForm extends ACPForm {
 			'textOpen' => $this->textOpen,
 			'textClose' => $this->textClose,
 			'allowedChildren' => $this->allowedChildren,
-			'className' => $this->className
+			'className' => $this->className,
+			'attributes' => $this->attributes
 		));
 	}
 }
