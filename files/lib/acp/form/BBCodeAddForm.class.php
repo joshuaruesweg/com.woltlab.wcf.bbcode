@@ -98,31 +98,38 @@ class BBCodeAddForm extends ACPForm {
 		parent::validate();
 		
 		// validate fields
+		// Tag must not be empty
 		if (empty($this->bbcodeTag)) {
 			throw new UserInputException('bbcodeTag');
 		}
 		
+		// Tag may only contain alphanumeric chars
 		if (!Regex::compile('^[a-z0-9]+$', Regex::CASE_INSENSITIVE)->match($this->bbcodeTag)) {
 			throw new UserInputException('bbcodeTag', 'invalid');
 		}
 		
+		// Disallow the Pseudo-BBCodes all and none
 		if ($this->bbcodeTag == 'all' || $this->bbcodeTag == 'none') {
 			throw new UserInputException('bbcodeTag', 'invalid');
 		}
 		
+		// Check whether the tag is in use
 		$bbcode = BBCode::getBBCodeByTag($this->bbcodeTag);
 		if ((!isset($this->bbcodeObj) && $bbcode->bbcodeID) || (isset($this->bbcodeObj) && $bbcode->bbcodeID != $this->bbcodeObj->bbcodeID)) {
 			throw new UserInputException('bbcodeTag', 'inUse');
 		}
 		
+		// Handle empty case first
 		if (empty($this->allowedChildren)) {
 			throw new UserInputException('allowedChildren');
 		}
 		
-		if (!empty($this->allowedChildren) && !Regex::compile('^((all|none)\^)?([a-zA-Z0-9]+,?)+$')->match($this->allowedChildren)) {
+		// Validate syntax of allowedChildren: Optional all|none^ followed by a comma-separated list of bbcodes
+		if (!empty($this->allowedChildren) && !Regex::compile('^((all|none)\^)?([a-zA-Z0-9]+,?)*[a-zA-Z0-9]+$')->match($this->allowedChildren)) {
 			throw new UserInputException('allowedChildren', 'invalid');
 		}
 		
+		// Validate class
 		if (!empty($this->className) && !class_exists($this->className)) {
 			throw new UserInputException('className', 'notFound');
 		}
