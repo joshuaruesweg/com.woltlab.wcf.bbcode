@@ -1,7 +1,7 @@
 <?php
 namespace wcf\acp\form;
+use wcf\data\bbcode\attribute\BBCodeAttribute;
 use wcf\data\bbcode\attribute\BBCodeAttributeAction;
-use wcf\data\bbcode\attribute\BBCodeAttributeList;
 use wcf\data\bbcode\BBCode;
 use wcf\data\bbcode\BBCodeAction;
 use wcf\system\exception\IllegalLinkException;
@@ -105,7 +105,7 @@ class BBCodeEditForm extends BBCodeAddForm {
 		parent::readData();
 		
 		if (!count($_POST)) {
-			$this->attributes = BBCodeAttributeList::getAttributesByBBCode($this->bbcodeObj);
+			$this->attributes = BBCodeAttribute::getAttributesByBBCode($this->bbcodeObj);
 			$this->bbcodeTag = $this->bbcodeObj->bbcodeTag;
 			$this->htmlOpen = $this->bbcodeObj->htmlOpen;
 			$this->htmlClose = $this->bbcodeObj->htmlClose;
