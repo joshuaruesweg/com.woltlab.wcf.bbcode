@@ -1,4 +1,59 @@
 {include file='header'}
+{capture assign='attributeTemplate'}
+	<fieldset><legend>{lang}wcf.acp.bbcode.attribute{/lang} {ldelim}#$attributeNo} <img src="{@RELATIVE_WCF_DIR}icon/delete1.svg" alt="" class="deleteButton" /></legend>
+		<dl>
+			<dt><label for="attributeHtml[{ldelim}@$attributeNo}]">{lang}wcf.acp.bbcode.attribute.attributeHtml{/lang}</label></dt>
+			<dd>
+				<input type="text" id="attributes[{ldelim}@$attributeNo}][attributeHtml]" name="attributes[{ldelim}@$attributeNo}][attributeHtml]" value="" class="long" />
+			</dd>
+		</dl>
+		
+		<dl>
+			<dt><label for="attributeText[{ldelim}@$attributeNo}]">{lang}wcf.acp.bbcode.attribute.attributeText{/lang}</label></dt>
+			<dd>
+				<input type="text" id="attributes[{ldelim}@$attributeNo}][attributeText]" name="attributes[{ldelim}@$attributeNo}][attributeText]" value="" class="long" />
+			</dd>
+		</dl>
+		
+		<dl>
+			<dt><label for="attributeValidationPattern[{ldelim}$attributeNo}]">{lang}wcf.acp.bbcode.attribute.validationPattern{/lang}</label></dt>
+			<dd>
+				<input type="text" id="attributes[{ldelim}@$attributeNo}][validationPattern]" name="attributes[{ldelim}@$attributeNo}][validationPattern]" value="" class="long" />
+			</dd>
+		</dl>
+		
+		<dl>
+			<dd>
+				<label><input type="checkbox" id="attributes[{ldelim}@$attributeNo}][validationPattern]" name="attributes[{ldelim}@$attributeNo}][validationPattern]" value="1" /> {lang}wcf.acp.bbcode.attribute.required{/lang}</label>
+			</dd>
+		</dl>
+		
+		<dl>
+			<dd>
+				<label><input type="checkbox" id="attributes[{ldelim}@$attributeNo}][useText]" name="attributes[{ldelim}@$attributeNo}][useText]" value="1" /> {lang}wcf.acp.bbcode.attribute.useText{/lang}</label>
+			</dd>
+		</dl>
+	</fieldset>
+{/capture}
+<script type="text/javascript">
+//<![CDATA[
+	$(function() {
+		$('.deleteButton').click(function (event) {
+			$(event.target).parent().parent().remove();
+		});
+		var attributeNo = {if $attribute|isset}{$attribute->attributeNo+1}{else}0{/if};
+		var attributeTemplate = new WCF.Template('{@$attributeTemplate|encodeJS}');
+		
+		$('.addButton').click(function (event) {
+			html = $(attributeTemplate.fetch({ attributeNo: attributeNo++ }));
+			html.find('.deleteButton').click(function (event) {
+				$(event.target).parent().parent().remove();
+			});
+			$('#attributeFieldset').append(html);
+		});
+	});
+//]]>
+</script>
 
 <header class="mainHeading">
 	<img src="{@RELATIVE_WCF_DIR}icon/{$action}1.svg" alt="" />
@@ -110,7 +165,7 @@
 			<legend>{lang}wcf.acp.bbcode.attributes{/lang} <img src="{@RELATIVE_WCF_DIR}icon/add1.svg" alt="" class="addButton" /></legend>
 			
 			{foreach from=$attributes item='attribute'}
-				<fieldset><legend>Attribute {#$attribute->attributeNo} <img src="{@RELATIVE_WCF_DIR}icon/delete1.svg" alt="" class="deleteButton" /></legend>
+				<fieldset><legend>{lang}wcf.acp.bbcode.attribute{/lang} {#$attribute->attributeNo} <img src="{@RELATIVE_WCF_DIR}icon/delete1.svg" alt="" class="deleteButton" /></legend>
 					<dl{if $errorField == 'attributeHtml'|concat:$attribute->attributeNo} class="formError"{/if}>
 						<dt><label for="attributeHtml[{@$attribute->attributeNo}]">{lang}wcf.acp.bbcode.attribute.attributeHtml{/lang}</label></dt>
 						<dd>
@@ -152,61 +207,6 @@
 					</dl>
 				</fieldset>
 			{/foreach}
-			{capture assign='attributeTemplate'}
-				<fieldset><legend>Attribute {ldelim}#$attributeNo} <img src="{@RELATIVE_WCF_DIR}icon/delete1.svg" alt="" class="deleteButton" /></legend>
-					<dl>
-						<dt><label for="attributeHtml[{ldelim}@$attributeNo}]">{lang}wcf.acp.bbcode.attribute.attributeHtml{/lang}</label></dt>
-						<dd>
-							<input type="text" id="attributes[{ldelim}@$attributeNo}][attributeHtml]" name="attributes[{ldelim}@$attributeNo}][attributeHtml]" value="" class="long" />
-						</dd>
-					</dl>
-					
-					<dl>
-						<dt><label for="attributeText[{ldelim}@$attributeNo}]">{lang}wcf.acp.bbcode.attribute.attributeText{/lang}</label></dt>
-						<dd>
-							<input type="text" id="attributes[{ldelim}@$attributeNo}][attributeText]" name="attributes[{ldelim}@$attributeNo}][attributeText]" value="" class="long" />
-						</dd>
-					</dl>
-					
-					<dl>
-						<dt><label for="attributeValidationPattern[{ldelim}$attributeNo}]">{lang}wcf.acp.bbcode.attribute.validationPattern{/lang}</label></dt>
-						<dd>
-							<input type="text" id="attributes[{ldelim}@$attributeNo}][validationPattern]" name="attributes[{ldelim}@$attributeNo}][validationPattern]" value="" class="long" />
-						</dd>
-					</dl>
-					
-					<dl>
-						<dd>
-							<label><input type="checkbox" id="attributes[{ldelim}@$attributeNo}][validationPattern]" name="attributes[{ldelim}@$attributeNo}][validationPattern]" value="1" /> {lang}wcf.acp.bbcode.attribute.required{/lang}</label>
-						</dd>
-					</dl>
-					
-					<dl>
-						<dd>
-							<label><input type="checkbox" id="attributes[{ldelim}@$attributeNo}][useText]" name="attributes[{ldelim}@$attributeNo}][useText]" value="1" /> {lang}wcf.acp.bbcode.attribute.useText{/lang}</label>
-						</dd>
-					</dl>
-				</fieldset>
-			{/capture}
-			<script type="text/javascript">
-			//<![CDATA[
-				(function ($) {
-					$('.deleteButton').click(function (event) {
-						$(event.target).parent().parent().remove();
-					});
-					var attributeNo = {if $attribute|isset}{$attribute->attributeNo+1}{else}0{/if};
-					var attributeTemplate = new WCF.Template('{@$attributeTemplate|encodeJS}');
-					
-					$('.addButton').click(function (event) {
-						html = $(attributeTemplate.fetch({ attributeNo: attributeNo++ }));
-						html.find('.deleteButton').click(function (event) {
-							$(event.target).parent().parent().remove();
-						});
-						$('#attributeFieldset').append(html);
-					});
-				})(jQuery);
-			//]]>
-			</script>
 		</field>
 	</div>
 	
