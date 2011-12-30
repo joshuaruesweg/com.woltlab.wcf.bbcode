@@ -65,7 +65,7 @@ ALTER TABLE wcf1_smiley ADD FOREIGN KEY (smileyCategoryID) REFERENCES wcf1_smile
 
 -- video providers
 -- Youtube
-INSERT INTO wcf1_bbcode_video_provider (regex, html) VALUES ('^https?://(?:.+?\\.)?youtu(?:\\.be/|be\\.com/watch\\?(?:.*?)v=)(?<ID>[a-zA-Z0-9_-]+)', '<iframe width="420" height="315" src="http://www.youtube.com/embed/{$ID}" frameborder="0" allowfullscreen></iframe>');
+INSERT INTO wcf1_bbcode_video_provider (regex, html) VALUES ('https?://(?:.+?\\.)?youtu(?:\\.be/|be\\.com/watch\\?(?:.*?)v=)(?<ID>[a-zA-Z0-9_-]+)', '<iframe width="420" height="315" src="http://www.youtube.com/embed/{$ID}" frameborder="0" allowfullscreen></iframe>');
 -- Vimeo
 INSERT INTO wcf1_bbcode_video_provider (regex, html) VALUES ('http://vimeo\\.com/(?<ID>\\d+)', '<iframe src="http://player.vimeo.com/video/{$ID}" width="400" height="225" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>');
 -- MyVideo
