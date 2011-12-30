@@ -40,6 +40,7 @@
 				<tr>
 					<th class="columnID columnBBCodeID" colspan="2">{lang}wcf.global.objectID{/lang}</th>
 					<th class="columnText columnBBCode">{lang}wcf.acp.bbcode.bbcode{/lang}</th>
+					<th class="columnText columnClassName">{lang}wcf.acp.bbcode.className{/lang}</th>
 					
 					{event name='headColumns'}
 				</tr>
@@ -75,6 +76,7 @@
 							</td>
 							<td class="columnID"><p>{@$bbcode->bbcodeID}</p></td>
 							<td class="columnText columnBBCode">[{$bbcode->bbcodeTag}]</p></td>
+							<td class="columnText columnClassName">{$bbcode->className}</p></td>
 							
 							{event name='columns'}
 						</tr>
