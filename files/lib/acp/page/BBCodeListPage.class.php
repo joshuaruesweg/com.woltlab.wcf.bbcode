@@ -30,6 +30,16 @@ class BBCodeListPage extends MultipleLinkPage {
 	public $objectListClassName = 'wcf\data\bbcode\BBCodeList';
 	
 	/**
+	 * @see	wcf\page\MultipleLinkPage::$sortField
+	 */
+	public $sortField = 'bbcodeTag';
+	
+	/**
+	 * @see	wcf\page\MultipleLinkPage::$sortOrder
+	 */
+	public $sortOrder = 'ASC';
+	
+	/**
 	 * @see wcf\page\IPage::show()
 	 */
 	public function show() {
