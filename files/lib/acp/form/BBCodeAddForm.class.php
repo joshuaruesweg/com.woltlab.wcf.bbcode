@@ -3,6 +3,7 @@ namespace wcf\acp\form;
 use wcf\data\bbcode\BBCode;
 use wcf\data\bbcode\BBCodeAction;
 use wcf\system\exception\UserInputException;
+use wcf\system\package\PackageDependencyHandler;
 use wcf\system\Regex;
 use wcf\system\WCF;
 use wcf\util\StringUtil;
@@ -141,13 +142,15 @@ class BBCodeAddForm extends ACPForm {
 			'textOpen' => $this->textOpen,
 			'textClose' => $this->textClose,
 			'allowedChildren' => $this->allowedChildren,
-			'className' => $this->className
+			'className' => $this->className,
+			'packageID' => PackageDependencyHandler::getPackageID('com.woltlab.wcf.bbcode') // TODO: Maybe Change this?
 		)));
 		$bbcodeAction->executeAction();
 		$this->saved();
 		
 		// reset values
-		$this->bbcodeTag = $this->htmlOpen = $this->htmlClose = $this->textOpen = $this->textClose = $this->allowedChildren = $this->className = '';
+		$this->bbcodeTag = $this->htmlOpen = $this->htmlClose = $this->textOpen = $this->textClose = $this->className = '';
+		$this->allowedChildren = 'all';
 		
 		// show success
 		WCF::getTPL()->assign(array(
