@@ -39,7 +39,7 @@
 			<thead>
 				<tr>
 					<th class="columnID columnBBCodeID" colspan="2">{lang}wcf.global.objectID{/lang}</th>
-					<th class="columnText columnBBCode">{lang}wcf.acp.bbcode.bbcode{/lang}</th>
+					<th class="columnText columnBBCode">{lang}wcf.acp.bbcode.bbcodeTag{/lang}</th>
 					<th class="columnText columnClassName">{lang}wcf.acp.bbcode.className{/lang}</th>
 					
 					{event name='headColumns'}
