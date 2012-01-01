@@ -41,7 +41,8 @@
 		$('.deleteButton').click(function (event) {
 			$(event.target).parent().parent().remove();
 		});
-		var attributeNo = {if $attribute|isset}{$attribute->attributeNo+1}{else}0{/if};
+		
+		var attributeNo = {if !$attributes|count}0{else}{assign var='lastAttribute' value=$attributes|end}{$lastAttribute->attributeNo+1}{/if};
 		var attributeTemplate = new WCF.Template('{@$attributeTemplate|encodeJS}');
 		
 		$('.addButton').click(function (event) {
