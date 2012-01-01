@@ -104,8 +104,7 @@ class MessageParser extends BBCodeParser {
 			
 			// highlight search query
 			if ($doKeywordHighlighting) {
-				// TODO: add keyword highlighting
-				//$message = KeywordHighlighter::doHighlight($message);
+				$message = KeywordHighlighter::getInstance()->doHighlight($message);
 			}
 			
 			// replace bad html tags (script etc.)
