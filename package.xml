@@ -22,6 +22,7 @@
 		<instruction type="template">templates.tar</instruction>
 		<instruction type="acptemplate">acptemplates.tar</instruction>
 		<instruction type="sql">install.sql</instruction>
+		<instruction type="language">language/*.xml</instruction>
 		<instruction type="option">options.xml</instruction>
 		<instruction type="userGroupOption">userGroupOption.xml</instruction>
 		<instruction type="acpMenu">acpMenu.xml</instruction>

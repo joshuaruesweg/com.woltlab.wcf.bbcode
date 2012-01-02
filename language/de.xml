@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/language.xsd" languagecode="de">
+	<category name="wcf.acp.menu">
+		<item name="wcf.acp.menu.link.bbcode"><![CDATA[BBCodes]]></item>
+		<item name="wcf.acp.menu.link.bbcode.list"><![CDATA[BBCodes auflisten]]></item>
+		<item name="wcf.acp.menu.link.bbcode.add"><![CDATA[BBCode hinzufügen]]></item>
+		<item name="wcf.acp.menu.link.bbcode.videoprovider.list"><![CDATA[Videoanbieter auflisten]]></item>
+		<item name="wcf.acp.menu.link.bbcode.videoprovider.add"><![CDATA[Videoanbieter hinzufügen]]></item>
+	</category>
+	
+	<category name="wcf.acp.bbcode">
+		<!-- Fields -->
+		<item name="wcf.acp.bbcode.data"><![CDATA[Daten des BBCodes]]></item>
+		<item name="wcf.acp.bbcode.bbcodeTag"><![CDATA[BBCode]]></item>
+		<item name="wcf.acp.bbcode.htmlOpen"><![CDATA[Öffnendes HTML-Tag]]></item>
+		<item name="wcf.acp.bbcode.htmlClose"><![CDATA[Schließendes HTML-Tag]]></item>
+		<item name="wcf.acp.bbcode.textOpen"><![CDATA[Öffnender Text]]></item>
+		<item name="wcf.acp.bbcode.textClose"><![CDATA[Schließender Text]]></item>
+		<item name="wcf.acp.bbcode.allowedChildren"><![CDATA[Erlaubte Kinder]]></item>
+		<item name="wcf.acp.bbcode.className"><![CDATA[Klassen-Name]]></item>
+		
+		<item name="wcf.acp.bbcode.attributes"><![CDATA[Attribute]]></item>
+		<item name="wcf.acp.bbcode.attribute"><![CDATA[Attribut]]></item>
+		<item name="wcf.acp.bbcode.attribute.attributeHtml"><![CDATA[HTML-Code des Attributs]]></item>
+		<item name="wcf.acp.bbcode.attribute.attributeText"><![CDATA[Text des Attributs]]></item>
+		<item name="wcf.acp.bbcode.attribute.validationPattern"><![CDATA[Regulärer Ausdruck zur Validierung]]></item>
+		<item name="wcf.acp.bbcode.attribute.required"><![CDATA[Zwingend]]></item>
+		<item name="wcf.acp.bbcode.attribute.useText"><![CDATA[Inhalt übernehmen]]></item>
+		<item name="wcf.acp.bbcode.attribute.useText.description"><![CDATA[Soll der Inhalt des BBCodes als Wert für dieses Attribut übernommen werden, wenn es nicht gesetzt ist?]]></item>
+		
+		<item name="wcf.acp.bbcode.videoprovider.data"><![CDATA[Daten des Videoanbieters]]></item>
+		<item name="wcf.acp.bbcode.videoprovider.title"><![CDATA[Videoanbieter]]></item>
+		<item name="wcf.acp.bbcode.videoprovider.regex"><![CDATA[Regulärer Ausdruck]]></item>
+		<item name="wcf.acp.bbcode.videoprovider.regex.description"><![CDATA[Geben Sie hier das Linkformat als <a href="{@RELATIVE_WCF_DIR}acp/dereferrer.php?url=http%3A%2F%2Fde.wikipedia.org%2Fwiki%2FRegul%25C3%25A4rer_Ausdruck">Regulären Ausdruck</a> an. <br />
+		Mehrere Ausdrücke können zeilenweise angegeben werden.<br />
+		Beispiele für Video-ID Erkennungen:
+		<ul>
+			<li>(?&lt;ID&gt;[0-9]+) - Erkennt eine Video-ID aus Zahlen</li>
+			<li>(?&lt;ID&gt;[0-9a-zA-Z]+) - Erkennt eine alphanumerische Video-ID</li>
+		</ul><br />
+		Beachten Sie, dass eine fehlerhafte Angabe dazu führt, dass der Link nicht korrekt erkannt wird.]]></item>
+		<item name="wcf.acp.bbcode.videoprovider.html"><![CDATA[HTML-Code]]></item>
+		<item name="wcf.acp.bbcode.videoprovider.html.description"><![CDATA[{literal}Geben Sie hier den HTML-Code für das Video an. Variablen im Format {$variable} werden durch die entsprechende benannte Untergruppe des Regulären Ausdrucks ersetzt.<br />
+		Beispiel:<br />
+		{$ID} - Wird durch die Beispielhaften Video-IDs der Erklärung oberhalb ersetzt.{/literal}]]></item>
+		
+		<!-- Errors -->
+		<item name="wcf.acp.bbcode.error.bbcodeTag.inUse"><![CDATA[Dieser BBCode ist bereits vorhanden.]]></item>
+		<item name="wcf.acp.bbcode.error.bbcodeTag.invalid"><![CDATA[Dieser BBCode ist ungültig.]]></item>
+		<item name="wcf.acp.bbcode.error.allowedChildren.invalid"><![CDATA[Die Form für die erlaubten Kinder ist ungültig.]]></item>
+		<item name="wcf.acp.bbcode.error.className.notFound"><![CDATA[Diese Klasse wurde nicht gefunden.]]></item>
+		
+		<item name="wcf.acp.bbcode.attribute.error.validationPattern.invalid"><![CDATA[Dies ist kein gültiger regulärer Ausdruck.]]></item>
+		
+		<item name="wcf.acp.bbcode.videoprovider.error.regex.invalid"><![CDATA[Dies ist kein gültiger regulärer Ausdruck.]]></item>
+		
+		<!-- Headlines -->
+		<item name="wcf.acp.bbcode.list"><![CDATA[BBCodes]]></item>
+		<item name="wcf.acp.bbcode.add"><![CDATA[BBCode hinzufügen]]></item>
+		<item name="wcf.acp.bbcode.edit"><![CDATA[BBCode bearbeiten]]></item>
+		
+		<item name="wcf.acp.bbcode.videoprovider.list"><![CDATA[Videoanbieter]]></item>
+		<item name="wcf.acp.bbcode.videoprovider.add"><![CDATA[Videoanbieter hinzufügen]]></item>
+		<item name="wcf.acp.bbcode.videoprovider.edit"><![CDATA[Videoanbieter bearbeiten]]></item>
+	</category>
+</language>

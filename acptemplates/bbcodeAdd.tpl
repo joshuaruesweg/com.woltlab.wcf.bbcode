@@ -31,6 +31,7 @@
 		<dl>
 			<dd>
 				<label><input type="checkbox" id="attributes[{ldelim}@$attributeNo}][useText]" name="attributes[{ldelim}@$attributeNo}][useText]" value="1" /> {lang}wcf.acp.bbcode.attribute.useText{/lang}</label>
+				<small>{lang}wcf.acp.bbcode.attribute.useText.description{/lang}</small>
 			</dd>
 		</dl>
 	</fieldset>
@@ -60,7 +61,6 @@
 	<img src="{@RELATIVE_WCF_DIR}icon/{$action}1.svg" alt="" />
 	<hgroup>
 		<h1>{lang}wcf.acp.bbcode.{$action}{/lang}</h1>
-		<h2>{lang}wcf.acp.bbcode.subtitle{/lang}</h2>
 	</hgroup>
 </header>
 
@@ -204,6 +204,7 @@
 					<dl{if $errorField == 'attributeUseText'|concat:$attribute->attributeNo} class="formError"{/if}>
 						<dd>
 							<label><input type="checkbox" id="attributes[{@$attribute->attributeNo}][useText]" name="attributes[{@$attribute->attributeNo}][useText]" value="1"{if $attribute->useText} checked="checked"{/if} /> {lang}wcf.acp.bbcode.attribute.useText{/lang}</label>
+							<small>{lang}wcf.acp.bbcode.attribute.useText.description{/lang}</small>
 						</dd>
 					</dl>
 				</fieldset>

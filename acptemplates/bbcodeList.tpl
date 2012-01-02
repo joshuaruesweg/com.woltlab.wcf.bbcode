@@ -4,7 +4,6 @@
 	<img src="{@RELATIVE_WCF_DIR}icon/bbcode1.svg" alt="" />
 	<hgroup>
 		<h1>{lang}wcf.acp.bbcode.list{/lang}</h1>
-		<h2>{lang}wcf.acp.bbcode.subtitle{/lang}</h2>
 	</hgroup>
 	
 	<script type="text/javascript">
