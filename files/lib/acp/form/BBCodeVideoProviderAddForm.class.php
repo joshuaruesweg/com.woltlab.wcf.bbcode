@@ -34,6 +34,12 @@ class BBCodeVideoProviderAddForm extends ACPForm {
 	public $neededPermissions = array('admin.content.bbcode.videoprovider.canAddVideoProvider');
 	
 	/**
+	 * title value
+	 * @var	string
+	 */
+	public $title = '';
+	 
+	/**
 	 * regex value
 	 * @var	string
 	 */
@@ -51,6 +57,7 @@ class BBCodeVideoProviderAddForm extends ACPForm {
 	public function readFormParameters() {
 		parent::readFormParameters();
 		
+		if (isset($_POST['title'])) $this->title = StringUtil::trim($_POST['title']);
 		if (isset($_POST['regex'])) $this->regex = StringUtil::trim($_POST['regex']);
 		if (isset($_POST['html'])) $this->html = StringUtil::trim($_POST['html']);
 	}
@@ -62,6 +69,9 @@ class BBCodeVideoProviderAddForm extends ACPForm {
 		parent::validate();
 		
 		// validate fields
+		if (empty($this->title)) {
+			throw new UserInputException('title');
+		}
 		if (empty($this->regex)) {
 			throw new UserInputException('regex');
 		}
@@ -84,6 +94,7 @@ class BBCodeVideoProviderAddForm extends ACPForm {
 		
 		// save video provider
 		$videoProviderAction = new VideoProviderAction(array(), 'create', array('data' => array(
+			'title' => $this->title,
 			'regex' => $this->regex,
 			'html' => $this->html
 		)));
@@ -91,7 +102,7 @@ class BBCodeVideoProviderAddForm extends ACPForm {
 		$this->saved();
 		
 		// reset values
-		$this->regex = $this->html = '';
+		$this->title = $this->regex = $this->html = '';
 		
 		// show success
 		WCF::getTPL()->assign(array(
@@ -107,6 +118,7 @@ class BBCodeVideoProviderAddForm extends ACPForm {
 		
 		WCF::getTPL()->assign(array(
 			'action' => 'add',
+			'title' => $this->title,
 			'regex' => $this->regex,
 			'html' => $this->html
 		));

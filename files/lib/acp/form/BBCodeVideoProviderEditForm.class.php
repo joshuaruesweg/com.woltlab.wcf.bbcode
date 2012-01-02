@@ -59,6 +59,7 @@ class BBCodeVideoProviderEditForm extends BBCodeVideoProviderAddForm {
 		
 		// update video-provider
 		$videoProviderAction = new VideoProviderAction(array($this->providerID), 'update', array('data' => array(
+			'title' => $this->title,
 			'regex' => $this->regex,
 			'html' => $this->html
 		)));
@@ -79,6 +80,7 @@ class BBCodeVideoProviderEditForm extends BBCodeVideoProviderAddForm {
 		parent::readData();
 		
 		if (!count($_POST)) {
+			$this->title = $this->videoProviderObj->title;
 			$this->regex = $this->videoProviderObj->regex;
 			$this->html = $this->videoProviderObj->html;
 		}

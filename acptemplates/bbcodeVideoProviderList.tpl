@@ -38,7 +38,7 @@
 			<thead>
 				<tr>
 					<th class="columnID columnVideoProviderID" colspan="2">{lang}wcf.global.objectID{/lang}</th>
-					<th class="columnText columnVideoProvider">{lang}wcf.acp.bbcode.videoprovider.regex{/lang}</th>
+					<th class="columnText columnVideoProviderTitle">{lang}wcf.acp.bbcode.videoprovider.title{/lang}</th>
 					
 					{event name='headColumns'}
 				</tr>
@@ -63,8 +63,7 @@
 								{event name='buttons'}
 							</td>
 							<td class="columnID"><p>{@$videoProvider->providerID}</p></td>
-							{assign var='lines' value="\n"|explode:$videoProvider->regex}
-							<td class="columnText columnVideoProvider">{$lines[0]|truncate:300}</p></td>
+							<td class="columnText columnVideoProviderTitle">{$videoProvider->title}</p></td>
 							
 							{event name='columns'}
 						</tr>

@@ -29,6 +29,20 @@
 		<fieldset>
 			<legend>{lang}wcf.acp.bbcode.videoprovider.data{/lang}</legend>
 			
+			<dl{if $errorField == 'title'} class="formError"{/if}>
+				<dt><label for="title">{lang}wcf.acp.bbcode.videoprovider.title{/lang}</label></dt>
+				<dd>
+					<input type="text" id="title" name="title" value="{$title}" class="long" required="required" />
+					{if $errorField == 'title'}
+						<small class="innerError">
+							{if $errorType == 'empty'}
+								{lang}wcf.global.form.error.empty{/lang}
+							{/if}
+						</small>
+					{/if}
+				</dd>
+			</dl>
+			
 			<dl{if $errorField == 'regex'} class="formError"{/if}>
 				<dt><label for="regex">{lang}wcf.acp.bbcode.videoprovider.regex{/lang}</label></dt>
 				<dd>
