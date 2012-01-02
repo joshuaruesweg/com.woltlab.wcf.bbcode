@@ -88,7 +88,7 @@
 			<dl{if $errorField == 'bbcodeTag'} class="formError"{/if}>
 				<dt><label for="bbcodeTag">{lang}wcf.acp.bbcode.bbcodeTag{/lang}</label></dt>
 				<dd>
-					<input type="text" id="bbcodeTag" name="bbcodeTag" value="{$bbcodeTag}" class="medium" required="required" />
+					<input type="text" id="bbcodeTag" name="bbcodeTag" value="{$bbcodeTag}" class="medium" required="required" pattern="^[a-zA-Z0-9]+$" />
 					{if $errorField == 'bbcodeTag'}
 						<small class="innerError">
 							{if $errorType == 'empty'}
@@ -134,7 +134,7 @@
 			<dl{if $errorField == 'allowedChildren'} class="formError"{/if}>
 				<dt><label for="allowedChildren">{lang}wcf.acp.bbcode.allowedChildren{/lang}</label></dt>
 				<dd>
-					<input type="text" id="allowedChildren" name="allowedChildren" value="{$allowedChildren}" class="long" required="required" />
+					<input type="text" id="allowedChildren" name="allowedChildren" value="{$allowedChildren}" class="long" required="required" pattern="^((all|none)\^)?([a-zA-Z0-9]+,?)*[a-zA-Z0-9]+$" />
 					{if $errorField == 'allowedChildren'}
 						<small class="innerError">
 							{if $errorType == 'empty'}
