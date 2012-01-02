@@ -18,7 +18,7 @@ class PhpHighlighter extends Highlighter {
 		$phpTagsAdded = false;
 		if (StringUtil::indexOf($code, '<?') === false) {
 			$phpTagsAdded = true;
-			$content = '<?php '.$code.' ?>';
+			$code = '<?php '.$code.' ?>';
 		}
 		
 		// do highlight
