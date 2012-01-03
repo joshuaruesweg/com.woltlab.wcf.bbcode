@@ -72,7 +72,7 @@ class KeywordHighlighter extends SingletonFactory {
 				$query = explode('&', $url['query']);
 				foreach ($query as $element) {
 					if (strpos($element, '=') === false) continue;
-					list($varname, $value) = explode('=', $element);
+					list($varname, $value) = explode('=', $element, 2);
 					
 					if (in_array($varname, static::$searchQueryKeys)) {
 						$this->parseKeywords(urldecode($value));
@@ -115,7 +115,7 @@ class KeywordHighlighter extends SingletonFactory {
 		}
 		else {	
 			// replace word delimiters by space
-			$keywordString = preg_replace('/[.,]/', ' ', $keywordString);
+			$keywordString = str_replace(array('.', ','), ' ', $keywordString);
 			
 			$keywords = ArrayUtil::encodeHTML(ArrayUtil::trim(explode(' ', $keywordString)));
 			if (count($keywords) > 0) {
