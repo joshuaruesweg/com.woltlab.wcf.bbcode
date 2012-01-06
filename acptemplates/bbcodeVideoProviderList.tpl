@@ -1,7 +1,7 @@
 {include file='header'}
 
 <header class="mainHeading">
-	<img src="{@RELATIVE_WCF_DIR}icon/bbcode1.svg" alt="" />
+	<img src="{@RELATIVE_WCF_DIR}icon/videoProvider1.svg" alt="" />
 	<hgroup>
 		<h1>{lang}wcf.acp.bbcode.videoprovider.list{/lang}</h1>
 	</hgroup>
@@ -33,11 +33,11 @@
 			<h1>{lang}wcf.acp.bbcode.videoprovider.list{/lang} <span class="badge" title="{lang}wcf.acp.bbcode.videoprovider.list.count{/lang}">{#$items}</span></h1>
 		</hgroup>
 		
-		<table>
+		<table class="bigList">
 			<thead>
 				<tr>
 					<th class="columnID columnVideoProviderID" colspan="2">{lang}wcf.global.objectID{/lang}</th>
-					<th class="columnText columnVideoProviderTitle">{lang}wcf.acp.bbcode.videoprovider.title{/lang}</th>
+					<th class="columnTitle columnVideoProviderTitle">{lang}wcf.acp.bbcode.videoprovider.title{/lang}</th>
 					
 					{event name='headColumns'}
 				</tr>
@@ -62,7 +62,7 @@
 								{event name='buttons'}
 							</td>
 							<td class="columnID"><p>{@$videoProvider->providerID}</p></td>
-							<td class="columnText columnVideoProviderTitle">{$videoProvider->title}</p></td>
+							<td class="columnTitle columnVideoProviderTitle"><p>{$videoProvider->title}</p></td>
 							
 							{event name='columns'}
 						</tr>

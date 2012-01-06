@@ -75,7 +75,7 @@
 <div class="contentHeader">
 	<nav>
 		<ul class="largeButtons">
-			<li><a href="{link controller='BBCodeList'}{/link}" title="{lang}wcf.acp.menu.link.bbcode.list{/lang}"><img src="{@RELATIVE_WCF_DIR}icon/bbcode1.svg" alt="" /> <span>{lang}wcf.acp.menu.link.bbcode.list{/lang}</span></a></li>
+			<li><a href="{link controller='BBCodeList'}{/link}" title="{lang}wcf.acp.menu.link.bbcode.list{/lang}"><img src="{@RELATIVE_WCF_DIR}icon/bbCode1.svg" alt="" /> <span>{lang}wcf.acp.menu.link.bbcode.list{/lang}</span></a></li>
 		</ul>
 	</nav>
 </div>

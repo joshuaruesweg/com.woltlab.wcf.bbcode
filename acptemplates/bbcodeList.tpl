@@ -1,7 +1,7 @@
 {include file='header'}
 
 <header class="mainHeading">
-	<img src="{@RELATIVE_WCF_DIR}icon/bbcode1.svg" alt="" />
+	<img src="{@RELATIVE_WCF_DIR}icon/bbCode1.svg" alt="" />
 	<hgroup>
 		<h1>{lang}wcf.acp.bbcode.list{/lang}</h1>
 	</hgroup>
@@ -38,7 +38,7 @@
 			<thead>
 				<tr>
 					<th class="columnID columnBBCodeID" colspan="2">{lang}wcf.global.objectID{/lang}</th>
-					<th class="columnText columnBBCode">{lang}wcf.acp.bbcode.bbcodeTag{/lang}</th>
+					<th class="columnTitle columnBBCode">{lang}wcf.acp.bbcode.bbcodeTag{/lang}</th>
 					<th class="columnText columnClassName">{lang}wcf.acp.bbcode.className{/lang}</th>
 					
 					{event name='headColumns'}
@@ -74,8 +74,8 @@
 								{event name='buttons'}
 							</td>
 							<td class="columnID"><p>{@$bbcode->bbcodeID}</p></td>
-							<td class="columnText columnBBCode">[{$bbcode->bbcodeTag}]</p></td>
-							<td class="columnText columnClassName">{$bbcode->className}</p></td>
+							<td class="columnTitle columnBBCode"><p>[{$bbcode->bbcodeTag}]</p></td>
+							<td class="columnText columnClassName"><p>{$bbcode->className}</p></td>
 							
 							{event name='columns'}
 						</tr>
