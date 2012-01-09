@@ -56,10 +56,8 @@
 						</small>
 					{/if}
 					<small>{lang}wcf.acp.bbcode.videoprovider.regex.description{/lang}</small>
-					<input id="url" />
-					<pre id="validateResult">
-					
-					</pre>
+					<input type="text" id="url" class="long" />
+					<pre id="validateResult"></pre>
 					<script type="text/javascript">
 					// <![CDATA[
 						(function ($) {
