@@ -16,7 +16,7 @@
 		<item name="wcf.acp.bbcode.htmlClose"><![CDATA[Schließendes HTML-Tag]]></item>
 		<item name="wcf.acp.bbcode.textOpen"><![CDATA[Öffnender Text]]></item>
 		<item name="wcf.acp.bbcode.textClose"><![CDATA[Schließender Text]]></item>
-		<item name="wcf.acp.bbcode.allowedChildren"><![CDATA[Erlaubte Kinder]]></item>
+		<item name="wcf.acp.bbcode.allowedChildren"><![CDATA[Erlaubte Kindelemente]]></item>
 		<item name="wcf.acp.bbcode.className"><![CDATA[Klassen-Name]]></item>
 		
 		<item name="wcf.acp.bbcode.attributes"><![CDATA[Attribute]]></item>
@@ -32,7 +32,7 @@
 		<item name="wcf.acp.bbcode.videoprovider.title"><![CDATA[Videoanbieter]]></item>
 		<item name="wcf.acp.bbcode.videoprovider.regex"><![CDATA[Regulärer Ausdruck]]></item>
 		<item name="wcf.acp.bbcode.videoprovider.regex.description"><![CDATA[Geben Sie hier das Linkformat als <a href="{@RELATIVE_WCF_DIR}acp/dereferrer.php?url=http%3A%2F%2Fde.wikipedia.org%2Fwiki%2FRegul%25C3%25A4rer_Ausdruck">Regulären Ausdruck</a> an. <br />
-		Mehrere Ausdrücke können zeilenweise angegeben werden.<br />
+		Mehrere Ausdrücke können zeilenweise angegeben werden. <br />
 		Beispiele für Video-ID Erkennungen:
 		<ul>
 			<li>(?&lt;ID&gt;[0-9]+) - Erkennt eine Video-ID aus Zahlen</li>
@@ -42,17 +42,17 @@
 		<item name="wcf.acp.bbcode.videoprovider.html"><![CDATA[HTML-Code]]></item>
 		<item name="wcf.acp.bbcode.videoprovider.html.description"><![CDATA[{literal}Geben Sie hier den HTML-Code für das Video an. Variablen im Format {$variable} werden durch die entsprechende benannte Untergruppe des Regulären Ausdrucks ersetzt.<br />
 		Beispiel:<br />
-		{$ID} - Wird durch die Beispielhaften Video-IDs der Erklärung oberhalb ersetzt.{/literal}]]></item>
+		{$ID} - Wird durch die beispielhaften Video-IDs der Erklärung oberhalb ersetzt.{/literal}]]></item>
 		
 		<!-- Errors -->
 		<item name="wcf.acp.bbcode.error.bbcodeTag.inUse"><![CDATA[Dieser BBCode ist bereits vorhanden.]]></item>
 		<item name="wcf.acp.bbcode.error.bbcodeTag.invalid"><![CDATA[Dieser BBCode ist ungültig.]]></item>
-		<item name="wcf.acp.bbcode.error.allowedChildren.invalid"><![CDATA[Die Form für die erlaubten Kinder ist ungültig.]]></item>
+		<item name="wcf.acp.bbcode.error.allowedChildren.invalid"><![CDATA[Die Form für die erlaubten Kindelemente ist ungültig.]]></item>
 		<item name="wcf.acp.bbcode.error.className.notFound"><![CDATA[Diese Klasse wurde nicht gefunden.]]></item>
 		
-		<item name="wcf.acp.bbcode.attribute.error.validationPattern.invalid"><![CDATA[Dies ist kein gültiger regulärer Ausdruck.]]></item>
+		<item name="wcf.acp.bbcode.attribute.error.validationPattern.invalid"><![CDATA[Dies ist kein gültiger Regulärer Ausdruck.]]></item>
 		
-		<item name="wcf.acp.bbcode.videoprovider.error.regex.invalid"><![CDATA[Dies ist kein gültiger regulärer Ausdruck.]]></item>
+		<item name="wcf.acp.bbcode.videoprovider.error.regex.invalid"><![CDATA[Dies ist kein gültiger Regulärer Ausdruck.]]></item>
 		
 		<!-- Headlines -->
 		<item name="wcf.acp.bbcode.list"><![CDATA[BBCodes]]></item>
