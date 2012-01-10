@@ -62,7 +62,7 @@
 								{event name='buttons'}
 							</td>
 							<td class="columnID"><p>{@$videoProvider->providerID}</p></td>
-							<td class="columnTitle columnVideoProviderTitle"><p>{$videoProvider->title}</p></td>
+							<td class="columnTitle columnVideoProviderTitle">{if $__wcf->session->getPermission('admin.content.bbcode.videoprovider.canDeleteVideoProvider')}<p><a href="{link controller='BBCodeVideoProviderEdit' id=$videoProvider->providerID}{/link}">{lang}{$videoProvider->title}{/lang}</a>{else}{lang}{$videoProvider->title}{/lang}</p>{/if}</td>
 							
 							{event name='columns'}
 						</tr>
