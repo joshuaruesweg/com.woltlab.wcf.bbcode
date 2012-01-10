@@ -163,10 +163,11 @@
 		</fieldset>
 		
 		<fieldset id="attributeFieldset">
-			<legend>{lang}wcf.acp.bbcode.attributes{/lang} <img src="{@RELATIVE_WCF_DIR}icon/add1.svg" alt="" class="addButton" /></legend>
+			<legend><img src="{@RELATIVE_WCF_DIR}icon/add1.svg" alt="" title="{lang}wcf.global.button.add{/lang}" class="addButton" /> {lang}wcf.acp.bbcode.attributes{/lang}</legend>
 			
 			{foreach from=$attributes item='attribute'}
-				<fieldset><legend>{lang}wcf.acp.bbcode.attribute{/lang} {#$attribute->attributeNo} <img src="{@RELATIVE_WCF_DIR}icon/delete1.svg" alt="" class="deleteButton" /></legend>
+				<fieldset>
+					<legend><img src="{@RELATIVE_WCF_DIR}icon/delete1.svg" alt="" title="{lang}wcf.global.button.delete{/lang}" class="deleteButton" />{lang}wcf.acp.bbcode.attribute{/lang} {#$attribute->attributeNo}</legend>
 					<dl{if $errorField == 'attributeHtml'|concat:$attribute->attributeNo} class="formError"{/if}>
 						<dt><label for="attributeHtml[{@$attribute->attributeNo}]">{lang}wcf.acp.bbcode.attribute.attributeHtml{/lang}</label></dt>
 						<dd>
