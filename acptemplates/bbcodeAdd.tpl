@@ -1,6 +1,7 @@
 {include file='header'}
 {capture assign='attributeTemplate'}
-	<fieldset><legend>{lang}wcf.acp.bbcode.attribute{/lang} {ldelim}#$attributeNo} <img src="{@RELATIVE_WCF_DIR}icon/delete1.svg" alt="" class="deleteButton" /></legend>
+	<fieldset>
+		<legend><img src="{@RELATIVE_WCF_DIR}icon/delete1.svg" alt="" class="deleteButton" />{lang}wcf.acp.bbcode.attribute{/lang} {ldelim}#$attributeNo}</legend>
 		<dl>
 			<dt><label for="attributeHtml[{ldelim}@$attributeNo}]">{lang}wcf.acp.bbcode.attribute.attributeHtml{/lang}</label></dt>
 			<dd>
