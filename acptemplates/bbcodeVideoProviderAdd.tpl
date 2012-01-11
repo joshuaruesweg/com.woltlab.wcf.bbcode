@@ -78,7 +78,10 @@
 									}
 								});
 							}
-							$('#url').change(checkRegex);
+							$('#url').keydown(checkRegex);
+							$('#url').keyup(checkRegex);
+							$('#url').keypress(checkRegex);
+							
 							$('#regex').change(checkRegex);
 						})(jQuery);
 					// ]]>
