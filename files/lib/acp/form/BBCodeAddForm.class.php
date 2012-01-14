@@ -72,6 +72,12 @@ class BBCodeAddForm extends ACPForm {
 	public $allowedChildren = 'all';
 	
 	/**
+	 * is-source-code value
+	 * @var	boolean
+	 */
+	public $isSourceCode = false;
+	
+	/**
 	 * class-name value
 	 * @var	string
 	 */
@@ -95,8 +101,10 @@ class BBCodeAddForm extends ACPForm {
 		if (isset($_POST['textOpen'])) $this->textOpen = StringUtil::trim($_POST['textOpen']);
 		if (isset($_POST['textClose'])) $this->textClose = StringUtil::trim($_POST['textClose']);
 		if (isset($_POST['allowedChildren'])) $this->allowedChildren = StringUtil::trim($_POST['allowedChildren']);
+		if (isset($_POST['isSourceCode'])) $this->isSourceCode = true;
 		if (isset($_POST['className'])) $this->className = StringUtil::trim($_POST['className']);
 		if (isset($_POST['attributes'])) $this->attributes = $_POST['attributes'];
+		
 		$attributeNo = 0;
 		foreach ($this->attributes as $key => $val) {
 			$val['attributeNo'] = $attributeNo++;
@@ -172,6 +180,7 @@ class BBCodeAddForm extends ACPForm {
 			'textOpen' => $this->textOpen,
 			'textClose' => $this->textClose,
 			'allowedChildren' => $this->allowedChildren,
+			'isSourceCode' => (int) $this->isSourceCode,
 			'className' => $this->className,
 			'packageID' => PackageDependencyHandler::getPackageID('com.woltlab.wcf.bbcode') // TODO: Maybe Change this?
 		)));
@@ -217,6 +226,7 @@ class BBCodeAddForm extends ACPForm {
 			'textOpen' => $this->textOpen,
 			'textClose' => $this->textClose,
 			'allowedChildren' => $this->allowedChildren,
+			'isSourceCode' => $this->isSourceCode,
 			'className' => $this->className,
 			'attributes' => $this->attributes
 		));

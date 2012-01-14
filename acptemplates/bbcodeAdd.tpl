@@ -148,6 +148,13 @@
 				</dd>
 			</dl>
 			
+			<dl{if $errorField == 'isSourceCode'} class="formError"{/if}>
+				<dd>
+					<label><input type="checkbox" id="isSourceCode" name="isSourceCode" value="1"{if $isSourceCode} checked="checked"{/if} /> {lang}wcf.acp.bbcode.isSourceCode{/lang}</label>
+					<small>{lang}wcf.acp.bbcode.isSourceCode.description{/lang}</small>
+				</dd>
+			</dl>
+			
 			<dl{if $errorField == 'className'} class="formError"{/if}>
 				<dt><label for="className">{lang}wcf.acp.bbcode.className{/lang}</label></dt>
 				<dd>

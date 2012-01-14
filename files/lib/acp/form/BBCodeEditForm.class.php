@@ -67,6 +67,7 @@ class BBCodeEditForm extends BBCodeAddForm {
 			'textOpen' => $this->textOpen,
 			'textClose' => $this->textClose,
 			'allowedChildren' => $this->allowedChildren,
+			'isSourceCode' => (int) $this->isSourceCode,
 			'className' => $this->className
 		)));
 		$bbcodeAction->executeAction();
@@ -112,6 +113,7 @@ class BBCodeEditForm extends BBCodeAddForm {
 			$this->textOpen = $this->bbcodeObj->textOpen;
 			$this->textClose = $this->bbcodeObj->textClose;
 			$this->allowedChildren = $this->bbcodeObj->allowedChildren;
+			$this->isSourceCode = $this->isSourceCode;
 			$this->className = $this->bbcodeObj->className;
 		}
 	}
