@@ -27,11 +27,8 @@ class VideoBBCode extends AbstractBBCode {
 					return $provider->getOutput($content);
 				}
 			}
-			
-			return '';
 		}
-		else if ($parser->getOutputType() == 'text/plain') {
-			return WCF::getLanguage()->getDynamicVariable('wcf.bbcode.code.text', array('content' => $content));
-		}
+		
+		return $content;
 	}
 }
