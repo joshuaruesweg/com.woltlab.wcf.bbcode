@@ -49,6 +49,7 @@ class SimpleMessageParser extends SingletonFactory {
 					$this->smilies[$smiley->smileyCode] = '<img src="'.$smiley->getURL().'" alt="'.StringUtil::encodeHTML($smiley->smileyCode).'" />';
 				}
 			}
+			krsort($this->smilies);
 		//}
 		
 		// get page urls
