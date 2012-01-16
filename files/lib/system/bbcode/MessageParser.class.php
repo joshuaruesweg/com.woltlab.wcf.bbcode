@@ -88,7 +88,7 @@ class MessageParser extends BBCodeParser {
 				// converts newlines to <br />'s
 				$message = nl2br($message);
 			}
-		}		
+		}
 		
 		// parse bbcodes
 		if ($enableBBCodes) {
