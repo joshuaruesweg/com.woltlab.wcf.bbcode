@@ -31,7 +31,7 @@
 			<dl{if $errorField == 'title'} class="formError"{/if}>
 				<dt><label for="title">{lang}wcf.acp.bbcode.videoprovider.title{/lang}</label></dt>
 				<dd>
-					<input type="text" id="title" name="title" value="{$title}" class="long" required="required" />
+					<input type="text" id="title" name="title" value="{$title}" required="required" autofocus="autofocus" class="long" />
 					{if $errorField == 'title'}
 						<small class="innerError">
 							{if $errorType == 'empty'}
