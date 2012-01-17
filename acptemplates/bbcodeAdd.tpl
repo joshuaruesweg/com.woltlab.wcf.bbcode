@@ -89,7 +89,7 @@
 			<dl{if $errorField == 'bbcodeTag'} class="formError"{/if}>
 				<dt><label for="bbcodeTag">{lang}wcf.acp.bbcode.bbcodeTag{/lang}</label></dt>
 				<dd>
-					<input type="text" id="bbcodeTag" name="bbcodeTag" value="{$bbcodeTag}" class="medium" required="required" pattern="^[a-zA-Z0-9]+$" />
+					<input type="text" id="bbcodeTag" name="bbcodeTag" value="{$bbcodeTag}" required="required" autofocus="autofocus" pattern="^[a-zA-Z0-9]+$" class="medium" />
 					{if $errorField == 'bbcodeTag'}
 						<small class="innerError">
 							{if $errorType == 'empty'}

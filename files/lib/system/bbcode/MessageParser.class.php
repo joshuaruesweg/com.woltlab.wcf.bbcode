@@ -72,6 +72,9 @@ class MessageParser extends BBCodeParser {
 	public function parse($message, $enableSmilies = true, $enableHtml = false, $enableBBCodes = true, $doKeywordHighlighting = true) {
 		$this->cachedCodes = array();
 		
+		// call event
+		EventHandler::getInstance()->fireAction($this, 'beforeParsing');
+		
 		if ($this->getOutputType() != 'text/plain') {
 			if ($enableBBCodes) {
 				// cache codes
@@ -113,6 +116,9 @@ class MessageParser extends BBCodeParser {
 			$badReplace = array('$1<b></b>:', '$1<b></b>:', '$1<b></b>:');
 			$message = preg_replace($badSearch, $badReplace, $message);
 		}
+		
+		// call event
+		EventHandler::getInstance()->fireAction($this, 'afterParsing');
 		
 		return $message;
 	}

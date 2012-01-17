@@ -69,7 +69,10 @@ class SimpleMessageParser extends SingletonFactory {
 	 * @param	boolean		$parseSmilies
 	 * @return	string		parsed message
 	 */
-	public function parse($message, $parseURLs = true, $parseSmilies = true) {
+	public function parse($message, $parseURLs = true, $parseSmilies = true) {		
+		// call event
+		EventHandler::getInstance()->fireAction($this, 'beforeParsing');
+		
 		// encode html
 		$message = StringUtil::encodeHTML($message);
 		
@@ -89,6 +92,9 @@ class SimpleMessageParser extends SingletonFactory {
 		$badSearch = array('/(javascript):/i', '/(about):/i', '/(vbscript):/i');
 		$badReplace = array('$1<b></b>:', '$1<b></b>:', '$1<b></b>:');
 		$message = preg_replace($badSearch, $badReplace, $message);
+		
+		// call event
+		EventHandler::getInstance()->fireAction($this, 'afterParsing');
 		
 		return $message;
 	}
