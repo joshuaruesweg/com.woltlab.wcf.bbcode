@@ -34,20 +34,45 @@ class CodeBBCode extends AbstractBBCode {
 			if (!empty($openingTag['attributes'][0]) && !is_numeric($openingTag['attributes'][0])) {
 				$className = '\wcf\system\bbcode\highlighter\\'.StringUtil::firstCharToUpperCase(StringUtil::toLowerCase($openingTag['attributes'][0])).'Highlighter';
 				
-				if ($className == '\wcf\system\bbcode\highlighter\C++Highlighter') $className = '\wcf\system\bbcode\highlighter\CHighlighter';
-				else if ($className == '\wcf\system\bbcode\highlighter\JavascriptHighlighter') $className = '\wcf\system\bbcode\highlighter\JsHighlighter';
+				switch (StringUtil::substring($className, strlen('\wcf\system\bbcode\highlighter\\'))) {
+					case 'C++Highlighter':
+						$className = '\wcf\system\bbcode\highlighter\CHighlighter';
+					break;
+					case 'JavascriptHighlighter':
+						$className = '\wcf\system\bbcode\highlighter\JsHighlighter';
+					break;
+				}
 			}
 			else {
 				// try to guess highlighter
-				if (StringUtil::indexOf($content, '<?php') !== false) $className = '\wcf\system\bbcode\highlighter\PhpHighlighter';
-				else if (StringUtil::indexOf($content, '<html') !== false) $className = '\wcf\system\bbcode\highlighter\HtmlHighlighter';
-				else if (StringUtil::indexOf($content, '<?xml') === 0) $className = '\wcf\system\bbcode\highlighter\XmlHighlighter';
-				else if (StringUtil::indexOf($content, 'SELECT') === 0) $className = '\wcf\system\bbcode\highlighter\SqlHighlighter';
-				else if (StringUtil::indexOf($content, 'UPDATE') === 0) $className = '\wcf\system\bbcode\highlighter\SqlHighlighter';
-				else if (StringUtil::indexOf($content, 'INSERT') === 0) $className = '\wcf\system\bbcode\highlighter\SqlHighlighter';
-				else if (StringUtil::indexOf($content, 'DELETE') === 0) $className = '\wcf\system\bbcode\highlighter\SqlHighlighter';
-				else if (StringUtil::indexOf($content, 'import java.') !== false) $className = '\wcf\system\bbcode\highlighter\JavaHighlighter';
-				else if (StringUtil::indexOf($content, "---") !== false && StringUtil::indexOf($content, "\n+++") !== false) $className = '\wcf\system\bbcode\highlighter\DiffHighlighter';
+				if (StringUtil::indexOf($content, '<?php') !== false) {
+					$className = '\wcf\system\bbcode\highlighter\PhpHighlighter';
+				}
+				else if (StringUtil::indexOf($content, '<html') !== false) {
+					$className = '\wcf\system\bbcode\highlighter\HtmlHighlighter';
+				}
+				else if (StringUtil::indexOf($content, '<?xml') === 0) {
+					$className = '\wcf\system\bbcode\highlighter\XmlHighlighter';
+				}
+				else if (	StringUtil::indexOf($content, 'SELECT') === 0
+					||	StringUtil::indexOf($content, 'UPDATE') === 0
+					||	StringUtil::indexOf($content, 'INSERT') === 0
+					||	StringUtil::indexOf($content, 'DELETE') === 0) {
+					$className = '\wcf\system\bbcode\highlighter\SqlHighlighter';
+				}
+				else if (StringUtil::indexOf($content, 'import java.') !== false) {
+					$className = '\wcf\system\bbcode\highlighter\JavaHighlighter';
+				}
+				else if (	StringUtil::indexOf($content, "---") !== false 
+					&&	StringUtil::indexOf($content, "\n+++") !== false) {
+					$className = '\wcf\system\bbcode\highlighter\DiffHighlighter';
+				}
+				else if (StringUtil::indexOf($content, "\n#include ") !== false) {
+					$className = '\wcf\system\bbcode\highlighter\CHighlighter';
+				}
+				else if (StringUtil::indexOf($content, '#!/usr/bin/perl') === 0) {
+					$className = '\wcf\system\bbcode\highlighter\PerlHighlighter';
+				}
 			}
 			
 			if (!class_exists($className)) {
