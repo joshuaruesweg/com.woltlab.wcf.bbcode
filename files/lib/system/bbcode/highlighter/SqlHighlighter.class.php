@@ -1,5 +1,6 @@
 <?php
 namespace wcf\system\bbcode\highlighter;
+use wcf\util\StringUtil;
 
 /**
  * Highlights syntax of sql queries.
@@ -12,22 +13,29 @@ namespace wcf\system\bbcode\highlighter;
  * @category 	Community Framework
  */
 class SqlHighlighter extends Highlighter {
-	// highlighter style
-	protected $style = array(
-		'quotes' => 'color:red',
-		'comments' => 'color:green',
-		'operators' => 'color:green',
-		'keywords1' => 'color:#663821',
-		'keywords2' => 'color:#871550',
-		'numbers' => 'color:#1906FD'
-	);
-
 	// highlighter syntax
 	protected $allowsNewslinesInQuotes = true;
 	protected $quotes = array("'", '"');
 	protected $singleLineComment = array('#', '--');
 	protected $separators = array('(', ')', ',', ';');
 	protected $operators = array('<>', '~=', '!=', '^=', '=', '<', '<=', '>', '>=', '*', '/', '+', '-', '||', '@', '%', '&', '?', '\$');
+	
+	/**
+	 * @see wcf\system\bbcode\highlighter\Highlighter::cacheQuote()
+	 */
+	protected function cacheQuote($quote) {
+		// strip slashes
+		$quote = str_replace("\\\"", "\"", $quote);
+		
+		// create hash
+		$hash = '!!!'.StringUtil::getHash(uniqid(microtime()).$quote).'!!!';
+		
+		// save
+		$this->cachedQuotes[$hash] = '<span class="quotes">'.StringUtil::encodeHTML($quote).'</span>';
+		
+		return $hash;
+	}
+	
 	protected $keywords1 = array(
 		'action',
 		'add',

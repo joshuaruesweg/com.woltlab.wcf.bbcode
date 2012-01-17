@@ -23,21 +23,8 @@ abstract class Highlighter extends SingletonFactory {
 	protected $escapeSequence = array("\\");
 	protected $separators = array();
 	protected $operators = array();
-	protected $keywords1 = array(), $keywords2 = array(), $keywords3 = array(), $keywords4 = array(), $keywords5 = array();								
+	protected $keywords1 = array(), $keywords2 = array(), $keywords3 = array(), $keywords4 = array(), $keywords5 = array();
 	protected $allowsNewslinesInQuotes = false;
-	
-	// highlighter style
-	protected $style = array(
-		'quotes' => "color:red",
-		'comments' => "color:green",
-		'operators' => "color:green",
-		'keywords1' => "color:blue",
-		'keywords2' => "color:darkred",
-		'keywords3' => "color:darkviolet",
-		'keywords4' => "color:darkgoldenrod",
-		'keywords5' => "color:crimson",
-		'numbers' => "color:darkorange"
-	);
 	
 	// regular expressions
 	protected $cacheCommentsRegEx = '';
@@ -168,7 +155,7 @@ abstract class Highlighter extends SingletonFactory {
 	 */
 	protected function highlightOperators($string) {
 		if (count($this->operators)) {
-			$string = preg_replace('!('.StringUtil::encodeHTML(implode('|', array_map('preg_quote', $this->operators))).')!i', '<span style="'.$this->style['operators'].'">\\0</span>', $string);
+			$string = preg_replace('!('.StringUtil::encodeHTML(implode('|', array_map('preg_quote', $this->operators))).')!i', '<span class="operators">\\0</span>', $string);
 		}
 		
 		return $string;
@@ -179,19 +166,19 @@ abstract class Highlighter extends SingletonFactory {
 	 */
 	protected function highlightKeywords($string) {
 		if (count($this->keywords1)) {
-			$string = preg_replace('!(?<='.$this->separatorsRegEx.')('.StringUtil::encodeHTML(implode('|', array_map('preg_quote', $this->keywords1))).')(?='.$this->separatorsRegEx.')!i', '<span style="'.$this->style['keywords1'].'">\\0</span>', $string);
+			$string = preg_replace('!(?<='.$this->separatorsRegEx.')('.StringUtil::encodeHTML(implode('|', array_map('preg_quote', $this->keywords1))).')(?='.$this->separatorsRegEx.')!i', '<span class="keywords1">\\0</span>', $string);
 		}
 		if (count($this->keywords2)) {
-			$string = preg_replace('!(?<='.$this->separatorsRegEx.')('.StringUtil::encodeHTML(implode('|', array_map('preg_quote', $this->keywords2))).')(?='.$this->separatorsRegEx.')!i', '<span style="'.$this->style['keywords2'].'">\\0</span>', $string);
+			$string = preg_replace('!(?<='.$this->separatorsRegEx.')('.StringUtil::encodeHTML(implode('|', array_map('preg_quote', $this->keywords2))).')(?='.$this->separatorsRegEx.')!i', '<span class="keywords2">\\0</span>', $string);
 		}
 		if (count($this->keywords3)) {
-			$string = preg_replace('!(?<='.$this->separatorsRegEx.')('.StringUtil::encodeHTML(implode('|', array_map('preg_quote', $this->keywords3))).')(?='.$this->separatorsRegEx.')!i', '<span style="'.$this->style['keywords3'].'">\\0</span>', $string);
+			$string = preg_replace('!(?<='.$this->separatorsRegEx.')('.StringUtil::encodeHTML(implode('|', array_map('preg_quote', $this->keywords3))).')(?='.$this->separatorsRegEx.')!i', '<span class="keywords3">\\0</span>', $string);
 		}
 		if (count($this->keywords4)) {
-			$string = preg_replace('!(?<='.$this->separatorsRegEx.')('.StringUtil::encodeHTML(implode('|', array_map('preg_quote', $this->keywords4))).')(?='.$this->separatorsRegEx.')!i', '<span style="'.$this->style['keywords4'].'">\\0</span>', $string);
+			$string = preg_replace('!(?<='.$this->separatorsRegEx.')('.StringUtil::encodeHTML(implode('|', array_map('preg_quote', $this->keywords4))).')(?='.$this->separatorsRegEx.')!i', '<span class="keywords4">\\0</span>', $string);
 		}
 		if (count($this->keywords5)) {
-			$string = preg_replace('!(?<='.$this->separatorsRegEx.')('.StringUtil::encodeHTML(implode('|', array_map('preg_quote', $this->keywords5))).')(?='.$this->separatorsRegEx.')!i', '<span style="'.$this->style['keywords5'].'">\\0</span>', $string);
+			$string = preg_replace('!(?<='.$this->separatorsRegEx.')('.StringUtil::encodeHTML(implode('|', array_map('preg_quote', $this->keywords5))).')(?='.$this->separatorsRegEx.')!i', '<span class="keywords5">\\0</span>', $string);
 		}
 		
 		return $string;
@@ -201,7 +188,7 @@ abstract class Highlighter extends SingletonFactory {
 	 * Highlights numbers.
 	 */
 	protected function highlightNumbers($string) {
-		$string = preg_replace('!(?<='.$this->separatorsRegEx.')(-?\d+)(?='.$this->separatorsRegEx.')!i', '<span style="'.$this->style['numbers'].'">\\0</span>', $string);
+		$string = preg_replace('!(?<='.$this->separatorsRegEx.')(-?\d+)(?='.$this->separatorsRegEx.')!i', '<span class="numbers">\\0</span>', $string);
 		
 		return $string;
 	}
@@ -246,7 +233,7 @@ abstract class Highlighter extends SingletonFactory {
 			$hash = '@@'.StringUtil::getHash(uniqid(microtime()).$comment).'@@';
 			
 			// save
-			$this->cachedComments[$hash] = '<span style="'.$this->style['comments'].'">'.StringUtil::encodeHTML($comment).'</span>';
+			$this->cachedComments[$hash] = '<span class="comments">'.StringUtil::encodeHTML($comment).'</span>';
 		}
 			
 		return $string.$hash;
@@ -263,7 +250,7 @@ abstract class Highlighter extends SingletonFactory {
 		$hash = '@@'.StringUtil::getHash(uniqid(microtime()).$quote).'@@';
 		
 		// save
-		$this->cachedQuotes[$hash] = '<span style="'.$this->style['quotes'].'">'.StringUtil::encodeHTML($quote).'</span>';
+		$this->cachedQuotes[$hash] = '<span class="quotes">'.StringUtil::encodeHTML($quote).'</span>';
 		
 		return $hash;
 	}

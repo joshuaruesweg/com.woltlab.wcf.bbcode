@@ -61,4 +61,69 @@
 	padding: 0 5px;
 }
 
+/* ############## Code Styles ############## */
+.codeBox .quotes, .codeBox.DiffHighlighter .remove {
+	color: red;
+}
+
+.codeBox .comments, .codeBox .operators, .codeBox.DiffHighlighter .add {
+	color: green;
+}
+
+.codeBox .keywords1 {
+	color: blue;
+}
+
+.codeBox .keywords2 {
+	color: darkred;
+}
+
+.codeBox .keywords3, .codeBox.DiffHighlighter .comments {
+	color: darkviolet;
+}
+
+.codeBox .keywords4 {
+	color: darkgoldenrod;
+}
+
+.codeBox .keywords5 {
+	color: crimson;
+}
+
+.codeBox .numbers {
+	color: darkorange;
+}
+
+.codeBox.CssHighlighter .comments {
+	color: #236E26;
+}
+
+.codeBox.CssHighlighter .colors {
+	color: #751116;
+}
+
+.codeBox.CssHighlighter .numbers, .codeBox.SqlHighlighter .numbers {
+	color: #1906FD;
+}
+
+.codeBox.CssHighlighter .keywords1 {
+	color: #87154F;
+}
+
+.codeBox.CssHighlighter .keywords2 {
+	color: #994509;
+}
+
+.codeBox.CssHighlighter .keywords3, .codeBox.CssHighlighter .keywords4 {
+	color: inherit;
+}
+
+.codeBox.SqlHighlighter .keywords1 {
+	color: #663821;
+}
+
+.codeBox.SqlHighlighter .keywords2 {
+	color: #871550;
+}
+
 /* -- -- -- -- -- EOF -- -- -- -- -- */

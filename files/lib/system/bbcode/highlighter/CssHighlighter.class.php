@@ -12,18 +12,6 @@ namespace wcf\system\bbcode\highlighter;
  * @category 	Community Framework
  */
 class CssHighlighter extends Highlighter {
-	// highlighter style
-	protected $style = array(
-		'quotes' => 'color:red',
-		'comments' => 'color:#236E26',
-		'colors' => 'color:#751116',
-		'numbers' => 'color:#1906FD',
-		'keywords1' => 'color:#87154F',
-		'keywords2' => 'color:#994509',
-		'keywords3' => '',
-		'keywords4' => ''
-	);
-
 	/**
 	 * Highlights numbers.
 	 */

@@ -1,5 +1,6 @@
 <?php
 namespace wcf\system\bbcode\highlighter;
+use wcf\util\StringUtil;
 
 /**
  * Highlights syntax of c / c++ source code.
@@ -94,5 +95,13 @@ class CHighlighter extends Highlighter {
 		'void',
 		'volatile',
 		'wchar_t'
+	);
+	
+	protected $keywords3 = array(
+		'#include',
+		'#define',
+		'#if',
+		'#ifdef',
+		'#endif'
 	);
 }

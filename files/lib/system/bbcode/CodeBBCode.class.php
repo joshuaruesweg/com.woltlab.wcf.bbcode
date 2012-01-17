@@ -25,7 +25,7 @@ class CodeBBCode extends AbstractBBCode {
 	 * @see	wcf\system\bbcode\IBBCode::getParsedTag()
 	 */
 	public function getParsedTag(array $openingTag, $content, array $closingTag, BBCodeParser $parser) {
-		if ($parser->getOutputType() == 'text/html') {	
+		if ($parser->getOutputType() == 'text/html') {
 			// encode html
 			$content = self::trim($content);
 			
@@ -85,7 +85,7 @@ class CodeBBCode extends AbstractBBCode {
 			WCF::getTPL()->assign(array(
 				'lineNumbers' => self::makeLineNumbers($content, self::getLineNumbersStart($openingTag)),
 				'content' => $className::getInstance()->highlight($content),
-				'codeBoxName' => $className::getInstance()->getTitle()
+				'highlighter' => $className::getInstance()
 			));
 			return WCF::getTPL()->fetch('codeBBCodeTag', array(), false);
 		}
