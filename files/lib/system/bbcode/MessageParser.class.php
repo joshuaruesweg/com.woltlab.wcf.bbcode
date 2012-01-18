@@ -38,7 +38,7 @@ class MessageParser extends BBCodeParser {
 	 * currently parsed message
 	 * @var	string
 	 */
-	protected $message = '';
+	public $message = '';
 	
 	/**
 	 * @see	wcf\system\SingletonFactory::init()
