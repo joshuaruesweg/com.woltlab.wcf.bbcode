@@ -2,6 +2,7 @@
 namespace wcf\system\bbcode;
 use wcf\data\bbcode\attribute\BBCodeAttribute;
 use wcf\data\smiley\SmileyCache;
+use wcf\system\event\EventHandler;
 use wcf\util\StringUtil;
 
 /**
@@ -32,6 +33,12 @@ class MessageParser extends BBCodeParser {
 	 * @var	string
 	 */
 	protected $sourceCodeRegEx = '';
+	
+	/**
+	 * currently parsed message
+	 * @var	string
+	 */
+	protected $message = '';
 	
 	/**
 	 * @see	wcf\system\SingletonFactory::init()
@@ -71,6 +78,7 @@ class MessageParser extends BBCodeParser {
 	 */
 	public function parse($message, $enableSmilies = true, $enableHtml = false, $enableBBCodes = true, $doKeywordHighlighting = true) {
 		$this->cachedCodes = array();
+		$this->message = $message;
 		
 		// call event
 		EventHandler::getInstance()->fireAction($this, 'beforeParsing');
@@ -78,49 +86,49 @@ class MessageParser extends BBCodeParser {
 		if ($this->getOutputType() != 'text/plain') {
 			if ($enableBBCodes) {
 				// cache codes
-				$message = $this->cacheCodes($message);
+				$this->message = $this->cacheCodes($this->message);
 			}
 			
 			if (!$enableHtml) {
 				// encode html
-				$message = StringUtil::encodeHTML($message);
+				$this->message = StringUtil::encodeHTML($this->message);
 				
 				// converts newlines to <br />'s
-				$message = nl2br($message);
+				$this->message = nl2br($this->message);
 			}
 		}
 		
 		// parse bbcodes
 		if ($enableBBCodes) {
-			$message = parent::parse($message);
+			$this->message = parent::parse($this->message);
 		}
 		
 		if ($this->getOutputType() != 'text/plain') {
 			// parse smilies
 			if ($enableSmilies) {
-				$message = $this->parseSmilies($message, $enableHtml);
+				$this->message = $this->parseSmilies($this->message, $enableHtml);
 			}
 			
 			if ($enableBBCodes && count($this->cachedCodes) > 0) {
 				// insert cached codes
-				$message = $this->insertCachedCodes($message);
+				$this->message = $this->insertCachedCodes($this->message);
 			}
 			
 			// highlight search query
 			if ($doKeywordHighlighting) {
-				$message = KeywordHighlighter::getInstance()->doHighlight($message);
+				$this->message = KeywordHighlighter::getInstance()->doHighlight($this->message);
 			}
 			
 			// replace bad html tags (script etc.)
 			$badSearch = array('/(javascript):/i', '/(about):/i', '/(vbscript):/i');
 			$badReplace = array('$1<b></b>:', '$1<b></b>:', '$1<b></b>:');
-			$message = preg_replace($badSearch, $badReplace, $message);
+			$this->message = preg_replace($badSearch, $badReplace, $this->message);
 		}
 		
 		// call event
 		EventHandler::getInstance()->fireAction($this, 'afterParsing');
 		
-		return $message;
+		return $this->message;
 	}
 	
 	/**
