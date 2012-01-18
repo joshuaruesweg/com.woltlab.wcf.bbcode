@@ -62,11 +62,11 @@
 }
 
 /* ############## Code Styles ############## */
-.codeBox .quotes, .codeBox.DiffHighlighter .remove {
+.codeBox .quotes, .DiffHighlighter .remove {
 	color: red;
 }
 
-.codeBox .comments, .codeBox .operators, .codeBox.DiffHighlighter .add, .codeBox.PhpHighlighter .keywords2 {
+.codeBox .comments, .codeBox .operators, .DiffHighlighter .add, .PhpHighlighter .keywords2 {
 	color: green;
 }
 
@@ -78,11 +78,11 @@
 	color: darkred;
 }
 
-.codeBox .keywords3, .codeBox.DiffHighlighter .comments {
+.codeBox .keywords3, .DiffHighlighter .comments {
 	color: darkviolet;
 }
 
-.codeBox .keywords4, .codeBox.PhpHighlighter .comments {
+.codeBox .keywords4, .PhpHighlighter .comments {
 	color: darkgoldenrod;
 }
 
@@ -94,35 +94,35 @@
 	color: darkorange;
 }
 
-.codeBox.CssHighlighter .comments {
+.CssHighlighter .comments {
 	color: #236E26;
 }
 
-.codeBox.CssHighlighter .colors {
+.CssHighlighter .colors {
 	color: #751116;
 }
 
-.codeBox.CssHighlighter .numbers, .codeBox.SqlHighlighter .numbers {
+.CssHighlighter .numbers, .SqlHighlighter .numbers {
 	color: #1906FD;
 }
 
-.codeBox.CssHighlighter .keywords1 {
+.CssHighlighter .keywords1 {
 	color: #87154F;
 }
 
-.codeBox.CssHighlighter .keywords2 {
+.CssHighlighter .keywords2 {
 	color: #994509;
 }
 
-.codeBox.CssHighlighter .keywords3, .codeBox.CssHighlighter .keywords4 {
+.CssHighlighter .keywords3, .CssHighlighter .keywords4 {
 	color: inherit;
 }
 
-.codeBox.SqlHighlighter .keywords1 {
+.SqlHighlighter .keywords1 {
 	color: #663821;
 }
 
-.codeBox.SqlHighlighter .keywords2 {
+.SqlHighlighter .keywords2 {
 	color: #871550;
 }
 
