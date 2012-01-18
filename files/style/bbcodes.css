@@ -62,11 +62,11 @@
 }
 
 /* ############## Code Styles ############## */
-.codeBox .quotes, .DiffHighlighter .remove {
+.codeBox .quotes {
 	color: red;
 }
 
-.codeBox .comments, .codeBox .operators, .DiffHighlighter .add, .PhpHighlighter .keywords2 {
+.codeBox .comments, .codeBox .operators {
 	color: green;
 }
 
@@ -78,11 +78,11 @@
 	color: darkred;
 }
 
-.codeBox .keywords3, .DiffHighlighter .comments {
+.codeBox .keywords3 {
 	color: darkviolet;
 }
 
-.codeBox .keywords4, .PhpHighlighter .comments {
+.codeBox .keywords4 {
 	color: darkgoldenrod;
 }
 
@@ -94,6 +94,21 @@
 	color: darkorange;
 }
 
+.DiffHighlighter .comments {
+	color: darkviolet;
+}
+
+.DiffHighlighter .remove {
+	color: red;
+}
+
+.DiffHighlighter .add, .PhpHighlighter .keywords2 {
+	color: green;
+}
+
+.PhpHighlighter .comments {
+	color: darkgoldenrod;
+}
 .CssHighlighter .comments {
 	color: #236E26;
 }
