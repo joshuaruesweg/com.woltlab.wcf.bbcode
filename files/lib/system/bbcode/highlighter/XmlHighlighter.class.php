@@ -1,5 +1,7 @@
 <?php
 namespace wcf\system\bbcode\highlighter;
+use \wcf\system\Callback;
+use \wcf\system\Regex;
 
 /**
  * Highlights syntax of xml sourcecode.
@@ -28,19 +30,15 @@ class XmlHighlighter extends Highlighter {
 		$string = parent::highlightKeywords($string);
 		
 		// find tags
-		$string = preg_replace('~&lt;(?:/|\!|\?)?[a-z0-9]+(?:\s+[a-z0-9]+(?:=[^\s/\?&]+)?)*(?:/|\?)?&gt;~ie', "\$this->highlightTag('\\0')", $string);
+		$regex = new Regex('&lt;(?:/|\!|\?)?[a-z0-9]+(?:\s+[a-z0-9]+(?:=[^\s/\?&]+)?)*(?:/|\?)?&gt;', Regex::CASE_INSENSITIVE);
+		$string = $regex->replace($string, new Callback(function ($matches) {
+			// highlight attributes
+			$tag = Regex::compile('[a-z0-9]+(?:=[^\s/\?&]+)?(?=\s|&)', Regex::CASE_INSENSITIVE)->replace($matches[0], '<span class="keywords2">\\0</span>');
+			
+			// highlight tag
+			return '<span class="keywords1">'.$tag.'</span>';
+		}));
 		
 		return $string;
-	}
-	
-	/**
-	 * Highlights an XML tag.
-	 */
-	protected function highlightTag($tag) {
-		// highlight attributes
-		$tag = preg_replace('~[a-z0-9]+(?:=[^\s/\?&]+)?(?=\s|&)~i', '<span class="keywords2">\\0</span>', $tag);
-		
-		// highlight tag
-		return '<span class="keywords1">'.$tag.'</span>';
 	}
 }

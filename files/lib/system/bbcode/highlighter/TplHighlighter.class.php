@@ -1,5 +1,6 @@
 <?php
 namespace wcf\system\bbcode\highlighter;
+use \wcf\system\Regex;
 
 /**
  * Highlights syntax of template documents with smarty-syntax.
@@ -19,7 +20,7 @@ class TplHighlighter extends HtmlHighlighter {
 		$string = parent::highlightComments($string);
 		
 		// highlight template tags
-		$string = preg_replace('~\{(?=\S).+?(?<=\S)\}~s', '<span style="'.$this->style['keywords3'].'">\\0</span>', $string);
+		$string = Regex::compile('\{(?=\S).+?(?<=\S)\}', Regex::DOT_ALL)->replace($string, '<span class="keywords3">\\0</span>');
 		
 		return $string;
 	}

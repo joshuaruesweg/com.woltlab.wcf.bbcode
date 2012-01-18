@@ -1,5 +1,6 @@
 <?php
 namespace wcf\system\bbcode\highlighter;
+use \wcf\system\Regex;
 use \wcf\util\StringUtil;
 
 /**
@@ -46,7 +47,8 @@ class PhpHighlighter extends Highlighter {
 		
 		// remove added php tags
 		if ($phpTagsAdded) {
-			$highlightedCode = preg_replace("/([^\\2]*)(&lt;\?php&nbsp;)(.*)(&nbsp;.*\?&gt;)([^\\4]*)/si", "\\1\\3\\5", $highlightedCode);
+			$regex = new Regex('([^\\2]*)(&lt;\?php&nbsp;)(.*)(&nbsp;.*\?&gt;)([^\\4]*)', Regex::CASE_INSENSITIVE | Regex::DOT_ALL);
+			$highlightedCode = $regex->replace($highlightedCode, '\\1\\3\\5');
 		}
 		
 		// remove breaks
@@ -58,6 +60,6 @@ class PhpHighlighter extends Highlighter {
 		$highlightedCode = strtr($highlightedCode, self::$colorToClass);
 		
 		// replace double quotes by entity 
-		return preg_replace('/(?<!\<span class=)"(?!\>)/', '&quot;', $highlightedCode);
+		return Regex::compile('(?<!\<span class=)"(?!\>)')->replace($highlightedCode, '&quot;');
 	}
 }

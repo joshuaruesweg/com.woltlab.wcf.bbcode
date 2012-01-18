@@ -1,5 +1,7 @@
 <?php
 namespace wcf\system\bbcode\highlighter;
+use \wcf\system\Callback;
+use \wcf\system\Regex;
 use \wcf\util\StringUtil;
 
 /**
@@ -33,25 +35,23 @@ class HtmlHighlighter extends XmlHighlighter {
 	}
 	
 	protected function cacheScripts($string) {
-		$string = preg_replace('!(<script[^>]*>)(.*?)(</script>)!sie', "\$this->cacheScript('\\2', '\\1', '\\3')", $string);
-		
-		return $string;
+		$regex = new Regex('(<script[^>]*>)(.*?)(</script>)', Regex::CASE_INSENSITIVE | Regex::DOT_ALL);
+		return $regex->replace($string, new Callback(array($this, 'cacheScript')));
 	}
 	
 	protected function cacheStyles($string) {
-		$string = preg_replace('!(<style[^>]*>)(.*?)(</style>)!sie', "\$this->cacheStyle('\\2', '\\1', '\\3')", $string);
-		
-		return $string;
+		$regex = new Regex('(<style[^>]*>)(.*?)(</style>)', Regex::CASE_INSENSITIVE | Regex::DOT_ALL);
+		return $regex->replace($string, new Callback(array($this, 'cacheStyle')));
 	}
 	
 	/**
 	 * Caches a script block.
 	 */
-	protected function cacheScript($content, $openingTag, $closingTag) {
+	public function cacheScript($matches) {
 		// strip slashes
-		$content = str_replace("\\\"", "\"", $content);
-		$openingTag = str_replace("\\\"", "\"", $openingTag);
-		$closingTag = str_replace("\\\"", "\"", $closingTag);
+		$content = str_replace("\\\"", "\"", $matches[2]);
+		$openingTag = str_replace("\\\"", "\"", $matches[1]);
+		$closingTag = str_replace("\\\"", "\"", $matches[3]);
 		
 		// create hash
 		$hash = '@@'.StringUtil::getHash(uniqid(microtime()).$content).'@@';
@@ -65,11 +65,11 @@ class HtmlHighlighter extends XmlHighlighter {
 	/**
 	 * Caches a style block.
 	 */
-	protected function cacheStyle($content, $openingTag, $closingTag) {
+	public function cacheStyle($matches) {
 		// strip slashes
-		$content = str_replace("\\\"", "\"", $content);
-		$openingTag = str_replace("\\\"", "\"", $openingTag);
-		$closingTag = str_replace("\\\"", "\"", $closingTag);
+		$content = str_replace("\\\"", "\"", $matches[2]);
+		$openingTag = str_replace("\\\"", "\"", $matches[1]);
+		$closingTag = str_replace("\\\"", "\"", $matches[3]);
 		
 		// create hash
 		$hash = '@@'.StringUtil::getHash(uniqid(microtime()).$content).'@@';

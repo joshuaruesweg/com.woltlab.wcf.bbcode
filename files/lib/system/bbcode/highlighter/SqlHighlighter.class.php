@@ -28,7 +28,7 @@ class SqlHighlighter extends Highlighter {
 		$quote = str_replace("\\\"", "\"", $quote);
 		
 		// create hash
-		$hash = '!!!'.StringUtil::getHash(uniqid(microtime()).$quote).'!!!';
+		$hash = '!!!'.StringUtil::getHash(uniqid(microtime()).$quote).'!!!'; // the at-sign has a special meaning
 		
 		// save
 		$this->cachedQuotes[$hash] = '<span class="quotes">'.StringUtil::encodeHTML($quote).'</span>';
