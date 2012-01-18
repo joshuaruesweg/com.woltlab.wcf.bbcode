@@ -35,7 +35,7 @@ class CssHighlighter extends Highlighter {
 	
 	// highlighter syntax
 	protected $singleLineComment = array();
-	protected $separators = array('(', ')', '{', '}', ';', '[', ']', ':');
+	protected $separators = array('(', ')', '{', '}', ';', '[', ']', ':', ',');
 	protected $keywords1 = array(
 		'azimuth',
 		'background',
