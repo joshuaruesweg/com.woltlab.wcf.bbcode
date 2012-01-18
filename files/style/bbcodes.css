@@ -66,7 +66,7 @@
 	color: red;
 }
 
-.codeBox .comments, .codeBox .operators, .codeBox.DiffHighlighter .add {
+.codeBox .comments, .codeBox .operators, .codeBox.DiffHighlighter .add, .codeBox.PhpHighlighter .keywords2 {
 	color: green;
 }
 
@@ -82,7 +82,7 @@
 	color: darkviolet;
 }
 
-.codeBox .keywords4 {
+.codeBox .keywords4, .codeBox.PhpHighlighter .comments {
 	color: darkgoldenrod;
 }
 

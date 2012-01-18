@@ -12,7 +12,23 @@ use \wcf\util\StringUtil;
  * @subpackage	system.bbcode.highlighter
  * @category 	Community Framework
  */
-class PhpHighlighter extends Highlighter { 
+class PhpHighlighter extends Highlighter {
+	public static $colorToClass = array();
+	
+	protected function init() {
+		parent::init();
+		
+		$types = array('default' => 'keywords1', 'keyword' => 'keywords2', 'comment' => 'comments', 'string' => 'quotes');
+		
+		self::$colorToClass['<span style="color: '.ini_get('highlight.html').'">'] = '<span>'; 
+		foreach ($types as $type => $class) {
+			self::$colorToClass['<span style="color: '.ini_get('highlight.'.$type).'">'] = '<span class="'.$class.'">';
+		}
+	}
+	
+	/**
+	 * @see wcf\system\bbcode\Highlighter::highlight()
+	 */
 	public function highlight($code) {
 		// add starting php tag
 		$phpTagsAdded = false;
@@ -38,8 +54,10 @@ class PhpHighlighter extends Highlighter {
 		$highlightedCode = str_replace('<br />', "\n", $highlightedCode);
 		// get tabs back
 		$highlightedCode = str_replace('&nbsp;&nbsp;&nbsp;&nbsp;', "\t", $highlightedCode);
+		// convert colors to classes
+		$highlightedCode = strtr($highlightedCode, self::$colorToClass);
 		
 		// replace double quotes by entity 
-		return preg_replace('/(?<!\<span style=)"(?!\>)/', '&quot;', $highlightedCode);
+		return preg_replace('/(?<!\<span class=)"(?!\>)/', '&quot;', $highlightedCode);
 	}
 }
