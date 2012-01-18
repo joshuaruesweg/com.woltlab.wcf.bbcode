@@ -24,6 +24,15 @@ class CssHighlighter extends Highlighter {
 		return $string;
 	}
 	
+	public function highlight($string) {
+		$string = str_replace('span', '053a0024219422ca9215c0a3ed0578ee76cff477', $string); // fix to not highlight the spans of the highlighter
+		$string = str_replace(':link', ':li@@nk', $string); // fix to highlight pseudo-class different than tag
+		$string = parent::highlight($string);
+		
+		$string = str_replace('li@@nk', 'link', $string); // fix to highlight pseudo-class different than tag
+		return str_replace('053a0024219422ca9215c0a3ed0578ee76cff477', 'span', $string); // fix to not highlight the spans of the highlighter
+	}
+	
 	// highlighter syntax
 	protected $singleLineComment = array();
 	protected $separators = array('(', ')', '{', '}', ';', '[', ']', ':');
@@ -433,7 +442,7 @@ class CssHighlighter extends Highlighter {
 		'lang',
 		'last-child',
 		'last-of-type',
-		'link',
+		'li@@nk', // link
 		'hover',
 		'not',
 		'nth-child',
@@ -538,7 +547,7 @@ class CssHighlighter extends Highlighter {
 		'select',
 		'small',
 		'source',
-		'span',
+		'053a0024219422ca9215c0a3ed0578ee76cff477', // span
 		'strong',
 		'style',
 		'sub',
