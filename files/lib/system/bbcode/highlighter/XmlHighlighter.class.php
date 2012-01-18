@@ -38,9 +38,9 @@ class XmlHighlighter extends Highlighter {
 	 */
 	protected function highlightTag($tag) {
 		// highlight attributes
-		$tag = preg_replace('~[a-z0-9]+(?:=[^\s/\?&]+)?(?=\s|&)~i', '<span style="'.$this->style['keywords2'].'">\\0</span>', $tag);
+		$tag = preg_replace('~[a-z0-9]+(?:=[^\s/\?&]+)?(?=\s|&)~i', '<span class="keywords2">\\0</span>', $tag);
 		
 		// highlight tag
-		return '<span style="'.$this->style['keywords1'].'">'.$tag.'</span>';
+		return '<span class="keywords1">'.$tag.'</span>';
 	}
 }

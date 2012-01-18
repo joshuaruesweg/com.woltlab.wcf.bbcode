@@ -16,10 +16,10 @@ class CssHighlighter extends Highlighter {
 	 * Highlights numbers.
 	 */
 	protected function highlightNumbers($string) {
-		$string = preg_replace('!(?<='.$this->separatorsRegEx.')(-?\d+(?:px|pt|em|%|ex|in|cm|mm|pc)?)(?='.$this->separatorsRegEx.')!i', '<span style="'.$this->style['numbers'].'">\\0</span>', $string);
+		$string = preg_replace('!(?<='.$this->separatorsRegEx.')(-?\d+(?:px|pt|em|%|ex|in|cm|mm|pc)?)(?='.$this->separatorsRegEx.')!i', '<span class="numbers">\\0</span>', $string);
 		
 		// highlight colors (hexadecimal numbers)
-		$string = preg_replace('!(?<='.$this->separatorsRegEx.')(#([0-9a-f]{3}|[0-9a-f]{6}))(?='.$this->separatorsRegEx.')!i', '<span style="'.$this->style['colors'].'">\\0</span>', $string);
+		$string = preg_replace('!(?<='.$this->separatorsRegEx.')(#([0-9a-f]{3}|[0-9a-f]{6}))(?='.$this->separatorsRegEx.')!i', '<span class="colors">\\0</span>', $string);
 		
 		return $string;
 	}
@@ -439,7 +439,7 @@ class CssHighlighter extends Highlighter {
 		'nth-child',
 		'nth-last-child',
 		'nth-of-type',
-		'nth-last-of-type'
+		'nth-last-of-type',
 		'only-child',
 		'only-of-type',
 		'root',
@@ -549,7 +549,7 @@ class CssHighlighter extends Highlighter {
 		'td',
 		'textarea',
 		'tfoot',
-		'thead'
+		'thead',
 		'th',
 		'time',
 		'title',
