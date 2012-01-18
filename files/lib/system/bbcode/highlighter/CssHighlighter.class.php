@@ -12,6 +12,16 @@ namespace wcf\system\bbcode\highlighter;
  * @category 	Community Framework
  */
 class CssHighlighter extends Highlighter {
+	public static $duplicates = array(
+		'table:' => 't@@able:',
+		'caption:' => 'c@@aption:',
+		'menu:' => 'm@@enu:',
+		'code:' => 'c@@ode:',
+		'sub:' => 's@@ub:',
+		'pre:' => 'p@@re:',
+		'small:' => 's@@mall:'
+	);
+	
 	/**
 	 * Highlights numbers.
 	 */
@@ -27,8 +37,11 @@ class CssHighlighter extends Highlighter {
 	public function highlight($string) {
 		$string = str_replace('span', '053a0024219422ca9215c0a3ed0578ee76cff477', $string); // fix to not highlight the spans of the highlighter
 		$string = str_replace(':link', ':li@@nk', $string); // fix to highlight pseudo-class different than tag
+		$string = strtr($string, self::$duplicates); // fix to highlight properties different than tags
+		
 		$string = parent::highlight($string);
 		
+		$string = strtr($string, array_flip(self::$duplicates)); // fix to highlight properties different than tags
 		$string = str_replace('li@@nk', 'link', $string); // fix to highlight pseudo-class different than tag
 		return str_replace('053a0024219422ca9215c0a3ed0578ee76cff477', 'span', $string); // fix to not highlight the spans of the highlighter
 	}
@@ -238,7 +251,7 @@ class CssHighlighter extends Highlighter {
 		'run-in',
 		'compact',
 		'marker',
-		'table',
+		't@@able', // table
 		'inline-table',
 		'table-row-group',
 		'table-header-group',
@@ -255,9 +268,9 @@ class CssHighlighter extends Highlighter {
 		'lower',
 		'show',
 		'hide',
-		'caption',
+		'c@@aption', // caption
 		'icon',
-		'menu',
+		'm@@enu', // menu
 		'message-box',
 		'small-caption',
 		'status-bar',
@@ -323,7 +336,7 @@ class CssHighlighter extends Highlighter {
 		'once',
 		'digits',
 		'continuous',
-		'code',
+		'c@@ode', // code
 		'x-slow',
 		'slow',
 		'fast',
@@ -338,10 +351,10 @@ class CssHighlighter extends Highlighter {
 		'capitalize',
 		'uppercase',
 		'lowercase',
-		'embed',
+		'e@@mbed', // embed
 		'bidi-override',
 		'baseline',
-		'sub',
+		's@@ub', // sub
 		'super',
 		'text-top',
 		'middle',
@@ -351,7 +364,7 @@ class CssHighlighter extends Highlighter {
 		'soft',
 		'loud',
 		'x-loud',
-		'pre',
+		'p@@re', // pre
 		'nowrap',
 		'serif',
 		'sans-serif',
@@ -377,7 +390,7 @@ class CssHighlighter extends Highlighter {
 		'smaller',
 		'xx-small',
 		'x-small',
-		'small',
+		's@@mall', // small
 		'large',
 		'x-large',
 		'xx-large',
