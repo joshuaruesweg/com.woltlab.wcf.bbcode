@@ -71,7 +71,8 @@
 	color: red;
 }
 
-.codeBox .comments, .codeBox .operators {
+.codeBox .comments,
+.codeBox .operators {
 	color: green;
 }
 
@@ -109,13 +110,15 @@
 	color: red;
 }
 
-.DiffHighlighter .add, .PhpHighlighter .keywords2 {
+.DiffHighlighter .add,
+.PhpHighlighter .keywords2 {
 	color: green;
 }
 
 .PhpHighlighter .comments {
 	color: darkgoldenrod;
 }
+
 .CssHighlighter .comments {
 	color: #236E26;
 }
@@ -124,7 +127,8 @@
 	color: #751116;
 }
 
-.CssHighlighter .numbers, .SqlHighlighter .numbers {
+.CssHighlighter .numbers,
+.SqlHighlighter .numbers {
 	color: #1906FD;
 }
 
@@ -136,7 +140,8 @@
 	color: #994509;
 }
 
-.CssHighlighter .keywords3, .CssHighlighter .keywords4 {
+.CssHighlighter .keywords3,
+.CssHighlighter .keywords4 {
 	color: inherit;
 }
 
