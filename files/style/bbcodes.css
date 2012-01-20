@@ -61,7 +61,12 @@
 	padding: 0 5px;
 }
 
+
+
 /* ############## Code Styles ############## */
+
+/* Code Box */
+
 .codeBox .quotes {
 	color: red;
 }
@@ -93,6 +98,8 @@
 .codeBox .numbers {
 	color: darkorange;
 }
+
+/* Code Highlighters */
 
 .DiffHighlighter .comments {
 	color: darkviolet;
