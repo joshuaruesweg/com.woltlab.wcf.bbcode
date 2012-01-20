@@ -1,4 +1,4 @@
-<div class="border boxTitle codeBox {$highlighter|get_class|substr:30}">
+<div class="border boxTitle codeBox {$highlighter|get_class|substr:30|lcfirst}">
 	<hgroup>
 		<h1>{@$highlighter->getTitle()}</h1>
 	</hgroup>

@@ -102,54 +102,54 @@
 
 /* Code Highlighters */
 
-.DiffHighlighter .comments {
+.diffHighlighter .comments {
 	color: darkviolet;
 }
 
-.DiffHighlighter .remove {
+.diffHighlighter .remove {
 	color: red;
 }
 
-.DiffHighlighter .add,
-.PhpHighlighter .keywords2 {
+.diffHighlighter .add,
+.phpHighlighter .keywords2 {
 	color: green;
 }
 
-.PhpHighlighter .comments {
+.phpHighlighter .comments {
 	color: darkgoldenrod;
 }
 
-.CssHighlighter .comments {
+.cssHighlighter .comments {
 	color: #236E26;
 }
 
-.CssHighlighter .colors {
+.cssHighlighter .colors {
 	color: #751116;
 }
 
-.CssHighlighter .numbers,
-.SqlHighlighter .numbers {
+.cssHighlighter .numbers,
+.sqlHighlighter .numbers {
 	color: #1906FD;
 }
 
-.CssHighlighter .keywords1 {
+.cssHighlighter .keywords1 {
 	color: #87154F;
 }
 
-.CssHighlighter .keywords2 {
+.cssHighlighter .keywords2 {
 	color: #994509;
 }
 
-.CssHighlighter .keywords3,
-.CssHighlighter .keywords4 {
+.cssHighlighter .keywords3,
+.cssHighlighter .keywords4 {
 	color: inherit;
 }
 
-.SqlHighlighter .keywords1 {
+.sqlHighlighter .keywords1 {
 	color: #663821;
 }
 
-.SqlHighlighter .keywords2 {
+.sqlHighlighter .keywords2 {
 	color: #871550;
 }
 
