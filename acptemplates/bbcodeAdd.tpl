@@ -3,35 +3,37 @@
 	<fieldset>
 		<legend><img src="{@RELATIVE_WCF_DIR}icon/delete1.svg" alt="" class="deleteButton" />{lang}wcf.acp.bbcode.attribute{/lang} {ldelim}#$attributeNo}</legend>
 		<dl>
-			<dt><label for="attributeHtml[{ldelim}@$attributeNo}]">{lang}wcf.acp.bbcode.attribute.attributeHtml{/lang}</label></dt>
+			<dt><label for="attributes[{ldelim}@$attributeNo}][attributeHtml]">{lang}wcf.acp.bbcode.attribute.attributeHtml{/lang}</label></dt>
 			<dd>
 				<input type="text" id="attributes[{ldelim}@$attributeNo}][attributeHtml]" name="attributes[{ldelim}@$attributeNo}][attributeHtml]" value="" class="long" />
 			</dd>
 		</dl>
 		
 		<dl>
-			<dt><label for="attributeText[{ldelim}@$attributeNo}]">{lang}wcf.acp.bbcode.attribute.attributeText{/lang}</label></dt>
+			<dt><label for="attributes[{ldelim}@$attributeNo}][attributeText]">{lang}wcf.acp.bbcode.attribute.attributeText{/lang}</label></dt>
 			<dd>
 				<input type="text" id="attributes[{ldelim}@$attributeNo}][attributeText]" name="attributes[{ldelim}@$attributeNo}][attributeText]" value="" class="long" />
 			</dd>
 		</dl>
 		
 		<dl>
-			<dt><label for="attributeValidationPattern[{ldelim}$attributeNo}]">{lang}wcf.acp.bbcode.attribute.validationPattern{/lang}</label></dt>
+			<dt><label for="attributes[{ldelim}@$attributeNo}][validationPattern]">{lang}wcf.acp.bbcode.attribute.validationPattern{/lang}</label></dt>
 			<dd>
 				<input type="text" id="attributes[{ldelim}@$attributeNo}][validationPattern]" name="attributes[{ldelim}@$attributeNo}][validationPattern]" value="" class="long" />
 			</dd>
 		</dl>
 		
 		<dl>
+			<dt class="reversed"><label for="attributes[{ldelim}@$attributeNo}][required]">{lang}{lang}wcf.acp.bbcode.attribute.required{/lang}{/lang}</label></dt>
 			<dd>
-				<label><input type="checkbox" id="attributes[{ldelim}@$attributeNo}][validationPattern]" name="attributes[{ldelim}@$attributeNo}][validationPattern]" value="1" /> {lang}wcf.acp.bbcode.attribute.required{/lang}</label>
+				<input type="checkbox" id="attributes[{ldelim}@$attributeNo}][required]" name="attributes[{ldelim}@$attributeNo}][required]" value="1" />
 			</dd>
 		</dl>
 		
 		<dl>
+			<dt class="reversed"><label for="attributes[{ldelim}@$attributeNo}][useText]">{lang}{lang}wcf.acp.bbcode.attribute.useText{/lang}{/lang}</label></dt>
 			<dd>
-				<label><input type="checkbox" id="attributes[{ldelim}@$attributeNo}][useText]" name="attributes[{ldelim}@$attributeNo}][useText]" value="1" /> {lang}wcf.acp.bbcode.attribute.useText{/lang}</label>
+				<input type="checkbox" id="attributes[{ldelim}@$attributeNo}][useText]" name="attributes[{ldelim}@$attributeNo}][useText]" value="1" />
 				<small>{lang}wcf.acp.bbcode.attribute.useText.description{/lang}</small>
 			</dd>
 		</dl>
@@ -149,8 +151,9 @@
 			</dl>
 			
 			<dl{if $errorField == 'isSourceCode'} class="formError"{/if}>
+				<dt class="reversed"><label for="isSourceCode">{lang}wcf.acp.bbcode.isSourceCode{/lang}</label></dt>
 				<dd>
-					<label><input type="checkbox" id="isSourceCode" name="isSourceCode" value="1"{if $isSourceCode} checked="checked"{/if} /> {lang}wcf.acp.bbcode.isSourceCode{/lang}</label>
+					<input type="checkbox" id="isSourceCode" name="isSourceCode" value="1"{if $isSourceCode} checked="checked"{/if} />
 					<small>{lang}wcf.acp.bbcode.isSourceCode.description{/lang}</small>
 				</dd>
 			</dl>
@@ -177,21 +180,21 @@
 				<fieldset>
 					<legend><img src="{@RELATIVE_WCF_DIR}icon/delete1.svg" alt="" title="{lang}wcf.global.button.delete{/lang}" class="deleteButton" />{lang}wcf.acp.bbcode.attribute{/lang} {#$attribute->attributeNo}</legend>
 					<dl{if $errorField == 'attributeHtml'|concat:$attribute->attributeNo} class="formError"{/if}>
-						<dt><label for="attributeHtml[{@$attribute->attributeNo}]">{lang}wcf.acp.bbcode.attribute.attributeHtml{/lang}</label></dt>
+						<dt><label for="attributes[{@$attribute->attributeNo}][attributeHtml]">{lang}wcf.acp.bbcode.attribute.attributeHtml{/lang}</label></dt>
 						<dd>
 							<input type="text" id="attributes[{@$attribute->attributeNo}][attributeHtml]" name="attributes[{@$attribute->attributeNo}][attributeHtml]" value="{$attribute->attributeHtml}" class="long" />
 						</dd>
 					</dl>
 					
 					<dl{if $errorField == 'attributeText'|concat:$attribute->attributeNo} class="formError"{/if}>
-						<dt><label for="attributeText[{@$attribute->attributeNo}]">{lang}wcf.acp.bbcode.attribute.attributeText{/lang}</label></dt>
+						<dt><label for="attributes[{@$attribute->attributeNo}][attributeText]">{lang}wcf.acp.bbcode.attribute.attributeText{/lang}</label></dt>
 						<dd>
 							<input type="text" id="attributes[{@$attribute->attributeNo}][attributeText]" name="attributes[{@$attribute->attributeNo}][attributeText]" value="{$attribute->attributeText}" class="long" />
 						</dd>
 					</dl>
 					
 					<dl{if $errorField == 'attributeValidationPattern'|concat:$attribute->attributeNo} class="formError"{/if}>
-						<dt><label for="attributeValidationPattern[{$attribute->attributeNo}]">{lang}wcf.acp.bbcode.attribute.validationPattern{/lang}</label></dt>
+						<dt><label for="attributes[{@$attribute->attributeNo}][validationPattern]">{lang}wcf.acp.bbcode.attribute.validationPattern{/lang}</label></dt>
 						<dd>
 							<input type="text" id="attributes[{@$attribute->attributeNo}][validationPattern]" name="attributes[{@$attribute->attributeNo}][validationPattern]" value="{$attribute->validationPattern}" class="long" />
 							{if $errorField == 'attributeValidationPattern'|concat:$attribute->attributeNo}
@@ -205,14 +208,16 @@
 					</dl>
 					
 					<dl{if $errorField == 'attributeRequired'|concat:$attribute->attributeNo} class="formError"{/if}>
+						<dt class="reversed"><label for="attributes[{@$attribute->attributeNo}][required]">{lang}wcf.acp.bbcode.attribute.required{/lang}</label></dt>
 						<dd>
-							<label><input type="checkbox" id="attributes[{@$attribute->attributeNo}][validationPattern]" name="attributes[{@$attribute->attributeNo}][validationPattern]" value="1"{if $attribute->required} checked="checked"{/if} /> {lang}wcf.acp.bbcode.attribute.required{/lang}</label>
+							<input type="checkbox" id="attributes[{@$attribute->attributeNo}][required]" name="attributes[{@$attribute->attributeNo}][required]" value="1"{if $attribute->required} checked="checked"{/if} />
 						</dd>
 					</dl>
 					
 					<dl{if $errorField == 'attributeUseText'|concat:$attribute->attributeNo} class="formError"{/if}>
+						<dt class="reversed"><label for="attributes[{@$attribute->attributeNo}][useText]">{lang}wcf.acp.bbcode.attribute.useText{/lang}</label></dt>
 						<dd>
-							<label><input type="checkbox" id="attributes[{@$attribute->attributeNo}][useText]" name="attributes[{@$attribute->attributeNo}][useText]" value="1"{if $attribute->useText} checked="checked"{/if} /> {lang}wcf.acp.bbcode.attribute.useText{/lang}</label>
+							<input type="checkbox" id="attributes[{@$attribute->attributeNo}][useText]" name="attributes[{@$attribute->attributeNo}][useText]" value="1"{if $attribute->useText} checked="checked"{/if} />
 							<small>{lang}wcf.acp.bbcode.attribute.useText.description{/lang}</small>
 						</dd>
 					</dl>
