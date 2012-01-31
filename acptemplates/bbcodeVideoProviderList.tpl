@@ -21,7 +21,7 @@
 	{if $__wcf->session->getPermission('admin.content.bbcode.videoprovider.canAddVideoProvider')}
 		<nav>
 			<ul class="largeButtons">
-				<li><a href="{link controller='BBCodeVideoProviderAdd'}{/link}" title="{lang}wcf.acp.bbcode.videoprovider.add{/lang}"><img src="{@RELATIVE_WCF_DIR}icon/add1.svg" alt="" /> <span>{lang}wcf.acp.bbcode.videoprovider.add{/lang}</span></a></li>
+				<li><a href="{link controller='BBCodeVideoProviderAdd'}{/link}" title="{lang}wcf.acp.bbcode.videoprovider.add{/lang}" class="button"><img src="{@RELATIVE_WCF_DIR}icon/add1.svg" alt="" /> <span>{lang}wcf.acp.bbcode.videoprovider.add{/lang}</span></a></li>
 			</ul>
 		</nav>
 	{/if}
@@ -79,7 +79,7 @@
 		{if $__wcf->session->getPermission('admin.content.bbcode.videoprovider.canAddVideoProvider')}
 			<nav>
 				<ul class="largeButtons">
-					<li><a href="{link controller='BBCodeVideoProviderAdd'}{/link}" title="{lang}wcf.acp.bbcode.videoprovider.add{/lang}"><img src="{@RELATIVE_WCF_DIR}icon/add1.svg" alt="" /> <span>{lang}wcf.acp.bbcode.videoprovider.add{/lang}</span></a></li>
+					<li><a href="{link controller='BBCodeVideoProviderAdd'}{/link}" title="{lang}wcf.acp.bbcode.videoprovider.add{/lang}" class="button"><img src="{@RELATIVE_WCF_DIR}icon/add1.svg" alt="" /> <span>{lang}wcf.acp.bbcode.videoprovider.add{/lang}</span></a></li>
 				</ul>
 			</nav>
 		{/if}
