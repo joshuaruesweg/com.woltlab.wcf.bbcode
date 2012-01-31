@@ -223,7 +223,7 @@
 					</dl>
 				</fieldset>
 			{/foreach}
-		</field>
+		</fieldset>
 	</div>
 	
 	<div class="formSubmit">
