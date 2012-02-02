@@ -1,6 +1,6 @@
 {include file='header'}
 
-<header class="mainHeading">
+<header class="wcf-mainHeading">
 	<img src="{@RELATIVE_WCF_DIR}icon/videoProvider1.svg" alt="" />
 	<hgroup>
 		<h1>{lang}wcf.acp.bbcode.videoprovider.list{/lang}</h1>
@@ -15,7 +15,7 @@
 	</script>
 </header>
 
-<div class="contentHeader">
+<div class="wcf-contentHeader">
 	{pages print=true assign=pagesLinks controller="BBCodeVideoProviderList" link="pageNo=%d"}
 	
 	{if $__wcf->session->getPermission('admin.content.bbcode.videoprovider.canAddVideoProvider')}
@@ -28,7 +28,7 @@
 </div>
 
 {hascontent}
-	<div class="border boxTitle">
+	<div class="wcf-border wcf-boxTitle">
 		<hgroup>
 			<h1>{lang}wcf.acp.bbcode.videoprovider.list{/lang} <span class="badge" title="{lang}wcf.acp.bbcode.videoprovider.list.count{/lang}">{#$items}</span></h1>
 		</hgroup>
@@ -73,7 +73,7 @@
 		
 	</div>
 	
-	<div class="contentFooter">
+	<div class="wcf-contentFooter">
 		{@$pagesLinks}
 		
 		{if $__wcf->session->getPermission('admin.content.bbcode.videoprovider.canAddVideoProvider')}
@@ -85,9 +85,9 @@
 		{/if}
 	</div>
 {hascontentelse}
-	<div class="border content">
-		<div class="container-1">
-			<p class="warning">{lang}wcf.acp.bbcode.videoprovider.noneAvailable{/lang}</p>
+	<div class="wcf-border wcf-content">
+		<div>
+			<p class="wcf-warning">{lang}wcf.acp.bbcode.videoprovider.noneAvailable{/lang}</p>
 		</div>
 	</div>
 {/hascontent}

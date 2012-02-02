@@ -1,6 +1,6 @@
 {include file='header'}
 
-<header class="mainHeading">
+<header class="wcf-mainHeading">
 	<img src="{@RELATIVE_WCF_DIR}icon/{$action}1.svg" alt="" />
 	<hgroup>
 		<h1>{lang}wcf.acp.bbcode.videoprovider.{$action}{/lang}</h1>
@@ -8,14 +8,14 @@
 </header>
 
 {if $errorField}
-	<p class="error">{lang}wcf.global.form.error{/lang}</p>
+	<p class="wcf-error">{lang}wcf.global.form.error{/lang}</p>
 {/if}
 
 {if $success|isset}
-	<p class="success">{lang}wcf.global.form.{$action}.success{/lang}</p>	
+	<p class="wcf-success">{lang}wcf.global.form.{$action}.success{/lang}</p>	
 {/if}
 
-<div class="contentHeader">
+<div class="wcf-contentHeader">
 	<nav>
 		<ul class="largeButtons">
 			<li><a href="{link controller='BBCodeVideoProviderList'}{/link}" title="{lang}wcf.acp.menu.link.bbcode.videoprovider.list{/lang}" class="button"><img src="{@RELATIVE_WCF_DIR}icon/videoProvider1.svg" alt="" /> <span>{lang}wcf.acp.menu.link.bbcode.videoprovider.list{/lang}</span></a></li>
@@ -24,7 +24,7 @@
 </div>
 
 <form method="post" action="{if $action == 'add'}{link controller='BBCodeVideoProviderAdd'}{/link}{else}{link controller='BBCodeVideoProviderEdit'}{/link}{/if}">
-	<div class="border content">
+	<div class="wcf-border wcf-content">
 		<fieldset>
 			<legend>{lang}wcf.acp.bbcode.videoprovider.data{/lang}</legend>
 			
@@ -33,7 +33,7 @@
 				<dd>
 					<input type="text" id="title" name="title" value="{$title}" required="required" autofocus="autofocus" class="long" />
 					{if $errorField == 'title'}
-						<small class="innerError">
+						<small class="wcf-innerError">
 							{if $errorType == 'empty'}
 								{lang}wcf.global.form.error.empty{/lang}
 							{/if}
@@ -47,7 +47,7 @@
 				<dd>
 					<textarea id="regex" name="regex" cols="40" rows="10" required="required">{$regex}</textarea>
 					{if $errorField == 'regex'}
-						<small class="innerError">
+						<small class="wcf-innerError">
 							{if $errorType == 'empty'}
 								{lang}wcf.global.form.error.empty{/lang}
 							{elseif $errorType == 'invalid'}
@@ -94,7 +94,7 @@
 				<dd>
 					<textarea id="html" name="html" cols="40" rows="10" required="required">{$html}</textarea>
 					{if $errorField == 'html'}
-						<small class="innerError">
+						<small class="wcf-innerError">
 							{if $errorType == 'empty'}
 								{lang}wcf.global.form.error.empty{/lang}
 							{/if}

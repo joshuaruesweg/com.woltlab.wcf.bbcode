@@ -60,7 +60,7 @@
 //]]>
 </script>
 
-<header class="mainHeading">
+<header class="wcf-mainHeading">
 	<img src="{@RELATIVE_WCF_DIR}icon/{$action}1.svg" alt="" />
 	<hgroup>
 		<h1>{lang}wcf.acp.bbcode.{$action}{/lang}</h1>
@@ -68,14 +68,14 @@
 </header>
 
 {if $errorField}
-	<p class="error">{lang}wcf.global.form.error{/lang}</p>
+	<p class="wcf-error">{lang}wcf.global.form.error{/lang}</p>
 {/if}
 
 {if $success|isset}
-	<p class="success">{lang}wcf.global.form.{$action}.success{/lang}</p>	
+	<p class="wcf-success">{lang}wcf.global.form.{$action}.success{/lang}</p>	
 {/if}
 
-<div class="contentHeader">
+<div class="wcf-contentHeader">
 	<nav>
 		<ul class="largeButtons">
 			<li><a href="{link controller='BBCodeList'}{/link}" title="{lang}wcf.acp.menu.link.bbcode.list{/lang}" class="button"><img src="{@RELATIVE_WCF_DIR}icon/bbCode1.svg" alt="" /> <span>{lang}wcf.acp.menu.link.bbcode.list{/lang}</span></a></li>
@@ -84,7 +84,7 @@
 </div>
 
 <form method="post" action="{if $action == 'add'}{link controller='BBCodeAdd'}{/link}{else}{link controller='BBCodeEdit'}{/link}{/if}">
-	<div class="border content">
+	<div class="wcf-border wcf-content">
 		<fieldset>
 			<legend>{lang}wcf.acp.bbcode.data{/lang}</legend>
 			
@@ -93,7 +93,7 @@
 				<dd>
 					<input type="text" id="bbcodeTag" name="bbcodeTag" value="{$bbcodeTag}" required="required" autofocus="autofocus" pattern="^[a-zA-Z0-9]+$" class="medium" />
 					{if $errorField == 'bbcodeTag'}
-						<small class="innerError">
+						<small class="wcf-innerError">
 							{if $errorType == 'empty'}
 								{lang}wcf.global.form.error.empty{/lang}
 							{elseif $errorType == 'invalid'}
@@ -139,7 +139,7 @@
 				<dd>
 					<input type="text" id="allowedChildren" name="allowedChildren" value="{$allowedChildren}" class="long" required="required" pattern="^((all|none)\^)?([a-zA-Z0-9]+,?)*[a-zA-Z0-9]+$" />
 					{if $errorField == 'allowedChildren'}
-						<small class="innerError">
+						<small class="wcf-innerError">
 							{if $errorType == 'empty'}
 								{lang}wcf.global.form.error.empty{/lang}
 							{elseif $errorType == 'invalid'}
@@ -163,7 +163,7 @@
 				<dd>
 					<input type="text" id="className" name="className" value="{$className}" class="long" pattern="^\\?([a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*\\)*[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*$" />
 					{if $errorField == 'className'}
-						<small class="innerError">
+						<small class="wcf-innerError">
 							{if $errorType == 'notFound'}
 								{lang}wcf.acp.bbcode.error.className.notFound{/lang}
 							{/if}
