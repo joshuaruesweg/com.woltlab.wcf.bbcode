@@ -33,10 +33,10 @@ class XmlHighlighter extends Highlighter {
 		$regex = new Regex('&lt;(?:/|\!|\?)?[a-z0-9]+(?:\s+[a-z0-9]+(?:=[^\s/\?&]+)?)*(?:/|\?)?&gt;', Regex::CASE_INSENSITIVE);
 		$string = $regex->replace($string, new Callback(function ($matches) {
 			// highlight attributes
-			$tag = Regex::compile('[a-z0-9]+(?:=[^\s/\?&]+)?(?=\s|&)', Regex::CASE_INSENSITIVE)->replace($matches[0], '<span class="keywords2">\\0</span>');
+			$tag = Regex::compile('[a-z0-9]+(?:=[^\s/\?&]+)?(?=\s|&)', Regex::CASE_INSENSITIVE)->replace($matches[0], '<span class="hlKeywords2">\\0</span>');
 			
 			// highlight tag
-			return '<span class="keywords1">'.$tag.'</span>';
+			return '<span class="hlKeywords1">'.$tag.'</span>';
 		}));
 		
 		return $string;

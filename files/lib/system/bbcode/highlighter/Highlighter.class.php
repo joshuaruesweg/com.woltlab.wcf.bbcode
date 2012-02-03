@@ -155,7 +155,7 @@ abstract class Highlighter extends SingletonFactory {
 	 */
 	protected function highlightOperators($string) {
 		if (count($this->operators)) {
-			$string = preg_replace('!('.StringUtil::encodeHTML(implode('|', array_map('preg_quote', $this->operators))).')!i', '<span class="operators">\\0</span>', $string);
+			$string = preg_replace('!('.StringUtil::encodeHTML(implode('|', array_map('preg_quote', $this->operators))).')!i', '<span class="hlOperators">\\0</span>', $string);
 		}
 		
 		return $string;
@@ -166,19 +166,19 @@ abstract class Highlighter extends SingletonFactory {
 	 */
 	protected function highlightKeywords($string) {
 		if (count($this->keywords1)) {
-			$string = preg_replace('!(?<='.$this->separatorsRegEx.')('.StringUtil::encodeHTML(implode('|', array_map('preg_quote', $this->keywords1))).')(?='.$this->separatorsRegEx.')!i', '<span class="keywords1">\\0</span>', $string);
+			$string = preg_replace('!(?<='.$this->separatorsRegEx.')('.StringUtil::encodeHTML(implode('|', array_map('preg_quote', $this->keywords1))).')(?='.$this->separatorsRegEx.')!i', '<span class="hlKeywords1">\\0</span>', $string);
 		}
 		if (count($this->keywords2)) {
-			$string = preg_replace('!(?<='.$this->separatorsRegEx.')('.StringUtil::encodeHTML(implode('|', array_map('preg_quote', $this->keywords2))).')(?='.$this->separatorsRegEx.')!i', '<span class="keywords2">\\0</span>', $string);
+			$string = preg_replace('!(?<='.$this->separatorsRegEx.')('.StringUtil::encodeHTML(implode('|', array_map('preg_quote', $this->keywords2))).')(?='.$this->separatorsRegEx.')!i', '<span class="hlKeywords2">\\0</span>', $string);
 		}
 		if (count($this->keywords3)) {
-			$string = preg_replace('!(?<='.$this->separatorsRegEx.')('.StringUtil::encodeHTML(implode('|', array_map('preg_quote', $this->keywords3))).')(?='.$this->separatorsRegEx.')!i', '<span class="keywords3">\\0</span>', $string);
+			$string = preg_replace('!(?<='.$this->separatorsRegEx.')('.StringUtil::encodeHTML(implode('|', array_map('preg_quote', $this->keywords3))).')(?='.$this->separatorsRegEx.')!i', '<span class="hlKeywords3">\\0</span>', $string);
 		}
 		if (count($this->keywords4)) {
-			$string = preg_replace('!(?<='.$this->separatorsRegEx.')('.StringUtil::encodeHTML(implode('|', array_map('preg_quote', $this->keywords4))).')(?='.$this->separatorsRegEx.')!i', '<span class="keywords4">\\0</span>', $string);
+			$string = preg_replace('!(?<='.$this->separatorsRegEx.')('.StringUtil::encodeHTML(implode('|', array_map('preg_quote', $this->keywords4))).')(?='.$this->separatorsRegEx.')!i', '<span class="hlKeywords4">\\0</span>', $string);
 		}
 		if (count($this->keywords5)) {
-			$string = preg_replace('!(?<='.$this->separatorsRegEx.')('.StringUtil::encodeHTML(implode('|', array_map('preg_quote', $this->keywords5))).')(?='.$this->separatorsRegEx.')!i', '<span class="keywords5">\\0</span>', $string);
+			$string = preg_replace('!(?<='.$this->separatorsRegEx.')('.StringUtil::encodeHTML(implode('|', array_map('preg_quote', $this->keywords5))).')(?='.$this->separatorsRegEx.')!i', '<span class="hlKeywords5">\\0</span>', $string);
 		}
 		
 		return $string;
@@ -188,7 +188,7 @@ abstract class Highlighter extends SingletonFactory {
 	 * Highlights numbers.
 	 */
 	protected function highlightNumbers($string) {
-		$string = preg_replace('!(?<='.$this->separatorsRegEx.')(-?\d+)(?='.$this->separatorsRegEx.')!i', '<span class="numbers">\\0</span>', $string);
+		$string = preg_replace('!(?<='.$this->separatorsRegEx.')(-?\d+)(?='.$this->separatorsRegEx.')!i', '<span class="hlNumbers">\\0</span>', $string);
 		
 		return $string;
 	}
@@ -233,7 +233,7 @@ abstract class Highlighter extends SingletonFactory {
 			$hash = '@@'.StringUtil::getHash(uniqid(microtime()).$comment).'@@';
 			
 			// save
-			$this->cachedComments[$hash] = '<span class="comments">'.StringUtil::encodeHTML($comment).'</span>';
+			$this->cachedComments[$hash] = '<span class="hlComments">'.StringUtil::encodeHTML($comment).'</span>';
 		}
 			
 		return $string.$hash;
@@ -250,7 +250,7 @@ abstract class Highlighter extends SingletonFactory {
 		$hash = '@@'.StringUtil::getHash(uniqid(microtime()).$quote).'@@';
 		
 		// save
-		$this->cachedQuotes[$hash] = '<span class="quotes">'.StringUtil::encodeHTML($quote).'</span>';
+		$this->cachedQuotes[$hash] = '<span class="hlQuotes">'.StringUtil::encodeHTML($quote).'</span>';
 		
 		return $hash;
 	}

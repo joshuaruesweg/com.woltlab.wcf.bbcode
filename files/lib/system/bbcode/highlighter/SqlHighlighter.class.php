@@ -31,7 +31,7 @@ class SqlHighlighter extends Highlighter {
 		$hash = '!!!'.StringUtil::getHash(uniqid(microtime()).$quote).'!!!'; // the at-sign has a special meaning
 		
 		// save
-		$this->cachedQuotes[$hash] = '<span class="quotes">'.StringUtil::encodeHTML($quote).'</span>';
+		$this->cachedQuotes[$hash] = '<span class="hlQuotes">'.StringUtil::encodeHTML($quote).'</span>';
 		
 		return $hash;
 	}

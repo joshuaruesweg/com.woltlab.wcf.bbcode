@@ -57,7 +57,7 @@ class HtmlHighlighter extends XmlHighlighter {
 		$hash = '@@'.StringUtil::getHash(uniqid(microtime()).$content).'@@';
 		
 		// save
-		$this->cachedScripts[$hash] = '<span class="JsHighlighter">'.JsHighlighter::getInstance()->highlight($content).'</span>';
+		$this->cachedScripts[$hash] = '<span class="wcf-jsHighlighter">'.JsHighlighter::getInstance()->highlight($content).'</span>';
 		
 		return $openingTag.$hash.$closingTag;
 	}
@@ -75,7 +75,7 @@ class HtmlHighlighter extends XmlHighlighter {
 		$hash = '@@'.StringUtil::getHash(uniqid(microtime()).$content).'@@';
 		
 		// save
-		$this->cachedStyles[$hash] = '<span class="CssHighlighter">'.CssHighlighter::getInstance()->highlight($content).'</span>';
+		$this->cachedStyles[$hash] = '<span class="wcf-cssHighlighter">'.CssHighlighter::getInstance()->highlight($content).'</span>';
 		
 		return $openingTag.$hash.$closingTag;
 	}

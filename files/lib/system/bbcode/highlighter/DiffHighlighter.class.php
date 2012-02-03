@@ -29,13 +29,13 @@ class DiffHighlighter extends Highlighter {
 		$lines = explode("\n", $data);
 		foreach ($lines as $key => $val) {
 			if (in_array(StringUtil::substring($val, 0,1), $this->info) || in_array($val, $this->splitter)) {
-				$lines[$key] = '<span class="comments">'.StringUtil::encodeHTML($val).'</span>';
+				$lines[$key] = '<span class="hlComments">'.StringUtil::encodeHTML($val).'</span>';
 			}
 			else if (in_array(StringUtil::substring($val, 0,1), $this->add)) {
-				$lines[$key] = '<span class="add">'.StringUtil::encodeHTML($val).'</span>';
+				$lines[$key] = '<span class="hlAdded">'.StringUtil::encodeHTML($val).'</span>';
 			}
 			else if (in_array(StringUtil::substring($val, 0,1), $this->delete)) {
-				$lines[$key] = '<span class="remove">'.StringUtil::encodeHTML($val).'</span>';
+				$lines[$key] = '<span class="hlRemoved">'.StringUtil::encodeHTML($val).'</span>';
 			}
 			else {
 				$lines[$key] = StringUtil::encodeHTML($val);
