@@ -1,7 +1,7 @@
 {include file='header'}
 {capture assign='attributeTemplate'}
 	<fieldset>
-		<legend><img src="{@RELATIVE_WCF_DIR}icon/delete1.svg" alt="" class="deleteButton" />{lang}wcf.acp.bbcode.attribute{/lang} {ldelim}#$attributeNo}</legend>
+		<legend><img src="{@RELATIVE_WCF_DIR}icon/delete1.svg" alt="" class="jsDeleteButton" />{lang}wcf.acp.bbcode.attribute{/lang} {ldelim}#$attributeNo}</legend>
 		<dl>
 			<dt><label for="attributes[{ldelim}@$attributeNo}][attributeHtml]">{lang}wcf.acp.bbcode.attribute.attributeHtml{/lang}</label></dt>
 			<dd>
@@ -49,9 +49,9 @@
 		var attributeNo = {if !$attributes|count}0{else}{assign var='lastAttribute' value=$attributes|end}{$lastAttribute->attributeNo+1}{/if};
 		var attributeTemplate = new WCF.Template('{@$attributeTemplate|encodeJS}');
 		
-		$('.addButton').click(function (event) {
+		$('.jsAddButton').click(function (event) {
 			html = $(attributeTemplate.fetch({ attributeNo: attributeNo++ }));
-			html.find('.deleteButton').click(function (event) {
+			html.find('.jsDeleteButton').click(function (event) {
 				$(event.target).parent().parent().remove();
 			});
 			$('#attributeFieldset').append(html);
@@ -174,11 +174,11 @@
 		</fieldset>
 		
 		<fieldset id="attributeFieldset">
-			<legend><img src="{@RELATIVE_WCF_DIR}icon/add1.svg" alt="" title="{lang}wcf.global.button.add{/lang}" class="addButton" /> {lang}wcf.acp.bbcode.attributes{/lang}</legend>
+			<legend><img src="{@RELATIVE_WCF_DIR}icon/add1.svg" alt="" title="{lang}wcf.global.button.add{/lang}" class="jsAddButton" /> {lang}wcf.acp.bbcode.attributes{/lang}</legend>
 			
 			{foreach from=$attributes item='attribute'}
 				<fieldset>
-					<legend><img src="{@RELATIVE_WCF_DIR}icon/delete1.svg" alt="" title="{lang}wcf.global.button.delete{/lang}" class="deleteButton" />{lang}wcf.acp.bbcode.attribute{/lang} {#$attribute->attributeNo}</legend>
+					<legend><img src="{@RELATIVE_WCF_DIR}icon/delete1.svg" alt="" title="{lang}wcf.global.button.delete{/lang}" class="jsDeleteButton" />{lang}wcf.acp.bbcode.attribute{/lang} {#$attribute->attributeNo}</legend>
 					<dl{if $errorField == 'attributeHtml'|concat:$attribute->attributeNo} class="wcf-formError"{/if}>
 						<dt><label for="attributes[{@$attribute->attributeNo}][attributeHtml]">{lang}wcf.acp.bbcode.attribute.attributeHtml{/lang}</label></dt>
 						<dd>
