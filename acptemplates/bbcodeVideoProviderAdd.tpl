@@ -28,7 +28,7 @@
 		<fieldset>
 			<legend>{lang}wcf.acp.bbcode.videoprovider.data{/lang}</legend>
 			
-			<dl{if $errorField == 'title'} class="formError"{/if}>
+			<dl{if $errorField == 'title'} class="wcf-formError"{/if}>
 				<dt><label for="title">{lang}wcf.acp.bbcode.videoprovider.title{/lang}</label></dt>
 				<dd>
 					<input type="text" id="title" name="title" value="{$title}" required="required" autofocus="autofocus" class="long" />
@@ -42,7 +42,7 @@
 				</dd>
 			</dl>
 			
-			<dl{if $errorField == 'regex'} class="formError"{/if}>
+			<dl{if $errorField == 'regex'} class="wcf-formError"{/if}>
 				<dt><label for="regex">{lang}wcf.acp.bbcode.videoprovider.regex{/lang}</label></dt>
 				<dd>
 					<textarea id="regex" name="regex" cols="40" rows="10" required="required">{$regex}</textarea>
@@ -89,7 +89,7 @@
 				</dd>
 			</dl>
 			
-			<dl{if $errorField == 'html'} class="formError"{/if}>
+			<dl{if $errorField == 'html'} class="wcf-formError"{/if}>
 				<dt><label for="html">{lang}wcf.acp.bbcode.videoprovider.html{/lang}</label></dt>
 				<dd>
 					<textarea id="html" name="html" cols="40" rows="10" required="required">{$html}</textarea>
@@ -106,7 +106,7 @@
 		</fieldset>
 	</div>
 	
-	<div class="formSubmit">
+	<div class="wcf-formSubmit">
 		<input type="reset" value="{lang}wcf.global.button.reset{/lang}" accesskey="r" />
 		<input type="submit" value="{lang}wcf.global.button.submit{/lang}" accesskey="s" />
 		{@SID_INPUT_TAG}

@@ -88,7 +88,7 @@
 		<fieldset>
 			<legend>{lang}wcf.acp.bbcode.data{/lang}</legend>
 			
-			<dl{if $errorField == 'bbcodeTag'} class="formError"{/if}>
+			<dl{if $errorField == 'bbcodeTag'} class="wcf-formError"{/if}>
 				<dt><label for="bbcodeTag">{lang}wcf.acp.bbcode.bbcodeTag{/lang}</label></dt>
 				<dd>
 					<input type="text" id="bbcodeTag" name="bbcodeTag" value="{$bbcodeTag}" required="required" autofocus="autofocus" pattern="^[a-zA-Z0-9]+$" class="medium" />
@@ -106,35 +106,35 @@
 				</dd>
 			</dl>
 			
-			<dl{if $errorField == 'htmlOpen'} class="formError"{/if}>
+			<dl{if $errorField == 'htmlOpen'} class="wcf-formError"{/if}>
 				<dt><label for="htmlOpen">{lang}wcf.acp.bbcode.htmlOpen{/lang}</label></dt>
 				<dd>
 					<input type="text" id="htmlOpen" name="htmlOpen" value="{$htmlOpen}" class="long" />
 				</dd>
 			</dl>
 			
-			<dl{if $errorField == 'htmlClose'} class="formError"{/if}>
+			<dl{if $errorField == 'htmlClose'} class="wcf-formError"{/if}>
 				<dt><label for="htmlClose">{lang}wcf.acp.bbcode.htmlClose{/lang}</label></dt>
 				<dd>
 					<input type="text" id="htmlClose" name="htmlClose" value="{$htmlClose}" class="long" />
 				</dd>
 			</dl>
 			
-			<dl{if $errorField == 'textOpen'} class="formError"{/if}>
+			<dl{if $errorField == 'textOpen'} class="wcf-formError"{/if}>
 				<dt><label for="textOpen">{lang}wcf.acp.bbcode.textOpen{/lang}</label></dt>
 				<dd>
 					<input type="text" id="textOpen" name="textOpen" value="{$textOpen}" class="long" />
 				</dd>
 			</dl>
 			
-			<dl{if $errorField == 'textClose'} class="formError"{/if}>
+			<dl{if $errorField == 'textClose'} class="wcf-formError"{/if}>
 				<dt><label for="textClose">{lang}wcf.acp.bbcode.textClose{/lang}</label></dt>
 				<dd>
 					<input type="text" id="textClose" name="textClose" value="{$textClose}" class="long" />
 				</dd>
 			</dl>
 			
-			<dl{if $errorField == 'allowedChildren'} class="formError"{/if}>
+			<dl{if $errorField == 'allowedChildren'} class="wcf-formError"{/if}>
 				<dt><label for="allowedChildren">{lang}wcf.acp.bbcode.allowedChildren{/lang}</label></dt>
 				<dd>
 					<input type="text" id="allowedChildren" name="allowedChildren" value="{$allowedChildren}" class="long" required="required" pattern="^((all|none)\^)?([a-zA-Z0-9]+,?)*[a-zA-Z0-9]+$" />
@@ -150,7 +150,7 @@
 				</dd>
 			</dl>
 			
-			<dl{if $errorField == 'isSourceCode'} class="formError"{/if}>
+			<dl{if $errorField == 'isSourceCode'} class="wcf-formError"{/if}>
 				<dt class="reversed"><label for="isSourceCode">{lang}wcf.acp.bbcode.isSourceCode{/lang}</label></dt>
 				<dd>
 					<input type="checkbox" id="isSourceCode" name="isSourceCode" value="1"{if $isSourceCode} checked="checked"{/if} />
@@ -158,7 +158,7 @@
 				</dd>
 			</dl>
 			
-			<dl{if $errorField == 'className'} class="formError"{/if}>
+			<dl{if $errorField == 'className'} class="wcf-formError"{/if}>
 				<dt><label for="className">{lang}wcf.acp.bbcode.className{/lang}</label></dt>
 				<dd>
 					<input type="text" id="className" name="className" value="{$className}" class="long" pattern="^\\?([a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*\\)*[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*$" />
@@ -179,21 +179,21 @@
 			{foreach from=$attributes item='attribute'}
 				<fieldset>
 					<legend><img src="{@RELATIVE_WCF_DIR}icon/delete1.svg" alt="" title="{lang}wcf.global.button.delete{/lang}" class="deleteButton" />{lang}wcf.acp.bbcode.attribute{/lang} {#$attribute->attributeNo}</legend>
-					<dl{if $errorField == 'attributeHtml'|concat:$attribute->attributeNo} class="formError"{/if}>
+					<dl{if $errorField == 'attributeHtml'|concat:$attribute->attributeNo} class="wcf-formError"{/if}>
 						<dt><label for="attributes[{@$attribute->attributeNo}][attributeHtml]">{lang}wcf.acp.bbcode.attribute.attributeHtml{/lang}</label></dt>
 						<dd>
 							<input type="text" id="attributes[{@$attribute->attributeNo}][attributeHtml]" name="attributes[{@$attribute->attributeNo}][attributeHtml]" value="{$attribute->attributeHtml}" class="long" />
 						</dd>
 					</dl>
 					
-					<dl{if $errorField == 'attributeText'|concat:$attribute->attributeNo} class="formError"{/if}>
+					<dl{if $errorField == 'attributeText'|concat:$attribute->attributeNo} class="wcf-formError"{/if}>
 						<dt><label for="attributes[{@$attribute->attributeNo}][attributeText]">{lang}wcf.acp.bbcode.attribute.attributeText{/lang}</label></dt>
 						<dd>
 							<input type="text" id="attributes[{@$attribute->attributeNo}][attributeText]" name="attributes[{@$attribute->attributeNo}][attributeText]" value="{$attribute->attributeText}" class="long" />
 						</dd>
 					</dl>
 					
-					<dl{if $errorField == 'attributeValidationPattern'|concat:$attribute->attributeNo} class="formError"{/if}>
+					<dl{if $errorField == 'attributeValidationPattern'|concat:$attribute->attributeNo} class="wcf-formError"{/if}>
 						<dt><label for="attributes[{@$attribute->attributeNo}][validationPattern]">{lang}wcf.acp.bbcode.attribute.validationPattern{/lang}</label></dt>
 						<dd>
 							<input type="text" id="attributes[{@$attribute->attributeNo}][validationPattern]" name="attributes[{@$attribute->attributeNo}][validationPattern]" value="{$attribute->validationPattern}" class="long" />
@@ -207,14 +207,14 @@
 						</dd>
 					</dl>
 					
-					<dl{if $errorField == 'attributeRequired'|concat:$attribute->attributeNo} class="formError"{/if}>
+					<dl{if $errorField == 'attributeRequired'|concat:$attribute->attributeNo} class="wcf-formError"{/if}>
 						<dt class="reversed"><label for="attributes[{@$attribute->attributeNo}][required]">{lang}wcf.acp.bbcode.attribute.required{/lang}</label></dt>
 						<dd>
 							<input type="checkbox" id="attributes[{@$attribute->attributeNo}][required]" name="attributes[{@$attribute->attributeNo}][required]" value="1"{if $attribute->required} checked="checked"{/if} />
 						</dd>
 					</dl>
 					
-					<dl{if $errorField == 'attributeUseText'|concat:$attribute->attributeNo} class="formError"{/if}>
+					<dl{if $errorField == 'attributeUseText'|concat:$attribute->attributeNo} class="wcf-formError"{/if}>
 						<dt class="reversed"><label for="attributes[{@$attribute->attributeNo}][useText]">{lang}wcf.acp.bbcode.attribute.useText{/lang}</label></dt>
 						<dd>
 							<input type="checkbox" id="attributes[{@$attribute->attributeNo}][useText]" name="attributes[{@$attribute->attributeNo}][useText]" value="1"{if $attribute->useText} checked="checked"{/if} />
@@ -226,7 +226,7 @@
 		</fieldset>
 	</div>
 	
-	<div class="formSubmit">
+	<div class="wcf-formSubmit">
 		<input type="reset" value="{lang}wcf.global.button.reset{/lang}" accesskey="r" />
 		<input type="submit" value="{lang}wcf.global.button.submit{/lang}" accesskey="s" />
 		{@SID_INPUT_TAG}
