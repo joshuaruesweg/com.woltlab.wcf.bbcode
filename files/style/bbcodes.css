@@ -33,7 +33,8 @@
 	width: 0%;
 }
 
-.wcf-codeBox td	text-decoration: none;
+.wcf-codeBox td.codeLineNumbers a {
+	text-decoration: none;
 	color: rgba(102, 102, 102, 1);
 	margin-left: -5px;
 	padding: 0 5px;
@@ -64,91 +65,102 @@
 
 /* ############## Code Styles ############## */
 
-/* Code Box */
+/* -- -- -- Code Box -- -- -- */
 
-.wcf-codeBox .quotes {
+.wcf-codeBox .hlQuotes {
 	color: red;
 }
 
-.wcf-codeBox .comments,
+.wcf-codeBox .hlComments,
 .wcf-codeBox .operators {
 	color: green;
 }
 
-.wcf-codeBox .keywords1 {
+.wcf-codeBox .hlKeywords1 {
 	color: blue;
 }
 
-.wcf-codeBox .keywords2 {
+.wcf-codeBox .hlKeywords2 {
 	color: darkred;
 }
 
-.wcf-codeBox .keywords3 {
+.wcf-codeBox .hlKeywords3 {
 	color: darkviolet;
 }
 
-.wcf-codeBox .keywords4 {
+.wcf-codeBox .hlKeywords4 {
 	color: darkgoldenrod;
 }
 
-.wcf-codeBox .keywords5 {
+.wcf-codeBox .hlKeywords5 {
 	color: crimson;
 }
 
-.wcf-codeBox .numbers {
+.wcf-codeBox .hlNumbers {
 	color: darkorange;
 }
 
-/* Code Highlighters */
+/* -- -- -- Code Highlighters -- -- -- */
 
-.wcf-diffHighlighter .comments {
+/* DIFF */
+
+.wcf-diffHighlighter .hlComments {
 	color: darkviolet;
 }
 
-.wcf-diffHighlighter .remove {
+.wcf-diffHighlighter .hlRemoved {
 	color: red;
 }
 
-.wcf-diffHighlighter .add,
-.wcf-phpHighlighter .keywords2 {
+.wcf-diffHighlighter .hlAdded {
 	color: green;
 }
 
-.wcf-phpHighlighter .comments {
+/* PHP */
+
+.wcf-phpHighlighter .hlKeywords2 {
+	color: green;
+}
+
+.wcf-phpHighlighter .hlComments {
 	color: darkgoldenrod;
 }
 
-.wcf-cssHighlighter .comments {
-	color: #236E26;
+/* CSS */
+
+.wcf-cssHighlighter .hlComments {
+	color: #236e26;
 }
 
-.wcf-cssHighlighter .colors {
+.wcf-cssHighlighter .hlColors {
 	color: #751116;
 }
 
-.wcf-cssHighlighter .numbers,
-.wcf-sqlHighlighter .numbers {
-	color: #1906FD;
+.wcf-cssHighlighter .hlNumbers,
+.wcf-sqlHighlighter .hlNumbers {
+	color: #1906fd;
 }
 
-.wcf-cssHighlighter .keywords1 {
-	color: #87154F;
+.wcf-cssHighlighter .hlKeywords1 {
+	color: #87154f;
 }
 
-.wcf-cssHighlighter .keywords2 {
+.wcf-cssHighlighter .hlKeywords2 {
 	color: #994509;
 }
 
-.wcf-cssHighlighter .keywords3,
-.wcf-cssHighlighter .keywords4 {
+.wcf-cssHighlighter .hlKeywords3,
+.wcf-cssHighlighter .hlKeywords4 {
 	color: inherit;
 }
 
-.wcf-sqlHighlighter .keywords1 {
+/* SQL */
+
+.wcf-sqlHighlighter .hlKeywords1 {
 	color: #663821;
 }
 
-.wcf-sqlHighlighter .keywords2 {
+.wcf-sqlHighlighter .hlKeywords2 {
 	color: #871550;
 }
 
