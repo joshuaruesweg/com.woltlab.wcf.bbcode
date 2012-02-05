@@ -5,7 +5,7 @@
 			<environment>user</environment>
 			<templatename>headInclude</templatename>
 			<eventname>stylesheetImport</eventname>
-			<templatecode><![CDATA[@import url("{@RELATIVE_WCF_DIR}style/bbcodes.css") screen;]]></templatecode>
+			<templatecode><![CDATA[@import url("{@$__wcf->getPath('wcf')}style/bbcodes.css") screen;]]></templatecode>
 		</templatelistener>
 	</import>
 </data>

@@ -31,7 +31,7 @@
 		<item name="wcf.acp.bbcode.videoprovider.data"><![CDATA[Daten des Videoanbieters]]></item>
 		<item name="wcf.acp.bbcode.videoprovider.title"><![CDATA[Videoanbieter]]></item>
 		<item name="wcf.acp.bbcode.videoprovider.regex"><![CDATA[Regulärer Ausdruck]]></item>
-		<item name="wcf.acp.bbcode.videoprovider.regex.description"><![CDATA[Geben Sie hier das Linkformat als <a href="{@RELATIVE_WCF_DIR}acp/dereferrer.php?url=http%3A%2F%2Fde.wikipedia.org%2Fwiki%2FRegul%25C3%25A4rer_Ausdruck">Regulären Ausdruck</a> an. <br />
+		<item name="wcf.acp.bbcode.videoprovider.regex.description"><![CDATA[Geben Sie hier das Linkformat als <a href="{@$__wcf->getPath('wcf')}acp/dereferrer.php?url=http%3A%2F%2Fde.wikipedia.org%2Fwiki%2FRegul%25C3%25A4rer_Ausdruck">Regulären Ausdruck</a> an. <br />
 		Mehrere Ausdrücke können zeilenweise angegeben werden. <br />
 		Beispiele für Video-ID Erkennungen:
 		<ul>
