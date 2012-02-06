@@ -33,7 +33,7 @@
 			<h1>{lang}wcf.acp.bbcode.videoprovider.list{/lang} <span class="wcf-badge" title="{lang}wcf.acp.bbcode.videoprovider.list.count{/lang}">{#$items}</span></h1>
 		</hgroup>
 		
-		<table class="wcf-bigList">
+		<table class="wcf-table big">
 			<thead>
 				<tr>
 					<th class="columnID columnVideoProviderID" colspan="2">{lang}wcf.global.objectID{/lang}</th>

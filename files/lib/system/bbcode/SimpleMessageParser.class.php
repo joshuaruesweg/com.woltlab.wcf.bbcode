@@ -166,7 +166,7 @@ class SimpleMessageParser extends SingletonFactory {
 			$external = false;
 		}
 		
-		return '<a href="'.$url.'"'.($external ? ' class="externalURL"' : '').'>'.$title.'</a>';
+		return '<a href="'.$url.'"'.($external ? ' class="wcf-externalURL"' : '').'>'.$title.'</a>';
 	}
 	
 	/**

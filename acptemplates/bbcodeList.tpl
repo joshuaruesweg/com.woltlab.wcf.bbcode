@@ -34,7 +34,7 @@
 			<h1>{lang}wcf.acp.bbcode.list{/lang} <span class="wcf-badge" title="{lang}wcf.acp.bbcode.list.count{/lang}">{#$items}</span></h1>
 		</hgroup>
 		
-		<table>
+		<table class="wcf-table">
 			<thead>
 				<tr>
 					<th class="columnID columnBBCodeID" colspan="2">{lang}wcf.global.objectID{/lang}</th>
