@@ -3,7 +3,7 @@
 		<h1>{@$highlighter->getTitle()}</h1>
 	</hgroup>
 	<div>
-		<table>
+		<table class="wcf-table">
 			<tbody>
 				<tr>
 					<td class="wcf-codeLineNumbers">
