@@ -42,7 +42,7 @@
 <script type="text/javascript">
 //<![CDATA[
 	$(function() {
-		$('.deleteButton').click(function (event) {
+		$('.jsDeleteButton').click(function (event) {
 			$(event.target).parent().parent().remove();
 		});
 		
@@ -78,7 +78,7 @@
 <div class="wcf-contentHeader">
 	<nav>
 		<ul class="wcf-largeButtons">
-			<li><a href="{link controller='BBCodeList'}{/link}" title="{lang}wcf.acp.menu.link.bbcode.list{/lang}" class="button"><img src="{@RELATIVE_WCF_DIR}icon/bbCode1.svg" alt="" /> <span>{lang}wcf.acp.menu.link.bbcode.list{/lang}</span></a></li>
+			<li><a href="{link controller='BBCodeList'}{/link}" title="{lang}wcf.acp.menu.link.bbcode.list{/lang}" class="wcf-button"><img src="{@RELATIVE_WCF_DIR}icon/bbCode1.svg" alt="" /> <span>{lang}wcf.acp.menu.link.bbcode.list{/lang}</span></a></li>
 		</ul>
 	</nav>
 </div>
