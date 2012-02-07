@@ -52,7 +52,7 @@
 							<td class="columnIcon">
 								{* toggle, edit, delete *}
 								{if $__wcf->session->getPermission('admin.content.bbcode.canEditBBCode')}
-									<img src="{@RELATIVE_WCF_DIR}icon/{if $bbcode->disabled}disabled{else}enabled{/if}1.svg" alt="" title="{lang}wcf.global.button.{if $bbcode->disabled}enable{else}disable{/if}{/lang}" class="jsToggleButton wcf-balloonTooltip" data-object-id="{@$bbcode->bbcodeID}" data-disable-message="{lang}wcf.global.button.disable{/lang}" data-enable-message="{lang}wcf.global.button.enable{/lang}" />
+									<img src="{@RELATIVE_WCF_DIR}icon/{if $bbcode->disabled}disabled{else}enabled{/if}1.svg" alt="" title="{lang}wcf.global.button.{if $bbcode->disabled}enable{else}disable{/if}{/lang}" class="jsToggleButton jsTooltip" data-object-id="{@$bbcode->bbcodeID}" data-disable-message="{lang}wcf.global.button.disable{/lang}" data-enable-message="{lang}wcf.global.button.enable{/lang}" />
 								{else}
 									{if $bbcode->disabled}
 										<img src="{@RELATIVE_WCF_DIR}icon/disabled1D.svg" alt="" title="{lang}wcf.global.button.enable{/lang}" />
@@ -61,12 +61,12 @@
 									{/if}
 								{/if}
 								{if $__wcf->session->getPermission('admin.content.bbcode.canEditBBCode')}
-									<a href="{link controller='BBCodeEdit' id=$bbcode->bbcodeID}{/link}"><img src="{@RELATIVE_WCF_DIR}icon/edit1.svg" alt="" title="{lang}wcf.global.button.edit{/lang}" class="wcf-balloonTooltip" /></a>
+									<a href="{link controller='BBCodeEdit' id=$bbcode->bbcodeID}{/link}"><img src="{@RELATIVE_WCF_DIR}icon/edit1.svg" alt="" title="{lang}wcf.global.button.edit{/lang}" class="jsTooltip" /></a>
 								{else}
 									<img src="{@RELATIVE_WCF_DIR}icon/edit1D.svg" alt="" title="{lang}wcf.global.button.edit{/lang}" />
 								{/if}
 								{if $__wcf->session->getPermission('admin.content.bbcode.canDeleteBBCode')}
-									<img src="{@RELATIVE_WCF_DIR}icon/delete1.svg" alt="" title="{lang}wcf.global.button.delete{/lang}" class="jsDeleteButton wcf-balloonTooltip" data-object-id="{@$bbcode->bbcodeID}" data-confirm-message="{lang}wcf.acp.bbcode.delete.sure{/lang}" />
+									<img src="{@RELATIVE_WCF_DIR}icon/delete1.svg" alt="" title="{lang}wcf.global.button.delete{/lang}" class="jsDeleteButton jsTooltip" data-object-id="{@$bbcode->bbcodeID}" data-confirm-message="{lang}wcf.acp.bbcode.delete.sure{/lang}" />
 								{else}
 									<img src="{@RELATIVE_WCF_DIR}icon/delete1D.svg" alt="" title="{lang}wcf.global.button.delete{/lang}" />
 								{/if}
