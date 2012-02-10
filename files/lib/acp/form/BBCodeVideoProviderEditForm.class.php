@@ -58,12 +58,12 @@ class BBCodeVideoProviderEditForm extends BBCodeVideoProviderAddForm {
 		ACPForm::save();
 		
 		// update video-provider
-		$videoProviderAction = new VideoProviderAction(array($this->providerID), 'update', array('data' => array(
+		$this->objectAction = new VideoProviderAction(array($this->providerID), 'update', array('data' => array(
 			'title' => $this->title,
 			'regex' => $this->regex,
 			'html' => $this->html
 		)));
-		$videoProviderAction->executeAction();
+		$this->objectAction->executeAction();
 		
 		$this->saved();
 		

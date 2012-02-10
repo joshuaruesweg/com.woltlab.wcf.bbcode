@@ -93,12 +93,12 @@ class BBCodeVideoProviderAddForm extends ACPForm {
 		parent::save();
 		
 		// save video provider
-		$videoProviderAction = new VideoProviderAction(array(), 'create', array('data' => array(
+		$this->objectAction = new VideoProviderAction(array(), 'create', array('data' => array(
 			'title' => $this->title,
 			'regex' => $this->regex,
 			'html' => $this->html
 		)));
-		$videoProviderAction->executeAction();
+		$this->objectAction->executeAction();
 		$this->saved();
 		
 		// reset values

@@ -60,7 +60,7 @@ class BBCodeEditForm extends BBCodeAddForm {
 		ACPForm::save();
 		
 		// update bbcode
-		$bbcodeAction = new BBCodeAction(array($this->bbcodeID), 'update', array('data' => array(
+		$this->objectAction = new BBCodeAction(array($this->bbcodeID), 'update', array('data' => array(
 			'bbcodeTag' => $this->bbcodeTag,
 			'htmlOpen' => $this->htmlOpen,
 			'htmlClose' => $this->htmlClose,
@@ -70,7 +70,7 @@ class BBCodeEditForm extends BBCodeAddForm {
 			'isSourceCode' => (int) $this->isSourceCode,
 			'className' => $this->className
 		)));
-		$bbcodeAction->executeAction();
+		$this->objectAction->executeAction();
 		
 		// clear existing attributes
 		$sql = "DELETE FROM	wcf".WCF_N."_bbcode_attribute

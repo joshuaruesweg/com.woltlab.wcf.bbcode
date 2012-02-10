@@ -173,7 +173,7 @@ class BBCodeAddForm extends ACPForm {
 		parent::save();
 		
 		// save bbcode
-		$bbcodeAction = new BBCodeAction(array(), 'create', array('data' => array(
+		$this->objectAction = new BBCodeAction(array(), 'create', array('data' => array(
 			'bbcodeTag' => $this->bbcodeTag,
 			'htmlOpen' => $this->htmlOpen,
 			'htmlClose' => $this->htmlClose,
@@ -184,8 +184,7 @@ class BBCodeAddForm extends ACPForm {
 			'className' => $this->className,
 			'packageID' => PackageDependencyHandler::getPackageID('com.woltlab.wcf.bbcode') // TODO: Maybe Change this?
 		)));
-		$bbcodeAction->executeAction();
-		$returnValues = $bbcodeAction->getReturnValues();
+		$returnValues = $this->objectAction->executeAction();
 		foreach ($this->attributes as $attribute) {
 			$attributeAction = new BBCodeAttributeAction(array(), 'create', array('data' => array(
 				'bbcodeID' => $returnValues['returnValues']->bbcodeID,
