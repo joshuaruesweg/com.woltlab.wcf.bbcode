@@ -46,8 +46,7 @@ class MessageParser extends BBCodeParser {
 	protected function init() {
 		parent::init();
 		
-		// TODO: add setting MODULE_SMILEY
-		//if (MODULE_SMILEY == 1) {
+		if (MODULE_SMILEY == 1) {
 			// handle source codes
 			$sourceCodeTags = array();
 			foreach ($this->bbcodes as $bbcode) {
@@ -63,7 +62,7 @@ class MessageParser extends BBCodeParser {
 				}
 			}
 			krsort($this->smilies);
-		//}
+		}
 	}
 	
 	/**
@@ -139,7 +138,8 @@ class MessageParser extends BBCodeParser {
 	 */
 	protected function parseSmilies($text, $enableHtml = false) {
 		foreach ($this->smilies as $code => $html) {
-			$text = preg_replace('~(?<!&\w{2}|&\w{3}|&\w{4}|&\w{5}|&\w{6}|&#\d{2}|&#\d{3}|&#\d{4}|&#\d{5})'.preg_quote((!$enableHtml ? StringUtil::encodeHTML($code) : $code), '~').'(?![^<]*>)~', $html, $text);
+			//$text = preg_replace('~(?<!&\w{2}|&\w{3}|&\w{4}|&\w{5}|&\w{6}|&#\d{2}|&#\d{3}|&#\d{4}|&#\d{5})'.preg_quote((!$enableHtml ? StringUtil::encodeHTML($code) : $code), '~').'(?![^<]*>)~', $html, $text);
+			$text = preg_replace('~(?<=^|\s)'.preg_quote((!$enableHtml ? StringUtil::encodeHTML($code) : $code), '~').'(?=$|\s'.(!$enableHtml ? '|<br />' : '').')~', $html, $text);
 		}
 		
 		return $text;
