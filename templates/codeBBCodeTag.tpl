@@ -9,7 +9,7 @@
 					<td class="wcf-codeLineNumbers">
 						<pre>
 							{foreach from=$lineNumbers key=lineNumber item=lineID}
-								<a href="{@$__wcf->getAnchor($lineID)" id="{@$lineID}">{@$lineNumber}</a>
+								<a href="{@$__wcf->getAnchor($lineID)}" id="{@$lineID}">{@$lineNumber}</a>
 							{/foreach}
 						</pre>
 					</td>
