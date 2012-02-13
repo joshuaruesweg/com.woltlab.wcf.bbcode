@@ -126,7 +126,7 @@ class CodeBBCode extends AbstractBBCode {
 	protected static function makeLineNumbers($code, $start, $split = "\n") {
 		$lines = explode($split, $code);
 		
-		$lineNumbers = '';
+		$lineNumbers = array();
 		$i = -1;
 		// find an unused codeID
 		do {
@@ -137,9 +137,7 @@ class CodeBBCode extends AbstractBBCode {
 		self::$codeIDs[$codeID] = true;
 		
 		for ($i = $start, $j = count($lines) + $start; $i < $j; $i++) {
-			$lineID = 'codeLine_'.$i.'_'.$codeID;
-			// insert $_SERVER['REQUEST_URI'] 'cause some browsers tend to prepend the base-href
-			$lineNumbers .= '<a id="'.$lineID.'" href="'.$_SERVER['REQUEST_URI'].'#'.$lineID.'">'.$i."</a>\n";
+			$lineNumbers[$i] = 'codeLine_'.$i.'_'.$codeID;
 		}
 		return $lineNumbers;
 	}

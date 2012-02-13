@@ -7,7 +7,11 @@
 			<tbody>
 				<tr>
 					<td class="wcf-codeLineNumbers">
-						<pre>{@$lineNumbers}</pre>
+						<pre>
+							{foreach from=$lineNumbers key=lineNumber item=lineID}
+								<a href="{@$__wcf->getAnchor($lineID)" id="{@$lineID}">{@$lineNumber}</a>
+							{/foreach}
+						</pre>
 					</td>
 					<td class="wcf-codeLines">
 						<pre>{@$content}</pre>
