@@ -46,7 +46,9 @@ class SimpleMessageParser extends SingletonFactory {
 			$smilies = SmileyCache::getInstance()->getSmilies();
 			foreach ($smilies as $categoryID => $categorySmilies) {
 				foreach ($categorySmilies as $smiley) {
-					$this->smilies[$smiley->smileyCode] = '<img src="'.$smiley->getURL().'" alt="'.StringUtil::encodeHTML($smiley->smileyCode).'" />';
+					foreach ($smiley->smileyCodes as $smileyCode) {
+						$this->smilies[$smileyCode] = '<img src="'.$smiley->getURL().'" alt="'.StringUtil::encodeHTML($smiley->smileyCode).'" />';
+					}
 				}
 			}
 			krsort($this->smilies);

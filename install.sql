@@ -44,6 +44,7 @@ CREATE TABLE wcf1_smiley (
 	smileyPath VARCHAR(255) NOT NULL DEFAULT '',
 	smileyTitle VARCHAR(255) NOT NULL DEFAULT '',
 	smileyCode VARCHAR(255) NOT NULL DEFAULT '',
+	aliases MEDIUMTEXT NOT NULL,
 	showOrder MEDIUMINT(5) NOT NULL DEFAULT 0,
 	UNIQUE KEY smileyCode (smileyCode)
 );

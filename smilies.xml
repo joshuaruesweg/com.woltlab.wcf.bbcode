@@ -4,26 +4,35 @@
 		<smiley name=":)">
 			<title>Smile</title>
 			<path>images/smilies/smileySmiling.svg</path>
+			<aliases><![CDATA[:-)
+(:]]></aliases>
 		</smiley>
 		<smiley name=":(">
 			<title>Sad</title>
 			<path>images/smilies/smileySad.svg</path>
+			<aliases><![CDATA[:-(
+):]]></aliases>
 		</smiley>
 		<smiley name=";)">
 			<title>Wink</title>
 			<path>images/smilies/smileyWink.svg</path>
+			<aliases><![CDATA[;-)
+(;]]></aliases>
 		</smiley>
 		<smiley name=":P">
 			<title>Tongue</title>
 			<path>images/smilies/smileyTongue.svg</path>
+			<aliases><![CDATA[:-P]]></aliases>
 		</smiley>
 		<smiley name=":D">
 			<title>Laughing</title>
 			<path>images/smilies/smileyLaughing.svg</path>
+			<aliases><![CDATA[:-D]]></aliases>
 		</smiley>
 		<smiley name="^^">
 			<title>Grinning</title>
 			<path>images/smilies/smileyGrinning.svg</path>
+			<aliases><![CDATA[^.^]]></aliases>
 		</smiley>
 		<smiley name="X(">
 			<title>Angry</title>
@@ -36,6 +45,8 @@
 		<smiley name=":*">
 			<title>Kiss</title>
 			<path>images/smilies/smileyKiss.svg</path>
+			<aliases><![CDATA[:-*
+*:]]></aliases>
 		</smiley>
 		<smiley name=":|">
 			<title>Mellow</title>

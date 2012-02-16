@@ -1,6 +1,7 @@
 <?php
 namespace wcf\system\cache\builder;
 use wcf\system\WCF;
+use wcf\util\StringUtil;
 
 /**
  * Caches the smilies.
@@ -37,6 +38,10 @@ class SmileyCacheBuilder implements ICacheBuilder {
 		$statement = WCF::getDB()->prepareStatement($sql);
 		$statement->execute();
 		while ($object = $statement->fetchObject('wcf\data\smiley\Smiley')) {
+			$object->smileyCodes = explode("\n", StringUtil::unifyNewlines($object->aliases));
+			if ($object->smileyCodes[0] != '') $object->smileyCodes[] = $object->smileyCode;
+			else $object->smileyCodes = array($object->smileyCode);
+			
 			$data['smilies'][$object->smileyCategoryID][$object->smileyID] = $object;
 		}
 		
