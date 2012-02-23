@@ -37,11 +37,13 @@ class CssHighlighter extends Highlighter {
 	public function highlight($string) {
 		$string = str_replace('span', '053a0024219422ca9215c0a3ed0578ee76cff477', $string); // fix to not highlight the spans of the highlighter
 		$string = str_replace(':link', ':li@@nk', $string); // fix to highlight pseudo-class different than tag
+		$string = str_replace(array('right:', 'left:'), array('r@@ight:', 'l@@eft:'), $string); // fix to highlight properties different than values
 		$string = strtr($string, self::$duplicates); // fix to highlight properties different than tags
 		
 		$string = parent::highlight($string);
 		
 		$string = strtr($string, array_flip(self::$duplicates)); // fix to highlight properties different than tags
+		$string = str_replace(array('r@@ight', 'l@@eft'), array('right', 'left'), $string); // fix to highlight properties different than values
 		$string = str_replace('li@@nk', 'link', $string); // fix to highlight pseudo-class different than tag
 		return str_replace('053a0024219422ca9215c0a3ed0578ee76cff477', 'span', $string); // fix to not highlight the spans of the highlighter
 	}
@@ -116,7 +118,7 @@ class CssHighlighter extends Highlighter {
 		'font-variant',
 		'font-weight',
 		'height',
-		'left',
+		'l@@eft',
 		'letter-spacing',
 		'line-height',
 		'list-style',
@@ -158,7 +160,7 @@ class CssHighlighter extends Highlighter {
 		'position',
 		'quotes',
 		'richness',
-		'right',
+		'r@@ight',
 		'scrollbar-3dlight-color',
 		'scrollbar-arrow-color',
 		'scrollbar-base-color',
