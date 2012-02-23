@@ -60,9 +60,9 @@
 //]]>
 </script>
 
-<header class="wcf-mainHeading">
-	<img src="{@RELATIVE_WCF_DIR}icon/{$action}1.svg" alt="" />
-	<hgroup>
+<header class="wcf-container wcf-mainHeading">
+	<img src="{@RELATIVE_WCF_DIR}icon/{$action}1.svg" alt="" class="wcf-containerIcon" />
+	<hgroup class="wcf-containerContent">
 		<h1>{lang}wcf.acp.bbcode.{$action}{/lang}</h1>
 	</hgroup>
 </header>
@@ -198,7 +198,7 @@
 						<dd>
 							<input type="text" id="attributes[{@$attribute->attributeNo}][validationPattern]" name="attributes[{@$attribute->attributeNo}][validationPattern]" value="{$attribute->validationPattern}" class="long" />
 							{if $errorField == 'attributeValidationPattern'|concat:$attribute->attributeNo}
-								<small class="innerError">
+								<small class="wcf-innerError">
 									{if $errorType == 'invalid'}
 										{lang}wcf.acp.bbcode.attribute.error.validationPattern.invalid{/lang}
 									{/if}
