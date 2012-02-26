@@ -9,7 +9,7 @@
 	<script type="text/javascript">
 		//<![CDATA[
 		$(function() {
-			new WCF.Action.Delete('wcf\\data\\bbcode\\video\\VideoProviderAction', $('.jsVideoProviderRow'));
+			new WCF.Action.Delete('wcf\\data\\bbcode\\video\\VideoProviderAction', $('.jsVideoProviderRow'), $('.wcf-border.wcf-boxTitle .wcf-badge'));
 		});
 		//]]>
 	</script>
