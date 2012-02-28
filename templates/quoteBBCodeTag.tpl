@@ -1,18 +1,16 @@
-<blockquote class="wcf-quoteBox"{if $quoteLink} cite="{$quoteLink}"{/if}>
-	<header>
-		<h1>
-			<img src="{icon size='S'}quote1{/icon}" alt="" />
-			{if $quoteAuthor}
+<blockquote class="wcf-quoteBox wcf-border"{if $quoteLink} cite="{$quoteLink}"{/if}>
+	{if $quoteAuthor}
+		<header>
+			<h1>
 				{if $quoteLink}
 					<a href="{@$quoteLink}">{lang}wcf.bbcode.quote.title{/lang}</a>
 				{else}
 					{lang}wcf.bbcode.quote.title{/lang}
 				{/if}
-			{else}
-				{lang}wcf.bbcode.quote.title{/lang}
-			{/if}
-		</h1>
-	</header>
+			</h1>
+		</header>
+	{/if}
+	
 	<section>
 		{@$content}
 	</section>
