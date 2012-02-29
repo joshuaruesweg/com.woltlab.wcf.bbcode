@@ -162,4 +162,17 @@
 	color: #871550;
 }
 
+/* -- -- -- Quote Box -- -- -- */
+.wcf-quoteBox {
+	/*background: url("...quote.svg") 12px 12px no-repeat #fff;*/
+	background-color: #fff;
+	padding: 10px 20px 10px 58px;
+}
+
+.wcf-quoteBox header {
+	padding: 0 0 4px 0 !important;
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 8px;
+}
+
 /* -- -- -- -- -- EOF -- -- -- -- -- */
