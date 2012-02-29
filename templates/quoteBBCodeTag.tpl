@@ -1,7 +1,7 @@
 <blockquote class="wcf-quoteBox"{if $quoteLink} cite="{$quoteLink}"{/if}>
 	<header>
 		<h1>
-			<img src="{icon size='S'}quote1{/icon}" alt="" />
+			<img src="{icon size='S'}quote{/icon}" alt="" />
 			{if $quoteAuthor}
 				{if $quoteLink}
 					<a href="{@$quoteLink}">{lang}wcf.bbcode.quote.title{/lang}</a>
