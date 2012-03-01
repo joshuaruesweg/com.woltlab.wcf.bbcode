@@ -11,7 +11,7 @@
 		</header>
 	{/if}
 	
-	<section>
+	<div>
 		{@$content}
-	</section>
+	</div>
 </blockquote>
