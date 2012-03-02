@@ -1,7 +1,7 @@
 {include file='header'}
 {capture assign='attributeTemplate'}
 	<fieldset>
-		<legend><img src="{@RELATIVE_WCF_DIR}icon/delete1.svg" alt="" class="jsDeleteButton" />{lang}wcf.acp.bbcode.attribute{/lang} {ldelim}#$attributeNo}</legend>
+		<legend><img src="{@$__wcf->getPath()}icon/delete1.svg" alt="" class="jsDeleteButton" />{lang}wcf.acp.bbcode.attribute{/lang} {ldelim}#$attributeNo}</legend>
 		<dl>
 			<dt><label for="attributes[{ldelim}@$attributeNo}][attributeHtml]">{lang}wcf.acp.bbcode.attribute.attributeHtml{/lang}</label></dt>
 			<dd>
@@ -61,7 +61,7 @@
 </script>
 
 <header class="wcf-container wcf-mainHeading">
-	<img src="{@RELATIVE_WCF_DIR}icon/{$action}1.svg" alt="" class="wcf-containerIcon" />
+	<img src="{@$__wcf->getPath()}icon/{$action}1.svg" alt="" class="wcf-containerIcon" />
 	<hgroup class="wcf-containerContent">
 		<h1>{lang}wcf.acp.bbcode.{$action}{/lang}</h1>
 	</hgroup>
@@ -78,7 +78,7 @@
 <div class="wcf-contentHeader">
 	<nav>
 		<ul class="wcf-largeButtons">
-			<li><a href="{link controller='BBCodeList'}{/link}" title="{lang}wcf.acp.menu.link.bbcode.list{/lang}" class="wcf-button"><img src="{@RELATIVE_WCF_DIR}icon/bbCode1.svg" alt="" /> <span>{lang}wcf.acp.menu.link.bbcode.list{/lang}</span></a></li>
+			<li><a href="{link controller='BBCodeList'}{/link}" title="{lang}wcf.acp.menu.link.bbcode.list{/lang}" class="wcf-button"><img src="{@$__wcf->getPath()}icon/bbCode1.svg" alt="" /> <span>{lang}wcf.acp.menu.link.bbcode.list{/lang}</span></a></li>
 		</ul>
 	</nav>
 </div>
@@ -174,11 +174,11 @@
 		</fieldset>
 		
 		<fieldset id="attributeFieldset">
-			<legend><img src="{@RELATIVE_WCF_DIR}icon/add1.svg" alt="" title="{lang}wcf.global.button.add{/lang}" class="jsAddButton" /> {lang}wcf.acp.bbcode.attributes{/lang}</legend>
+			<legend><img src="{@$__wcf->getPath()}icon/add1.svg" alt="" title="{lang}wcf.global.button.add{/lang}" class="jsAddButton" /> {lang}wcf.acp.bbcode.attributes{/lang}</legend>
 			
 			{foreach from=$attributes item='attribute'}
 				<fieldset>
-					<legend><img src="{@RELATIVE_WCF_DIR}icon/delete1.svg" alt="" title="{lang}wcf.global.button.delete{/lang}" class="jsDeleteButton" />{lang}wcf.acp.bbcode.attribute{/lang} {#$attribute->attributeNo}</legend>
+					<legend><img src="{@$__wcf->getPath()}icon/delete1.svg" alt="" title="{lang}wcf.global.button.delete{/lang}" class="jsDeleteButton" />{lang}wcf.acp.bbcode.attribute{/lang} {#$attribute->attributeNo}</legend>
 					<dl{if $errorField == 'attributeHtml'|concat:$attribute->attributeNo} class="wcf-formError"{/if}>
 						<dt><label for="attributes[{@$attribute->attributeNo}][attributeHtml]">{lang}wcf.acp.bbcode.attribute.attributeHtml{/lang}</label></dt>
 						<dd>
