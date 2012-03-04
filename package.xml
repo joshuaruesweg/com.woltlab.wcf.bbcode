@@ -17,17 +17,17 @@
 	</requiredpackages>
 
 	<instructions type="install">
-		<instruction type="packageInstallationPlugin">pip.xml</instruction>
+		<instruction type="packageInstallationPlugin">packageInstallationPlugin.xml</instruction>
 		<instruction type="file">files.tar</instruction>
 		<instruction type="template">templates.tar</instruction>
 		<instruction type="acpTemplate">acptemplates.tar</instruction>
 		<instruction type="sql">install.sql</instruction>
 		<instruction type="language">language/*.xml</instruction>
-		<instruction type="option">options.xml</instruction>
+		<instruction type="option">option.xml</instruction>
 		<instruction type="userGroupOption">userGroupOption.xml</instruction>
 		<instruction type="acpMenu">acpMenu.xml</instruction>
-		<instruction type="bbcode">bbcodes.xml</instruction>
-		<instruction type="smiley">smilies.xml</instruction>
-		<instruction type="templateListener">templatelistener.xml</instruction>
+		<instruction type="bbcode">bbcode.xml</instruction>
+		<instruction type="smiley">smiley.xml</instruction>
+		<instruction type="templateListener">templateListener.xml</instruction>
 	</instructions>
 </package>
