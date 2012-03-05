@@ -24,16 +24,14 @@
 		</dl>
 		
 		<dl>
-			<dt class="reversed"><label for="attributes[{ldelim}@$attributeNo}][required]">{lang}{lang}wcf.acp.bbcode.attribute.required{/lang}{/lang}</label></dt>
 			<dd>
-				<input type="checkbox" id="attributes[{ldelim}@$attributeNo}][required]" name="attributes[{ldelim}@$attributeNo}][required]" value="1" />
+				<label for="attributes[{ldelim}@$attributeNo}][required]"><input type="checkbox" id="attributes[{ldelim}@$attributeNo}][required]" name="attributes[{ldelim}@$attributeNo}][required]" value="1" /> {lang}{lang}wcf.acp.bbcode.attribute.required{/lang}{/lang}</label>
 			</dd>
 		</dl>
 		
 		<dl>
-			<dt class="reversed"><label for="attributes[{ldelim}@$attributeNo}][useText]">{lang}{lang}wcf.acp.bbcode.attribute.useText{/lang}{/lang}</label></dt>
 			<dd>
-				<input type="checkbox" id="attributes[{ldelim}@$attributeNo}][useText]" name="attributes[{ldelim}@$attributeNo}][useText]" value="1" />
+				<label for="attributes[{ldelim}@$attributeNo}][useText]"><input type="checkbox" id="attributes[{ldelim}@$attributeNo}][useText]" name="attributes[{ldelim}@$attributeNo}][useText]" value="1" /> {lang}{lang}wcf.acp.bbcode.attribute.useText{/lang}{/lang}</label>
 				<small>{lang}wcf.acp.bbcode.attribute.useText.description{/lang}</small>
 			</dd>
 		</dl>
@@ -151,9 +149,8 @@
 			</dl>
 			
 			<dl{if $errorField == 'isSourceCode'} class="wcf-formError"{/if}>
-				<dt class="reversed"><label for="isSourceCode">{lang}wcf.acp.bbcode.isSourceCode{/lang}</label></dt>
 				<dd>
-					<input type="checkbox" id="isSourceCode" name="isSourceCode" value="1"{if $isSourceCode} checked="checked"{/if} />
+					<label for="isSourceCode"><input type="checkbox" id="isSourceCode" name="isSourceCode" value="1"{if $isSourceCode} checked="checked"{/if} /> {lang}wcf.acp.bbcode.isSourceCode{/lang}</label>
 					<small>{lang}wcf.acp.bbcode.isSourceCode.description{/lang}</small>
 				</dd>
 			</dl>
@@ -208,16 +205,14 @@
 					</dl>
 					
 					<dl{if $errorField == 'attributeRequired'|concat:$attribute->attributeNo} class="wcf-formError"{/if}>
-						<dt class="reversed"><label for="attributes[{@$attribute->attributeNo}][required]">{lang}wcf.acp.bbcode.attribute.required{/lang}</label></dt>
 						<dd>
-							<input type="checkbox" id="attributes[{@$attribute->attributeNo}][required]" name="attributes[{@$attribute->attributeNo}][required]" value="1"{if $attribute->required} checked="checked"{/if} />
+							<label for="attributes[{@$attribute->attributeNo}][required]"><input type="checkbox" id="attributes[{@$attribute->attributeNo}][required]" name="attributes[{@$attribute->attributeNo}][required]" value="1"{if $attribute->required} checked="checked"{/if} /> {lang}wcf.acp.bbcode.attribute.required{/lang}</label>
 						</dd>
 					</dl>
 					
 					<dl{if $errorField == 'attributeUseText'|concat:$attribute->attributeNo} class="wcf-formError"{/if}>
-						<dt class="reversed"><label for="attributes[{@$attribute->attributeNo}][useText]">{lang}wcf.acp.bbcode.attribute.useText{/lang}</label></dt>
 						<dd>
-							<input type="checkbox" id="attributes[{@$attribute->attributeNo}][useText]" name="attributes[{@$attribute->attributeNo}][useText]" value="1"{if $attribute->useText} checked="checked"{/if} />
+							<label for="attributes[{@$attribute->attributeNo}][useText]"><input type="checkbox" id="attributes[{@$attribute->attributeNo}][useText]" name="attributes[{@$attribute->attributeNo}][useText]" value="1"{if $attribute->useText} checked="checked"{/if} /> {lang}wcf.acp.bbcode.attribute.useText{/lang}</label>
 							<small>{lang}wcf.acp.bbcode.attribute.useText.description{/lang}</small>
 						</dd>
 					</dl>
