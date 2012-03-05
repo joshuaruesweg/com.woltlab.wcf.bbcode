@@ -77,8 +77,6 @@ class CodeBBCode extends AbstractBBCode {
 			
 			if (!class_exists($className)) {
 				$className = '\wcf\system\bbcode\highlighter\PlainHighlighter';
-				// TODO: Language-item, or remove?
-				$content = "// Highlighter not found\n".$content;
 			}
 			
 			// show template

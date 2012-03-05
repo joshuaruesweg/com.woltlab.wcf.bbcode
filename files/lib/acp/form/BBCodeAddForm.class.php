@@ -182,7 +182,7 @@ class BBCodeAddForm extends ACPForm {
 			'allowedChildren' => $this->allowedChildren,
 			'isSourceCode' => (int) $this->isSourceCode,
 			'className' => $this->className,
-			'packageID' => PackageDependencyHandler::getPackageID('com.woltlab.wcf.bbcode') // TODO: Maybe Change this?
+			'packageID' => PackageDependencyHandler::getInstance()->getPackageID('com.woltlab.wcf.bbcode')
 		)));
 		$returnValues = $this->objectAction->executeAction();
 		foreach ($this->attributes as $attribute) {
