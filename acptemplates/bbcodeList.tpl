@@ -9,7 +9,7 @@
 	<script type="text/javascript">
 		//<![CDATA[
 		$(function() {
-			new WCF.Action.Delete('wcf\\data\\bbcode\\BBCodeAction', $('.jsBBCodeRow'), $('.wcf-border.wcf-boxTitle .wcf-badge'));
+			new WCF.Action.Delete('wcf\\data\\bbcode\\BBCodeAction', $('.jsBBCodeRow'), $('.wcf-box.wcf-boxTitle .wcf-badge'));
 			new WCF.Action.Toggle('wcf\\data\\bbcode\\BBCodeAction', $('.jsBBCodeRow'));
 		});
 		//]]>
@@ -98,7 +98,7 @@
 		{/if}
 	</div>
 {hascontentelse}
-	<div class="wcf-border wcf-content">
+	<div class="wcf-box wcf-boxPadding wcf-content">
 		<div>
 			<p class="wcf-warning">{lang}wcf.acp.bbcode.noneAvailable{/lang}</p>
 		</div>
