@@ -1,4 +1,4 @@
-<div class="wcf-border wcf-boxTitle wcf-codeBox wcf-{$highlighter|get_class|substr:30|lcfirst}">
+<div class="wcf-box wcf-boxTitle wcf-codeBox wcf-{$highlighter|get_class|substr:30|lcfirst} wcf-marginTop">
 	<hgroup>
 		<h1>{@$highlighter->getTitle()}</h1>
 	</hgroup>

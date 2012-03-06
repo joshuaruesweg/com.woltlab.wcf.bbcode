@@ -1,4 +1,4 @@
-<blockquote class="wcf-quoteBox wcf-border"{if $quoteLink} cite="{$quoteLink}"{/if}>
+<blockquote class="wcf-quoteBox wcf-box wcf-marginTop wcf-boxPadding"{if $quoteLink} cite="{$quoteLink}"{/if}>
 	{if $quoteAuthor}
 		<header>
 			<h1>
