@@ -85,7 +85,7 @@
 		{/if}
 	</div>
 {hascontentelse}
-	<div class="wcf-box wcf-boxPadding wcf-content">
+	<div class="wcf-box wcf-boxPadding">
 		<div>
 			<p class="wcf-warning">{lang}wcf.acp.bbcode.videoprovider.noneAvailable{/lang}</p>
 		</div>
