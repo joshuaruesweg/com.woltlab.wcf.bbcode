@@ -82,7 +82,7 @@
 </div>
 
 <form method="post" action="{if $action == 'add'}{link controller='BBCodeAdd'}{/link}{else}{link controller='BBCodeEdit'}{/link}{/if}">
-	<div class="wcf-box wcf-marginTop wcf-boxPadding wcf-shadow1">
+	<div class="wcf-box wcf-marginTop wcf-boxPadding wcf-boxDecor wcf-shadow1">
 		<fieldset>
 			<legend>{lang}wcf.acp.bbcode.data{/lang}</legend>
 			
