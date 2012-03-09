@@ -118,7 +118,7 @@ class URLParser extends SingletonFactory {
 	protected function cacheCodes() {
 		if (!empty($this->sourceCodeRegEx)) {
 			$this->cachedCodes = array();
-			$this->text = preg_replace("~(\[(".$this->sourceCodeRegEx.")
+			$this->text = preg_replace_callback("~(\[(".$this->sourceCodeRegEx.")
 				(?:=
 					(?:\'[^\'\\\\]*(?:\\\\.[^\'\\\\]*)*\'|[^,\]]*)
 					(?:,(?:\'[^\'\\\\]*(?:\\\\.[^\'\\\\]*)*\'|[^,\]]*))*
