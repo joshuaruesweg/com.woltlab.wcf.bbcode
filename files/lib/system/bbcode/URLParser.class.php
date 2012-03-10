@@ -32,7 +32,7 @@ class URLParser extends SingletonFactory {
 	 * cached codes
 	 * @var	array
 	 */
-	protected $cachedCodes = array();
+	public $cachedCodes = array();
 	
 	/**
 	 * text
@@ -118,18 +118,19 @@ class URLParser extends SingletonFactory {
 	protected function cacheCodes() {
 		if (!empty($this->sourceCodeRegEx)) {
 			$this->cachedCodes = array();
+			$_this = $this;
 			$this->text = preg_replace_callback("~(\[(".$this->sourceCodeRegEx.")
 				(?:=
 					(?:\'[^\'\\\\]*(?:\\\\.[^\'\\\\]*)*\'|[^,\]]*)
 					(?:,(?:\'[^\'\\\\]*(?:\\\\.[^\'\\\\]*)*\'|[^,\]]*))*
 				)?\])
 				(.*?)
-				(?:\[/\\2\])~six", function ($matches) {
+				(?:\[/\\2\])~six", function ($matches) use ($_this) {
 					// create hash
 					$hash = '@@'.StringUtil::getHash(uniqid(microtime()).$matches[0]).'@@';
 					
 					// save tag
-					$this->cachedCodes[$hash] = $matches[0];
+					$_this->cachedCodes[$hash] = $matches[0];
 				
 					return $hash;
 				}, $this->text);
