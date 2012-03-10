@@ -1,5 +1,6 @@
 <?php
 namespace wcf\system\bbcode;
+use wcf\system\Regex;
 use wcf\system\WCF;
 use wcf\util\StringUtil;
 
@@ -35,6 +36,9 @@ class CodeBBCode extends AbstractBBCode {
 				$className = '\wcf\system\bbcode\highlighter\\'.StringUtil::firstCharToUpperCase(StringUtil::toLowerCase($openingTag['attributes'][0])).'Highlighter';
 				
 				switch (StringUtil::substring($className, strlen('\wcf\system\bbcode\highlighter\\'))) {
+					case 'ShellHighlighter':
+						$className = '\wcf\system\bbcode\highlighter\BashHighlighter';
+					break;
 					case 'C++Highlighter':
 						$className = '\wcf\system\bbcode\highlighter\CHighlighter';
 					break;
@@ -75,6 +79,9 @@ class CodeBBCode extends AbstractBBCode {
 				}
 				else if (StringUtil::indexOf($content, 'def __init__(self') !== false) {
 					$className = '\wcf\system\bbcode\highlighter\PythonHighlighter';
+				}
+				else if (Regex::compile('^#!/bin/(ba|z)?sh')->match($content)) {
+					$className = '\wcf\system\bbcode\highlighter\BashHighlighter';
 				}
 			}
 			
