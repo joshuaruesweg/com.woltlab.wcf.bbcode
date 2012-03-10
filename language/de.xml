@@ -65,6 +65,7 @@
 	</category>
 	
 	<category name="wcf.bbcode">
+		<item name="wcf.bbcode.code.bash.title"><![CDATA[Shell-Script]]></item>
 		<item name="wcf.bbcode.code.c.title"><![CDATA[C-Quellcode]]></item>
 		<item name="wcf.bbcode.code.css.title"><![CDATA[CSS-Quellcode]]></item>
 		<item name="wcf.bbcode.code.diff.title"><![CDATA[Unterschiede-Datei]]></item>
