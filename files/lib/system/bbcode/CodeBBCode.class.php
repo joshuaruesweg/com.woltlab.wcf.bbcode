@@ -73,6 +73,9 @@ class CodeBBCode extends AbstractBBCode {
 				else if (StringUtil::indexOf($content, '#!/usr/bin/perl') === 0) {
 					$className = '\wcf\system\bbcode\highlighter\PerlHighlighter';
 				}
+				else if (StringUtil::indexOf($content, 'def __init__(self') !== false) {
+					$className = '\wcf\system\bbcode\highlighter\PythonHighlighter';
+				}
 			}
 			
 			if (!class_exists($className)) {
