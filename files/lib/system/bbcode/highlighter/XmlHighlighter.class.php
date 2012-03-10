@@ -22,6 +22,7 @@ class XmlHighlighter extends Highlighter {
 	protected $commentEnd = array("-->");
 	protected $separators = array("<", ">");
 	protected $operators = array();
+	const XML_ATTRIBUTE_NAME = '[a-z0-9](?:(?<!-)[a-z0-9-]?[a-z0-9]+)*';
 	
 	/**
 	 * @see	Highlighter::highlightKeywords()
@@ -30,10 +31,10 @@ class XmlHighlighter extends Highlighter {
 		$string = parent::highlightKeywords($string);
 		
 		// find tags
-		$regex = new Regex('&lt;(?:/|\!|\?)?[a-z0-9]+(?:\s+[a-z0-9]+(?:=[^\s/\?&]+)?)*(?:/|\?)?&gt;', Regex::CASE_INSENSITIVE);
+		$regex = new Regex('&lt;(?:/|\!|\?)?[a-z0-9]+(?:\s+'.self::XML_ATTRIBUTE_NAME.'(?:=[^\s/\?&]+)?)*(?:\s+/|\?)?&gt;', Regex::CASE_INSENSITIVE);
 		$string = $regex->replace($string, new Callback(function ($matches) {
 			// highlight attributes
-			$tag = Regex::compile('[a-z0-9]+(?:=[^\s/\?&]+)?(?=\s|&)', Regex::CASE_INSENSITIVE)->replace($matches[0], '<span class="hlKeywords2">\\0</span>');
+			$tag = Regex::compile(XmlHighlighter::XML_ATTRIBUTE_NAME.'(?:=[^\s/\?&]+)?(?=\s|&)', Regex::CASE_INSENSITIVE)->replace($matches[0], '<span class="hlKeywords2">\\0</span>');
 			
 			// highlight tag
 			return '<span class="hlKeywords1">'.$tag.'</span>';
