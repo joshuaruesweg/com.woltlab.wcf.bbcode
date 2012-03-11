@@ -148,7 +148,7 @@ class BBCodeAddForm extends ACPForm {
 		}
 		
 		// Validate syntax of allowedChildren: Optional all|none^ followed by a comma-separated list of bbcodes
-		if (!empty($this->allowedChildren) && !Regex::compile('^((all|none)\^)?([a-zA-Z0-9]+,?)*[a-zA-Z0-9]+$')->match($this->allowedChildren)) {
+		if (!empty($this->allowedChildren) && !Regex::compile('^(?:(?:all|none)\^)?(?:[a-zA-Z0-9]+,)*[a-zA-Z0-9]+$')->match($this->allowedChildren)) {
 			throw new UserInputException('allowedChildren', 'invalid');
 		}
 		

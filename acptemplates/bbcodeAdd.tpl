@@ -135,7 +135,7 @@
 			<dl{if $errorField == 'allowedChildren'} class="wcf-formError"{/if}>
 				<dt><label for="allowedChildren">{lang}wcf.acp.bbcode.allowedChildren{/lang}</label></dt>
 				<dd>
-					<input type="text" id="allowedChildren" name="allowedChildren" value="{$allowedChildren}" class="long" required="required" pattern="^((all|none)\^)?([a-zA-Z0-9]+,?)*[a-zA-Z0-9]+$" />
+					<input type="text" id="allowedChildren" name="allowedChildren" value="{$allowedChildren}" class="long" required="required" pattern="^((all|none)\^)?([a-zA-Z0-9]+,)*[a-zA-Z0-9]+$" />
 					{if $errorField == 'allowedChildren'}
 						<small class="wcf-innerError">
 							{if $errorType == 'empty'}
