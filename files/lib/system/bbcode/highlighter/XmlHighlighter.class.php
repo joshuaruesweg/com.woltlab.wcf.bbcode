@@ -16,7 +16,7 @@ use \wcf\system\Regex;
 class XmlHighlighter extends Highlighter {
 	// highlighter syntax
 	protected $allowsNewslinesInQuotes = true;
-	protected $quotes = array("'", "\"");
+	protected $quotes = array('"');
 	protected $singleLineComment = array();
 	protected $commentStart = array("<!--");
 	protected $commentEnd = array("-->");
@@ -41,5 +41,28 @@ class XmlHighlighter extends Highlighter {
 		}));
 		
 		return $string;
+	}
+	
+	/**
+	 * Highlight CDATA-Tags as quotes.
+	 *
+	 * @see	Highlighter::cacheQuotes()
+	 */
+	protected function cacheQuotes($string) {
+		$string = parent::cacheQuotes($string);
+		if (!empty($this->quotesRegEx)) {
+			$string = Regex::compile('<!\[CDATA\[.*?\]\]>', Regex::DOT_ALL)->replace($string, new Callback(array($this, 'cacheQuote')));
+		}
+		
+		return $string;
+	}
+	
+	/**
+	 * @see	Highlighter::cacheQuote()
+	 */
+	public function cacheQuote($quote) {
+		if (is_array($quote)) $quote = $quote[0];
+		
+		return parent::cacheQuote($quote);
 	}
 }
