@@ -49,10 +49,9 @@ class XmlHighlighter extends Highlighter {
 	 * @see	Highlighter::cacheQuotes()
 	 */
 	protected function cacheQuotes($string) {
+		$string = Regex::compile('<!\[CDATA\[.*?\]\]>', Regex::DOT_ALL)->replace($string, new Callback(array($this, 'cacheQuote')));
+		
 		$string = parent::cacheQuotes($string);
-		if (!empty($this->quotesRegEx)) {
-			$string = Regex::compile('<!\[CDATA\[.*?\]\]>', Regex::DOT_ALL)->replace($string, new Callback(array($this, 'cacheQuote')));
-		}
 		
 		return $string;
 	}
