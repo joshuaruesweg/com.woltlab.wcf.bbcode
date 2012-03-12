@@ -34,6 +34,13 @@ class CssHighlighter extends Highlighter {
 		return $string;
 	}
 	
+	protected function highlightKeywords($string) {
+		$string = parent::highlightKeywords($string);
+		$string = preg_replace('!(?<='.$this->separatorsRegEx.')(@[a-z0-9-]+)(?='.$this->separatorsRegEx.')!i', '<span class="hlKeywords5">\\0</span>', $string);
+		
+		return $string;
+	}
+	
 	public function highlight($string) {
 		$string = str_replace('span', '053a0024219422ca9215c0a3ed0578ee76cff477', $string); // fix to not highlight the spans of the highlighter
 		$string = str_replace(':link', ':li@@nk', $string); // fix to highlight pseudo-class different than tag
@@ -49,8 +56,8 @@ class CssHighlighter extends Highlighter {
 	}
 	
 	// highlighter syntax
-	protected $singleLineComment = array();
-	protected $separators = array('(', ')', '{', '}', ';', '[', ']', ':', ',');
+	protected $singleLineComment = array('//');
+	protected $separators = array('(', ')', '{', '}', ';', '[', ']', ':', ',', '.');
 	protected $keywords1 = array(
 		'azimuth',
 		'background',
@@ -585,5 +592,44 @@ class CssHighlighter extends Highlighter {
 		'var',
 		'video',
 		'wbr'
+	);
+	
+	public $keywords5 = array(
+		// modifying
+		'darken',
+		'lighten',
+		'saturate',
+		'desaturate',
+		'fadein',
+		'fadeout',
+		'fade',
+		'spin',
+		'mix',
+		// reading
+		'lightness',
+		'hue',
+		'saturation',
+		'alpha',
+		'percentage'
+		// typechecking
+		'isnumber',
+		'iscolor',
+		'isstring',
+		'iskeyword',
+		'isurl',
+		'ispixel',
+		'ispercentage',
+		'isem',
+		// math
+		'round',
+		'ceil',
+		'floor',
+		// if
+		'when',
+		'not',
+		'and',
+		'true',
+		// others
+		'&'
 	);
 }
