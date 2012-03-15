@@ -30,6 +30,29 @@ class SmileyCategoryAction extends AbstractDatabaseObjectAction {
 	protected $permissionsUpdate = array('admin.content.smiley.canEditSmiley');
 	
 	/**
+	 * Fixes create to append new categories.
+	 */
+	public function create() {
+		$category = parent::create();
+		
+		WCF::getDB()->beginTransaction();
+		$sql = "SELECT		max(showOrder) as max
+			FROM		wcf".WCF_N."_smiley_category
+			FOR UPDATE";
+		$stmt = WCF::getDB()->prepareStatement($sql);
+		$stmt->execute();
+		
+		$sql = "UPDATE	wcf".WCF_N."_smiley_category
+			SET	showOrder = ".($stmt->fetchColumn() + 1)."
+			WHERE	smileyCategoryID = ?";
+		$stmt = WCF::getDB()->prepareStatement($sql);
+		$stmt->execute(array($category->smileyCategoryID));
+		WCF::getDB()->commitTransaction();
+		
+		return $category;
+	}
+	
+	/**
 	 * Validates permissions and parameters
 	 */
 	public function validateToggle() {

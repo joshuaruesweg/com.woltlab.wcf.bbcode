@@ -1,12 +1,15 @@
 <?php
 namespace wcf\data\smiley\category;
 use wcf\data\DatabaseObjectEditor;
+use wcf\system\language\I18nHandler;
+use wcf\system\package\PackageDependencyHandler;
+use wcf\system\WCF;
 
 /**
  * Provides functions to edit smiley categories.
  *
- * @author	Alexander Ebert
- * @copyright	2001-2011 WoltLab GmbH
+ * @author	Tim Düsterhus, Alexander Ebert
+ * @copyright	2001-2012 WoltLab GmbH
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @package	com.woltlab.wcf.bbcode
  * @subpackage	data.smiley.category
@@ -17,4 +20,19 @@ class SmileyCategoryEditor extends DatabaseObjectEditor {
 	 * @see	wcf\data\DatabaseObjectDecorator::$baseClass
 	 */
 	public static $baseClass = 'wcf\data\smiley\category\SmileyCategory';
+	
+	/**
+	 * @see	\wcf\data\DatabaseObjectEditor::deleteAll()
+	 */
+	public static function deleteAll(array $objectIDs = array()) {
+		parent::deleteAll($objectIDs);
+		
+		WCF::getDB()->beginTransaction();
+		foreach ($objectIDs as $objectID) {
+			I18nHandler::getInstance()->remove('wcf.smiley.category.title'.$objectID, PackageDependencyHandler::getInstance()->getPackageID('com.woltlab.wcf.bbcode'));
+		}
+		WCF::getDB()->commitTransaction();
+		
+		return count($objectIDs);
+	}
 }
