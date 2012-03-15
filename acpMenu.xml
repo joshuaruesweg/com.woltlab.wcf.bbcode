@@ -32,5 +32,23 @@
 			<permissions>admin.content.bbcode.videoprovider.canAddVideoProvider</permissions>
 			<showorder>4</showorder>
 		</acpmenuitem>
+		
+		<acpmenuitem name="wcf.acp.menu.link.smiley">
+			<parent>wcf.acp.menu.link.content</parent>
+		</acpmenuitem>
+		
+		<acpmenuitem name="wcf.acp.menu.link.smiley.category.list">
+			<link>index.php/SmileyCategoryList/</link>
+			<parent>wcf.acp.menu.link.smiley</parent>
+			<permissions>admin.content.smiley.canEditSmiley,admin.content.smiley.canDeleteSmiley</permissions>
+			<showorder>1</showorder>
+		</acpmenuitem>
+
+		<acpmenuitem name="wcf.acp.menu.link.smiley.category.add">
+			<link>index.php/SmileyCategoryAdd/</link>
+			<parent>wcf.acp.menu.link.smiley</parent>
+			<permissions>admin.content.smiley.canAddSmiley</permissions>
+			<showorder>2</showorder>
+		</acpmenuitem>
 	</import>
 </data>
