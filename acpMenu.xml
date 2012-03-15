@@ -11,7 +11,7 @@
 			<permissions>admin.content.bbcode.canEditBBCode,admin.content.bbcode.canDeleteBBCode</permissions>
 			<showorder>1</showorder>
 		</acpmenuitem>
-
+		
 		<acpmenuitem name="wcf.acp.menu.link.bbcode.add">
 			<link>index.php/BBCodeAdd/</link>
 			<parent>wcf.acp.menu.link.bbcode</parent>
@@ -25,7 +25,7 @@
 			<permissions>admin.content.bbcode.videoprovider.canEditVideoProvider,admin.content.bbcode.videoprovider.canDeleteVideoProvider</permissions>
 			<showorder>3</showorder>
 		</acpmenuitem>
-
+		
 		<acpmenuitem name="wcf.acp.menu.link.bbcode.videoprovider.add">
 			<link>index.php/BBCodeVideoProviderAdd/</link>
 			<parent>wcf.acp.menu.link.bbcode</parent>
@@ -37,18 +37,32 @@
 			<parent>wcf.acp.menu.link.content</parent>
 		</acpmenuitem>
 		
-		<acpmenuitem name="wcf.acp.menu.link.smiley.category.list">
-			<link>index.php/SmileyCategoryList/</link>
+		<acpmenuitem name="wcf.acp.menu.link.smiley.list">
+			<link>index.php/SmileyList/</link>
 			<parent>wcf.acp.menu.link.smiley</parent>
 			<permissions>admin.content.smiley.canEditSmiley,admin.content.smiley.canDeleteSmiley</permissions>
 			<showorder>1</showorder>
 		</acpmenuitem>
-
+		
+		<acpmenuitem name="wcf.acp.menu.link.smiley.add">
+			<link>index.php/SmileyAdd/</link>
+			<parent>wcf.acp.menu.link.smiley</parent>
+			<permissions>admin.content.smiley.canAddSmiley</permissions>
+			<showorder>2</showorder>
+		</acpmenuitem>
+		
+		<acpmenuitem name="wcf.acp.menu.link.smiley.category.list">
+			<link>index.php/SmileyCategoryList/</link>
+			<parent>wcf.acp.menu.link.smiley</parent>
+			<permissions>admin.content.smiley.canEditSmiley,admin.content.smiley.canDeleteSmiley</permissions>
+			<showorder>3</showorder>
+		</acpmenuitem>
+		
 		<acpmenuitem name="wcf.acp.menu.link.smiley.category.add">
 			<link>index.php/SmileyCategoryAdd/</link>
 			<parent>wcf.acp.menu.link.smiley</parent>
 			<permissions>admin.content.smiley.canAddSmiley</permissions>
-			<showorder>2</showorder>
+			<showorder>4</showorder>
 		</acpmenuitem>
 	</import>
 </data>

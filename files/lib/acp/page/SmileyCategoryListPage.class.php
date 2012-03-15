@@ -4,10 +4,10 @@ use wcf\page\MultipleLinkPage;
 use wcf\system\menu\acp\ACPMenu;
 
 /**
- * Lists available bbcodes
+ * Lists available smiley categories.
  * 
  * @author	Tim Düsterhus
- * @copyright	2011 Tim Düsterhus
+ * @copyright	2011-2012 Tim Düsterhus
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @package	com.woltlab.wcf.bbcode
  * @subpackage	acp.page
@@ -22,7 +22,7 @@ class SmileyCategoryListPage extends MultipleLinkPage {
 	/**
 	 * @see wcf\page\AbstractPage::$neededPermissions
 	 */
-	#public $neededPermissions = array('admin.content.smiley.canEditSmiley', 'admin.content.smiley.canDeleteSmiley');
+	public $neededPermissions = array('admin.content.smiley.canEditSmiley', 'admin.content.smiley.canDeleteSmiley');
 	
 	/**
 	 * @see	wcf\page\MultipleLinkPage::$objectListClassName

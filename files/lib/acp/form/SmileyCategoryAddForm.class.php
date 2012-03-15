@@ -7,6 +7,8 @@ use \wcf\system\language\I18nHandler;
 use \wcf\system\package\PackageDependencyHandler;
 use \wcf\system\WCF;
 
+// TODO: Add Field for sorting as Drag'n'drop does not work over multiple pages
+
 /**
  * Shows the smileycategory add form.
  *
