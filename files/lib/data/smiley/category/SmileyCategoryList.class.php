@@ -16,5 +16,5 @@ class SmileyCategoryList extends DatabaseObjectList {
 	/**
 	 * @see	wcf\data\DatabaseObjectList::$className
 	 */
-	public $className = 'wcf\data\smiley\cateogry\SmileyCategory';
+	public $className = 'wcf\data\smiley\category\SmileyCategory';
 }
