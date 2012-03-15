@@ -49,7 +49,7 @@
 				<admindefaultvalue>1</admindefaultvalue>
 			</option>
 			
-			<option name="admin.content.smiey.canAddSmiley">
+			<option name="admin.content.smiley.canAddSmiley">
 				<categoryname>admin.content.smiley</categoryname>
 				<optiontype>boolean</optiontype>
 				<defaultvalue>0</defaultvalue>
