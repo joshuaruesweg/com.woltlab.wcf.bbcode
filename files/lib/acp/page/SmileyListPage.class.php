@@ -1,9 +1,11 @@
 <?php
 namespace wcf\acp\page;
 use wcf\data\smiley\category\SmileyCategory;
+use wcf\data\smiley\category\SmileyCategoryList;
 use wcf\page\MultipleLinkPage;
 use wcf\system\exception\IllegalLinkException;
 use wcf\system\menu\acp\ACPMenu;
+use wcf\system\WCF;
 
 /**
  * Lists available smileys.
@@ -48,6 +50,12 @@ class SmileyListPage extends MultipleLinkPage {
 	public $categoryID = null;
 	
 	/**
+	 * categories
+	 * @var wcf\data\smiley\category\SmileyCategoryList
+	 */
+	public $categories = null;
+	
+	/**
 	 * @see wcf\page\IPage::readParameters()
 	 */
 	public function readParameters() {
@@ -60,6 +68,28 @@ class SmileyListPage extends MultipleLinkPage {
 				throw new IllegalLinkException();
 			}
 		}
+	}
+	
+	/**
+	 * @see wcf\page\IPage::readData()
+	 */
+	public function readData() {
+		parent::readData();
+		
+		$this->categories = new SmileyCategoryList();
+		$this->categories->sqlLimit = 0;
+		$this->categories->readObjects();
+	}
+	
+	/**
+	 * @see wcf\page\IPage::assignVariables()
+	 */
+	public function assignVariables() {
+		parent::assignVariables();
+		
+		WCF::getTPL()->assign(array(
+			'categories' => $this->categories
+		));
 	}
 	
 	/**
