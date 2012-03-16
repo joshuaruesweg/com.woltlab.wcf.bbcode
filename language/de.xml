@@ -73,7 +73,7 @@
 		<!-- Fields -->
 		<item name="wcf.acp.smiley.category.data"><![CDATA[Daten der Smiley-Kategorie]]></item>
 		<item name="wcf.acp.smiley.category.title"><![CDATA[Name]]></item>
-		<item name="wcf.acp.smiley.category.delete.sure"><![CDATA[Möchtest du die Smiley-Kategorie &bdquo;{$smileyCategory->title|language}&ldquo; wirklich löschen?]]></item>
+		<item name="wcf.acp.smiley.category.delete.sure"><![CDATA[Möchten Sie die Smiley-Kategorie &bdquo;{$smileyCategory->title|language}&ldquo; wirklich löschen?]]></item>
 		
 		<!-- Headlines -->
 		<item name="wcf.acp.smiley.list"><![CDATA[Smiley]]></item>
