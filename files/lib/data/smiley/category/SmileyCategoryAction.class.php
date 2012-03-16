@@ -1,5 +1,6 @@
 <?php
 namespace wcf\data\smiley\category;
+use wcf\data\smiley\SmileyAction;
 use wcf\data\AbstractDatabaseObjectAction;
 use wcf\system\WCF;
 
@@ -111,5 +112,51 @@ class SmileyCategoryAction extends AbstractDatabaseObjectAction {
 			$editor->update(array('showOrder' => $i++));
 		}
 		WCF::getDB()->commitTransaction();
+	}
+	
+	/**
+	 * Validates parameters to drop.
+	 */
+	public function validateDrop() {
+		// validate permissions
+		if (is_array($this->permissionsUpdate) && count($this->permissionsUpdate)) {
+			try {
+				WCF::getSession()->checkPermissions($this->permissionsUpdate);
+			}
+			catch (\wcf\system\exception\PermissionDeniedException $e) {
+				throw new ValidateActionException('Insufficient permissions');
+			}
+		}
+		else {
+			throw new ValidateActionException('Insufficient permissions');
+		}
+		
+		if (!isset($this->parameters['data']['draggable'])) {
+			throw new ValidateActionException('Missing parameter draggable');
+		}
+		
+		if (!count($this->getObjectIDs())) {
+			throw new ValidateActionException('Missing objectID');
+		}
+		
+		$objectIDs = $this->getObjectIDs();
+		if ($objectIDs[0] > 0) {
+			$category = new SmileyCategory($objectIDs[0]);
+			if (!$category->smileyCategoryID) throw new ValidateActionException('Invalid objectID');
+		}
+	}
+	
+	/**
+	 * Moves the given smiley into this category.
+	 */
+	public function drop() {
+		$objectIDs = $this->getObjectIDs();
+		$smileyAction = new SmileyAction(array($this->parameters['data']['draggable']), 'update', array('data' => array(
+			'smileyCategoryID' => $objectIDs[0] ?: null
+		)));
+		
+		$smileyAction->executeAction();
+		
+		return $this->parameters['data']['draggable'];
 	}
 }

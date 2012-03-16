@@ -1,11 +1,68 @@
 {include file='header'}
-	
 {if $objects|count}
 	<script type="text/javascript">
 		//<![CDATA[
 		$(function() {
 			new WCF.Action.Delete('\\wcf\\data\\smiley\\SmileyAction', $('.jsSmileyRow'));
 			new WCF.Sortable.List('smileyList', '\\wcf\\data\\smiley\\SmileyAction', {@$startIndex-1});
+			
+			var droppable = Class.extend({
+				/**
+				 * action class name
+				 * @var	string
+				 */
+				_className: '',
+				
+				/**
+				 * list of options
+				 * @var	object
+				 */
+				_options: { },
+				
+				/**
+				 * proxy object
+				 * @var	WCF.Action.Proxy
+				 */
+				_proxy: null,
+				
+				init: function(dropTarget, accept, className, success, options) {
+					this._className = className;
+					this._success = success || function(data, textStatus, jqXHR) { }
+					this._proxy = new WCF.Action.Proxy({
+						success: $.proxy(this._success, this)
+					});
+					
+					var _this = this;
+					this._options = $.extend(true, {
+						tolerance: 'pointer',
+						accept: accept,
+						drop: function (event, ui) {
+							_this._proxy.setOption('data', {
+								actionName: 'drop',
+								className: _this._className,
+								objectIDs: [ $(this).data('objectID') ],
+								parameters: {
+									data: {
+										draggable: $(ui.draggable).data('objectID')
+									}
+								}
+							});
+							_this._proxy.sendRequest();
+						}
+					}, options || { });
+					
+					$(dropTarget).droppable(this._options);
+				},
+				_success: function(data, textStatus, jqXHR) {
+					
+				}
+			});
+			
+			new droppable($(".jsCategory"), $('.jsSmileyRow'), '\\wcf\\data\\smiley\\category\\SmileyCategoryAction',
+				function (data) {
+					$('#smiley'+data.returnValues).remove();
+				}
+			);
 		});
 		//]]>
 	</script>
@@ -29,16 +86,16 @@
 		</nav>
 	{/if}
 </div>
-<a href="{link controller='SmileyList'}{/link}">{lang}wcf.smiley.category.title0{/lang}</a>
+<a href="{link controller='SmileyList'}{/link}" class="jsCategory" data-object-id="0">{lang}wcf.smiley.category.title0{/lang}</a>
 {foreach from=$categories item='category'}
-	<a href="{link controller='SmileyList' id=$category->smileyCategoryID}{/link}">{$category->title|language}</a>
+	<a href="{link controller='SmileyList' id=$category->smileyCategoryID}{/link}" class="jsCategory" data-object-id="{$category->smileyCategoryID}">{$category->title|language}</a>
 {/foreach}
 <section id="smileyList" class="wcf-box wcf-marginTop wcf-boxPadding wcf-shadow1 wcf-sortableListContainer">
 	{hascontent}
 	<ol class="wcf-sortableList" data-object-id="0" start="{@$startIndex}">
 		{content}
 			{foreach from=$objects item=smiley}
-				<li class="wcf-sortableNode wcf-sortableNoNesting jsSmileyRow" data-object-id="{@$smiley->smileyID}">
+				<li id="smiley{@$smiley->smileyID}" class="wcf-sortableNode wcf-sortableNoNesting jsSmileyRow" data-object-id="{@$smiley->smileyID}">
 					<span class="wcf-sortableNodeLabel">
 						<a href="{link controller='SmileyEdit' id=$smiley->smileyID}{/link}"><img src="{$smiley->getURL()}" alt="{$smiley->smileyCode}" title="{$smiley->smileyTitle}" class="jsTooltip" /></a>
 						
