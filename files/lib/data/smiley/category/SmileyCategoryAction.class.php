@@ -89,6 +89,8 @@ class SmileyCategoryAction extends AbstractDatabaseObjectAction {
 		if (!isset($this->parameters['data']['structure'])) {
 			throw new ValidateActionException('Missing parameter structure');
 		}
+		
+		if (!isset($this->parameters['data']['offset'])) $this->parameters['data']['offset'] = 0;
 	}
 	
 	/**
@@ -100,7 +102,7 @@ class SmileyCategoryAction extends AbstractDatabaseObjectAction {
 		$categoryList->sqlLimit = 0;
 		$categoryList->readObjects();
 		
-		$i = 0;
+		$i = $this->parameters['data']['offset'];
 		WCF::getDB()->beginTransaction();
 		foreach ($this->parameters['data']['structure'][0] as $categoryID) {
 			$category = $categoryList->search($categoryID);

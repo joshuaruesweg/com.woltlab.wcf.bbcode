@@ -6,7 +6,7 @@
 		$(function() {
 			new WCF.Action.Delete('\\wcf\\data\\smiley\\category\\SmileyCategoryAction', $('.jsSmileyCategoryRow'));
 			new WCF.Action.Toggle('\\wcf\\data\\smiley\\category\\SmileyCategoryAction', $('.jsSmileyCategoryRow'));
-			new WCF.Sortable.List('smileyCategoryList', '\\wcf\\data\\smiley\\category\\SmileyCategoryAction');
+			new WCF.Sortable.List('smileyCategoryList', '\\wcf\\data\\smiley\\category\\SmileyCategoryAction', {@$startIndex-1});
 		});
 		//]]>
 	</script>
@@ -32,23 +32,25 @@
 </div>
 
 <section id="smileyCategoryList" class="wcf-box wcf-marginTop wcf-boxPadding wcf-shadow1 wcf-sortableListContainer">
-	<ol class="wcf-sortableList" data-object-id="0">
-		<li class="wcf-sortableNode wcf-sortableNoSorting wcf-sortableNoNesting jsSmileyCategoryRow">
-			<span class="wcf-sortableNodeLabel">
-				{lang}wcf.smiley.category.title0{/lang}
-				
-				<span class="wcf-statusDisplay wcf-sortableButtonContainer">
-					{if $__wcf->session->getPermission('admin.content.smiley.canEditSmiley')}
-						<img src="{@$__wcf->getPath()}icon/enabled1D.svg" alt="" title="{lang}wcf.global.button.disable{/lang}" />
-						<img src="{@$__wcf->getPath('wcf')}icon/edit1D.svg" alt="" title="{lang}wcf.global.button.edit{/lang}" /></a>
-					{/if}
-					{if $__wcf->session->getPermission('admin.content.smiley.canDeleteSmiley')}
-						<img src="{@$__wcf->getPath('wcf')}icon/delete1D.svg" alt="" title="{lang}wcf.global.button.delete{/lang}" />
-					{/if}
+	<ol class="wcf-sortableList" data-object-id="0" start="{if $startIndex-1 == 0}1{else}{$startIndex+1}{/if}">
+		{if $startIndex-1 == 0}
+			<li class="wcf-sortableNode wcf-sortableNoSorting wcf-sortableNoNesting jsSmileyCategoryRow">
+				<span class="wcf-sortableNodeLabel">
+					{lang}wcf.smiley.category.title0{/lang}
+					
+					<span class="wcf-statusDisplay wcf-sortableButtonContainer">
+						{if $__wcf->session->getPermission('admin.content.smiley.canEditSmiley')}
+							<img src="{@$__wcf->getPath()}icon/enabled1D.svg" alt="" title="{lang}wcf.global.button.disable{/lang}" />
+							<img src="{@$__wcf->getPath('wcf')}icon/edit1D.svg" alt="" title="{lang}wcf.global.button.edit{/lang}" /></a>
+						{/if}
+						{if $__wcf->session->getPermission('admin.content.smiley.canDeleteSmiley')}
+							<img src="{@$__wcf->getPath('wcf')}icon/delete1D.svg" alt="" title="{lang}wcf.global.button.delete{/lang}" />
+						{/if}
+					</span>
 				</span>
-			</span>
-			<ol class="wcf-sortableList"></ol></li>
-		</li>
+				<ol class="wcf-sortableList"></ol></li>
+			</li>
+		{/if}
 		{foreach from=$objects item=smileyCategory}
 			<li class="wcf-sortableNode wcf-sortableNoNesting jsSmileyCategoryRow" data-object-id="{@$smileyCategory->smileyCategoryID}">
 				<span class="wcf-sortableNodeLabel">
