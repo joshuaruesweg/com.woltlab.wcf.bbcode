@@ -17,4 +17,12 @@ class SmileyCategoryList extends DatabaseObjectList {
 	 * @see	wcf\data\DatabaseObjectList::$className
 	 */
 	public $className = 'wcf\data\smiley\category\SmileyCategory';
+	
+	/**
+	 * @see wcf\data\DatabaseObjectList::__construct()
+	 */
+	public function __construct() {
+		parent::__construct();
+		$this->sqlSelects .= '(SELECT COUNT(*) FROM wcf'.WCF_N.'_smiley WHERE smileyCategoryID = smiley_category.smileyCategoryID) AS smileyCount';
+	}
 }
