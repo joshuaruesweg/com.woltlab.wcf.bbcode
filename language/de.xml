@@ -18,7 +18,7 @@
 		<item name="wcf.acp.bbcode.textClose"><![CDATA[Schließender Text]]></item>
 		<item name="wcf.acp.bbcode.allowedChildren"><![CDATA[Erlaubte Kindelemente]]></item>
 		<item name="wcf.acp.bbcode.className"><![CDATA[Klassen-Name]]></item>
-		<item name="wcf.acp.bbcode.delete.sure"><![CDATA[Möchtest du den BBCode &bdquo;[{$bbcode->bbcodeTag}]&ldquo; wirklich löschen?]]></item>
+		<item name="wcf.acp.bbcode.delete.sure"><![CDATA[Möchten Sie den BBCode &bdquo;[{$bbcode->bbcodeTag}]&ldquo; wirklich löschen?]]></item>
 		
 		<item name="wcf.acp.bbcode.attributes"><![CDATA[Attribute]]></item>
 		<item name="wcf.acp.bbcode.attribute"><![CDATA[Attribut]]></item>
@@ -44,7 +44,7 @@
 		<item name="wcf.acp.bbcode.videoprovider.html.description"><![CDATA[{literal}Geben Sie hier den HTML-Code für das Video an. Variablen im Format {$variable} werden durch die entsprechende benannte Untergruppe des Regulären Ausdrucks ersetzt.<br />
 		Beispiel:<br />
 		{$ID} - Wird durch die beispielhaften Video-IDs der Erklärung oberhalb ersetzt.{/literal}]]></item>
-		<item name="wcf.acp.bbcode.videoprovider.delete.sure"><![CDATA[Möchtest du den Videoanbieter &bdquo;{$videoProvider->title}&ldquo; wirklich löschen?]]></item>
+		<item name="wcf.acp.bbcode.videoprovider.delete.sure"><![CDATA[Möchten Sie den Videoanbieter &bdquo;{$videoProvider->title}&ldquo; wirklich löschen?]]></item>
 		
 		<!-- Errors -->
 		<item name="wcf.acp.bbcode.error.bbcodeTag.inUse"><![CDATA[Dieser BBCode ist bereits vorhanden.]]></item>
