@@ -40,6 +40,25 @@ class SmileyCategoryListPage extends MultipleLinkPage {
 	public $sortOrder = 'ASC';
 	
 	/**
+	 * @see	wcf\page\MultipleLinkPage::countItems()
+	 */
+	public function countItems() {
+		// take care of default category
+		return parent::countItems() + 1;
+	}
+	
+	/**
+	 * @see	wcf\page\MultipleLinkPage::readObjects()
+	 */
+	protected function readObjects() {
+		// take care of default category
+		if ($this->pageNo == 1) $this->sqlLimit--;
+		$this->sqlOffset--;
+		
+		return parent::readObjects();
+	}
+	
+	/**
 	 * @see wcf\page\IPage::show()
 	 */
 	public function show() {
