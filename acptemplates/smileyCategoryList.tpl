@@ -59,7 +59,7 @@
 					<span class="wcf-statusDisplay wcf-sortableButtonContainer">
 						{if $__wcf->session->getPermission('admin.content.smiley.canEditSmiley')}
 							<img src="{@$__wcf->getPath()}icon/{if $smileyCategory->disabled}disabled{else}enabled{/if}1.svg" alt="" title="{lang}wcf.global.button.{if $smileyCategory->disabled}enable{else}disable{/if}{/lang}" class="jsToggleButton jsTooltip" data-object-id="{@$smileyCategory->smileyCategoryID}" data-disable-message="{lang}wcf.global.button.disable{/lang}" data-enable-message="{lang}wcf.global.button.enable{/lang}" />
-							<a href="{link controller='SmileyCategoryEdit' id=$smileyCategory->smileyCategoryID}{/link}"><img src="{@$__wcf->getPath('wcf')}icon/edit1.svg" alt="" title="{lang}wcf.global.button.edit{/lang}" class="balloonTooltip" /></a>
+							<a href="{link controller='SmileyCategoryEdit' id=$smileyCategory->smileyCategoryID}{/link}"><img src="{@$__wcf->getPath('wcf')}icon/edit1.svg" alt="" title="{lang}wcf.global.button.edit{/lang}" class="jsTooltip" /></a>
 						{/if}
 						{if $__wcf->session->getPermission('admin.content.smiley.canDeleteSmiley')}
 							<img src="{@$__wcf->getPath('wcf')}icon/delete1.svg" alt="" title="{lang}wcf.global.button.delete{/lang}" class="jsDeleteButton jsTooltip" data-object-id="{@$smileyCategory->smileyCategoryID}" data-confirm-message="{lang}wcf.acp.smiley.category.delete.sure{/lang}" />
