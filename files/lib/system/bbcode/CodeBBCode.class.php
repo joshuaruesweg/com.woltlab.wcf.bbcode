@@ -16,8 +16,25 @@ use wcf\util\StringUtil;
  */
 class CodeBBCode extends AbstractBBCode {
 	/**
-	 * Keeps track of used code-ids to prevent duplicate IDs in Output
-	 * 
+	 * code type attribute value
+	 * @var	string
+	 */
+	protected $codeType = '';
+	
+	/**
+	 * file name attribute value
+	 * @var	string
+	 */
+	protected $filename = '';
+	
+	/**
+	 * start line numer attribute value
+	 * @var	string
+	 */
+	protected $startLineNumber = 1;
+	
+	/**
+	 * already used ids for line numbers to prevent duplicate ids in the output
 	 * @var	array<string>
 	 */
 	private static $codeIDs = array();
@@ -30,10 +47,12 @@ class CodeBBCode extends AbstractBBCode {
 			// encode html
 			$content = self::trim($content);
 			
+			$this->mapAttributes($openingTag);
+			
 			// fetch highlighter-classname
 			$className = '\wcf\system\bbcode\highlighter\PlainHighlighter';
-			if (!empty($openingTag['attributes'][0]) && !is_numeric($openingTag['attributes'][0])) {
-				$className = '\wcf\system\bbcode\highlighter\\'.StringUtil::firstCharToUpperCase(StringUtil::toLowerCase($openingTag['attributes'][0])).'Highlighter';
+			if ($this->codeType) {
+				$className = '\wcf\system\bbcode\highlighter\\'.StringUtil::firstCharToUpperCase(StringUtil::toLowerCase($this->codeType)).'Highlighter';
 				
 				switch (StringUtil::substring($className, strlen('\wcf\system\bbcode\highlighter\\'))) {
 					case 'ShellHighlighter':
@@ -91,9 +110,10 @@ class CodeBBCode extends AbstractBBCode {
 			
 			// show template
 			WCF::getTPL()->assign(array(
-				'lineNumbers' => self::makeLineNumbers($content, self::getLineNumbersStart($openingTag)),
+				'lineNumbers' => self::makeLineNumbers($content, $this->lineNumber),
 				'content' => $className::getInstance()->highlight($content),
-				'highlighter' => $className::getInstance()
+				'highlighter' => $className::getInstance(),
+				'filename' => $this->filename
 			));
 			return WCF::getTPL()->fetch('codeBBCodeTag', array(), false);
 		}
@@ -103,25 +123,59 @@ class CodeBBCode extends AbstractBBCode {
 	}
 	
 	/**
-	 * Returns the preferred start of the line numbers.
+	 * Maps the arguments to what they represent.
 	 * 
-	 * @param	array		$openingTag
-	 * @return	integer
+	 * @param	array	$openingTag
 	 */
-	protected static function getLineNumbersStart(array $openingTag) {
-		$start = 1;
-		if (!empty($openingTag['attributes'][0])) {
-			if (is_numeric($openingTag['attributes'][0])) {
-				$start = intval($openingTag['attributes'][0]);
-			}
-			else if (!empty($openingTag['attributes'][1])) {
-				$start = intval($openingTag['attributes'][1]);
-			}
+	protected function mapAttributes(array $openingTag) {
+		if (!isset($openingTag['attributes'])) {
+			return;
 		}
 		
-		if ($start < 1) $start = 1;
+		$attributes = $openingTag['attributes'];
+		switch (count($attributes)) {
+			case 1:
+				if (is_numeric($attributes[0])) {
+					$this->lineNumber = intval($attributes[0]);
+				}
+				else if (!StringUtil::indexOf($attributes[0], '.')) {
+					$this->codeType = $attributes[0];
+				}
+				else {
+					$this->filename = $attributes[0];
+				}
+				
+				break;
+			
+			case 2:
+				if (is_numeric($attributes[0])) {
+					$this->lineNumber = intval($attributes[0]);
+					if (!StringUtil::indexOf($attributes[1], '.')) {
+						$this->codeType = $attributes[1];
+					}
+					else {
+						$this->filename = $attributes[1];
+					}
+				}
+				else {
+					$this->codeType = $attributes[0];
+					$this->filename = $attributes[1];
+				}
+				
+				break;
+			
+			default:
+				$this->codeType = $attributes[0];
+				$this->lineNumber = intval($attributes[1]);
+				$this->filename = $attributes[2];
+				
+				break;
+		}
 		
-		return $start;
+		// correct illegal line number
+		if ($this->lineNumber < 1) {
+			$this->lineNumber = 1;
+		}
 	}
 	
 	/**
