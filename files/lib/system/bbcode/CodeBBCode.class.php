@@ -138,7 +138,7 @@ class CodeBBCode extends AbstractBBCode {
 				if (is_numeric($attributes[0])) {
 					$this->lineNumber = intval($attributes[0]);
 				}
-				else if (!StringUtil::indexOf($attributes[0], '.')) {
+				else if (StringUtil::indexOf($attributes[0], '.') !== false) {
 					$this->codeType = $attributes[0];
 				}
 				else {
@@ -150,7 +150,7 @@ class CodeBBCode extends AbstractBBCode {
 			case 2:
 				if (is_numeric($attributes[0])) {
 					$this->lineNumber = intval($attributes[0]);
-					if (!StringUtil::indexOf($attributes[1], '.')) {
+					if (StringUtil::indexOf($attributes[1], '.') !== false) {
 						$this->codeType = $attributes[1];
 					}
 					else {
