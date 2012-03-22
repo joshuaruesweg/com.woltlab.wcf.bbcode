@@ -37,8 +37,8 @@ class SmileyCategoryAction extends AbstractDatabaseObjectAction {
 		$category = parent::create();
 		
 		WCF::getDB()->beginTransaction();
-		$sql = "SELECT		max(showOrder) as max
-			FROM		wcf".WCF_N."_smiley_category
+		$sql = "SELECT	MAX(showOrder)
+			FROM	wcf".WCF_N."_smiley_category
 			FOR UPDATE";
 		$stmt = WCF::getDB()->prepareStatement($sql);
 		$stmt->execute();

@@ -29,9 +29,9 @@ class SmileyCategoryEditor extends DatabaseObjectEditor implements IEditableCach
 	 */
 	public static function deleteAll(array $objectIDs = array()) {
 		WCF::getDB()->beginTransaction();
-		$sql = "SELECT		max(showOrder) as max
-			FROM		wcf".WCF_N."_smiley
-			WHERE		smileyCategoryID IS NULL
+		$sql = "SELECT	MAX(showOrder)
+			FROM	wcf".WCF_N."_smiley
+			WHERE	smileyCategoryID IS NULL
 			FOR UPDATE";
 		$stmt = WCF::getDB()->prepareStatement($sql);
 		$stmt->execute();
