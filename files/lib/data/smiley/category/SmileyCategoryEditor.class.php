@@ -59,11 +59,10 @@ class SmileyCategoryEditor extends DatabaseObjectEditor implements IEditableCach
 			
 			$offset += count($structure[0]);
 		}
-		WCF::getDB()->commitTransaction();
 		
-		parent::deleteAll($objectIDs);
-		
-		return count($objectIDs);
+		// The transaction is being committed in parent::deleteAll()
+		// The beginTransaction() call in there is simply ignored.
+		return parent::deleteAll($objectIDs);
 	}
 	
 	/**
