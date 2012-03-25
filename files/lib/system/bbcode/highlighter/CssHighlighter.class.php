@@ -610,7 +610,7 @@ class CssHighlighter extends Highlighter {
 		'hue',
 		'saturation',
 		'alpha',
-		'percentage'
+		'percentage',
 		// typechecking
 		'isnumber',
 		'iscolor',
