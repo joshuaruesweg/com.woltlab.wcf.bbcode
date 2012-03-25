@@ -198,7 +198,7 @@ class CodeBBCode extends AbstractBBCode {
 		// mark codeID as used
 		self::$codeIDs[$codeID] = true;
 		
-		for ($i = $start, $j = count($lines) + $start; $i < $j; $i++) {
+		for ($i = $start, $j = count($lines) + $start; $i <= $j; $i++) {
 			$lineNumbers[$i] = 'codeLine_'.$i.'_'.$codeID;
 		}
 		return $lineNumbers;
