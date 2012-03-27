@@ -110,7 +110,7 @@ class CodeBBCode extends AbstractBBCode {
 			
 			// show template
 			WCF::getTPL()->assign(array(
-				'lineNumbers' => self::makeLineNumbers($content, $this->lineNumber),
+				'lineNumbers' => self::makeLineNumbers($content, $this->startLineNumber),
 				'content' => $className::getInstance()->highlight($content),
 				'highlighter' => $className::getInstance(),
 				'filename' => $this->filename
@@ -136,7 +136,7 @@ class CodeBBCode extends AbstractBBCode {
 		switch (count($attributes)) {
 			case 1:
 				if (is_numeric($attributes[0])) {
-					$this->lineNumber = intval($attributes[0]);
+					$this->startLineNumber = intval($attributes[0]);
 				}
 				else if (StringUtil::indexOf($attributes[0], '.') !== false) {
 					$this->codeType = $attributes[0];
@@ -149,7 +149,7 @@ class CodeBBCode extends AbstractBBCode {
 			
 			case 2:
 				if (is_numeric($attributes[0])) {
-					$this->lineNumber = intval($attributes[0]);
+					$this->startLineNumber = intval($attributes[0]);
 					if (StringUtil::indexOf($attributes[1], '.') !== false) {
 						$this->codeType = $attributes[1];
 					}
@@ -166,15 +166,15 @@ class CodeBBCode extends AbstractBBCode {
 			
 			default:
 				$this->codeType = $attributes[0];
-				$this->lineNumber = intval($attributes[1]);
+				$this->startLineNumber = intval($attributes[1]);
 				$this->filename = $attributes[2];
 				
 				break;
 		}
 		
 		// correct illegal line number
-		if ($this->lineNumber < 1) {
-			$this->lineNumber = 1;
+		if ($this->startLineNumber < 1) {
+			$this->startLineNumber = 1;
 		}
 	}
 	
@@ -198,7 +198,7 @@ class CodeBBCode extends AbstractBBCode {
 		// mark codeID as used
 		self::$codeIDs[$codeID] = true;
 		
-		for ($i = $start, $j = count($lines) + $start; $i <= $j; $i++) {
+		for ($i = $start, $j = count($lines) + $start; $i < $j; $i++) {
 			$lineNumbers[$i] = 'codeLine_'.$i.'_'.$codeID;
 		}
 		return $lineNumbers;
