@@ -55,13 +55,4 @@ class XmlHighlighter extends Highlighter {
 		
 		return $string;
 	}
-	
-	/**
-	 * @see	Highlighter::cacheQuote()
-	 */
-	public function cacheQuote($quote) {
-		if (is_array($quote)) $quote = $quote[0];
-		
-		return parent::cacheQuote($quote);
-	}
 }

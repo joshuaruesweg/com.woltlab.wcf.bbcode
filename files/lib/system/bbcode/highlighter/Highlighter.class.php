@@ -1,5 +1,7 @@
 <?php
 namespace wcf\system\bbcode\highlighter;
+use \wcf\system\Callback;
+use \wcf\system\Regex;
 use \wcf\system\SingletonFactory;
 use \wcf\system\WCF;
 use \wcf\util\StringUtil;
@@ -8,7 +10,7 @@ use \wcf\util\StringUtil;
  * Highlights syntax of source code.
  * 
  * @author	Tim Düsterhus, Michael Schaefer
- * @copyright	2001-2011 WoltLab GmbH
+ * @copyright	2001-2012 WoltLab GmbH
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @package	com.woltlab.wcf.bbcode
  * @subpackage	system.bbcode.highlighter
@@ -27,9 +29,9 @@ abstract class Highlighter extends SingletonFactory {
 	protected $allowsNewslinesInQuotes = false;
 	
 	// regular expressions
-	protected $cacheCommentsRegEx = '';
-	protected $quotesRegEx = '';
-	protected $separatorsRegEx = '';
+	public $cacheCommentsRegEx = null;
+	public $quotesRegEx = null;
+	public $separatorsRegEx = '';
 	
 	// cache
 	protected $cachedComments = array();
@@ -48,7 +50,10 @@ abstract class Highlighter extends SingletonFactory {
 	 * @return	string
 	 */
 	public function getTitle() {
-		return WCF::getLanguage()->get('wcf.bbcode.code.'.preg_replace('/wcf\\\\system\\\\bbcode\\\\highlighter\\\\(.*)Highlighter/i', '\1', strtolower(get_class($this))).'.title');
+		// regex to extract the Highlighter out of the namespaced classname
+		$reType = new Regex('\\\\?wcf\\\\system\\\\bbcode\\\\highlighter\\\\(.*)Highlighter', Regex::CASE_INSENSITIVE);
+		
+		return WCF::getLanguage()->get('wcf.bbcode.code.'.$reType->replace(strtolower(get_class($this)), '\1').'.title');
 	}
 	
 	/**
@@ -59,13 +64,13 @@ abstract class Highlighter extends SingletonFactory {
 	 */
 	public function highlight($string) {
 		$this->cachedComments = $this->cachedQuotes = array();
-
+		
 		// cache comments
 		$string = $this->cacheComments($string);
 		
 		// cache quotes
 		$string = $this->cacheQuotes($string);
-
+		
 		// encode html
 		$string = StringUtil::encodeHTML($string);
 		
@@ -76,10 +81,10 @@ abstract class Highlighter extends SingletonFactory {
 		
 		// insert and highlight quotes
 		$string = $this->highlightQuotes($string);
-
+		
 		// insert and highlight comments
 		$string = $this->highlightComments($string);
-
+		
 		return $string;
 	}
 	
@@ -88,41 +93,45 @@ abstract class Highlighter extends SingletonFactory {
 	 */
 	protected function buildRegularExpressions() {
 		// quotes regex
-		$this->quotesRegEx;
 		$quotedEscapeSequence = preg_quote(implode('', $this->escapeSequence));
+		$quotesRegEx = '';
 		foreach ($this->quotes as $quote) {
-			if (!empty($this->quotesRegEx)) $this->quotesRegEx .= '|';
+			if ($quotesRegEx !== '') $quotesRegEx .= '|';
+			
 			$quote = preg_quote($quote);
-			$this->quotesRegEx .= $quote.'(?:[^'.$quote.$quotedEscapeSequence.']|'.$quotedEscapeSequence.'.)*'.$quote;
+			$quotesRegEx .= $quote.'(?:[^'.$quote.$quotedEscapeSequence.']|'.$quotedEscapeSequence.'.)*'.$quote;
 		}
 		
-		if (!empty($this->quotesRegEx)) {
-			$this->quotesRegEx = '(?:'.$this->quotesRegEx.')';
+		if ($quotesRegEx !== '') {
+			$quotesRegEx = '(?:'.$quotesRegEx.')';
+			$this->quotesRegEx = new Regex($quotesRegEx, ($this->allowsNewslinesInQuotes) ? Regex::DOT_ALL : Regex::MODIFIER_NONE);
 		}
 		
 		// cache comment regex
-		if (count($this->singleLineComment) || count($this->commentStart)) {
-			$this->cacheCommentsRegEx = "!";
+		if (!empty($this->singleLineComment) || !empty($this->commentStart)) {
+			$cacheCommentsRegEx = '';
 			
-			if (count($this->quotes)) {
-				$this->cacheCommentsRegEx .= "(".$this->quotesRegEx.")|";
+			if ($quotesRegEx !== '') {
+				$cacheCommentsRegEx .= "(".$quotesRegEx.")|";
 			}
 			else {
-				$this->cacheCommentsRegEx .= "()";
+				$cacheCommentsRegEx .= "()";
 			}
 			
-			$this->cacheCommentsRegEx .= "(";
-			if (count($this->singleLineComment)) {
-				$this->cacheCommentsRegEx .= "(?:".implode('|', array_map('preg_quote', $this->singleLineComment)).")[^\n]*";
-				if (count($this->commentStart)) {
-					$this->cacheCommentsRegEx .= '|';
+			$cacheCommentsRegEx .= "(";
+			if (!empty($this->singleLineComment)) {
+				$cacheCommentsRegEx .= "(?:".implode('|', array_map('preg_quote', $this->singleLineComment)).")[^\n]*";
+				if (!empty($this->commentStart)) {
+					$cacheCommentsRegEx .= '|';
 				}
 			}
 			
-			if (count($this->commentStart)) {
-				$this->cacheCommentsRegEx .= '(?:'.implode('|', array_map('preg_quote', $this->commentStart)).').*?(?:'.implode('|', array_map('preg_quote', $this->commentEnd)).')';
+			if (!empty($this->commentStart)) {
+				$cacheCommentsRegEx .= '(?:'.implode('|', array_map('preg_quote', $this->commentStart)).').*?(?:'.implode('|', array_map('preg_quote', $this->commentEnd)).')';
 			}
-			$this->cacheCommentsRegEx .= ")!se";
+			$cacheCommentsRegEx .= ")";
+			
+			$this->cacheCommentsRegEx = new Regex($cacheCommentsRegEx, Regex::DOT_ALL);
 		}
 		
 		$this->separatorsRegEx = StringUtil::encodeHTML(implode('|', array_map('preg_quote', $this->separators))).'|\s|&nbsp;|^|$|>|<';
@@ -132,9 +141,7 @@ abstract class Highlighter extends SingletonFactory {
 	 * Caches comments.
 	 */
 	protected function cacheComments($string) {
-		if (!empty($this->cacheCommentsRegEx)) {
-			$string = preg_replace($this->cacheCommentsRegEx, "\$this->cacheComment('\\1', '\\2')", $string);
-		}
+		$string = $this->cacheCommentsRegEx->replace($string, new Callback(array($this, 'cacheComment')));
 		
 		return $string;
 	}
@@ -143,8 +150,8 @@ abstract class Highlighter extends SingletonFactory {
 	 * Caches quotes.
 	 */
 	protected function cacheQuotes($string) {
-		if (!empty($this->quotesRegEx)) {
-			$string = preg_replace('!'.$this->quotesRegEx.'!e'.($this->allowsNewslinesInQuotes ? 's' : ''), "\$this->cacheQuote('\\0')", $string);
+		if ($this->quotesRegEx !== null) {
+			$string = $this->quotesRegEx->replace($string, new Callback(array($this, 'cacheQuote')));
 		}
 		
 		return $string;
@@ -165,20 +172,25 @@ abstract class Highlighter extends SingletonFactory {
 	 * Highlights keywords.
 	 */
 	protected function highlightKeywords($string) {
+		$_this = $this;
+		$buildKeywordRegex = function (array $keywords) use ($_this) {
+			return '!(?<='.$_this->separatorsRegEx.')('.StringUtil::encodeHTML(implode('|', array_map('preg_quote', $keywords))).')(?='.$_this->separatorsRegEx.')!i';
+		};
+		
 		if (count($this->keywords1)) {
-			$string = preg_replace('!(?<='.$this->separatorsRegEx.')('.StringUtil::encodeHTML(implode('|', array_map('preg_quote', $this->keywords1))).')(?='.$this->separatorsRegEx.')!i', '<span class="hlKeywords1">\\0</span>', $string);
+			$string = preg_replace($buildKeywordRegex($this->keywords1), '<span class="hlKeywords1">\\0</span>', $string);
 		}
 		if (count($this->keywords2)) {
-			$string = preg_replace('!(?<='.$this->separatorsRegEx.')('.StringUtil::encodeHTML(implode('|', array_map('preg_quote', $this->keywords2))).')(?='.$this->separatorsRegEx.')!i', '<span class="hlKeywords2">\\0</span>', $string);
+			$string = preg_replace($buildKeywordRegex($this->keywords2), '<span class="hlKeywords2">\\0</span>', $string);
 		}
 		if (count($this->keywords3)) {
-			$string = preg_replace('!(?<='.$this->separatorsRegEx.')('.StringUtil::encodeHTML(implode('|', array_map('preg_quote', $this->keywords3))).')(?='.$this->separatorsRegEx.')!i', '<span class="hlKeywords3">\\0</span>', $string);
+			$string = preg_replace($buildKeywordRegex($this->keywords3), '<span class="hlKeywords3">\\0</span>', $string);
 		}
 		if (count($this->keywords4)) {
-			$string = preg_replace('!(?<='.$this->separatorsRegEx.')('.StringUtil::encodeHTML(implode('|', array_map('preg_quote', $this->keywords4))).')(?='.$this->separatorsRegEx.')!i', '<span class="hlKeywords4">\\0</span>', $string);
+			$string = preg_replace($buildKeywordRegex($this->keywords4), '<span class="hlKeywords4">\\0</span>', $string);
 		}
 		if (count($this->keywords5)) {
-			$string = preg_replace('!(?<='.$this->separatorsRegEx.')('.StringUtil::encodeHTML(implode('|', array_map('preg_quote', $this->keywords5))).')(?='.$this->separatorsRegEx.')!i', '<span class="hlKeywords5">\\0</span>', $string);
+			$string = preg_replace($buildKeywordRegex($this->keywords5), '<span class="hlKeywords5">\\0</span>', $string);
 		}
 		
 		return $string;
@@ -222,7 +234,11 @@ abstract class Highlighter extends SingletonFactory {
 	/**
 	 * Caches a source code comment.
 	 */
-	protected function cacheComment($string, $comment) {
+	public function cacheComment(array $matches) {
+		$string = $matches[1];
+		if (isset($matches[2])) $comment = $matches[2];
+		else $comment = '';
+		
 		// strip slashes
 		$string = str_replace("\\\"", "\"", $string);
 		$hash = '';
@@ -235,16 +251,16 @@ abstract class Highlighter extends SingletonFactory {
 			// save
 			$this->cachedComments[$hash] = '<span class="hlComments">'.StringUtil::encodeHTML($comment).'</span>';
 		}
-			
+		
 		return $string.$hash;
 	}
 	
 	/**
 	 * Caches a quote.
 	 */
-	protected function cacheQuote($quote) {
+	public function cacheQuote(array $matches) {
 		// strip slashes
-		$quote = str_replace("\\\"", "\"", $quote);
+		$quote = str_replace("\\\"", "\"", $matches[0]);
 		
 		// create hash
 		$hash = '@@'.StringUtil::getHash(uniqid(microtime()).$quote).'@@';
