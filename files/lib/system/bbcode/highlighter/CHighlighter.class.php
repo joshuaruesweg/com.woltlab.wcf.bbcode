@@ -101,6 +101,7 @@ class CHighlighter extends Highlighter {
 		'#include',
 		'#define',
 		'#if',
+		'#else',
 		'#ifdef',
 		'#endif'
 	);
