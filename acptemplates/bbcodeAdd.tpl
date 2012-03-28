@@ -1,7 +1,7 @@
 {include file='header'}
 {capture assign='attributeTemplate'}
 	<fieldset>
-		<legend><img src="{@$__wcf->getPath()}icon/delete1.svg" alt="" class="jsDeleteButton" />{lang}wcf.acp.bbcode.attribute{/lang} {ldelim}#$attributeNo}</legend>
+		<legend><img src="{@$__wcf->getPath()}icon/delete1.svg" alt="" class="icon16 jsDeleteButton" />{lang}wcf.acp.bbcode.attribute{/lang} {ldelim}#$attributeNo}</legend>
 		<dl>
 			<dt><label for="attributes[{ldelim}@$attributeNo}][attributeHtml]">{lang}wcf.acp.bbcode.attribute.attributeHtml{/lang}</label></dt>
 			<dd>
@@ -58,40 +58,40 @@
 //]]>
 </script>
 
-<header class="wcf-container wcf-mainHeading">
-	<img src="{@$__wcf->getPath()}icon/{$action}1.svg" alt="" class="wcf-containerIcon" />
-	<hgroup class="wcf-containerContent">
+<header class="box48 boxHeadline">
+	<img src="{@$__wcf->getPath()}icon/{$action}1.svg" alt="" class="icon48" />
+	<hgroup>
 		<h1>{lang}wcf.acp.bbcode.{$action}{/lang}</h1>
 	</hgroup>
 </header>
 
 {if $errorField}
-	<p class="wcf-error">{lang}wcf.global.form.error{/lang}</p>
+	<p class="error">{lang}wcf.global.form.error{/lang}</p>
 {/if}
 
 {if $success|isset}
-	<p class="wcf-success">{lang}wcf.global.form.{$action}.success{/lang}</p>	
+	<p class="success">{lang}wcf.global.form.{$action}.success{/lang}</p>	
 {/if}
 
-<div class="wcf-contentHeader">
+<div class="contentNavigation">
 	<nav>
-		<ul class="wcf-largeButtons">
-			<li><a href="{link controller='BBCodeList'}{/link}" title="{lang}wcf.acp.menu.link.bbcode.list{/lang}" class="wcf-button"><img src="{@$__wcf->getPath()}icon/bbCode1.svg" alt="" /> <span>{lang}wcf.acp.menu.link.bbcode.list{/lang}</span></a></li>
+		<ul>
+			<li><a href="{link controller='BBCodeList'}{/link}" title="{lang}wcf.acp.menu.link.bbcode.list{/lang}" class="button"><img src="{@$__wcf->getPath()}icon/bbCode1.svg" alt="" class="icon24" /> <span>{lang}wcf.acp.menu.link.bbcode.list{/lang}</span></a></li>
 		</ul>
 	</nav>
 </div>
 
 <form method="post" action="{if $action == 'add'}{link controller='BBCodeAdd'}{/link}{else}{link controller='BBCodeEdit'}{/link}{/if}">
-	<div class="wcf-box wcf-marginTop wcf-boxPadding wcf-boxDecor wcf-shadow1">
+	<div class="container containerPadding marginTop shadow">
 		<fieldset>
 			<legend>{lang}wcf.acp.bbcode.data{/lang}</legend>
 			
-			<dl{if $errorField == 'bbcodeTag'} class="wcf-formError"{/if}>
+			<dl{if $errorField == 'bbcodeTag'} class="formError"{/if}>
 				<dt><label for="bbcodeTag">{lang}wcf.acp.bbcode.bbcodeTag{/lang}</label></dt>
 				<dd>
 					<input type="text" id="bbcodeTag" name="bbcodeTag" value="{$bbcodeTag}" required="required" autofocus="autofocus" pattern="^[a-zA-Z0-9]+$" class="medium" />
 					{if $errorField == 'bbcodeTag'}
-						<small class="wcf-innerError">
+						<small class="innerError">
 							{if $errorType == 'empty'}
 								{lang}wcf.global.form.error.empty{/lang}
 							{elseif $errorType == 'invalid'}
@@ -104,40 +104,40 @@
 				</dd>
 			</dl>
 			
-			<dl{if $errorField == 'htmlOpen'} class="wcf-formError"{/if}>
+			<dl{if $errorField == 'htmlOpen'} class="formError"{/if}>
 				<dt><label for="htmlOpen">{lang}wcf.acp.bbcode.htmlOpen{/lang}</label></dt>
 				<dd>
 					<input type="text" id="htmlOpen" name="htmlOpen" value="{$htmlOpen}" class="long" />
 				</dd>
 			</dl>
 			
-			<dl{if $errorField == 'htmlClose'} class="wcf-formError"{/if}>
+			<dl{if $errorField == 'htmlClose'} class="formError"{/if}>
 				<dt><label for="htmlClose">{lang}wcf.acp.bbcode.htmlClose{/lang}</label></dt>
 				<dd>
 					<input type="text" id="htmlClose" name="htmlClose" value="{$htmlClose}" class="long" />
 				</dd>
 			</dl>
 			
-			<dl{if $errorField == 'textOpen'} class="wcf-formError"{/if}>
+			<dl{if $errorField == 'textOpen'} class="formError"{/if}>
 				<dt><label for="textOpen">{lang}wcf.acp.bbcode.textOpen{/lang}</label></dt>
 				<dd>
 					<input type="text" id="textOpen" name="textOpen" value="{$textOpen}" class="long" />
 				</dd>
 			</dl>
 			
-			<dl{if $errorField == 'textClose'} class="wcf-formError"{/if}>
+			<dl{if $errorField == 'textClose'} class="formError"{/if}>
 				<dt><label for="textClose">{lang}wcf.acp.bbcode.textClose{/lang}</label></dt>
 				<dd>
 					<input type="text" id="textClose" name="textClose" value="{$textClose}" class="long" />
 				</dd>
 			</dl>
 			
-			<dl{if $errorField == 'allowedChildren'} class="wcf-formError"{/if}>
+			<dl{if $errorField == 'allowedChildren'} class="formError"{/if}>
 				<dt><label for="allowedChildren">{lang}wcf.acp.bbcode.allowedChildren{/lang}</label></dt>
 				<dd>
 					<input type="text" id="allowedChildren" name="allowedChildren" value="{$allowedChildren}" class="long" required="required" pattern="^((all|none)\^)?([a-zA-Z0-9]+,)*[a-zA-Z0-9]+$" />
 					{if $errorField == 'allowedChildren'}
-						<small class="wcf-innerError">
+						<small class="innerError">
 							{if $errorType == 'empty'}
 								{lang}wcf.global.form.error.empty{/lang}
 							{elseif $errorType == 'invalid'}
@@ -148,19 +148,19 @@
 				</dd>
 			</dl>
 			
-			<dl{if $errorField == 'isSourceCode'} class="wcf-formError"{/if}>
+			<dl{if $errorField == 'isSourceCode'} class="formError"{/if}>
 				<dd>
 					<label for="isSourceCode"><input type="checkbox" id="isSourceCode" name="isSourceCode" value="1"{if $isSourceCode} checked="checked"{/if} /> {lang}wcf.acp.bbcode.isSourceCode{/lang}</label>
 					<small>{lang}wcf.acp.bbcode.isSourceCode.description{/lang}</small>
 				</dd>
 			</dl>
 			
-			<dl{if $errorField == 'className'} class="wcf-formError"{/if}>
+			<dl{if $errorField == 'className'} class="formError"{/if}>
 				<dt><label for="className">{lang}wcf.acp.bbcode.className{/lang}</label></dt>
 				<dd>
 					<input type="text" id="className" name="className" value="{$className}" class="long" pattern="^\\?([a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*\\)*[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*$" />
 					{if $errorField == 'className'}
-						<small class="wcf-innerError">
+						<small class="innerError">
 							{if $errorType == 'notFound'}
 								{lang}wcf.acp.bbcode.error.className.notFound{/lang}
 							{/if}
@@ -171,31 +171,31 @@
 		</fieldset>
 		
 		<fieldset id="attributeFieldset">
-			<legend><img src="{@$__wcf->getPath()}icon/add1.svg" alt="" title="{lang}wcf.global.button.add{/lang}" class="jsAddButton" /> {lang}wcf.acp.bbcode.attributes{/lang}</legend>
+			<legend><img src="{@$__wcf->getPath()}icon/add1.svg" alt="" title="{lang}wcf.global.button.add{/lang}" class="icon16 jsAddButton" /> {lang}wcf.acp.bbcode.attributes{/lang}</legend>
 			
 			{foreach from=$attributes item='attribute'}
 				<fieldset>
 					<legend><img src="{@$__wcf->getPath()}icon/delete1.svg" alt="" title="{lang}wcf.global.button.delete{/lang}" class="jsDeleteButton" />{lang}wcf.acp.bbcode.attribute{/lang} {#$attribute->attributeNo}</legend>
-					<dl{if $errorField == 'attributeHtml'|concat:$attribute->attributeNo} class="wcf-formError"{/if}>
+					<dl{if $errorField == 'attributeHtml'|concat:$attribute->attributeNo} class="formError"{/if}>
 						<dt><label for="attributes[{@$attribute->attributeNo}][attributeHtml]">{lang}wcf.acp.bbcode.attribute.attributeHtml{/lang}</label></dt>
 						<dd>
 							<input type="text" id="attributes[{@$attribute->attributeNo}][attributeHtml]" name="attributes[{@$attribute->attributeNo}][attributeHtml]" value="{$attribute->attributeHtml}" class="long" />
 						</dd>
 					</dl>
 					
-					<dl{if $errorField == 'attributeText'|concat:$attribute->attributeNo} class="wcf-formError"{/if}>
+					<dl{if $errorField == 'attributeText'|concat:$attribute->attributeNo} class="formError"{/if}>
 						<dt><label for="attributes[{@$attribute->attributeNo}][attributeText]">{lang}wcf.acp.bbcode.attribute.attributeText{/lang}</label></dt>
 						<dd>
 							<input type="text" id="attributes[{@$attribute->attributeNo}][attributeText]" name="attributes[{@$attribute->attributeNo}][attributeText]" value="{$attribute->attributeText}" class="long" />
 						</dd>
 					</dl>
 					
-					<dl{if $errorField == 'attributeValidationPattern'|concat:$attribute->attributeNo} class="wcf-formError"{/if}>
+					<dl{if $errorField == 'attributeValidationPattern'|concat:$attribute->attributeNo} class="formError"{/if}>
 						<dt><label for="attributes[{@$attribute->attributeNo}][validationPattern]">{lang}wcf.acp.bbcode.attribute.validationPattern{/lang}</label></dt>
 						<dd>
 							<input type="text" id="attributes[{@$attribute->attributeNo}][validationPattern]" name="attributes[{@$attribute->attributeNo}][validationPattern]" value="{$attribute->validationPattern}" class="long" />
 							{if $errorField == 'attributeValidationPattern'|concat:$attribute->attributeNo}
-								<small class="wcf-innerError">
+								<small class="innerError">
 									{if $errorType == 'invalid'}
 										{lang}wcf.acp.bbcode.attribute.error.validationPattern.invalid{/lang}
 									{/if}
@@ -204,13 +204,13 @@
 						</dd>
 					</dl>
 					
-					<dl{if $errorField == 'attributeRequired'|concat:$attribute->attributeNo} class="wcf-formError"{/if}>
+					<dl{if $errorField == 'attributeRequired'|concat:$attribute->attributeNo} class="formError"{/if}>
 						<dd>
 							<label for="attributes[{@$attribute->attributeNo}][required]"><input type="checkbox" id="attributes[{@$attribute->attributeNo}][required]" name="attributes[{@$attribute->attributeNo}][required]" value="1"{if $attribute->required} checked="checked"{/if} /> {lang}wcf.acp.bbcode.attribute.required{/lang}</label>
 						</dd>
 					</dl>
 					
-					<dl{if $errorField == 'attributeUseText'|concat:$attribute->attributeNo} class="wcf-formError"{/if}>
+					<dl{if $errorField == 'attributeUseText'|concat:$attribute->attributeNo} class="formError"{/if}>
 						<dd>
 							<label for="attributes[{@$attribute->attributeNo}][useText]"><input type="checkbox" id="attributes[{@$attribute->attributeNo}][useText]" name="attributes[{@$attribute->attributeNo}][useText]" value="1"{if $attribute->useText} checked="checked"{/if} /> {lang}wcf.acp.bbcode.attribute.useText{/lang}</label>
 							<small>{lang}wcf.acp.bbcode.attribute.useText.description{/lang}</small>
@@ -221,11 +221,9 @@
 		</fieldset>
 	</div>
 	
-	<div class="wcf-formSubmit">
-		<input type="reset" value="{lang}wcf.global.button.reset{/lang}" accesskey="r" />
+	<div class="formSubmit">
 		<input type="submit" value="{lang}wcf.global.button.submit{/lang}" accesskey="s" />
-		{@SID_INPUT_TAG}
- 		{if $bbcodeID|isset}<input type="hidden" name="id" value="{@$bbcodeID}" />{/if}
+		{if $bbcodeID|isset}<input type="hidden" name="id" value="{@$bbcodeID}" />{/if}
 	</div>
 </form>
 

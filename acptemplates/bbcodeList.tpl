@@ -1,8 +1,8 @@
 {include file='header'}
 
-<header class="wcf-container wcf-mainHeading">
-	<img src="{@$__wcf->getPath()}icon/bbCode1.svg" alt="" class="wcf-containerIcon" />
-	<hgroup class="wcf-containerContent">
+<header class="box48 boxHeadline">
+	<img src="{@$__wcf->getPath()}icon/bbCode1.svg" alt="" class="icon48" />
+	<hgroup>
 		<h1>{lang}wcf.acp.bbcode.list{/lang}</h1>
 	</hgroup>
 	
@@ -16,25 +16,25 @@
 	</script>
 </header>
 
-<div class="wcf-contentHeader">
+<div class="contentNavigation">
 	{pages print=true assign=pagesLinks controller="BBCodeList" link="pageNo=%d"}
 	
 	{if $__wcf->session->getPermission('admin.content.bbcode.canAddBBCode')}
 		<nav>
-			<ul class="wcf-largeButtons">
-				<li><a href="{link controller='BBCodeAdd'}{/link}" title="{lang}wcf.acp.bbcode.add{/lang}" class="wcf-button"><img src="{@$__wcf->getPath()}icon/add1.svg" alt="" /> <span>{lang}wcf.acp.bbcode.add{/lang}</span></a></li>
+			<ul>
+				<li><a href="{link controller='BBCodeAdd'}{/link}" title="{lang}wcf.acp.bbcode.add{/lang}" class="button"><img src="{@$__wcf->getPath()}icon/add1.svg" alt="" class="icon24" /> <span>{lang}wcf.acp.bbcode.add{/lang}</span></a></li>
 			</ul>
 		</nav>
 	{/if}
 </div>
 
 {hascontent}
-	<div class="wcf-box wcf-boxTitle wcf-marginTop wcf-shadow1">
+	<div class="tabularBox tabularBoxTitle marginTop shadow">
 		<hgroup>
-			<h1>{lang}wcf.acp.bbcode.list{/lang} <span class="wcf-badge" title="{lang}wcf.acp.bbcode.list.count{/lang}">{#$items}</span></h1>
+			<h1>{lang}wcf.acp.bbcode.list{/lang} <span class="badge" title="{lang}wcf.acp.bbcode.list.count{/lang}">{#$items}</span></h1>
 		</hgroup>
 		
-		<table class="wcf-table">
+		<table class="table">
 			<thead>
 				<tr>
 					<th class="columnID columnBBCodeID" colspan="2">{lang}wcf.global.objectID{/lang}</th>
@@ -52,23 +52,23 @@
 							<td class="columnIcon">
 								{* toggle, edit, delete *}
 								{if $__wcf->session->getPermission('admin.content.bbcode.canEditBBCode')}
-									<img src="{@$__wcf->getPath()}icon/{if $bbcode->disabled}disabled{else}enabled{/if}1.svg" alt="" title="{lang}wcf.global.button.{if $bbcode->disabled}enable{else}disable{/if}{/lang}" class="jsToggleButton jsTooltip" data-object-id="{@$bbcode->bbcodeID}" data-disable-message="{lang}wcf.global.button.disable{/lang}" data-enable-message="{lang}wcf.global.button.enable{/lang}" />
+									<img src="{@$__wcf->getPath()}icon/{if $bbcode->disabled}disabled{else}enabled{/if}1.svg" alt="" title="{lang}wcf.global.button.{if $bbcode->disabled}enable{else}disable{/if}{/lang}" class="icon16 jsToggleButton jsTooltip" data-object-id="{@$bbcode->bbcodeID}" data-disable-message="{lang}wcf.global.button.disable{/lang}" data-enable-message="{lang}wcf.global.button.enable{/lang}" />
 								{else}
 									{if $bbcode->disabled}
-										<img src="{@$__wcf->getPath()}icon/disabled1D.svg" alt="" title="{lang}wcf.global.button.enable{/lang}" />
+										<img src="{@$__wcf->getPath()}icon/disabled1D.svg" alt="" title="{lang}wcf.global.button.enable{/lang}" class="icon16" />
 									{else}
-										<img src="{@$__wcf->getPath()}icon/enabled1D.svg" alt="" title="{lang}wcf.global.button.disable{/lang}" />
+										<img src="{@$__wcf->getPath()}icon/enabled1D.svg" alt="" title="{lang}wcf.global.button.disable{/lang}" class="icon16" />
 									{/if}
 								{/if}
 								{if $__wcf->session->getPermission('admin.content.bbcode.canEditBBCode')}
-									<a href="{link controller='BBCodeEdit' id=$bbcode->bbcodeID}{/link}"><img src="{@$__wcf->getPath()}icon/edit1.svg" alt="" title="{lang}wcf.global.button.edit{/lang}" class="jsTooltip" /></a>
+									<a href="{link controller='BBCodeEdit' id=$bbcode->bbcodeID}{/link}"><img src="{@$__wcf->getPath()}icon/edit1.svg" alt="" title="{lang}wcf.global.button.edit{/lang}" class="icon16 jsTooltip" /></a>
 								{else}
-									<img src="{@$__wcf->getPath()}icon/edit1D.svg" alt="" title="{lang}wcf.global.button.edit{/lang}" />
+									<img src="{@$__wcf->getPath()}icon/edit1D.svg" alt="" title="{lang}wcf.global.button.edit{/lang}" class="icon16" />
 								{/if}
 								{if $__wcf->session->getPermission('admin.content.bbcode.canDeleteBBCode')}
-									<img src="{@$__wcf->getPath()}icon/delete1.svg" alt="" title="{lang}wcf.global.button.delete{/lang}" class="jsDeleteButton jsTooltip" data-object-id="{@$bbcode->bbcodeID}" data-confirm-message="{lang}wcf.acp.bbcode.delete.sure{/lang}" />
+									<img src="{@$__wcf->getPath()}icon/delete1.svg" alt="" title="{lang}wcf.global.button.delete{/lang}" class="icon16 jsDeleteButton jsTooltip" data-object-id="{@$bbcode->bbcodeID}" data-confirm-message="{lang}wcf.acp.bbcode.delete.sure{/lang}" />
 								{else}
-									<img src="{@$__wcf->getPath()}icon/delete1D.svg" alt="" title="{lang}wcf.global.button.delete{/lang}" />
+									<img src="{@$__wcf->getPath()}icon/delete1D.svg" alt="" title="{lang}wcf.global.button.delete{/lang}" class="icon16" />
 								{/if}
 								
 								{event name='buttons'}
@@ -86,21 +86,21 @@
 		
 	</div>
 	
-	<div class="wcf-contentFooter">
+	<div class="contentNavigation">
 		{@$pagesLinks}
 		
 		{if $__wcf->session->getPermission('admin.content.bbcode.canAddBBCode')}
 			<nav>
-				<ul class="wcf-largeButtons">
-					<li><a href="{link controller='BBCodeAdd'}{/link}" title="{lang}wcf.acp.bbcode.add{/lang}" class="wcf-button"><img src="{@$__wcf->getPath()}icon/add1.svg" alt="" /> <span>{lang}wcf.acp.bbcode.add{/lang}</span></a></li>
+				<ul>
+					<li><a href="{link controller='BBCodeAdd'}{/link}" title="{lang}wcf.acp.bbcode.add{/lang}" class="button"><img src="{@$__wcf->getPath()}icon/add1.svg" alt="" class="icon24" /> <span>{lang}wcf.acp.bbcode.add{/lang}</span></a></li>
 				</ul>
 			</nav>
 		{/if}
 	</div>
 {hascontentelse}
-	<div class="wcf-box wcf-boxPadding">
+	<div class="container containerPadding">
 		<div>
-			<p class="wcf-warning">{lang}wcf.acp.bbcode.noneAvailable{/lang}</p>
+			<p class="warning">{lang}wcf.acp.bbcode.noneAvailable{/lang}</p>
 		</div>
 	</div>
 {/hascontent}

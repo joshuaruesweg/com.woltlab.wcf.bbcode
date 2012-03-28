@@ -1,39 +1,39 @@
 {include file='header'}
 
-<header class="wcf-container wcf-mainHeading">
-	<img src="{@$__wcf->getPath()}icon/{$action}1.svg" alt="" class="wcf-containerIcon" />
-	<hgroup class="wcf-containerContent">
+<header class="box48 boxHeadline">
+	<img src="{@$__wcf->getPath()}icon/{$action}1.svg" alt="" class="icon48" />
+	<hgroup>
 		<h1>{lang}wcf.acp.bbcode.videoprovider.{$action}{/lang}</h1>
 	</hgroup>
 </header>
 
 {if $errorField}
-	<p class="wcf-error">{lang}wcf.global.form.error{/lang}</p>
+	<p class="error">{lang}wcf.global.form.error{/lang}</p>
 {/if}
 
 {if $success|isset}
-	<p class="wcf-success">{lang}wcf.global.form.{$action}.success{/lang}</p>	
+	<p class="success">{lang}wcf.global.form.{$action}.success{/lang}</p>	
 {/if}
 
-<div class="wcf-contentHeader">
+<div class="contentNavigation">
 	<nav>
-		<ul class="wcf-largeButtons">
-			<li><a href="{link controller='BBCodeVideoProviderList'}{/link}" title="{lang}wcf.acp.menu.link.bbcode.videoprovider.list{/lang}" class="wcf-button"><img src="{@$__wcf->getPath()}icon/videoProvider1.svg" alt="" /> <span>{lang}wcf.acp.menu.link.bbcode.videoprovider.list{/lang}</span></a></li>
+		<ul>
+			<li><a href="{link controller='BBCodeVideoProviderList'}{/link}" title="{lang}wcf.acp.menu.link.bbcode.videoprovider.list{/lang}" class="button"><img src="{@$__wcf->getPath()}icon/videoProvider1.svg" alt="" class="icon24" /> <span>{lang}wcf.acp.menu.link.bbcode.videoprovider.list{/lang}</span></a></li>
 		</ul>
 	</nav>
 </div>
 
 <form method="post" action="{if $action == 'add'}{link controller='BBCodeVideoProviderAdd'}{/link}{else}{link controller='BBCodeVideoProviderEdit'}{/link}{/if}">
-	<div class="wcf-box wcf-marginTop wcf-boxPadding wcf-boxDecor wcf-shadow1">
+	<div class="container containerPadding marginTop shadow">
 		<fieldset>
 			<legend>{lang}wcf.acp.bbcode.videoprovider.data{/lang}</legend>
 			
-			<dl{if $errorField == 'title'} class="wcf-formError"{/if}>
+			<dl{if $errorField == 'title'} class="formError"{/if}>
 				<dt><label for="title">{lang}wcf.acp.bbcode.videoprovider.title{/lang}</label></dt>
 				<dd>
 					<input type="text" id="title" name="title" value="{$title}" required="required" autofocus="autofocus" class="long" />
 					{if $errorField == 'title'}
-						<small class="wcf-innerError">
+						<small class="innerError">
 							{if $errorType == 'empty'}
 								{lang}wcf.global.form.error.empty{/lang}
 							{/if}
@@ -42,12 +42,12 @@
 				</dd>
 			</dl>
 			
-			<dl{if $errorField == 'regex'} class="wcf-formError"{/if}>
+			<dl{if $errorField == 'regex'} class="formError"{/if}>
 				<dt><label for="regex">{lang}wcf.acp.bbcode.videoprovider.regex{/lang}</label></dt>
 				<dd>
 					<textarea id="regex" name="regex" cols="40" rows="10" required="required">{$regex}</textarea>
 					{if $errorField == 'regex'}
-						<small class="wcf-innerError">
+						<small class="innerError">
 							{if $errorType == 'empty'}
 								{lang}wcf.global.form.error.empty{/lang}
 							{elseif $errorType == 'invalid'}
@@ -78,9 +78,7 @@
 									}
 								});
 							}
-							$('#url').keydown(checkRegex);
-							$('#url').keyup(checkRegex);
-							$('#url').keypress(checkRegex);
+							$('#url').keydown(checkRegex).keyup(checkRegex).keypress(checkRegex);
 							
 							$('#regex').change(checkRegex);
 						})(jQuery);
@@ -89,12 +87,12 @@
 				</dd>
 			</dl>
 			
-			<dl{if $errorField == 'html'} class="wcf-formError"{/if}>
+			<dl{if $errorField == 'html'} class="formError"{/if}>
 				<dt><label for="html">{lang}wcf.acp.bbcode.videoprovider.html{/lang}</label></dt>
 				<dd>
 					<textarea id="html" name="html" cols="40" rows="10" required="required">{$html}</textarea>
 					{if $errorField == 'html'}
-						<small class="wcf-innerError">
+						<small class="innerError">
 							{if $errorType == 'empty'}
 								{lang}wcf.global.form.error.empty{/lang}
 							{/if}
@@ -106,11 +104,9 @@
 		</fieldset>
 	</div>
 	
-	<div class="wcf-formSubmit">
-		<input type="reset" value="{lang}wcf.global.button.reset{/lang}" accesskey="r" />
+	<div class="formSubmit">
 		<input type="submit" value="{lang}wcf.global.button.submit{/lang}" accesskey="s" />
-		{@SID_INPUT_TAG}
- 		{if $providerID|isset}<input type="hidden" name="id" value="{@$providerID}" />{/if}
+		{if $providerID|isset}<input type="hidden" name="id" value="{@$providerID}" />{/if}
 	</div>
 </form>
 
