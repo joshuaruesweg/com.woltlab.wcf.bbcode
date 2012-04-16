@@ -29,6 +29,19 @@ class SmileyCategoryEditor extends DatabaseObjectEditor implements IEditableCach
 	 */
 	public static function deleteAll(array $objectIDs = array()) {
 		WCF::getDB()->beginTransaction();
+		// correct showOrder
+		$sql = "SELECT	showOrder
+			FROM	wcf".WCF_N."_smiley_category
+			WHERE	smileyCategoryID = ?
+			FOR UPDATE";
+		$select = WCF::getDB()->prepareStatement($sql);
+		
+		$sql = "UPDATE	wcf".WCF_N."_smiley_category
+			SET	showOrder = showOrder - 1
+			WHERE	showOrder > ?";
+		$update = WCF::getDB()->prepareStatement($sql);
+		
+		// calculate new showOrder value for smilies
 		$sql = "SELECT	MAX(showOrder)
 			FROM	wcf".WCF_N."_smiley
 			WHERE	smileyCategoryID IS NULL
@@ -37,19 +50,23 @@ class SmileyCategoryEditor extends DatabaseObjectEditor implements IEditableCach
 		$stmt->execute();
 		$offset = $stmt->fetchColumn() + 1;
 		
+		$sql = "SELECT	smileyID
+			FROM	wcf".WCF_N."_smiley
+			WHERE	smileyCategoryID = ?
+			FOR UPDATE";
+		$smilies = WCF::getDB()->prepareStatement($sql);
 		foreach ($objectIDs as $objectID) {
 			// delete i18n values
 			I18nHandler::getInstance()->remove('wcf.smiley.category.title'.$objectID, PackageDependencyHandler::getInstance()->getPackageID('com.woltlab.wcf.bbcode'));
 			
-			// calculate new showOrder value for smilies
-			$sql = "SELECT	smileyID
-				FROM	wcf".WCF_N."_smiley
-				WHERE	smileyCategoryID = ?
-				FOR UPDATE";
-			$stmt = WCF::getDB()->prepareStatement($sql);
-			$stmt->execute(array($objectID));
+			// correct showOrder
+			$select->execute(array($objectID));
+			$update->execute(array($select->fetchColumn()));
+			
+			// move smileys
+			$smilies->execute(array($objectID));
 			$structure = array(0 => array());
-			while ($structure[0][] = $stmt->fetchColumn());
+			while ($structure[0][] = $smilies->fetchColumn());
 			
 			$smileyAction = new SmileyAction(array(), 'updatePosition', array('data' => array(
 				'structure' => $structure,
