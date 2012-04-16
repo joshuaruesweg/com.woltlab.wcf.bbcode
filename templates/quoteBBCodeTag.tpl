@@ -1,4 +1,4 @@
-<blockquote class="quoteBox container"{if $quoteLink} cite="{$quoteLink}"{/if}>
+<blockquote class="container containerPadding quoteBox"{if $quoteLink} cite="{$quoteLink}"{/if}>
 	{if $quoteAuthor}
 		<header>
 			<h1>
