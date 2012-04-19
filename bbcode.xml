@@ -166,5 +166,12 @@
 		<bbcode name="video">
 			<classname>wcf\system\bbcode\VideoBBCode</classname>
 		</bbcode>
+		<bbcode name="spoiler">
+			<classname>wcf\system\bbcode\SpoilerBBCode</classname>
+			<attributes>
+				<attribute name="0"></attribute>
+			</attributes>
+			<wysiwygicon>spoilerM.png</wysiwygicon>
+		</bbcode>
 	</import>
 </data>
