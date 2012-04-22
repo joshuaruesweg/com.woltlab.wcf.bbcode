@@ -1,6 +1,6 @@
 <?php
 namespace wcf\acp\page;
-use wcf\page\MultipleLinkPage;
+use wcf\page\SortablePage;
 use wcf\system\menu\acp\ACPMenu;
 
 /**
@@ -13,7 +13,7 @@ use wcf\system\menu\acp\ACPMenu;
  * @subpackage	acp.page
  * @category 	Community Framework
  */
-class BBCodeVideoProviderListPage extends MultipleLinkPage {
+class BBCodeVideoProviderListPage extends SortablePage {
 	/**
 	 * @see wcf\page\AbstractPage::$templateName
 	 */
@@ -22,12 +22,22 @@ class BBCodeVideoProviderListPage extends MultipleLinkPage {
 	/**
 	 * @see wcf\page\AbstractPage::$neededPermissions
 	 */
-	//public $neededPermissions = array('admin.content.bbcode.videoprovider.canEditVideoProvider', 'admin.content.bbcode.videoprovider.canDeleteVideoProvider');
+	public $neededPermissions = array('admin.content.bbcode.videoprovider.canEditVideoProvider', 'admin.content.bbcode.videoprovider.canDeleteVideoProvider');
 	
 	/**
 	 * @see	wcf\page\MultipleLinkPage::$objectListClassName
 	 */
 	public $objectListClassName = 'wcf\data\bbcode\video\VideoProviderList';
+	
+	/**
+	 * @see	wcf\page\MultipleLinkPage::$defaultSortField
+	 */
+	public $defaultSortField = 'title';
+	
+	/**
+	 * @see	wcf\page\MultipleLinkPage::$validSortFields
+	 */
+	public $validSortFields = array('providerID', 'title');
 	
 	/**
 	 * @see wcf\page\IPage::show()

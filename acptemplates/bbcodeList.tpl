@@ -16,7 +16,7 @@
 </header>
 
 <div class="contentNavigation">
-	{pages print=true assign=pagesLinks controller="BBCodeList" link="pageNo=%d"}
+	{pages print=true assign=pagesLinks controller="BBCodeList" link="pageNo=%d&sortField=$sortField&sortOrder=$sortOrder"}
 	
 	{if $__wcf->session->getPermission('admin.content.bbcode.canAddBBCode')}
 		<nav>
@@ -30,15 +30,15 @@
 {hascontent}
 	<div class="tabularBox tabularBoxTitle marginTop shadow">
 		<hgroup>
-			<h1>{lang}wcf.acp.bbcode.list{/lang} <span class="badge" title="{lang}wcf.acp.bbcode.list.count{/lang}">{#$items}</span></h1>
+			<h1>{lang}wcf.acp.bbcode.list{/lang} <span class="badge badgeInverse" title="{lang}wcf.acp.bbcode.list.count{/lang}">{#$items}</span></h1>
 		</hgroup>
 		
 		<table class="table">
 			<thead>
 				<tr>
-					<th class="columnID columnBBCodeID" colspan="2">{lang}wcf.global.objectID{/lang}</th>
-					<th class="columnTitle columnBBCode">{lang}wcf.acp.bbcode.bbcodeTag{/lang}</th>
-					<th class="columnText columnClassName">{lang}wcf.acp.bbcode.className{/lang}</th>
+					<th class="columnID columnBBCodeID{if $sortField == 'bbcodeID'} active{/if}" colspan="2"><a href="{link controller='BBCodeList'}pageNo={@$pageNo}&sortField=bbcodeID&sortOrder={if $sortField == 'bbcodeID' && $sortOrder == 'ASC'}DESC{else}ASC{/if}{/link}">{lang}wcf.global.objectID{/lang}{if $sortField == 'bbcodeID'} <img src="{@$__wcf->getPath()}icon/sort{@$sortOrder}.svg" alt="" />{/if}</a></th>
+					<th class="columnTitle columnBBCode{if $sortField == 'bbcodeTag'} active{/if}"><a href="{link controller='BBCodeList'}pageNo={@$pageNo}&sortField=bbcodeTag&sortOrder={if $sortField == 'bbcodeTag' && $sortOrder == 'ASC'}DESC{else}ASC{/if}{/link}">{lang}wcf.acp.bbcode.bbcodeTag{/lang}{if $sortField == 'bbcodeTag'} <img src="{@$__wcf->getPath()}icon/sort{@$sortOrder}.svg" alt="" />{/if}</a></th>
+					<th class="columnText columnClassName{if $sortField == 'className'} active{/if}"><a href="{link controller='BBCodeList'}pageNo={@$pageNo}&sortField=className&sortOrder={if $sortField == 'className' && $sortOrder == 'ASC'}DESC{else}ASC{/if}{/link}">{lang}wcf.acp.bbcode.className{/lang}{if $sortField == 'className'} <img src="{@$__wcf->getPath()}icon/sort{@$sortOrder}.svg" alt="" />{/if}</a></th>
 					
 					{event name='headColumns'}
 				</tr>
@@ -97,11 +97,7 @@
 		{/if}
 	</div>
 {hascontentelse}
-	<div class="container containerPadding">
-		<div>
-			<p class="warning">{lang}wcf.acp.bbcode.noneAvailable{/lang}</p>
-		</div>
-	</div>
+	<p class="info">{lang}wcf.acp.bbcode.noneAvailable{/lang}</p>
 {/hascontent}
 
 {include file='footer'}

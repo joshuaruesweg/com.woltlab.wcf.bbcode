@@ -1,6 +1,6 @@
 <?php
 namespace wcf\acp\page;
-use wcf\page\MultipleLinkPage;
+use wcf\page\SortablePage;
 use wcf\system\menu\acp\ACPMenu;
 
 /**
@@ -13,7 +13,7 @@ use wcf\system\menu\acp\ACPMenu;
  * @subpackage	acp.page
  * @category 	Community Framework
  */
-class BBCodeListPage extends MultipleLinkPage {
+class BBCodeListPage extends SortablePage {
 	/**
 	 * @see wcf\page\AbstractPage::$templateName
 	 */
@@ -30,14 +30,14 @@ class BBCodeListPage extends MultipleLinkPage {
 	public $objectListClassName = 'wcf\data\bbcode\BBCodeList';
 	
 	/**
-	 * @see	wcf\page\MultipleLinkPage::$sortField
+	 * @see	wcf\page\MultipleLinkPage::$defaultSortField
 	 */
-	public $sortField = 'bbcodeTag';
+	public $defaultSortField = 'bbcodeTag';
 	
 	/**
-	 * @see	wcf\page\MultipleLinkPage::$sortOrder
+	 * @see	wcf\page\MultipleLinkPage::$validSortFields
 	 */
-	public $sortOrder = 'ASC';
+	public $validSortFields = array('bbcodeID', 'bbcodeTag', 'className');
 	
 	/**
 	 * @see wcf\page\IPage::show()

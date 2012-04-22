@@ -15,7 +15,7 @@
 </header>
 
 <div class="contentNavigation">
-	{pages print=true assign=pagesLinks controller="BBCodeVideoProviderList" link="pageNo=%d"}
+	{pages print=true assign=pagesLinks controller="BBCodeVideoProviderList" link="pageNo=%d&sortField=$sortField&sortOrder=$sortOrder"}
 	
 	{if $__wcf->session->getPermission('admin.content.bbcode.videoprovider.canAddVideoProvider')}
 		<nav>
@@ -29,14 +29,14 @@
 {hascontent}
 	<div class="tabularBox tabularBoxTitle marginTop shadow">
 		<hgroup>
-			<h1>{lang}wcf.acp.bbcode.videoprovider.list{/lang} <span class="badge" title="{lang}wcf.acp.bbcode.videoprovider.list.count{/lang}">{#$items}</span></h1>
+			<h1>{lang}wcf.acp.bbcode.videoprovider.list{/lang} <span class="badge badgeInverse" title="{lang}wcf.acp.bbcode.videoprovider.list.count{/lang}">{#$items}</span></h1>
 		</hgroup>
 		
 		<table class="table">
 			<thead>
 				<tr>
-					<th class="columnID columnVideoProviderID" colspan="2">{lang}wcf.global.objectID{/lang}</th>
-					<th class="columnTitle columnVideoProviderTitle">{lang}wcf.acp.bbcode.videoprovider.title{/lang}</th>
+					<th class="columnID columnVideoProviderID{if $sortField == 'providerID'} active{/if}" colspan="2"><a href="{link controller='BBCodeVideoProviderList'}pageNo={@$pageNo}&sortField=providerID&sortOrder={if $sortField == 'providerID' && $sortOrder == 'ASC'}DESC{else}ASC{/if}{/link}">{lang}wcf.global.objectID{/lang}{if $sortField == 'providerID'} <img src="{@$__wcf->getPath()}icon/sort{@$sortOrder}.svg" alt="" />{/if}</a></th>
+					<th class="columnTitle columnVideoProviderTitle{if $sortField == 'title'} active{/if}"><a href="{link controller='BBCodeVideoProviderList'}pageNo={@$pageNo}&sortField=title&sortOrder={if $sortField == 'title' && $sortOrder == 'ASC'}DESC{else}ASC{/if}{/link}">{lang}wcf.acp.bbcode.videoprovider.title{/lang}{if $sortField == 'title'} <img src="{@$__wcf->getPath()}icon/sort{@$sortOrder}.svg" alt="" />{/if}</a></th>
 					
 					{event name='headColumns'}
 				</tr>
