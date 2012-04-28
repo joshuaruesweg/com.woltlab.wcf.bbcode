@@ -3,8 +3,8 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16" xml:space="preserve">
 	
-	<title>Video Provider</title> 
-	<desc>Video Provider Icon</desc> 
+	<title>Media Provider</title> 
+	<desc>Media Provider Icon</desc> 
 	
 	<!--
 		@author		Harald Szekely 
@@ -21,7 +21,7 @@
 		</style>
 	</defs>
 	
-	<g id="VideoProvider">
+	<g id="MediaProvider">
 		<g class="Lower1">
 			<path id="TV2" style="fill-rule: evenodd; clip-rule: evenodd;" d="M12,5H3C1.8999023,5,1,5.8999023,1,7v6
 				c0,1.0996094,0.8999023,2,2,2h9c1.0996094,0,2-0.9003906,2-2V7C14,5.8999023,13.0996094,5,12,5z M5,13.5V6.5004883L10.9228516,10

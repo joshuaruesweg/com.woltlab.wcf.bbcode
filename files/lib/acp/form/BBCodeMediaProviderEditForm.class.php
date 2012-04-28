@@ -1,12 +1,12 @@
 <?php
 namespace wcf\acp\form;
-use wcf\data\bbcode\video\VideoProvider;
-use wcf\data\bbcode\video\VideoProviderAction;
+use wcf\data\bbcode\media\MediaProvider;
+use wcf\data\bbcode\media\MediaProviderAction;
 use wcf\system\exception\IllegalLinkException;
 use wcf\system\WCF;
 
 /**
- * Shows the video-provider edit form.
+ * Shows the media-provider edit form.
  * 
  * @author	Tim Düsterhus
  * @copyright	2011 Tim Düsterhus
@@ -15,28 +15,28 @@ use wcf\system\WCF;
  * @subpackage	acp.form
  * @category 	Community Framework
  */
-class BBCodeVideoProviderEditForm extends BBCodeVideoProviderAddForm {
+class BBCodeMediaProviderEditForm extends BBCodeMediaProviderAddForm {
 	/**
 	 * @see wcf\acp\form\ACPForm::$activeMenuItem
 	 */
-	public $activeMenuItem = 'wcf.acp.menu.link.bbcode.videoprovider.list';
+	public $activeMenuItem = 'wcf.acp.menu.link.bbcode.mediaprovider.list';
 	
 	/**
 	 * @see wcf\page\AbstractPage::$neededPermissions
 	 */
-	public $neededPermissions = array('admin.content.bbcode.videoprovider.canEditVideoProvider');
+	public $neededPermissions = array('admin.content.bbcode.mediaprovider.canEditMediaProvider');
 	
 	/**
-	 * video-provider id
+	 * media-provider id
 	 * @var	integer
 	 */
 	public $providerID = 0;
 	
 	/**
-	 * video-provider object
-	 * @var	wcf\data\bbcode\video\VideoProvider
+	 * media-provider object
+	 * @var	wcf\data\bbcode\media\MediaProvider
 	 */
-	public $videoProviderObj = null;
+	public $mediaProviderObj = null;
 	
 	/**
 	 * @see wcf\page\IPage::readParameters()
@@ -45,8 +45,8 @@ class BBCodeVideoProviderEditForm extends BBCodeVideoProviderAddForm {
 		parent::readParameters();
 		
 		if (isset($_REQUEST['id'])) $this->providerID = intval($_REQUEST['id']);
-		$this->videoProviderObj = new VideoProvider($this->providerID);
-		if (!$this->videoProviderObj->providerID) {
+		$this->mediaProviderObj = new MediaProvider($this->providerID);
+		if (!$this->mediaProviderObj->providerID) {
 			throw new IllegalLinkException();
 		}
 	}
@@ -57,8 +57,8 @@ class BBCodeVideoProviderEditForm extends BBCodeVideoProviderAddForm {
 	public function save() {
 		ACPForm::save();
 		
-		// update video-provider
-		$this->objectAction = new VideoProviderAction(array($this->providerID), 'update', array('data' => array(
+		// update media-provider
+		$this->objectAction = new MediaProviderAction(array($this->providerID), 'update', array('data' => array(
 			'title' => $this->title,
 			'regex' => $this->regex,
 			'html' => $this->html
@@ -80,9 +80,9 @@ class BBCodeVideoProviderEditForm extends BBCodeVideoProviderAddForm {
 		parent::readData();
 		
 		if (!count($_POST)) {
-			$this->title = $this->videoProviderObj->title;
-			$this->regex = $this->videoProviderObj->regex;
-			$this->html = $this->videoProviderObj->html;
+			$this->title = $this->mediaProviderObj->title;
+			$this->regex = $this->mediaProviderObj->regex;
+			$this->html = $this->mediaProviderObj->html;
 		}
 	}
 	

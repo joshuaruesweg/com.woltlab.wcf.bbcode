@@ -9,7 +9,7 @@ use wcf\util\JSON;
 use wcf\util\StringUtil;
 
 /**
- * Validates the regex for BBCodeVideoProviderAddForm
+ * Validates the regex for BBCodeMediaProviderAddForm
  *
  * @author	Tim Düsterhus
  * @copyright	2011 Tim Düsterhus
@@ -18,7 +18,7 @@ use wcf\util\StringUtil;
  * @subpackage	acp.action
  * @category 	Community Framework
  */
-class BBCodeVideoProviderValidateRegexAction extends AbstractAction {
+class BBCodeMediaProviderValidateRegexAction extends AbstractAction {
 	public $regex = '';
 	public $url = '';
 	

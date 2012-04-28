@@ -4,30 +4,30 @@ use wcf\page\SortablePage;
 use wcf\system\menu\acp\ACPMenu;
 
 /**
- * Lists available video-providers
+ * Lists available media-providers
  * 
  * @author	Tim Düsterhus
- * @copyright	2011 Tim Düsterhus
+ * @copyright	2011 - 2012 Tim Düsterhus
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @package	com.woltlab.wcf.bbcode
  * @subpackage	acp.page
  * @category 	Community Framework
  */
-class BBCodeVideoProviderListPage extends SortablePage {
+class BBCodeMediaProviderListPage extends SortablePage {
 	/**
 	 * @see wcf\page\AbstractPage::$templateName
 	 */
-	public $templateName = 'bbcodeVideoProviderList';
+	public $templateName = 'bbcodeMediaProviderList';
 	
 	/**
 	 * @see wcf\page\AbstractPage::$neededPermissions
 	 */
-	public $neededPermissions = array('admin.content.bbcode.videoprovider.canEditVideoProvider', 'admin.content.bbcode.videoprovider.canDeleteVideoProvider');
+	public $neededPermissions = array('admin.content.bbcode.mediaprovider.canEditMediaProvider', 'admin.content.bbcode.mediaprovider.canDeleteMediaProvider');
 	
 	/**
 	 * @see	wcf\page\MultipleLinkPage::$objectListClassName
 	 */
-	public $objectListClassName = 'wcf\data\bbcode\video\VideoProviderList';
+	public $objectListClassName = 'wcf\data\bbcode\media\MediaProviderList';
 	
 	/**
 	 * @see	wcf\page\MultipleLinkPage::$defaultSortField
@@ -44,7 +44,7 @@ class BBCodeVideoProviderListPage extends SortablePage {
 	 */
 	public function show() {
 		// set active menu item.
-		ACPMenu::getInstance()->setActiveMenuItem('wcf.acp.menu.link.bbcode.videoprovider.list');
+		ACPMenu::getInstance()->setActiveMenuItem('wcf.acp.menu.link.bbcode.mediaprovider.list');
 		
 		parent::show();
 	}

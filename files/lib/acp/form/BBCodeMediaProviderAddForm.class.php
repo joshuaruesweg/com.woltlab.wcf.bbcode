@@ -1,6 +1,6 @@
 <?php
 namespace wcf\acp\form;
-use wcf\data\bbcode\video\VideoProviderAction;
+use wcf\data\bbcode\media\MediaProviderAction;
 use wcf\system\exception\SystemException;
 use wcf\system\exception\UserInputException;
 use wcf\system\Regex;
@@ -8,7 +8,7 @@ use wcf\system\WCF;
 use wcf\util\StringUtil;
 
 /**
- * Shows the video-provider add form.
+ * Shows the media-provider add form.
  *
  * @author	Tim Düsterhus
  * @copyright	2011 Tim Düsterhus
@@ -17,21 +17,21 @@ use wcf\util\StringUtil;
  * @subpackage	acp.form
  * @category 	Community Framework
  */
-class BBCodeVideoProviderAddForm extends ACPForm {
+class BBCodeMediaProviderAddForm extends ACPForm {
 	/**
 	 * @see wcf\page\AbstractPage::$templateName
 	 */
-	public $templateName = 'bbcodeVideoProviderAdd';
+	public $templateName = 'bbcodeMediaProviderAdd';
 	
 	/**
 	 * @see wcf\acp\form\ACPForm::$activeMenuItem
 	 */
-	public $activeMenuItem = 'wcf.acp.menu.link.bbcode.videoprovider.add';
+	public $activeMenuItem = 'wcf.acp.menu.link.bbcode.mediaprovider.add';
 	
 	/**
 	 * @see wcf\page\AbstractPage::$neededPermissions
 	 */
-	public $neededPermissions = array('admin.content.bbcode.videoprovider.canAddVideoProvider');
+	public $neededPermissions = array('admin.content.bbcode.mediaprovider.canAddMediaProvider');
 	
 	/**
 	 * title value
@@ -92,8 +92,8 @@ class BBCodeVideoProviderAddForm extends ACPForm {
 	public function save() {
 		parent::save();
 		
-		// save video provider
-		$this->objectAction = new VideoProviderAction(array(), 'create', array('data' => array(
+		// save media provider
+		$this->objectAction = new MediaProviderAction(array(), 'create', array('data' => array(
 			'title' => $this->title,
 			'regex' => $this->regex,
 			'html' => $this->html

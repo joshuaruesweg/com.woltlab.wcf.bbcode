@@ -1,25 +1,25 @@
 <?php
-namespace wcf\data\bbcode\video;
+namespace wcf\data\bbcode\media;
 use wcf\data\DatabaseObject;
 use wcf\system\cache\CacheHandler;
 use wcf\system\Regex;
 use wcf\util\StringUtil;
 
 /**
- * Represents a video provider.
+ * Represents a media provider.
  * 
  * @author	Tim Düsterhus
- * @copyright	2011 Tim Düsterhus
+ * @copyright	2011 - 2012 Tim Düsterhus
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @package	com.woltlab.wcf.bbcode
- * @subpackage	data.bbcode.video
+ * @subpackage	data.bbcode.media
  * @category 	Community Framework
  */
-class VideoProvider extends DatabaseObject {
+class MediaProvider extends DatabaseObject {
 	/**
 	 * @see	wcf\data\DatabaseObject::$databaseTableName
 	 */
-	protected static $databaseTableName = 'bbcode_video_provider';
+	protected static $databaseTableName = 'bbcode_media_provider';
 	
 	/**
 	 * @see	wcf\data\DatabaseObject::$databaseTableIndexName
@@ -29,7 +29,7 @@ class VideoProvider extends DatabaseObject {
 	/**
 	 * Caches providers.
 	 * 
-	 * @var	array<\wcf\data\bbcode\video\VideoProvider>
+	 * @var	array<\wcf\data\bbcode\media\MediaProvider>
 	 */
 	protected static $cache = null;
 	
@@ -39,11 +39,11 @@ class VideoProvider extends DatabaseObject {
 	public static function getCache() {
 		if (self::$cache === null) {
 			CacheHandler::getInstance()->addResource(
-				'videoproviders',
-				WCF_DIR.'cache/cache.videoproviders.php',
-				'wcf\system\cache\builder\BBCodeVideoProviderCacheBuilder'
+				'mediaproviders',
+				WCF_DIR.'cache/cache.mediaproviders.php',
+				'wcf\system\cache\builder\BBCodeMediaProviderCacheBuilder'
 			);
-			self::$cache = CacheHandler::getInstance()->get('videoproviders');
+			self::$cache = CacheHandler::getInstance()->get('mediaproviders');
 		}
 		
 		return self::$cache;

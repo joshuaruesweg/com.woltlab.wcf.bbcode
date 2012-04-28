@@ -2,7 +2,7 @@
 
 <header class="boxHeadline">
 	<hgroup>
-		<h1>{lang}wcf.acp.bbcode.videoprovider.{$action}{/lang}</h1>
+		<h1>{lang}wcf.acp.bbcode.mediaprovider.{$action}{/lang}</h1>
 	</hgroup>
 </header>
 
@@ -17,18 +17,18 @@
 <div class="contentNavigation">
 	<nav>
 		<ul>
-			<li><a href="{link controller='BBCodeVideoProviderList'}{/link}" title="{lang}wcf.acp.menu.link.bbcode.videoprovider.list{/lang}" class="button"><img src="{@$__wcf->getPath()}icon/videoProvider1.svg" alt="" class="icon24" /> <span>{lang}wcf.acp.menu.link.bbcode.videoprovider.list{/lang}</span></a></li>
+			<li><a href="{link controller='BBCodeMediaProviderList'}{/link}" title="{lang}wcf.acp.menu.link.bbcode.mediaprovider.list{/lang}" class="button"><img src="{@$__wcf->getPath()}icon/mediaProvider1.svg" alt="" class="icon24" /> <span>{lang}wcf.acp.menu.link.bbcode.mediaprovider.list{/lang}</span></a></li>
 		</ul>
 	</nav>
 </div>
 
-<form method="post" action="{if $action == 'add'}{link controller='BBCodeVideoProviderAdd'}{/link}{else}{link controller='BBCodeVideoProviderEdit'}{/link}{/if}">
+<form method="post" action="{if $action == 'add'}{link controller='BBCodeMediaProviderAdd'}{/link}{else}{link controller='BBCodeMediaProviderEdit'}{/link}{/if}">
 	<div class="container containerPadding marginTop shadow">
 		<fieldset>
-			<legend>{lang}wcf.acp.bbcode.videoprovider.data{/lang}</legend>
+			<legend>{lang}wcf.acp.bbcode.mediaprovider.data{/lang}</legend>
 			
 			<dl{if $errorField == 'title'} class="formError"{/if}>
-				<dt><label for="title">{lang}wcf.acp.bbcode.videoprovider.title{/lang}</label></dt>
+				<dt><label for="title">{lang}wcf.acp.bbcode.mediaprovider.title{/lang}</label></dt>
 				<dd>
 					<input type="text" id="title" name="title" value="{$title}" required="required" autofocus="autofocus" class="long" />
 					{if $errorField == 'title'}
@@ -42,7 +42,7 @@
 			</dl>
 			
 			<dl{if $errorField == 'regex'} class="formError"{/if}>
-				<dt><label for="regex">{lang}wcf.acp.bbcode.videoprovider.regex{/lang}</label></dt>
+				<dt><label for="regex">{lang}wcf.acp.bbcode.mediaprovider.regex{/lang}</label></dt>
 				<dd>
 					<textarea id="regex" name="regex" cols="40" rows="10" required="required">{$regex}</textarea>
 					{if $errorField == 'regex'}
@@ -50,18 +50,18 @@
 							{if $errorType == 'empty'}
 								{lang}wcf.global.form.error.empty{/lang}
 							{elseif $errorType == 'invalid'}
-								{lang}wcf.acp.bbcode.videoprovider.error.regex.invalid{/lang}
+								{lang}wcf.acp.bbcode.mediaprovider.error.regex.invalid{/lang}
 							{/if}
 						</small>
 					{/if}
-					<small>{lang}wcf.acp.bbcode.videoprovider.regex.description{/lang}</small>
+					<small>{lang}wcf.acp.bbcode.mediaprovider.regex.description{/lang}</small>
 					<input type="url" id="url" class="long" />
 					<pre id="validateResult"></pre>
 					<script type="text/javascript">
 					// <![CDATA[
 						(function ($) {
 							function checkRegex() {
-								$.ajax('{link controller='BBCodeVideoProviderValidateRegex'}{/link}', {
+								$.ajax('{link controller='BBCodeMediaProviderValidateRegex'}{/link}', {
 									dataType: 'json',
 									type: 'POST',
 									data: {
@@ -87,7 +87,7 @@
 			</dl>
 			
 			<dl{if $errorField == 'html'} class="formError"{/if}>
-				<dt><label for="html">{lang}wcf.acp.bbcode.videoprovider.html{/lang}</label></dt>
+				<dt><label for="html">{lang}wcf.acp.bbcode.mediaprovider.html{/lang}</label></dt>
 				<dd>
 					<textarea id="html" name="html" cols="40" rows="10" required="required">{$html}</textarea>
 					{if $errorField == 'html'}
@@ -97,7 +97,7 @@
 							{/if}
 						</small>
 					{/if}
-					<small>{lang}wcf.acp.bbcode.videoprovider.html.description{/lang}</small>
+					<small>{lang}wcf.acp.bbcode.mediaprovider.html.description{/lang}</small>
 				</dd>
 			</dl>
 		</fieldset>

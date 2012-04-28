@@ -1,27 +1,27 @@
 <?php
 namespace wcf\system\bbcode;
-use wcf\data\bbcode\video\VideoProvider;
+use wcf\data\bbcode\media\MediaProvider;
 use wcf\system\WCF;
 use wcf\util\StringUtil;
 
 /**
- * Parses the [video] bbcode tag.
+ * Parses the [media] bbcode tag.
  * 
  * @author	Tim Düsterhus
- * @copyright	2011 Tim Düsterhus
+ * @copyright	2011 - 2012 Tim Düsterhus
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @package	com.woltlab.wcf.bbcode
  * @subpackage	system.bbcode
  * @category 	Community Framework
  */
-class VideoBBCode extends AbstractBBCode {
+class MediaBBCode extends AbstractBBCode {
 	/**
 	 * @see	wcf\system\bbcode\IBBCode::getParsedTag()
 	 */
 	public function getParsedTag(array $openingTag, $content, array $closingTag, BBCodeParser $parser) {
-		if ($parser->getOutputType() == 'text/html') {	
+		if ($parser->getOutputType() == 'text/html') {
 			$content = StringUtil::trim($content);
-			$providers = VideoProvider::getCache();
+			$providers = MediaProvider::getCache();
 			foreach ($providers as $provider) {
 				if ($provider->matches($content)) {
 					return $provider->getOutput($content);
