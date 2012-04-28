@@ -163,8 +163,8 @@
 				</attribute>
 			</attributes>
 		</bbcode>
-		<bbcode name="video">
-			<classname>wcf\system\bbcode\VideoBBCode</classname>
+		<bbcode name="media">
+			<classname>wcf\system\bbcode\MediaBBCode</classname>
 		</bbcode>
 		<bbcode name="spoiler">
 			<classname>wcf\system\bbcode\SpoilerBBCode</classname>
