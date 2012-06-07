@@ -20,7 +20,7 @@
 	{if $__wcf->session->getPermission('admin.content.bbcode.mediaprovider.canAddMediaProvider')}
 		<nav>
 			<ul>
-				<li><a href="{link controller='BBCodeMediaProviderAdd'}{/link}" title="{lang}wcf.acp.bbcode.mediaprovider.add{/lang}" class="button"><img src="{@$__wcf->getPath()}icon/add1.svg" alt="" class="icon24" /> <span>{lang}wcf.acp.bbcode.mediaprovider.add{/lang}</span></a></li>
+				<li><a href="{link controller='BBCodeMediaProviderAdd'}{/link}" title="{lang}wcf.acp.bbcode.mediaprovider.add{/lang}" class="button"><img src="{@$__wcf->getPath()}icon/add.svg" alt="" class="icon24" /> <span>{lang}wcf.acp.bbcode.mediaprovider.add{/lang}</span></a></li>
 			</ul>
 		</nav>
 	{/if}
@@ -48,14 +48,14 @@
 						<tr class="jsMediaProviderRow">
 							<td class="columnIcon">
 								{if $__wcf->session->getPermission('admin.content.bbcode.mediaprovider.canEditMediaProvider')}
-									<a href="{link controller='BBCodeMediaProviderEdit' id=$mediaProvider->providerID}{/link}"><img src="{@$__wcf->getPath()}icon/edit1.svg" alt="" title="{lang}wcf.global.button.edit{/lang}" class="icon16 jsTooltip" /></a>
+									<a href="{link controller='BBCodeMediaProviderEdit' id=$mediaProvider->providerID}{/link}"><img src="{@$__wcf->getPath()}icon/edit.svg" alt="" title="{lang}wcf.global.button.edit{/lang}" class="icon16 jsTooltip" /></a>
 								{else}
-									<img src="{@$__wcf->getPath()}icon/edit1D.svg" alt="" title="{lang}wcf.global.button.edit{/lang}" class="icon16" />
+									<img src="{@$__wcf->getPath()}icon/edit.svg" alt="" title="{lang}wcf.global.button.edit{/lang}" class="icon16 disabled" />
 								{/if}
 								{if $__wcf->session->getPermission('admin.content.bbcode.mediaprovider.canDeleteMediaProvider')}
-									<img src="{@$__wcf->getPath()}icon/delete1.svg" alt="" title="{lang}wcf.global.button.delete{/lang}" class="icon16 jsDeleteButton jsTooltip" data-object-id="{@$mediaProvider->providerID}" data-confirm-message="{lang}wcf.acp.bbcode.mediaprovider.delete.sure{/lang}" />
+									<img src="{@$__wcf->getPath()}icon/delete.svg" alt="" title="{lang}wcf.global.button.delete{/lang}" class="icon16 jsDeleteButton jsTooltip" data-object-id="{@$mediaProvider->providerID}" data-confirm-message="{lang}wcf.acp.bbcode.mediaprovider.delete.sure{/lang}" />
 								{else}
-									<img src="{@$__wcf->getPath()}icon/delete1D.svg" alt="" title="{lang}wcf.global.button.delete{/lang}" class="icon16" />
+									<img src="{@$__wcf->getPath()}icon/delete.svg" alt="" title="{lang}wcf.global.button.delete{/lang}" class="icon16 disabled" />
 								{/if}
 								
 								{event name='buttons'}
@@ -78,7 +78,7 @@
 		{if $__wcf->session->getPermission('admin.content.bbcode.mediaprovider.canAddMediaProvider')}
 			<nav>
 				<ul>
-					<li><a href="{link controller='BBCodeMediaProviderAdd'}{/link}" title="{lang}wcf.acp.bbcode.mediaprovider.add{/lang}" class="button"><img src="{@$__wcf->getPath()}icon/add1.svg" alt="" class="icon24" /> <span>{lang}wcf.acp.bbcode.mediaprovider.add{/lang}</span></a></li>
+					<li><a href="{link controller='BBCodeMediaProviderAdd'}{/link}" title="{lang}wcf.acp.bbcode.mediaprovider.add{/lang}" class="button"><img src="{@$__wcf->getPath()}icon/add.svg" alt="" class="icon24" /> <span>{lang}wcf.acp.bbcode.mediaprovider.add{/lang}</span></a></li>
 				</ul>
 			</nav>
 		{/if}
