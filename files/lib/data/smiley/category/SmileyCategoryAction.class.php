@@ -53,11 +53,11 @@ class SmileyCategoryAction extends AbstractDatabaseObjectAction {
 		$this->smileyCategory->loadSmilies();
 		
 		WCF::getTPL()->assign(array(
-			'smilies' => $this->smileyCategory
+			'smilies' => $this->smileyCategory->getDecoratedObject()
 		));
 		
 		return array(
-			'smilieyCategoryID' => $this->smileyCategory->smileyCategoryID,
+			'smileyCategoryID' => $this->smileyCategory->smileyCategoryID,
 			'template' => WCF::getTPL()->fetch('__messageFormSmilies')
 		);
 	}
