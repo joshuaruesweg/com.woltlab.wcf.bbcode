@@ -22,14 +22,13 @@ class XmlHighlighter extends Highlighter {
 	protected $commentEnd = array("-->");
 	protected $separators = array("<", ">");
 	protected $operators = array();
-	const XML_ATTRIBUTE_NAME = '[a-z0-9](?:(?<!-)[a-z0-9-]?[a-z0-9]+)*';
+	const XML_ATTRIBUTE_NAME = '[a-z0-9](?:(?:(?<!-)-)?[a-z0-9])*';
 	
 	/**
 	 * @see	Highlighter::highlightKeywords()
 	 */
 	protected function highlightKeywords($string) {
 		$string = parent::highlightKeywords($string);
-		
 		// find tags
 		$regex = new Regex('&lt;(?:/|\!|\?)?[a-z0-9]+(?:\s+'.self::XML_ATTRIBUTE_NAME.'(?:=[^\s/\?&]+)?)*(?:\s+/|\?)?&gt;', Regex::CASE_INSENSITIVE);
 		$string = $regex->replace($string, new Callback(function ($matches) {
