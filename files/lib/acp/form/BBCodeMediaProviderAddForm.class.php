@@ -1,7 +1,6 @@
 <?php
 namespace wcf\acp\form;
 use wcf\data\bbcode\media\MediaProviderAction;
-use wcf\system\exception\SystemException;
 use wcf\system\exception\UserInputException;
 use wcf\system\Regex;
 use wcf\system\WCF;

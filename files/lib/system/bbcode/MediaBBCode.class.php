@@ -1,7 +1,6 @@
 <?php
 namespace wcf\system\bbcode;
 use wcf\data\bbcode\media\MediaProvider;
-use wcf\system\WCF;
 use wcf\util\StringUtil;
 
 /**

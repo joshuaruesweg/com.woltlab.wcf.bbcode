@@ -1,6 +1,5 @@
 <?php
 namespace wcf\system\bbcode\highlighter;
-use wcf\util\StringUtil;
 
 /**
  * Highlights syntax of c / c++ source code.
