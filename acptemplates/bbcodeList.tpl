@@ -73,7 +73,7 @@
 								{event name='buttons'}
 							</td>
 							<td class="columnID"><p>{@$bbcode->bbcodeID}</p></td>
-							<td class="columnTitle columnBBCode">{if $__wcf->session->getPermission('admin.content.bbcode.canEditBBCode')}<p><a href="{link controller='BBCodeEdit' id=$bbcode->bbcodeID}{/link}">[{$bbcode->bbcodeTag}]</a>{else}[{$bbcode->bbcodeTag}]</p>{/if}</td>
+							<td class="columnTitle columnBBCode"><p>{if $__wcf->session->getPermission('admin.content.bbcode.canEditBBCode')}<a href="{link controller='BBCodeEdit' id=$bbcode->bbcodeID}{/link}">[{$bbcode->bbcodeTag}]</a>{else}[{$bbcode->bbcodeTag}]{/if}</p></td>
 							<td class="columnText columnClassName"><p>{$bbcode->className}</p></td>
 							
 							{event name='columns'}
