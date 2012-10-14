@@ -1,4 +1,5 @@
-{include file='header'}
+{include file='header' pageTitle='wcf.acp.bbcode.'|concat:$action}
+
 {capture assign='attributeTemplate'}
 	<fieldset>
 		<legend><img src="{@$__wcf->getPath()}icon/delete.svg" alt="" class="icon16 jsDeleteButton" />{lang}wcf.acp.bbcode.attribute{/lang} {ldelim}#$attributeNo}</legend>
