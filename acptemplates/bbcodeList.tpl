@@ -1,4 +1,4 @@
-{include file='header'}
+{include file='header' pageTitle='wcf.acp.bbcode.list'}
 
 <header class="boxHeadline">
 	<hgroup>
