@@ -53,11 +53,13 @@ class HtmlHighlighter extends XmlHighlighter {
 		$openingTag = str_replace("\\\"", "\"", $matches[1]);
 		$closingTag = str_replace("\\\"", "\"", $matches[3]);
 		
+		if (StringUtil::trim($content) == '') return $matches[0];
+		
 		// create hash
 		$hash = '@@'.StringUtil::getHash(uniqid(microtime()).$content).'@@';
 		
 		// save
-		$this->cachedScripts[$hash] = '<span class="wcf-jsHighlighter">'.JsHighlighter::getInstance()->highlight($content).'</span>';
+		$this->cachedScripts[$hash] = '<span class="jsHighlighter">'.JsHighlighter::getInstance()->highlight($content).'</span>';
 		
 		return $openingTag.$hash.$closingTag;
 	}
@@ -71,11 +73,13 @@ class HtmlHighlighter extends XmlHighlighter {
 		$openingTag = str_replace("\\\"", "\"", $matches[1]);
 		$closingTag = str_replace("\\\"", "\"", $matches[3]);
 		
+		if (StringUtil::trim($content) == '') return $matches[0];
+		
 		// create hash
 		$hash = '@@'.StringUtil::getHash(uniqid(microtime()).$content).'@@';
 		
 		// save
-		$this->cachedStyles[$hash] = '<span class="wcf-cssHighlighter">'.CssHighlighter::getInstance()->highlight($content).'</span>';
+		$this->cachedStyles[$hash] = '<span class="cssHighlighter">'.CssHighlighter::getInstance()->highlight($content).'</span>';
 		
 		return $openingTag.$hash.$closingTag;
 	}
