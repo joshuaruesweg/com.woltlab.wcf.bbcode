@@ -1,6 +1,6 @@
 <?php
 namespace wcf\system\bbcode;
-use wcf\util\ArrayUtil;
+use wcf\system\application\ApplicationHandler;
 use wcf\util\StringUtil;
 
 /**
@@ -36,8 +36,7 @@ class URLBBCode extends AbstractBBCode {
 		
 		if ($parser->getOutputType() == 'text/html') {
 			$external = true;
-			if (($newURL = $this->isInternalURL($url)) !== false) {
-				$url = $newURL;
+			if (ApplicationHandler::getInstance()->isInternalURL($url)) {
 				$external = false;
 			}
 			
@@ -52,7 +51,7 @@ class URLBBCode extends AbstractBBCode {
 				$content = StringUtil::trim($content);
 			}
 			
-			return '<a href="'.$url.'"'.($external ? ' class="wcf-externalURL"' : '').'>'.$content.'</a>';
+			return '<a href="'.$url.'"'.($external ? ' class="externalURL"' : '').'>'.$content.'</a>';
 		}
 		else if ($parser->getOutputType() == 'text/plain') {
 			if ($noTitle) {
@@ -61,40 +60,6 @@ class URLBBCode extends AbstractBBCode {
 			
 			return $content.': '.$url;
 		}
-	}
-	
-	/**
-	 * Checks whether a URL is an internal URL.
-	 * 
-	 * @param	string		$url
-	 * @return	mixed	
-	 */
-	protected function isInternalURL($url) {
-		if ($this->pageURLs == null) {
-			$this->pageURLs = $this->getPageURLs();
-		}
-		
-		foreach ($this->pageURLs as $pageURL) {
-			if (stripos($url, $pageURL) === 0) {
-				return str_ireplace($pageURL.'/', '', $url);
-			}
-		}
-		
-		return false;
-	}
-	
-	/**
-	 * Gets the page URLs.
-	 * 
-	 * @return	array
-	 */
-	protected function getPageURLs() {
-		$urlString = '';
-		if (defined('PAGE_URL')) $urlString .= PAGE_URL;
-		if (defined('PAGE_URLS')) $urlString .= "\n".PAGE_URLS;
-		
-		$urlString = StringUtil::unifyNewlines($urlString);
-		return ArrayUtil::trim(explode("\n", $urlString));
 	}
 }
 ?>

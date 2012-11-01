@@ -189,7 +189,14 @@ class MessageParser extends BBCodeParser {
 	protected function insertCachedCodes($text) {
 		foreach ($this->cachedCodes as $hash => $tag) {
 			// build code and insert
-			$text = str_replace($hash, $this->bbcodes[$tag['name']]->getProcessor()->getParsedTag($tag, $tag['content'], $tag, $this), $text);
+			if ($this->bbcodes[$tag['name']]->className) {
+				$replacement = $this->bbcodes[$tag['name']]->getProcessor()->getParsedTag($tag, $tag['content'], $tag, $this);
+			}
+			else {
+				$replacement = $this->buildOpeningTag($tag) . $tag['content'] . $this->buildClosingTag($tag);
+			}
+			
+			$text = str_replace($hash, $replacement, $text);
 		}
 		
 		return $text;

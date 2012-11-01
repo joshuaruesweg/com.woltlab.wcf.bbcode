@@ -1,9 +1,9 @@
 <?php
 namespace wcf\system\bbcode;
 use wcf\data\smiley\SmileyCache;
+use wcf\system\application\ApplicationHandler;
 use wcf\system\event\EventHandler;
 use wcf\system\SingletonFactory;
-use wcf\util\ArrayUtil;
 use wcf\util\StringUtil;
 
 /**
@@ -22,12 +22,6 @@ class SimpleMessageParser extends SingletonFactory {
 	 * @var	string
 	 */
 	protected static $illegalChars = '[^\x0-\x2C\x2E\x2F\x3A-\x40\x5B-\x60\x7B-\x7F]+';
-	
-	/**
-	 * page urls
-	 * @var	array<string>
-	 */
-	protected $pageURLs = null;
 	
 	/**
 	 * list of smilies
@@ -53,14 +47,6 @@ class SimpleMessageParser extends SingletonFactory {
 			}
 			krsort($this->smilies);
 		}
-		
-		// get page urls
-		$urlString = '';
-		if (defined('PAGE_URL')) $urlString .= PAGE_URL;
-		if (defined('PAGE_URLS')) $urlString .= "\n".PAGE_URLS;
-		
-		$urlString = StringUtil::unifyNewlines($urlString);
-		$this->pageURLs = ArrayUtil::trim(explode("\n", $urlString));
 	}
 	
 	/**
@@ -162,12 +148,11 @@ class SimpleMessageParser extends SingletonFactory {
 		if (!preg_match("~[a-z]://~si", $url)) $url = 'http://'.$url;
 		
 		$external = true;
-		if (($newURL = $this->isInternalURL($url)) !== false) {
-			$url = $newURL;
+		if (ApplicationHandler::getInstance()->isInternalURL($url)) {
 			$external = false;
 		}
 		
-		return '<a href="'.$url.'"'.($external ? ' class="wcf-externalURL"' : '').'>'.$title.'</a>';
+		return '<a href="'.$url.'"'.($external ? ' class="externalURL"' : '').'>'.$title.'</a>';
 	}
 	
 	/**
@@ -183,21 +168,5 @@ class SimpleMessageParser extends SingletonFactory {
 		}
 		
 		return $text;
-	}
-	
-	/**
-	 * Checks whether a URL is an internal URL.
-	 * 
-	 * @param	string		$url
-	 * @return	mixed	
-	 */
-	protected function isInternalURL($url) {
-		foreach ($this->pageURLs as $pageURL) {
-			if (stripos($url, $pageURL) === 0) {
-				return str_ireplace($pageURL.'/', '', $url);
-			}
-		}
-		
-		return false;
 	}
 }
