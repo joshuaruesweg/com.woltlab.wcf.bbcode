@@ -163,6 +163,10 @@
 				</attribute>
 			</attributes>
 		</bbcode>
+		<bbcode name="table">
+			<classname>wcf\system\bbcode\TableBBCode</classname>
+			<allowedchildren>all^table</allowedchildren>
+		</bbcode>
 		<bbcode name="media">
 			<classname>wcf\system\bbcode\MediaBBCode</classname>
 		</bbcode>
