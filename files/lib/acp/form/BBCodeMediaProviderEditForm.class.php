@@ -79,7 +79,7 @@ class BBCodeMediaProviderEditForm extends BBCodeMediaProviderAddForm {
 	public function readData() {
 		parent::readData();
 		
-		if (!count($_POST)) {
+		if (empty($_POST)) {
 			$this->title = $this->mediaProviderObj->title;
 			$this->regex = $this->mediaProviderObj->regex;
 			$this->html = $this->mediaProviderObj->html;

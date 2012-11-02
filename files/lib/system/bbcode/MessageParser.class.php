@@ -52,7 +52,7 @@ class MessageParser extends BBCodeParser {
 			foreach ($this->bbcodes as $bbcode) {
 				if ($bbcode->isSourceCode) $sourceCodeTags[] = $bbcode->bbcodeTag;
 			}
-			if (count($sourceCodeTags)) $this->sourceCodeRegEx = implode('|', $sourceCodeTags);
+			if (!empty($sourceCodeTags)) $this->sourceCodeRegEx = implode('|', $sourceCodeTags);
 			
 			// get smilies
 			$smilies = SmileyCache::getInstance()->getSmilies();
@@ -110,7 +110,7 @@ class MessageParser extends BBCodeParser {
 				$this->message = $this->parseSmilies($this->message, $enableHtml);
 			}
 			
-			if ($enableBBCodes && count($this->cachedCodes) > 0) {
+			if ($enableBBCodes && !empty($this->cachedCodes)) {
 				// insert cached codes
 				$this->message = $this->insertCachedCodes($this->message);
 			}

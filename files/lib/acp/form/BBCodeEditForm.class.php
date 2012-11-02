@@ -105,7 +105,7 @@ class BBCodeEditForm extends BBCodeAddForm {
 	public function readData() {
 		parent::readData();
 		
-		if (!count($_POST)) {
+		if (empty($_POST)) {
 			$this->attributes = BBCodeAttribute::getAttributesByBBCode($this->bbcodeObj);
 			$this->bbcodeTag = $this->bbcodeObj->bbcodeTag;
 			$this->htmlOpen = $this->bbcodeObj->htmlOpen;

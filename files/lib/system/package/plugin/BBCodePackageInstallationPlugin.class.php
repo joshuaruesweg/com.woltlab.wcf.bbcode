@@ -136,13 +136,13 @@ class BBCodePackageInstallationPlugin extends AbstractXMLPackageInstallationPlug
 		$sql = "DELETE FROM	wcf".WCF_N."_bbcode_attribute
 			WHERE		bbcodeID IN (
 						SELECT 	bbcodeID
-						FROM	wcf".WCF_N."_bbcode			
+						FROM	wcf".WCF_N."_bbcode
 						WHERE	packageID = ?
 					)";
 		$statement = WCF::getDB()->prepareStatement($sql);
 		$statement->execute(array($this->installation->getPackageID()));
 		
-		if (count($this->attributes)) {
+		if (!empty($this->attributes)) {
 			foreach ($this->attributes as $bbcodeID => $bbcodeAttributes) {
 				foreach ($bbcodeAttributes as $attributeNo => $attribute) {
 					BBCodeAttributeEditor::create(array(

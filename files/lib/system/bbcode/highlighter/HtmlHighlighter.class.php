@@ -98,17 +98,17 @@ class HtmlHighlighter extends XmlHighlighter {
 	}
 	
 	protected function highlightScripts($string) {
-		if (count($this->cachedScripts)) {
+		if (!empty($this->cachedScripts)) {
 			foreach ($this->cachedScripts as $hash => $html) {
 				$string = str_replace($hash, $html, $string);
 			}
 		}
-	
+		
 		return $string;
 	}
 	
 	protected function highlightStyles($string) {
-		if (count($this->cachedStyles)) {
+		if (!empty($this->cachedStyles)) {
 			foreach ($this->cachedStyles as $hash => $html) {
 				$string = str_replace($hash, $html, $string);
 			}

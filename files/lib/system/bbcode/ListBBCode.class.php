@@ -29,7 +29,7 @@ class ListBBCode extends AbstractBBCode {
 				}
 			}
 			
-			if (count($listElements) > 0) {
+			if (!empty($listElements)) {
 				// get list style type
 				$listType = 'disc';
 				if (isset($openingTag['attributes'][0])) $listType = $openingTag['attributes'][0];
