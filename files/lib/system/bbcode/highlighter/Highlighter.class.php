@@ -161,7 +161,7 @@ abstract class Highlighter extends SingletonFactory {
 	 * Highlights operators.
 	 */
 	protected function highlightOperators($string) {
-		if (count($this->operators)) {
+		if (!empty($this->operators)) {
 			$string = preg_replace('!('.StringUtil::encodeHTML(implode('|', array_map('preg_quote', $this->operators))).')!i', '<span class="hlOperators">\\0</span>', $string);
 		}
 		
@@ -177,19 +177,19 @@ abstract class Highlighter extends SingletonFactory {
 			return '!(?<='.$_this->separatorsRegEx.')('.StringUtil::encodeHTML(implode('|', array_map('preg_quote', $keywords))).')(?='.$_this->separatorsRegEx.')!i';
 		};
 		
-		if (count($this->keywords1)) {
+		if (!empty($this->keywords1)) {
 			$string = preg_replace($buildKeywordRegex($this->keywords1), '<span class="hlKeywords1">\\0</span>', $string);
 		}
-		if (count($this->keywords2)) {
+		if (!empty($this->keywords2)) {
 			$string = preg_replace($buildKeywordRegex($this->keywords2), '<span class="hlKeywords2">\\0</span>', $string);
 		}
-		if (count($this->keywords3)) {
+		if (!empty($this->keywords3)) {
 			$string = preg_replace($buildKeywordRegex($this->keywords3), '<span class="hlKeywords3">\\0</span>', $string);
 		}
-		if (count($this->keywords4)) {
+		if (!empty($this->keywords4)) {
 			$string = preg_replace($buildKeywordRegex($this->keywords4), '<span class="hlKeywords4">\\0</span>', $string);
 		}
-		if (count($this->keywords5)) {
+		if (!empty($this->keywords5)) {
 			$string = preg_replace($buildKeywordRegex($this->keywords5), '<span class="hlKeywords5">\\0</span>', $string);
 		}
 		
@@ -209,7 +209,7 @@ abstract class Highlighter extends SingletonFactory {
 	 * Highlights quotes.
 	 */
 	protected function highlightQuotes($string) {
-		if (count($this->cachedQuotes)) {
+		if (!empty($this->cachedQuotes)) {
 			foreach ($this->cachedQuotes as $hash => $html) {
 				$string = str_replace($hash, $html, $string);
 			}
@@ -222,7 +222,7 @@ abstract class Highlighter extends SingletonFactory {
 	 * Highlights comments.
 	 */
 	protected function highlightComments($string) {
-		if (count($this->cachedComments)) {
+		if (!empty($this->cachedComments)) {
 			foreach ($this->cachedComments as $hash => $html) {
 				$string = str_replace($hash, $html, $string);
 			}

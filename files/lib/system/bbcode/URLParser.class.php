@@ -48,7 +48,7 @@ class URLParser extends SingletonFactory {
 		foreach (BBCodeCache::getInstance()->getBBCodes() as $bbcode) {
 			if ($bbcode->isSourceCode) $sourceCodeTags[] = $bbcode->bbcodeTag;
 		}
-		if (count($sourceCodeTags)) $this->sourceCodeRegEx = implode('|', $sourceCodeTags);
+		if (!empty($sourceCodeTags)) $this->sourceCodeRegEx = implode('|', $sourceCodeTags);
 	}
 	
 	/**
@@ -100,11 +100,11 @@ class URLParser extends SingletonFactory {
 		if (StringUtil::indexOf($this->text, '@') !== false) {
 			$this->text = preg_replace($emailPattern, '[email]\\0[/email]', $this->text);
 		}
-	
+		
 		// call event
 		EventHandler::getInstance()->fireAction($this, 'afterParsing');
 		
-		if (count($this->cachedCodes) > 0) {
+		if (!empty($this->cachedCodes)) {
 			// insert cached codes
 			$this->insertCachedCodes();
 		}

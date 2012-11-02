@@ -82,7 +82,7 @@ class KeywordHighlighter extends SingletonFactory {
 			}
 		}
 		
-		if (count($this->keywords) > 0) {
+		if (!empty($this->keywords)) {
 			$this->keywords = array_unique($this->keywords);
 			$this->keywords = array_map('preg_quote', $this->keywords);
 		}
@@ -118,7 +118,7 @@ class KeywordHighlighter extends SingletonFactory {
 			$keywordString = str_replace(array('.', ','), ' ', $keywordString);
 			
 			$keywords = ArrayUtil::encodeHTML(ArrayUtil::trim(explode(' ', $keywordString)));
-			if (count($keywords) > 0) {
+			if (!empty($keywords)) {
 				$this->keywords = array_merge($this->keywords, $keywords);
 			}
 		}
@@ -131,7 +131,7 @@ class KeywordHighlighter extends SingletonFactory {
 	 * @return	string		highlighted text
 	 */
 	public function doHighlight($text) {
-		if (count($this->keywords) == 0) return $text;
+		if (empty($this->keywords)) return $text;
 		
 		$keywordPattern = '('.implode('|', $this->keywords).')';
 		$keywordPattern = StringUtil::replace('\*', '\w*', $keywordPattern);
