@@ -14,21 +14,21 @@ use wcf\util\StringUtil;
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @package	com.woltlab.wcf.bbcode
  * @subpackage	acp.form
- * @category 	Community Framework
+ * @category	Community Framework
  */
 class BBCodeMediaProviderAddForm extends ACPForm {
 	/**
-	 * @see wcf\page\AbstractPage::$templateName
+	 * @see	wcf\page\AbstractPage::$templateName
 	 */
 	public $templateName = 'bbcodeMediaProviderAdd';
 	
 	/**
-	 * @see wcf\acp\form\ACPForm::$activeMenuItem
+	 * @see	wcf\acp\form\ACPForm::$activeMenuItem
 	 */
 	public $activeMenuItem = 'wcf.acp.menu.link.bbcode.mediaprovider.add';
 	
 	/**
-	 * @see wcf\page\AbstractPage::$neededPermissions
+	 * @see	wcf\page\AbstractPage::$neededPermissions
 	 */
 	public $neededPermissions = array('admin.content.bbcode.mediaprovider.canAddMediaProvider');
 	
@@ -51,7 +51,7 @@ class BBCodeMediaProviderAddForm extends ACPForm {
 	public $html = '';
 	
 	/**
-	 * @see wcf\form\IForm::readFormParameters()
+	 * @see	wcf\form\IForm::readFormParameters()
 	 */
 	public function readFormParameters() {
 		parent::readFormParameters();
@@ -62,7 +62,7 @@ class BBCodeMediaProviderAddForm extends ACPForm {
 	}
 	
 	/**
-	 * @see wcf\form\IForm::validate()
+	 * @see	wcf\form\IForm::validate()
 	 */
 	public function validate() {
 		parent::validate();
@@ -86,7 +86,7 @@ class BBCodeMediaProviderAddForm extends ACPForm {
 	}
 	
 	/**
-	 * @see wcf\form\IForm::save()
+	 * @see	wcf\form\IForm::save()
 	 */
 	public function save() {
 		parent::save();
@@ -110,7 +110,7 @@ class BBCodeMediaProviderAddForm extends ACPForm {
 	}
 	
 	/**
-	 * @see wcf\page\IPage::assignVariables()
+	 * @see	wcf\page\IPage::assignVariables()
 	 */
 	public function assignVariables() {
 		parent::assignVariables();

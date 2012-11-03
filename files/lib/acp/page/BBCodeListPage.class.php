@@ -11,16 +11,16 @@ use wcf\system\menu\acp\ACPMenu;
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @package	com.woltlab.wcf.bbcode
  * @subpackage	acp.page
- * @category 	Community Framework
+ * @category	Community Framework
  */
 class BBCodeListPage extends SortablePage {
 	/**
-	 * @see wcf\page\AbstractPage::$templateName
+	 * @see	wcf\page\AbstractPage::$templateName
 	 */
 	public $templateName = 'bbcodeList';
 	
 	/**
-	 * @see wcf\page\AbstractPage::$neededPermissions
+	 * @see	wcf\page\AbstractPage::$neededPermissions
 	 */
 	public $neededPermissions = array('admin.content.bbcode.canEditBBCode', 'admin.content.bbcode.canDeleteBBCode');
 	
@@ -40,7 +40,7 @@ class BBCodeListPage extends SortablePage {
 	public $validSortFields = array('bbcodeID', 'bbcodeTag', 'className');
 	
 	/**
-	 * @see wcf\page\IPage::show()
+	 * @see	wcf\page\IPage::show()
 	 */
 	public function show() {
 		// set active menu item.

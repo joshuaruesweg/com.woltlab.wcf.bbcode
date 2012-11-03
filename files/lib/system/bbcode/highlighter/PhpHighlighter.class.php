@@ -11,7 +11,7 @@ use \wcf\util\StringUtil;
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @package	com.woltlab.wcf.bbcode
  * @subpackage	system.bbcode.highlighter
- * @category 	Community Framework
+ * @category	Community Framework
  */
 class PhpHighlighter extends Highlighter {
 	public static $colorToClass = array();
@@ -28,7 +28,7 @@ class PhpHighlighter extends Highlighter {
 	}
 	
 	/**
-	 * @see wcf\system\bbcode\Highlighter::highlight()
+	 * @see	wcf\system\bbcode\Highlighter::highlight()
 	 */
 	public function highlight($code) {
 		// add starting php tag

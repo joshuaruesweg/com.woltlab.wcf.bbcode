@@ -10,7 +10,7 @@ use wcf\data\AbstractDatabaseObjectAction;
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @package	com.woltlab.wcf.bbcode
  * @subpackage	data.bbcode.media
- * @category 	Community Framework
+ * @category	Community Framework
  */
 class MediaProviderAction extends AbstractDatabaseObjectAction {
 	/**

@@ -12,7 +12,7 @@ use \wcf\util\StringUtil;
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @package	com.woltlab.wcf.bbcode
  * @subpackage	system.bbcode.highlighter
- * @category 	Community Framework
+ * @category	Community Framework
  */
 class HtmlHighlighter extends XmlHighlighter {
 	// cache
@@ -20,7 +20,7 @@ class HtmlHighlighter extends XmlHighlighter {
 	protected $cachedStyles = array();
 	
 	/**
-	 * @see Highlighter::cacheComments()
+	 * @see	Highlighter::cacheComments()
 	 */
 	protected function cacheComments($string) {
 		$this->cachedScripts = $this->cachedStyles = array();
@@ -85,7 +85,7 @@ class HtmlHighlighter extends XmlHighlighter {
 	}
 	
 	/**
-	 * @see Highlighter::highlightComments()
+	 * @see	Highlighter::highlightComments()
 	 */
 	protected function highlightComments($string) {
 		$string = parent::highlightComments($string);

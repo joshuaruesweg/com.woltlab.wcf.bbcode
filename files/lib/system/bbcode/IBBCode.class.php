@@ -10,7 +10,7 @@ use wcf\data\IDatabaseObjectProcessor;
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @package	com.woltlab.wcf..bbcode
  * @subpackage	system.bbcode
- * @category 	Community Framework
+ * @category	Community Framework
  */
 interface IBBCode extends IDatabaseObjectProcessor {
 	/**

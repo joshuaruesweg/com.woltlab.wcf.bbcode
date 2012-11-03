@@ -13,7 +13,7 @@ use wcf\util\StringUtil;
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @package	com.woltlab.wcf.bbcode
  * @subpackage	data.bbcode.media
- * @category 	Community Framework
+ * @category	Community Framework
  */
 class MediaProvider extends DatabaseObject {
 	/**

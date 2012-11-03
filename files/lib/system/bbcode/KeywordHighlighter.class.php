@@ -7,23 +7,23 @@ use wcf\util\StringUtil;
 /**
  * Highlights keywords in text messages.
  * 
- * @author 	Marcel Werk
+ * @author	Marcel Werk
  * @copyright	2001-2012 WoltLab GmbH
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @package	com.woltlab.wcf.bbcode
  * @subpackage	system.bbcode
- * @category 	Community Framework
+ * @category	Community Framework
  */
 class KeywordHighlighter extends SingletonFactory {
 	/**
 	 * search keywords
-	 * @var array<string>
+	 * @var	array<string>
 	 */
 	protected $keywords = array();
 	
 	/**
 	 * search query parameters
-	 * @var array<string>
+	 * @var	array<string>
 	 */
 	protected static $searchQueryKeys = array(
 		'q', 		// google, msn, altavista
@@ -58,7 +58,7 @@ class KeywordHighlighter extends SingletonFactory {
 	);
 	
 	/**
-	 * @see wcf\system\SingletonFactory::init()
+	 * @see	wcf\system\SingletonFactory::init()
 	 */
 	protected function init() {
 		// take keywords from request

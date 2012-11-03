@@ -11,7 +11,7 @@ use wcf\data\bbcode\BBCode;
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @package	com.woltlab.wcf.bbcode
  * @subpackage	data.bbcode.attribute
- * @category 	Community Framework
+ * @category	Community Framework
  */
 class BBCodeAttribute extends DatabaseObject {
 	/**
