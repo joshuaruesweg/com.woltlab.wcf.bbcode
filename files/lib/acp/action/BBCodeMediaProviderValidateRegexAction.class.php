@@ -16,14 +16,14 @@ use wcf\util\StringUtil;
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @package	com.woltlab.wcf.bbcode
  * @subpackage	acp.action
- * @category 	Community Framework
+ * @category	Community Framework
  */
 class BBCodeMediaProviderValidateRegexAction extends AbstractAction {
 	public $regex = '';
 	public $url = '';
 	
 	/**
-	 * @see wcf\action\IAction::readParameters()
+	 * @see	wcf\action\IAction::readParameters()
 	 */
 	public function readParameters() {
 		parent::readParameters();
@@ -33,7 +33,7 @@ class BBCodeMediaProviderValidateRegexAction extends AbstractAction {
 	}
 	
 	/**
-	 * @see wcf\action\IAction::execute()
+	 * @see	wcf\action\IAction::execute()
 	 */
 	public function execute() {
 		parent::execute();

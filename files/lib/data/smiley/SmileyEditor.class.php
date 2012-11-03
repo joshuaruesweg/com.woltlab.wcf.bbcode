@@ -12,7 +12,7 @@ use wcf\system\cache\CacheHandler;
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @package	com.woltlab.wcf.bbcode
  * @subpackage	data.smiley
- * @category 	Community Framework
+ * @category	Community Framework
  */
 class SmileyEditor extends DatabaseObjectEditor implements IEditableCachedObject {
 	/**

@@ -14,7 +14,7 @@ use \wcf\util\StringUtil;
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @package	com.woltlab.wcf.bbcode
  * @subpackage	system.bbcode.highlighter
- * @category 	Community Framework
+ * @category	Community Framework
  */
 abstract class Highlighter extends SingletonFactory {
 	// highlighter syntax

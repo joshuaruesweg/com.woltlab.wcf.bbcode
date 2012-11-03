@@ -13,16 +13,16 @@ use wcf\system\WCF;
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @package	com.woltlab.wcf.bbcode
  * @subpackage	acp.form
- * @category 	Community Framework
+ * @category	Community Framework
  */
 class BBCodeMediaProviderEditForm extends BBCodeMediaProviderAddForm {
 	/**
-	 * @see wcf\acp\form\ACPForm::$activeMenuItem
+	 * @see	wcf\acp\form\ACPForm::$activeMenuItem
 	 */
 	public $activeMenuItem = 'wcf.acp.menu.link.bbcode.mediaprovider.list';
 	
 	/**
-	 * @see wcf\page\AbstractPage::$neededPermissions
+	 * @see	wcf\page\AbstractPage::$neededPermissions
 	 */
 	public $neededPermissions = array('admin.content.bbcode.mediaprovider.canEditMediaProvider');
 	
@@ -39,7 +39,7 @@ class BBCodeMediaProviderEditForm extends BBCodeMediaProviderAddForm {
 	public $mediaProviderObj = null;
 	
 	/**
-	 * @see wcf\page\IPage::readParameters()
+	 * @see	wcf\page\IPage::readParameters()
 	 */
 	public function readParameters() {
 		parent::readParameters();
@@ -52,7 +52,7 @@ class BBCodeMediaProviderEditForm extends BBCodeMediaProviderAddForm {
 	}
 	
 	/**
-	 * @see wcf\form\IForm::save()
+	 * @see	wcf\form\IForm::save()
 	 */
 	public function save() {
 		ACPForm::save();
@@ -74,7 +74,7 @@ class BBCodeMediaProviderEditForm extends BBCodeMediaProviderAddForm {
 	}
 	
 	/**
-	 * @see wcf\page\IPage::readData()
+	 * @see	wcf\page\IPage::readData()
 	 */
 	public function readData() {
 		parent::readData();
@@ -87,7 +87,7 @@ class BBCodeMediaProviderEditForm extends BBCodeMediaProviderAddForm {
 	}
 	
 	/**
-	 * @see wcf\page\IPage::assignVariables()
+	 * @see	wcf\page\IPage::assignVariables()
 	 */
 	public function assignVariables() {
 		parent::assignVariables();

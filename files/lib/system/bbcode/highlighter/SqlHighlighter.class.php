@@ -10,7 +10,7 @@ use wcf\util\StringUtil;
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @package	com.woltlab.wcf.bbcode
  * @subpackage	system.bbcode.highlighter
- * @category 	Community Framework
+ * @category	Community Framework
  */
 class SqlHighlighter extends Highlighter {
 	// highlighter syntax
@@ -21,7 +21,7 @@ class SqlHighlighter extends Highlighter {
 	protected $operators = array('<>', '~=', '!=', '^=', '=', '<', '<=', '>', '>=', '*', '/', '+', '-', '||', '@', '%', '&', '?', '\$');
 	
 	/**
-	 * @see wcf\system\bbcode\highlighter\Highlighter::cacheQuote()
+	 * @see	wcf\system\bbcode\highlighter\Highlighter::cacheQuote()
 	 */
 	protected function cacheQuote($quote) {
 		// strip slashes

@@ -10,7 +10,7 @@ use \wcf\util\StringUtil;
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @package	com.woltlab.wcf.bbcode
  * @subpackage	system.bbcode.highlighter
- * @category 	Community Framework
+ * @category	Community Framework
  */
 class DiffHighlighter extends Highlighter {
 	// keywords for an added line, the + is used in unified diff, the > in normal diff
@@ -23,7 +23,7 @@ class DiffHighlighter extends Highlighter {
 	protected $info = array("@", '0', '1', '2', '3', '4', '5', '6', '7', '8', '9');
 
 	/**
-	 * @see \wcf\system\bbcode\highlighter\Highlighter::highlight()
+	 * @see	\wcf\system\bbcode\highlighter\Highlighter::highlight()
 	 */
 	public function highlight($data) {
 		$lines = explode("\n", $data);

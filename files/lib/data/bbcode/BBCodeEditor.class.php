@@ -12,7 +12,7 @@ use wcf\system\cache\CacheHandler;
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @package	com.woltlab.wcf.bbcode
  * @subpackage	data.bbcode
- * @category 	Community Framework
+ * @category	Community Framework
  */
 class BBCodeEditor extends DatabaseObjectEditor implements IEditableCachedObject {
 	/**

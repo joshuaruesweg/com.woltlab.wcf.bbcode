@@ -13,7 +13,7 @@ use wcf\system\exception\SystemException;
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @package	com.woltlab.wcf.bbcode
  * @subpackage	data.smiley.category
- * @category 	Community Framework
+ * @category	Community Framework
  */
 class SmileyCategory extends DatabaseObject implements \Countable, ITraversableObject {
 	/**
