@@ -1,6 +1,7 @@
 <?php
 namespace wcf\data\smiley;
 use wcf\data\DatabaseObject;
+use wcf\system\WCF;
 
 /**
  * Represents a smiley.
@@ -29,6 +30,6 @@ class Smiley extends DatabaseObject {
 	 * @return	string
 	 */
 	public function getURL() {
-		return RELATIVE_WCF_DIR.$this->smileyPath;
+		return WCF::getPath().$this->smileyPath;
 	}
 }
