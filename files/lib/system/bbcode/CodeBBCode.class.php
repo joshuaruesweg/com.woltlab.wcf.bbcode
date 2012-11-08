@@ -115,7 +115,7 @@ class CodeBBCode extends AbstractBBCode {
 				'highlighter' => $className::getInstance(),
 				'filename' => $this->filename
 			));
-			return WCF::getTPL()->fetch('codeBBCodeTag', array(), false);
+			return WCF::getTPL()->fetch('codeBBCodeTag');
 		}
 		else if ($parser->getOutputType() == 'text/plain') {
 			return WCF::getLanguage()->getDynamicVariable('wcf.bbcode.code.text', array('content' => $content));
