@@ -24,7 +24,7 @@ class SpoilerBBCode extends AbstractBBCode {
 				'buttonTitle' => (!empty($openingTag['attributes'][0]) ? $openingTag['attributes'][0] : ''),
 				'spoilerID' => 'spoiler_'.StringUtil::getRandomID()
 			));
-			return WCF::getTPL()->fetch('spoilerBBCodeTag', array(), false);
+			return WCF::getTPL()->fetch('spoilerBBCodeTag');
 		}
 		else if ($parser->getOutputType() == 'text/plain') {
 			return $content;
