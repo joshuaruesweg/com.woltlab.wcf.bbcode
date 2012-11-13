@@ -51,7 +51,7 @@ class URLBBCode extends AbstractBBCode {
 				$content = StringUtil::trim($content);
 			}
 			
-			return '<a href="'.$url.'"'.($external ? ' class="externalURL"' : '').'>'.$content.'</a>';
+			return '<a href="'.$url.'"'.($external ? (' class="externalURL"'.(EXTERNAL_LINK_REL_NOFOLLOW ? ' rel="nofollow"' : '')) : '').'>'.$content.'</a>';
 		}
 		else if ($parser->getOutputType() == 'text/plain') {
 			if ($noTitle) {

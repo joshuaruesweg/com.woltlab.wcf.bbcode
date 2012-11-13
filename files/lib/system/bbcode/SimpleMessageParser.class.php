@@ -152,7 +152,7 @@ class SimpleMessageParser extends SingletonFactory {
 			$external = false;
 		}
 		
-		return '<a href="'.$url.'"'.($external ? ' class="externalURL"' : '').'>'.$title.'</a>';
+		return '<a href="'.$url.'"'.($external ? (' class="externalURL"'.(EXTERNAL_LINK_REL_NOFOLLOW ? ' rel="nofollow"' : '')) : '').'>'.$title.'</a>';
 	}
 	
 	/**
