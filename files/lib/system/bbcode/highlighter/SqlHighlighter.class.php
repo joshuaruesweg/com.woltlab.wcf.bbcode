@@ -23,15 +23,12 @@ class SqlHighlighter extends Highlighter {
 	/**
 	 * @see	wcf\system\bbcode\highlighter\Highlighter::cacheQuote()
 	 */
-	protected function cacheQuote($quote) {
-		// strip slashes
-		$quote = str_replace("\\\"", "\"", $quote);
-		
+	public function cacheQuote(array $matches) {
 		// create hash
-		$hash = '!!!'.StringUtil::getHash(uniqid(microtime()).$quote).'!!!'; // the at-sign has a special meaning
+		$hash = '!!!'.StringUtil::getHash(uniqid(microtime()).$matches[0]).'!!!'; // the at-sign has a special meaning
 		
 		// save
-		$this->cachedQuotes[$hash] = '<span class="hlQuotes">'.StringUtil::encodeHTML($quote).'</span>';
+		$this->cachedQuotes[$hash] = '<span class="hlQuotes">'.StringUtil::encodeHTML($matches[0]).'</span>';
 		
 		return $hash;
 	}

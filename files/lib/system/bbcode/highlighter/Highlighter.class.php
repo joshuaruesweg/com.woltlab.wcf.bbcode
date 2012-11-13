@@ -259,14 +259,11 @@ abstract class Highlighter extends SingletonFactory {
 	 * Caches a quote.
 	 */
 	public function cacheQuote(array $matches) {
-		// strip slashes
-		$quote = str_replace("\\\"", "\"", $matches[0]);
-		
 		// create hash
-		$hash = '@@'.StringUtil::getHash(uniqid(microtime()).$quote).'@@';
+		$hash = '@@'.StringUtil::getHash(uniqid(microtime()).$matches[0]).'@@';
 		
 		// save
-		$this->cachedQuotes[$hash] = '<span class="hlQuotes">'.StringUtil::encodeHTML($quote).'</span>';
+		$this->cachedQuotes[$hash] = '<span class="hlQuotes">'.StringUtil::encodeHTML($matches[0]).'</span>';
 		
 		return $hash;
 	}
